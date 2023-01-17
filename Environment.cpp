@@ -27,7 +27,7 @@ Environment::~Environment()
 // Enviroment Actions:
 void Environment::tickTime()
 {
-    time += 0.01;
+    this->time += 0.01;
 }
 
 bool Environment::isDay()
@@ -38,11 +38,6 @@ bool Environment::isDay()
 bool Environment::isNight()
 {
     return (static_cast<int>(time*100)%2 ? true :false);
-}
-
-QVector<Frame> Environment::getVisionField()
-{
-
 }
 
 //Set:
