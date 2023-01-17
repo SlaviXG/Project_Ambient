@@ -10,13 +10,19 @@ CONFIG += c++17
 
 SOURCES += \
     CellGraphics.cpp \
+    Environment.cpp \
     EnvironmentScene.cpp \
+    cell.cpp \
+    frame.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     CellGraphics.h \
+    Environment.h \
     EnvironmentScene.h \
+    cell.h \
+    frame.h \
     mainwindow.h
 
 FORMS += \

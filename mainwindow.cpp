@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setCentralWidget(this->ui->horizontalLayoutWidget);
 
     EnvironmentScene* scene = new EnvironmentScene();
 
