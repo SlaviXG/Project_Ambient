@@ -1,6 +1,7 @@
 #include "Environment.h"
 
-Environment::Environment(int WIDTH,  int HEIGHT):WIDTH(WIDTH), HEIGHT(HEIGHT)
+// Constructors / Destructors
+Environment::Environment(int WIDTH,  int HEIGHT, int cellNumber):WIDTH(WIDTH), HEIGHT(HEIGHT)
 {
     this->frameMatrix = new Frame* [HEIGHT];
 
@@ -8,6 +9,9 @@ Environment::Environment(int WIDTH,  int HEIGHT):WIDTH(WIDTH), HEIGHT(HEIGHT)
     {
         frameMatrix[i] = new Frame [WIDTH];
     }
+
+    this->time = 0.0;
+
 }
 
 Environment::~Environment()
@@ -18,4 +22,34 @@ Environment::~Environment()
     }
 
     delete [] this->frameMatrix;
+}
+
+// Enviroment Actions:
+void Environment::tickTime()
+{
+    time += 0.01;
+}
+
+bool Environment::isDay()
+{
+    return (static_cast<int>(time*100)%2 ? false :true);
+}
+
+bool Environment::isNight()
+{
+    return (static_cast<int>(time*100)%2 ? true :false);
+}
+
+QVector<Frame> Environment::getVisionField()
+{
+
+}
+
+//Set:
+
+
+//Get:
+double Environment::getTime()
+{
+    return this->time;
 }
