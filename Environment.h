@@ -4,7 +4,7 @@
 #include <frame.h>
 #include <cell.h>
 
-#include <QList>
+#include <QSet>
 
 class Environment
 {
@@ -12,12 +12,13 @@ private:
     const int WIDTH;
     const int HEIGHT;
     Frame** frameMatrix;
-    QList<Cell*> cells;
+    QSet<Cell*> cells;
     double time;
+    size_t cellNumber = 0;
 
 public:
     // Constructors / Destructors
-    Environment(int WIDTH,  int HEIGHT, int cellNumber = 0);
+    Environment(int WIDTH,  int HEIGHT, size_t cellNumber = 0);
     virtual ~Environment();
 
     // Enviroment Actions:
@@ -28,6 +29,7 @@ public:
 
     // Cell Actions:
     void AddCell(Cell* cell);
+    void AddRandomCell();
 
     // Cell Vision:
     /*

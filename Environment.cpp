@@ -1,10 +1,12 @@
 #include "Environment.h"
 
+#include <QRandomGenerator>
+
 // Constructors / Destructors
-Environment::Environment(int WIDTH,  int HEIGHT, int cellNumber) : WIDTH(WIDTH), HEIGHT(HEIGHT)
+Environment::Environment(int WIDTH,  int HEIGHT, size_t cellNumber)
+    : WIDTH(WIDTH), HEIGHT(HEIGHT)
 {
     this->frameMatrix = new Frame* [HEIGHT];
-
     for(int i = 0; i < HEIGHT; i++)
     {
         frameMatrix[i] = new Frame [WIDTH];
@@ -12,6 +14,10 @@ Environment::Environment(int WIDTH,  int HEIGHT, int cellNumber) : WIDTH(WIDTH),
 
     this->time = 0.0;
 
+    for (size_t i = 0; i < cellNumber; i++)
+    {
+        this->AddRandomCell();
+    }
 }
 
 Environment::~Environment()
@@ -51,19 +57,34 @@ double Environment::getTime() const
 
 
 
-QVector<bool> Environment::getVisionField(Point point) const
+QVector<bool> Environment::getVisionField(Point viewPoint) const
 {
-    QVector<bool> vec; vec.reserve(25);
+    QVector<bool> vec;
 
-    for (int i = point.x - 2; i <= point.x + 2; i++){
-        for (int j = point.y - 2; j <= point.y + 2; j++){
+    // Optimization
+    /*if (cellNumber < 25)
+    {
+        vec.resize(25);
+        foreach(auto cell, cells){
+            Point pos = cell->getPosition();
+            if (pos.x > viewPoint.x - 3 && pos.x < viewPoint.x + 3 &&
+                pos.y > viewPoint.y - 3 && pos.y < viewPoint.y + 3){
+                // TODO: Do the magic to turn the point into a vector coordinate
+            }
+        }
+    }*/
+
+    vec.reserve(25);
+
+    for (int i = viewPoint.x - 2; i <= viewPoint.x + 2; ++i){
+        for (int j = viewPoint.y - 2; j <= viewPoint.y + 2; ++j){
             Point checkPoint {i, j};
             if (checkPoint.x < 0 || checkPoint.x >= HEIGHT ||
                 checkPoint.y < 0 || checkPoint.y >= WIDTH)
             {
                 vec.append(false);
             }
-            else if (checkPoint.x != point.x || checkPoint.y != point.y) // observation cell exception
+            else if (checkPoint.x != viewPoint.x || checkPoint.y != viewPoint.y) // observation cell exception
             {
                 vec.append(this->frameMatrix[i][j].isCell());
             }
@@ -74,7 +95,15 @@ QVector<bool> Environment::getVisionField(Point point) const
 }
 void Environment::AddCell(Cell* cell)
 {
-    cells.append(cell);
+    cells.insert(cell);
     frameMatrix[cell->getPosition().x][cell->getPosition().y].setCell(cell);
+    cellNumber++;
 }
+
+void Environment::AddRandomCell()
+{
+    QRandomGenerator gen;
+    this->AddCell(new Cell({gen.bounded(HEIGHT), gen.bounded(WIDTH)}));
+}
+
 
