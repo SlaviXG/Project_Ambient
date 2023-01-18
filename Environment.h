@@ -4,7 +4,6 @@
 #include <frame.h>
 #include <cell.h>
 
-#include <QVector2D>
 #include <QList>
 
 class Environment
@@ -13,7 +12,7 @@ private:
     const int WIDTH;
     const int HEIGHT;
     Frame** frameMatrix;
-    QList<Cell> cells;
+    QList<Cell*> cells;
     double time;
 
 public:
@@ -23,10 +22,9 @@ public:
 
     // Enviroment Actions:
     void tickTime();
-    bool isDay();
-    bool isNight();
-    double getTime();
-    QVector<Frame> getVisionField();
+    bool isDay() const;
+    bool isNight() const;
+    double getTime() const;
 };
 
 #endif // ENVIRONMENT_H

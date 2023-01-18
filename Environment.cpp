@@ -1,7 +1,7 @@
 #include "Environment.h"
 
 // Constructors / Destructors
-Environment::Environment(int WIDTH,  int HEIGHT, int cellNumber):WIDTH(WIDTH), HEIGHT(HEIGHT)
+Environment::Environment(int WIDTH,  int HEIGHT, int cellNumber) : WIDTH(WIDTH), HEIGHT(HEIGHT)
 {
     this->frameMatrix = new Frame* [HEIGHT];
 
@@ -30,12 +30,12 @@ void Environment::tickTime()
     this->time += 0.01;
 }
 
-bool Environment::isDay()
+bool Environment::isDay() const
 {
     return (static_cast<int>(time*100)%2 ? false :true);
 }
 
-bool Environment::isNight()
+bool Environment::isNight() const
 {
     return (static_cast<int>(time*100)%2 ? true :false);
 }
@@ -44,7 +44,8 @@ bool Environment::isNight()
 
 
 //Get:
-double Environment::getTime()
+double Environment::getTime() const
 {
     return this->time;
 }
+
