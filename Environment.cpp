@@ -49,3 +49,32 @@ double Environment::getTime() const
     return this->time;
 }
 
+
+
+QVector<bool> Environment::getVisionField(Point point) const
+{
+    QVector<bool> vec; vec.reserve(25);
+
+    for (int i = point.x - 2; i <= point.x + 2; i++){
+        for (int j = point.y - 2; j <= point.y + 2; j++){
+            Point checkPoint {i, j};
+            if (checkPoint.x < 0 || checkPoint.x >= HEIGHT ||
+                checkPoint.y < 0 || checkPoint.y >= WIDTH)
+            {
+                vec.append(false);
+            }
+            else if (checkPoint.x != point.x || checkPoint.y != point.y) // observation cell exception
+            {
+                vec.append(this->frameMatrix[i][j].isCell());
+            }
+        }
+    }
+
+    return vec;
+}
+void Environment::AddCell(Cell* cell)
+{
+    cells.append(cell);
+    frameMatrix[cell->getPosition().x][cell->getPosition().y].setCell(cell);
+}
+

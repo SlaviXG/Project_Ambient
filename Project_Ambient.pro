@@ -1,4 +1,5 @@
 QT       += core gui
+QT       += testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,7 +16,8 @@ SOURCES += \
     cell.cpp \
     frame.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    test_environment.cpp
 
 HEADERS += \
     CellGraphics.h \
@@ -23,7 +25,8 @@ HEADERS += \
     EnvironmentScene.h \
     cell.h \
     frame.h \
-    mainwindow.h
+    mainwindow.h \
+    test_environment.h
 
 FORMS += \
     mainwindow.ui
