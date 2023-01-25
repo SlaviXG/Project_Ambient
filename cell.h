@@ -1,7 +1,7 @@
 #ifndef CELL_H
 #define CELL_H
 
-struct Point {int x = 0, y = 0; };
+struct Point {int i = 0, j = 0; };
 
 class Cell
 {
