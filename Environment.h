@@ -1,10 +1,11 @@
 #ifndef ENVIRONMENT_H
 #define ENVIRONMENT_H
 
-#include <frame.h>
-#include <cell.h>
+#include "frame.h"
+#include "cell.h"
 
-#include <QSet>
+#include <set>
+#include <vector>
 
 class Environment
 {
@@ -12,13 +13,13 @@ private:
     const int WIDTH;
     const int HEIGHT;
     Frame** frameMatrix;
-    QSet<Cell*> cells;
+    std::set<Cell*> cells;
     double time;
-    size_t cellNumber = 0;
+    std::size_t cellNumber = 0;
 
 public:
     // Constructors / Destructors
-    Environment(int WIDTH,  int HEIGHT, size_t cellNumber = 0);
+    Environment(int WIDTH,  int HEIGHT, std::size_t cellNumber = 0);
     virtual ~Environment();
 
     // Enviroment Actions:
@@ -39,7 +40,7 @@ public:
     14 15 16 17 18
     21 22 23 24 25
     */
-    QVector<bool> getVisionField(Point point) const;
+    std::vector<bool> getVisionField(Point point) const;
 
 };
 

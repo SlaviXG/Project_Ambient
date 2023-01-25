@@ -57,9 +57,9 @@ double Environment::getTime() const
 
 
 
-QVector<bool> Environment::getVisionField(Point viewPoint) const
+std::vector<bool> Environment::getVisionField(Point viewPoint) const
 {
-    QVector<bool> vec;
+    std::vector<bool> vec;
 
     // Optimization
     /*if (cellNumber < 25)
@@ -82,11 +82,11 @@ QVector<bool> Environment::getVisionField(Point viewPoint) const
             if (checkPoint.x < 0 || checkPoint.x >= HEIGHT ||
                 checkPoint.y < 0 || checkPoint.y >= WIDTH)
             {
-                vec.append(false);
+                vec.push_back(false);
             }
             else if (checkPoint.x != viewPoint.x || checkPoint.y != viewPoint.y) // observation cell exception
             {
-                vec.append(this->frameMatrix[i][j].isCell());
+                vec.push_back(this->frameMatrix[i][j].isCell());
             }
         }
     }
