@@ -57,9 +57,9 @@ double Environment::getTime() const
 
 
 
-QVector<bool> Environment::getVisionField(Point viewPoint) const
+std::vector<bool> Environment::getVisionField(Point viewPoint) const
 {
-    QVector<bool> vec;
+    std::vector<bool> vec;
 
     // Optimization
     /*if (cellNumber < 25)
@@ -67,8 +67,8 @@ QVector<bool> Environment::getVisionField(Point viewPoint) const
         vec.resize(25);
         foreach(auto cell, cells){
             Point pos = cell->getPosition();
-            if (pos.x > viewPoint.x - 3 && pos.x < viewPoint.x + 3 &&
-                pos.y > viewPoint.y - 3 && pos.y < viewPoint.y + 3){
+            if (pos.i > viewPoint.i - 3 && pos.i < viewPoint.i + 3 &&
+                pos.j > viewPoint.j - 3 && pos.j < viewPoint.j + 3){
                 // TODO: Do the magic to turn the point into a vector coordinate
             }
         }
@@ -76,17 +76,17 @@ QVector<bool> Environment::getVisionField(Point viewPoint) const
 
     vec.reserve(25);
 
-    for (int i = viewPoint.x - 2; i <= viewPoint.x + 2; ++i){
-        for (int j = viewPoint.y - 2; j <= viewPoint.y + 2; ++j){
+    for (int i = viewPoint.i - 2; i <= viewPoint.i + 2; ++i){
+        for (int j = viewPoint.j - 2; j <= viewPoint.j + 2; ++j){
             Point checkPoint {i, j};
-            if (checkPoint.x < 0 || checkPoint.x >= HEIGHT ||
-                checkPoint.y < 0 || checkPoint.y >= WIDTH)
+            if (checkPoint.i < 0 || checkPoint.i >= HEIGHT ||
+                checkPoint.j < 0 || checkPoint.j >= WIDTH)
             {
-                vec.append(false);
+                vec.push_back(false);
             }
-            else if (checkPoint.x != viewPoint.x || checkPoint.y != viewPoint.y) // observation cell exception
+            else if (checkPoint.i != viewPoint.i || checkPoint.j != viewPoint.j) // observation cell exception
             {
-                vec.append(this->frameMatrix[i][j].isCell());
+                vec.push_back(this->frameMatrix[i][j].isCell());
             }
         }
     }
@@ -96,7 +96,7 @@ QVector<bool> Environment::getVisionField(Point viewPoint) const
 void Environment::AddCell(Cell* cell)
 {
     cells.insert(cell);
-    frameMatrix[cell->getPosition().x][cell->getPosition().y].setCell(cell);
+    frameMatrix[cell->getPosition().i][cell->getPosition().j].setCell(cell);
     cellNumber++;
 }
 

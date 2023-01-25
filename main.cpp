@@ -1,15 +1,29 @@
 #include "mainwindow.h"
 
 #include <QApplication>
-#include <QTest>
 
-#include "test_environment.h"
+#define DOCTEST_CONFIG_IMPLEMENT
+
+#include "doctest.h"
+#include "test_environment.hpp"
+
 
 int main(int argc, char *argv[])
 {
-    freopen("testing.log", "w", stdout);
+    // Unit tests
+//#ifdef _DEBUG
+    doctest::Context context;
+
+    context.applyCommandLine(argc, argv);
+
+    int res = context.run();
+
+    if (context.shouldExit()) {
+    return res;
+    }
+//#endif // _DEBUG
+
     QApplication a(argc, argv);
-    QTest::qExec(new Test_Environment, argc, argv);
     MainWindow w;
     w.show();
     return a.exec();
