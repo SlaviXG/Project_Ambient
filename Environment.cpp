@@ -2,6 +2,8 @@
 
 #include <QRandomGenerator>
 
+#include <cassert>
+
 // Constructors / Destructors
 Environment::Environment(int WIDTH,  int HEIGHT, size_t cellNumber)
     : WIDTH(WIDTH), HEIGHT(HEIGHT)
@@ -59,21 +61,10 @@ double Environment::getTime() const
 
 std::vector<bool> Environment::getVisionField(Point viewPoint) const
 {
+    assert(viewPoint.i >= 0 && viewPoint.i <= HEIGHT &&
+            viewPoint.j >=0 && viewPoint.j <= WIDTH);
+
     std::vector<bool> vec;
-
-    // Optimization
-    /*if (cellNumber < 25)
-    {
-        vec.resize(25);
-        foreach(auto cell, cells){
-            Point pos = cell->getPosition();
-            if (pos.i > viewPoint.i - 3 && pos.i < viewPoint.i + 3 &&
-                pos.j > viewPoint.j - 3 && pos.j < viewPoint.j + 3){
-                // TODO: Do the magic to turn the point into a vector coordinate
-            }
-        }
-    }*/
-
     vec.reserve(25);
 
     for (int i = viewPoint.i - 2; i <= viewPoint.i + 2; ++i){
@@ -92,6 +83,19 @@ std::vector<bool> Environment::getVisionField(Point viewPoint) const
     }
 
     return vec;
+    
+    // Optimization
+    /*if (cellNumber < 25)
+    {
+        vec.resize(25);
+        foreach(auto cell, cells){
+            Point pos = cell->getPosition();
+            if (pos.i > viewPoint.i - 3 && pos.i < viewPoint.i + 3 &&
+                pos.j > viewPoint.j - 3 && pos.j < viewPoint.j + 3){
+                // TODO: Do the magic to turn the point into a vector coordinate
+            }
+        }
+    }*/
 }
 void Environment::AddCell(Cell* cell)
 {
