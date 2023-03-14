@@ -31,152 +31,116 @@ int bestPosibleChoiseIndex(Matrix outputs, Matrix inputs, Point CellPosition)   
     05 06 07 08 09
     10 11 😀 12 13
     14 15 16 17 18
-    21 22 23 24 25
+    19 20 21 22 23
     */
    
    /*
  vector of actions:
-0) Movement up
-1) Move to the upper right corner
-2) Movement to the right
-3) Movement in the north corner
-4) Movement down
-5) movement in the left corner
-6) movement to the left
-7) movement in the LW corner
+0) Move U
+1) Move UR
+2) Move R
+3) Move RD
+4) Move D
+5) Move LD
+6) Move L
+7) Move LU
 8) photosynthesis
-9) sleep
-10) attack
-
-11) duplication
+9) sleep                            // skip
+9) attack
+10) duplication
     */  
-    switch (index)
-    {
-    case 0:
-        if(CellPosition.i == 0)
-        {
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);
-        }
-        
-        if(inputs[7][0] == 1 )
-        {
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);    
-        }
-    
-        return index;
-
-    case 1:
-        if(CellPosition.i == 0 || CellPosition.j == 99)             // mapSIze == 100
-        {
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);
-        }
-        
-        if(inputs[8][0] == 1 )
-        {
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);    
-        }
-    
-        return index;
-    case 2:
-
-        if(CellPosition.j == 99)
-        {
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);
-        }
-        
-        if(inputs[12][0] == 1 )
-        {
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);    
-        }
-    case 3:
-
-        if(CellPosition.i == 99 || CellPosition.j == 99)
-        {
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);
-        }
-        
-        if(inputs[17][0] == 1 )
-        {
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);    
-        }
-    
-        return index;
-    case 4:
-
-        if(CellPosition.i == 99)
-        {
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);
-        }
-        
-        if(inputs[16][0] == 1 )
-        {
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);    
-        }
-    
-        return index;
-    case 5:
-
-        if(CellPosition.i == 99, CellPosition.j == 0)
-        {
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);
-        }
-        
-        if(inputs[15][0] == 1 )
-        {
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);    
-        }
-    
-        return index;
-    case 6:
-
-        if(CellPosition.j == 0)
-        {
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);
-        }
-        
-        if(inputs[11][0] == 1 )
-        {
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);    
-        }
-    
-        return index;
-    case 7:
-
-        if(CellPosition.i == 0 || CellPosition.j == 0)
-        {
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);
-        }
-        
-        if(inputs[6][0] == 1 )
-        {
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);    
-        }
-    
-        return index;
-    case 10:
-        if(oponentIsNearby(inputs))
+    switch (index) {
+        case 0:
+            if (CellPosition.i == 0) {
+                outputs[index][0] = 0;
+                return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+            }
+            if (inputs[7][0] == 1) {
+                outputs[index][0] = 0;
+                return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+            }
             return index;
-        else
-            outputs[index][0] = 0;
-            return bestPosibleChoiseIndex(outputs,inputs, CellPosition);
-    default:
-        return index;
+        case 1:
+            if (CellPosition.i == 0 || CellPosition.j == kMapSize - 1)             // mapSIze == 100
+            {
+                outputs[index][0] = 0;
+                return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+            }
+            if (inputs[8][0] == 1) {
+                outputs[index][0] = 0;
+                return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+            }
+            return index;
+        case 2:
+            if (CellPosition.j == kMapSize - 1) {
+                outputs[index][0] = 0;
+                return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+            }
+            if (inputs[12][0] == 1) {
+                outputs[index][0] = 0;
+                return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+            }
+            return index;
+        case 3:
+            if (CellPosition.i == kMapSize - 1 || CellPosition.j == kMapSize - 1) {
+                outputs[index][0] = 0;
+                return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+            }
+            if (inputs[17][0] == 1) {
+                outputs[index][0] = 0;
+                return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+            }
+            return index;
+        case 4:
+            if (CellPosition.i == kMapSize - 1) {
+                outputs[index][0] = 0;
+                return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+            }
+            if (inputs[16][0] == 1) {
+                outputs[index][0] = 0;
+                return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+            }
+            return index;
+        case 5:
+            if (CellPosition.i == kMapSize - 1, CellPosition.j == 0) {
+                outputs[index][0] = 0;
+                return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+            }
+            if (inputs[15][0] == 1) {
+                outputs[index][0] = 0;
+                return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+            }
+            return index;
+        case 6:
+            if (CellPosition.j == 0) {
+                outputs[index][0] = 0;
+                return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+            }
+            if (inputs[11][0] == 1) {
+                outputs[index][0] = 0;
+                return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+            }
+            return index;
+        case 7:
+            if (CellPosition.i == 0 || CellPosition.j == 0) {
+                outputs[index][0] = 0;
+                return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+            }
+            if (inputs[6][0] == 1) {
+                outputs[index][0] = 0;
+                return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+            }
+            return index;
+        case 10:
+            if (oponentIsNearby(inputs))
+                return index;
+            else
+                outputs[index][0] = 0;
+            return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
+        case 11:
+
+        default:
+            return index;
     }
 }
 
@@ -219,6 +183,16 @@ Genotype::Genotype()
     m3 = Matrix(kM3Size.j,kM3Size.i);
     m4 = Matrix(kM4Size.j,kM4Size.i);
 
+    b1 = Matrix(kB1Size.j, kB1Size.i);
+    b2 = Matrix(kB1Size.j, kB1Size.i);
+    b3 = Matrix(kB1Size.j, kB1Size.i);
+    b4 = Matrix(kB1Size.j, kB1Size.i);
+
+    b1.setRandomValues();
+    b2.setRandomValues();
+    b3.setRandomValues();
+    b4.setRandomValues();
+
     m1.setRandomValues();
     m2.setRandomValues();
     m3.setRandomValues();
@@ -227,13 +201,18 @@ Genotype::Genotype()
 
 Genotype::Genotype(Genotype& parent)
 {
-    m1 = parent.getMatrixByIndex(1);
-    m2 = parent.getMatrixByIndex(2);
-    m3 = parent.getMatrixByIndex(3);
-    m4 = parent.getMatrixByIndex(4);
+    m1 = mutation(parent.getWeightsMatrixByIndex(1));
+    m2 = mutation(parent.getWeightsMatrixByIndex(2));
+    m3 = mutation(parent.getWeightsMatrixByIndex(3));
+    m4 = mutation(parent.getWeightsMatrixByIndex(4));
+
+    b1 = mutation(parent.getBaesMatrixByIndex(1));
+    b2 = mutation(parent.getBaesMatrixByIndex(2));
+    b3 = mutation(parent.getBaesMatrixByIndex(3));
+    b4 = mutation(parent.getBaesMatrixByIndex(4));
 }
 
-Matrix Genotype::getMatrixByIndex(int index)
+Matrix Genotype::getWeightsMatrixByIndex(int index)
 {
    switch (index)
    {
@@ -249,13 +228,29 @@ Matrix Genotype::getMatrixByIndex(int index)
     return Matrix();
    }
 }
+Matrix Genotype::getBaesMatrixByIndex(int index)
+{
+    switch (index)
+    {
+        case 1:
+            return b1;
+        case 2:
+            return b2;
+        case 3:
+            return b3;
+        case 4:
+            return b4;
+        default:
+            return Matrix();
+    }
+}
 
 int Genotype::makeChoise(Matrix inputs, Point cellPosition)
 {
-    Matrix firstLayer = ReLU(m1*inputs);
-    Matrix secondLayer = ReLU(m2*firstLayer);
-    Matrix thirdLayer = ReLU(m3*secondLayer);
-    Matrix output = ReLU(m4*thirdLayer);
+    Matrix firstLayer = ReLU(m1*inputs + b1);
+    Matrix secondLayer = ReLU(m2*firstLayer + b2);
+    Matrix thirdLayer = ReLU(m3*secondLayer + b3);
+    Matrix output = ReLU(m4*thirdLayer + b4);
 
-    return bestPosibleChoiseIndex(output, inputs, cellPosition);
+    return bestPosibleChoiseIndex(output, cellPosition);
 }

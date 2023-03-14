@@ -102,12 +102,12 @@ public:
 		{
 			if (rand() % 2 == 0)
 			{
-				this->numbers[i] = -1.f / ((double)(rand() % 20) + 1);
+				this->numbers[i] = -1.f / ((double)(rand() % 100) + 1);
 			}
 
 			else
 			{
-				this->numbers[i] = 1.f / ((double)(rand() % 20) + 1);
+				this->numbers[i] = 1.f / ((double)(rand() % 100) + 1);
 			}
 		}
 	}
