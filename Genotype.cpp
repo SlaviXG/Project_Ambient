@@ -1,9 +1,35 @@
 #include "Genotype.h"
 #include <random>
 
+/*  INPUTS
+ 0 - 23 - frames:
+00 01 02 03 04
+05 06 07 08 09
+10 11 😀 12 13
+14 15 16 17 18
+19 20 21 22 23
+
+ 24 - countOfEnergy
+ 25 - aggressiveness
+ */
+
+/*  OUTPUTS
+0) Move U
+1) Move UR
+2) Move R
+3) Move RD
+4) Move D
+5) Move LD
+6) Move L
+7) Move LU
+8) photosynthesis
+9) sleep                            // skip
+9) attack
+10) duplication
+ */
 bool oponentIsNearby(Matrix inputs)
 {
-    if(inputs[6][0] != 1 && inputs[7][0] != 1 && inputs[8][0] != 1 && inputs[11][0] != 1 &&  // Check neighboring frames
+    if(inputs[6][0] != 1 && inputs[7][0] != 1 && inputs[8][0] != 1 && inputs[11][0] != 1 &&
        inputs[12][0] != 1 && inputs[15][0] != 1 && inputs[16][0] != 1 && inputs[17][0] != 1)
     {
         return false;
@@ -24,31 +50,6 @@ int bestPosibleChoiseIndex(Matrix outputs, Matrix inputs, Point CellPosition)   
             maxValue = outputs[i][0];
         }
     }
-
-     // Cell Vision:
-    /*
-    00 01 02 03 04
-    05 06 07 08 09
-    10 11 😀 12 13
-    14 15 16 17 18
-    19 20 21 22 23
-    */
-   
-   /*
- vector of actions:
-0) Move U
-1) Move UR
-2) Move R
-3) Move RD
-4) Move D
-5) Move LD
-6) Move L
-7) Move LU
-8) photosynthesis
-9) sleep                            // skip
-9) attack
-10) duplication
-    */  
     switch (index) {
         case 0:
             if (CellPosition.i == 0) {
@@ -131,13 +132,14 @@ int bestPosibleChoiseIndex(Matrix outputs, Matrix inputs, Point CellPosition)   
                 return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
             }
             return index;
-        case 10:
+        case 9:
             if (oponentIsNearby(inputs))
                 return index;
             else
                 outputs[index][0] = 0;
             return bestPosibleChoiseIndex(outputs, inputs,CellPosition);
-        case 11:
+        case 10:
+            if()
 
         default:
             return index;
@@ -250,7 +252,7 @@ int Genotype::makeChoise(Matrix inputs, Point cellPosition)
     Matrix firstLayer = ReLU(m1*inputs + b1);
     Matrix secondLayer = ReLU(m2*firstLayer + b2);
     Matrix thirdLayer = ReLU(m3*secondLayer + b3);
-    Matrix output = ReLU(m4*thirdLayer + b4);
+    Matrix output = m4*thirdLayer + b4;                   // Add ReLU
 
     return bestPosibleChoiseIndex(output, cellPosition);
 }

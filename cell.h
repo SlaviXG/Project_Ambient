@@ -3,6 +3,7 @@
 
 #include "Genotype.h"
 constexpr int kMaxEnergy = 500;
+constexpr int kSteps = 20;
 constexpr int kMoveCost = 10;
 constexpr int kPhotosynthesis = 25;
 constexpr int kAttackCoefficient = 4; // 1/4 * currentEnergy
@@ -13,14 +14,15 @@ class Cell
 private:
     Point position;
     double currentEnergy;
-    double aggressiveness = 0;
-    int stepsCount = ;
+    double aggressiveness;
     Genotype genotype;
+    int stepsCount = kSteps;
     bool isAliveStatus = true;
     
 public:
     Cell();
     Cell(Point startingPosition);
+    Cell(Cell& mother, Point freePosition);
 
     Point getPosition() const;
     double getCurrentEnergy();
@@ -30,10 +32,13 @@ public:
 
     void setCurrentEnergy(double count){currentEnergy = count;}
     void setIsAlive(bool status){isAliveStatus = status;}
+    void setPosition(Point newPosition){position = newPosition;}
+
     void move(int direction);
     void photosynthesis();
-    void act(Matrix& inputs);
     void attack(Cell & opponent);
+
+    void act(std::vector<double> inputs);
     // void duplicate();
 };
 

@@ -18,6 +18,10 @@ public:
 		this->length = length;
 		numbers = std::vector<double>(length, 0);
 	}
+    Row(std::vector<double> r)
+    {
+        this->numbers = r;
+    }
 	double operator [](std::size_t i) const {
 		return numbers[i];
 	}
@@ -206,6 +210,17 @@ public:
 			std::cout << std::endl;
 		}
 	}
+
+    // CHECK!
+    void addColumn(Row r)
+    {
+        if(this->y != r.size())
+            return;
+        for(int i = 0; i < this->y; i++)
+        {
+            this->table[i].addValue(r[i]);
+        }
+    }
 };
 
 #endif MATRIX_H
