@@ -2,6 +2,10 @@
 
 #include <cassert>
 
+#include "frame.h"
+#include "cell.h"
+
+
 namespace environment
 {
     // Constructors / Destructors
@@ -86,8 +90,8 @@ namespace environment
     }
     void Environment::AddCell(const Cell& cell)
     {
-        cells.insert(cell);
-        frameMatrix[cell.getPosition().i][cell.getPosition().j].setCell(cell);
+        cells.push_back(cell);
+        frameMatrix[cell.getPosition().i][cell.getPosition().j] = &cells.back();
     }
 
     Point Environment::randomFreePosition(const Point& point) const 

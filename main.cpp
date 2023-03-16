@@ -7,6 +7,7 @@
 #include "doctest.h"
 //#include "test_environment.hpp"
 #include "test_tick.hpp"
+#include "test_environment.hpp"
 
 
 int main(int argc, char *argv[])
