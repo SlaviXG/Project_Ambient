@@ -69,14 +69,28 @@ void Cell::attack(Cell &opponent)
         increaseEnergy(currentEnergy, kPrise);
     }
 }
-Cell::Cell()
+Cell::Cell()                        // EMPTY
 {
 
 }
 Cell::Cell(Point startingPosition)
 {
-    this->position = startingPosition;
+    position = startingPosition;
+    genotype = Genotype();
+    aggressiveness = 0;
+    currentEnergy = kMaxEnergy;
+
 }
+Cell::Cell(Cell &mother, Point freePosition)
+{
+    Genotype g = Genotype(mother.getGenotype());
+
+    genotype = g;
+    aggressiveness = mother.getAggressiveness();
+    currentEnergy = mother.getCurrentEnergy() / 2;
+    position = freePosition;
+}
+
 Point Cell::getPosition() const
 {
     return position;
@@ -98,16 +112,24 @@ bool Cell::isAlive()
     return isAliveStatus;
 }
 
-void Cell::act(Matrix &inputs)
+void Cell::act(std::vector<double> inputs)
 {
     if(isAliveStatus == 0)                           // Remove or delete cell
         return;
 
-    int indexOfAction = genotype.makeChoise(inputs,position);
+    inputs.push_back(currentEnergy);
+    inputs.push_back(aggressiveness);
+
+    Matrix mInputs(0,25);
+    mInputs.addColumn(Row(inputs));
+
+    int indexOfAction = genotype.makeChoise(mInputs,position);
+
     if(indexOfAction < 0)
     {
         std::cout << "negative action!" << std::endl;
     }
+
     if(indexOfAction < 8)
     {
         move(indexOfAction);
