@@ -1,5 +1,7 @@
 #include "frame.h"
 
+/*
+
 Frame::Frame()
 {
 
@@ -28,4 +30,4 @@ Cell* Frame::getCell()
 void Frame::makeEmpty()
 {
     cellPtr = nullptr;
-}
+} */
