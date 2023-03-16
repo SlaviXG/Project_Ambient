@@ -11,7 +11,7 @@ namespace environment
         frameMatrix.resize(HEIGHT);
 
         for (auto &row : frameMatrix) {
-            row.resize(WIDTH);
+            row.resize(WIDTH, nullptr);
         }
 
         this->time = 0.0;
@@ -46,10 +46,9 @@ namespace environment
         return this->time;
     }
 
-    std::vector<bool> Environment::getVisionField(Point viewPoint) const
+    std::vector<bool> Environment::getVisionField(const Point& viewPoint) const
     {
-        assert(viewPoint.i >= 0 && viewPoint.i <= HEIGHT &&
-               viewPoint.j >= 0 && viewPoint.j <= WIDTH);
+        assert(checkPositionCorrectness(viewPoint));
 
         std::vector<bool> vec;
         vec.reserve(25);
@@ -59,8 +58,7 @@ namespace environment
             for (int j = viewPoint.j - 2; j <= viewPoint.j + 2; ++j)
             {
                 Point checkPoint{i, j};
-                if (checkPoint.i < 0 || checkPoint.i >= HEIGHT ||
-                    checkPoint.j < 0 || checkPoint.j >= WIDTH)
+                if (!checkPositionCorrectness(checkPoint))
                 {
                     vec.push_back(false);
                 }
@@ -73,7 +71,7 @@ namespace environment
 
         return vec;
 
-        // Optimization
+        // HACK: Optimization
         /*if (cellNumber < 25)
         {
             vec.resize(25);
@@ -92,9 +90,26 @@ namespace environment
         frameMatrix[cell.getPosition().i][cell.getPosition().j].setCell(cell);
     }
 
+    Point Environment::randomFreePosition(const Point& point) const 
+    {
+        assert(checkPositionCorrectness(point));
+
+        constexpr int kAttemptCount = 50; Point randPoint;
+        for (size_t i = 0; i < kAttemptCount; i++)
+        {
+            randPoint.i = RandomGenerator::generateRandomNumber(point.i - 1, point.i + 1);
+            randPoint.j = RandomGenerator::generateRandomNumber(point.j - 1, point.j + 1);
+
+            if (checkPositionCorrectness(randPoint) && randPoint.i != point.i || randPoint.j != point.j)
+                if (frameMatrix[randPoint.i][randPoint.j] == nullptr)
+                    return randPoint;
+        }
+        return {-1, -1};
+    }
+
     void Environment::AddRandomCell()
     {
-        // TODO
+        // TODO:
         //this->AddCell(new Cell({gen.bounded(HEIGHT), gen.bounded(WIDTH)}, this));
     }
 
