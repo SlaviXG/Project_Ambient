@@ -12,19 +12,19 @@ namespace environment
     {
     public:
         explicit Frame() {}
-        explicit Frame(Point position, Environment* environment = nullptr) = default
-            : position(position), environment(environment) {}
+        explicit Frame(Point position, Environment* environment = nullptr)
+            : environment(environment), position(position) {};
         virtual ~Frame() {}
 
         inline Point getPosition() const { return position; }
-        inline void setPosition(Point newPosition) { position = newPosition; }
+        inline virtual void setPosition(Point newPosition) { position = newPosition; }
         inline Environment* getEnvironment() const { return environment; }
-        inline void setEnvironment(Environment* environment) { this->environment = environment; }
+        inline virtual void setEnvironment(Environment* environment) { this->environment = environment; };
 
     protected:
         Environment* environment;
         Point position;
-    }
+    };
 
 
 /*class Frame

@@ -2,15 +2,18 @@
 #define ENVIRONMENT_H
 
 #include <set>
-#include <vector>
+#include <list>
 #include <random>
 
-#include "frame.h"
-#include "cell.h"
 #include "Tick.h"
+#include "Genotype.h" // For Point struct
+
 
 namespace environment
 {
+    class Frame;
+    class Cell;
+
     class Environment
     {
     private:
@@ -19,7 +22,7 @@ namespace environment
 
         std::vector<std::vector<Frame *>> frameMatrix;
 
-        std::set<Cell> cells;
+        std::list<Cell> cells;
         double time;
 
     public:
@@ -32,8 +35,11 @@ namespace environment
         bool isDay() const;
         bool isNight() const;
         double getTime() const;
+        inline int getWidth() { return WIDTH; }
+        inline int getHeight() { return HEIGHT; }
 
         // Checks if a point has negative or larger coordinates than the map size 
+        // On failure returns Point{-1, -1}
         inline bool checkPositionCorrectness(const Point& point) const { 
             return !(point.i < 0 || point.i >= HEIGHT || point.j < 0 || point.j >= WIDTH); 
             }
