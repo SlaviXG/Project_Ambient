@@ -104,7 +104,7 @@ namespace environment
             randPoint.i = RandomGenerator::generateRandomNumber(point.i - 1, point.i + 1);
             randPoint.j = RandomGenerator::generateRandomNumber(point.j - 1, point.j + 1);
 
-            if (checkPositionCorrectness(randPoint) && randPoint.i != point.i || randPoint.j != point.j)
+            if (checkPositionCorrectness(randPoint) && (randPoint.i != point.i || randPoint.j != point.j))
                 if (frameMatrix[randPoint.i][randPoint.j] == nullptr)
                     return randPoint;
         }
