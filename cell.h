@@ -9,18 +9,20 @@ namespace environment
 {
 
     constexpr int kMaxEnergy = 500;
+    constexpr int kMinEnergy = 400;
     constexpr int kSteps = 20;
     constexpr int kMoveCost = 10;
     constexpr int kPhotosynthesis = 25;
     constexpr int kAttackCoefficient = 4; // 1/4 * currentEnergy
     constexpr int kAttackCost = 10;       // 1/10 * currentEnergy
-    constexpr int kPrise = 200;
+    constexpr int kPrise = 200;           // + energy after killing
 
 
     class Cell : public Frame
     {
     private:
         double currentEnergy;
+        double maxEnergy;
         double aggressiveness;
         Genotype genotype;
         int stepsCount = kSteps;
@@ -32,6 +34,7 @@ namespace environment
         Cell(Cell &mother, Point freePosition);
 
         double getCurrentEnergy() const;
+        double getMaxEnergy() const;
         double getAggressiveness() const;
         Genotype getGenotype() const;
         bool isAlive();
@@ -44,7 +47,7 @@ namespace environment
         void attack(Cell &opponent);
 
         void act(std::vector<double> inputs);
-        // void duplicate();
+        void duplicate(Environment* environment);
 
         // TODO: Create static method Cell randomCell()
     };

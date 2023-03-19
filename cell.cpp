@@ -1,5 +1,5 @@
 #include "cell.h"
-
+#include "Environment.h"
 namespace environment
 {
 
@@ -63,7 +63,7 @@ namespace environment
 
         aggressiveness += 0.1;
         if (aggressiveness > 1)
-            aggressiveness == 1;
+            aggressiveness = 1;
 
         if (opponentEnergy <= 0)
         {
@@ -71,13 +71,22 @@ namespace environment
             increaseEnergy(currentEnergy, kPrise);
         }
     }
+    
+    void Cell::duplicate(Environment* environment)
+    {
+        Genotype::Point freePosition = environment->randomFreePosition(position);
+        Cell newCell(*this, freePosition);
+        environment->AddCell(newCell);
+        genotype = Genotype::Genotype(genotype);
+    }
 
     Cell::Cell(Point startingPosition, Environment* environment)
         : Frame(startingPosition, environment)
     {
         genotype = Genotype();
-        aggressiveness = 0;
-        currentEnergy = kMaxEnergy;
+        aggressiveness = RandomGenerator::generateRandomNumber(0,1);
+        maxEnergy = RandomGenerator::generateRandomNumber(kMinEnergy,kMaxEnergy);
+        currentEnergy = maxEnergy;
     }
     Cell::Cell(Cell &mother, Point freePosition)
     {
@@ -86,7 +95,8 @@ namespace environment
         genotype = g;
         aggressiveness = mother.getAggressiveness();
         currentEnergy = mother.getCurrentEnergy() / 2;
-        this->position = freePosition;
+        maxEnergy = mother.getMaxEnergy();
+        position = freePosition;
     }
 
     double Cell::getAggressiveness() const
@@ -96,6 +106,10 @@ namespace environment
     double Cell::getCurrentEnergy() const 
     {
         return currentEnergy;
+    }
+    double Cell::getMaxEnergy() const
+    {
+        return maxEnergy;
     }
     Genotype Cell::getGenotype() const
     {
