@@ -12,18 +12,18 @@ namespace environment
     {
     public:
         explicit Frame() {}
-        explicit Frame(Point position, Environment* environment = nullptr)
+        explicit Frame(genotype::Point position, Environment* environment = nullptr)
             : environment(environment), position(position) {};
         virtual ~Frame() {}
 
-        inline Point getPosition() const { return position; }
-        inline virtual void setPosition(Point newPosition) { position = newPosition; }
+        inline genotype::Point getPosition() const { return position; }
+        inline virtual void setPosition(genotype::Point newPosition) { position = newPosition; }
         inline Environment* getEnvironment() const { return environment; }
         inline virtual void setEnvironment(Environment* environment) { this->environment = environment; };
 
     protected:
         Environment* environment;
-        Point position;
+        genotype::Point position;
     };
 
 
