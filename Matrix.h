@@ -162,6 +162,22 @@ public:
 		
 		return ans;
 	}
+    Matrix operator + (Matrix other)
+    {
+        if(this->y != other.getY() && this->x != other.getX())
+            return *this;
+        Matrix answer(this->x, this->y);
+        
+        for(int i = 0; i < y; i++)
+        {
+            for(int j = 0; j < x; j++)
+            {
+                answer[i][j] = this->table[i][j] + other[i][j];
+            }
+        }
+
+        return answer;
+    }
 
 	Matrix(int x, int y) {
 		this->x = x;
@@ -183,11 +199,11 @@ public:
 			{
 				if (rand() % 2 == 0)
 				{
-					this->table[i][j] = -1.f / ((float)(rand() % 20) + 1);
+					this->table[i][j] = -1.f / ((float)(rand() % 120) + 1);
 				}
 				else
 				{
-					this->table[i][j] = 1.f / ((float)(rand() % 20) + 1);
+					this->table[i][j] = 1.f / ((float)(rand() % 120) + 1);
 				}
 			}
 		}

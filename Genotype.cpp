@@ -27,7 +27,7 @@
 9) attack
 10) duplication
  */
-namespace Genotype {
+namespace genotype {
     bool oponentIsNearby(Matrix inputs) {
         if (inputs[6][0] != 1 && inputs[7][0] != 1 && inputs[8][0] != 1 && inputs[11][0] != 1 &&
             inputs[12][0] != 1 && inputs[15][0] != 1 && inputs[16][0] != 1 && inputs[17][0] != 1) {
@@ -143,7 +143,7 @@ namespace Genotype {
         }
     }
 
-    void mutation(Matrix &m) {
+    Matrix mutation(Matrix m) {
         std::random_device rd;
         std::mt19937 eng(rd());
         std::uniform_real_distribution<double> distr(-1, 1);
@@ -155,6 +155,8 @@ namespace Genotype {
                 }
             }
         }
+
+        return m;
     }
 
     Matrix ReLU(Matrix m) {
@@ -238,7 +240,7 @@ namespace Genotype {
         Matrix thirdLayer = ReLU(m3 * secondLayer + b3);
         Matrix output = m4 * thirdLayer + b4;                   // Add ReLU
 
-        return bestPosibleChoiseIndex(output, cellPosition);
+        return bestPosibleChoiseIndex(output, inputs, cellPosition );
     }
 
 }
