@@ -40,7 +40,7 @@ namespace environment
 
         // Checks if a point has negative or larger coordinates than the map size 
         // On failure returns Point{-1, -1}
-        inline bool checkPositionCorrectness(const Point& point) const { 
+        inline bool checkPositionCorrectness(const genotype::Point& point) const { 
             return !(point.i < 0 || point.i >= HEIGHT || point.j < 0 || point.j >= WIDTH); 
             }
         inline size_t getCellNumber() const { return cells.size(); }
@@ -57,10 +57,10 @@ namespace environment
         14 15 16 17 18
         19 20 21 22 23
         */
-        std::vector<bool> getVisionField(const Point &point) const;
+        std::vector<bool> getVisionField(const genotype::Point &point) const;
 
         // Returns a random correct and empty cell coordinate within a radius of one from the given point
-        Point randomFreePosition(const Point &point) const;
+        genotype::Point randomFreePosition(const genotype::Point &point) const;
     };
 
     class RandomGenerator

@@ -80,23 +80,23 @@ namespace environment
         genotype = Genotype::Genotype(genotype);
     }
 
-    Cell::Cell(Point startingPosition, Environment* environment)
+    Cell::Cell(genotype::Point startingPosition, Environment* environment)
         : Frame(startingPosition, environment)
     {
-        genotype = Genotype();
+        genotype = genotype::Genotype();
         aggressiveness = RandomGenerator::generateRandomNumber(0,1);
         maxEnergy = RandomGenerator::generateRandomNumber(kMinEnergy,kMaxEnergy);
         currentEnergy = maxEnergy;
     }
-    Cell::Cell(Cell &mother, Point freePosition)
+    Cell::Cell(Cell &mother, genotype::Point freePosition)
     {
-        Genotype g = Genotype(mother.getGenotype());
+        genotype::Genotype g = Genotype(mother.getGenotype());
 
         genotype = g;
         aggressiveness = mother.getAggressiveness();
         currentEnergy = mother.getCurrentEnergy() / 2;
         maxEnergy = mother.getMaxEnergy();
-        position = freePosition;
+        position = environment->randomFreePosition(this->getPosition());
     }
 
     double Cell::getAggressiveness() const
@@ -111,7 +111,7 @@ namespace environment
     {
         return maxEnergy;
     }
-    Genotype Cell::getGenotype() const
+    genotype::Genotype Cell::getGenotype() const
     {
         return genotype;
     }
