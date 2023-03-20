@@ -7,7 +7,7 @@
 
 // inputs 0 - 23 - vision, 24 - current count of energy, 25 -  aggressiveness
 
-namespace Genotype {
+namespace genotype {
     struct Point {
         int i = 0, j = 0;
 
