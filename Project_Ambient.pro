@@ -12,6 +12,8 @@ SOURCES += \
     CellGraphics.cpp \
     Environment.cpp \
     EnvironmentScene.cpp \
+    Genotype.cpp \
+    Tick.cpp \
     cell.cpp \
     frame.cpp \
     main.cpp \
@@ -21,11 +23,16 @@ HEADERS += \
     CellGraphics.h \
     Environment.h \
     EnvironmentScene.h \
+    Genotype.h \
+    Matrix.h \
+    Tick.h \
     cell.h \
     doctest.h \
     frame.h \
     mainwindow.h \
-    test_environment.hpp
+    test_Genotype.hpp \
+    test_environment.hpp \
+    test_tick.hpp
 
 FORMS += \
     mainwindow.ui

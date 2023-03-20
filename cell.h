@@ -24,19 +24,19 @@ namespace environment
         double currentEnergy;
         double maxEnergy;
         double aggressiveness;
-        Genotype genotype;
+        genotype::Genotype genotype;
         int stepsCount = kSteps;
         bool isAliveStatus = true;
 
     public:
         Cell() {};
-        Cell(Point startingPosition, Environment* environment = nullptr);
-        Cell(Cell &mother, Point freePosition);
+        Cell(genotype::Point startingPosition, Environment* environment = nullptr);
+        Cell(Cell &mother, genotype::Point freePosition);
 
         double getCurrentEnergy() const;
         double getMaxEnergy() const;
         double getAggressiveness() const;
-        Genotype getGenotype() const;
+        genotype::Genotype getGenotype() const;
         bool isAlive();
 
         void setCurrentEnergy(double count) { currentEnergy = count; }
