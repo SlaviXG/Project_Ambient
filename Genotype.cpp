@@ -28,7 +28,7 @@
 10) duplication
  */
 namespace genotype {
-    bool oponentIsNearby(Matrix inputs) {
+    bool opponentIsNearby(Matrix inputs) {
         if (inputs[6][0] != 1 && inputs[7][0] != 1 && inputs[8][0] != 1 && inputs[11][0] != 1 &&
             inputs[12][0] != 1 && inputs[15][0] != 1 && inputs[16][0] != 1 && inputs[17][0] != 1) {
             return false;

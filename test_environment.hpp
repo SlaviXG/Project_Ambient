@@ -68,15 +68,15 @@ namespace environment
     {
         // Create an environment with a single free cell at (0, 0)
         Environment env(2, 2);
-        Point freeCell{0, 0};
+        genotype::Point freeCell{0, 0};
 
         SUBCASE("Test getting a random free position near a free cell")
         {
             // Try 10 times to get a random free position near the free cell
             for (int i = 0; i < 10; ++i)
             {
-                Point randPoint = env.randomFreePosition(freeCell);
-                CHECK(randPoint != Point{-1, -1});         // Make sure a valid point is returned
+                genotype::Point randPoint = env.randomFreePosition(freeCell);
+                CHECK(randPoint != genotype::Point{-1, -1});         // Make sure a valid point is returned
                 CHECK(abs(randPoint.i - freeCell.i) <= 1); // Make sure the returned point is within a radius of one from the free cell
                 CHECK(abs(randPoint.j - freeCell.j) <= 1); // Make sure the returned point is within a radius of one from the free cell
                 CHECK(randPoint != freeCell);              // Make sure the returned point is not the same as the free cell
@@ -86,14 +86,14 @@ namespace environment
         SUBCASE("Test getting a random free position near a occupied cell")
         {
             // Add an occupied cell at (0, 1)
-            Point occupiedCell{0, 1};
+            genotype::Point occupiedCell{0, 1};
             env.AddCell(Cell(occupiedCell));
 
             // Try 10 times to get a random free position near the occupied cell
             for (int i = 0; i < 10; ++i)
             {
-                Point randPoint = env.randomFreePosition(occupiedCell);
-                CHECK(randPoint != Point{-1, -1});             // Make sure a valid point is returned
+                genotype::Point randPoint = env.randomFreePosition(occupiedCell);
+                CHECK(randPoint != genotype::Point{-1, -1});             // Make sure a valid point is returned
                 CHECK(abs(randPoint.i - occupiedCell.i) <= 1); // Make sure the returned point is within a radius of one from the occupied cell
                 CHECK(abs(randPoint.j - occupiedCell.j) <= 1); // Make sure the returned point is within a radius of one from the occupied cell
                 CHECK(randPoint != occupiedCell);              // Make sure the returned point is not the same as the occupied cell
@@ -103,11 +103,11 @@ namespace environment
         SUBCASE("Test getting a random free position near a cell at the edge of the map")
         {
             // Try 10 times to get a random free position near the cell at the edge of the map
-            Point cellAtEdge{0, env.getWidth() - 1};
+            genotype::Point cellAtEdge{0, env.getWidth() - 1};
             for (int i = 0; i < 10; ++i)
             {
-                Point randPoint = env.randomFreePosition(cellAtEdge);
-                CHECK(randPoint != Point{-1, -1});           // Make sure a valid point is returned
+                genotype::Point randPoint = env.randomFreePosition(cellAtEdge);
+                CHECK(randPoint != genotype::Point{-1, -1});           // Make sure a valid point is returned
                 CHECK(abs(randPoint.i - cellAtEdge.i) <= 1); // Make sure the returned point is within a radius of one from the cell at the edge of the map
                 CHECK(abs(randPoint.j - cellAtEdge.j) <= 1); // Make sure the returned point is within a radius of one from the cell at the edge of the map
                 CHECK(randPoint != cellAtEdge);              // Make sure the returned point is not the same as the cell at the edge of the map

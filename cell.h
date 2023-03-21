@@ -36,7 +36,7 @@ namespace environment
         double getCurrentEnergy() const;
         double getMaxEnergy() const;
         double getAggressiveness() const;
-        genotype::Genotype getGenotype() const;
+        genotype::Genotype getGenotype();
         bool isAlive();
 
         void setCurrentEnergy(double count) { currentEnergy = count; }

@@ -68,7 +68,7 @@ namespace environment
                 }
                 return index;
             case 1:
-                if (cellPosition.i == 0 || cellPosition.j == kMapSize - 1)             // mapSIze == 100
+                if (cellPosition.i == 0 || cellPosition.j == genotype::kMapSize - 1)             // mapSIze == 100
                 {
                     outputs[index][0] = 0;
                     return bestPossibleChoiceIndex(outputs, inputs);
@@ -79,7 +79,7 @@ namespace environment
                 }
                 return index;
             case 2:
-                if (cellPosition.j == kMapSize - 1) {
+                if (cellPosition.j == genotype::kMapSize - 1) {
                     outputs[index][0] = 0;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
@@ -89,7 +89,7 @@ namespace environment
                 }
                 return index;
             case 3:
-                if (cellPosition.i == kMapSize - 1 || cellPosition.j == kMapSize - 1) {
+                if (cellPosition.i == genotype::kMapSize - 1 || cellPosition.j == genotype::kMapSize - 1) {
                     outputs[index][0] = 0;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
@@ -99,7 +99,7 @@ namespace environment
                 }
                 return index;
             case 4:
-                if (cellPosition.i == kMapSize - 1) {
+                if (cellPosition.i == genotype::kMapSize - 1) {
                     outputs[index][0] = 0;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
@@ -109,7 +109,7 @@ namespace environment
                 }
                 return index;
             case 5:
-                if (cellPosition.i == kMapSize - 1, cellPosition.j == 0) {
+                if (cellPosition.i == genotype::kMapSize - 1 || cellPosition.j == 0) {
                     outputs[index][0] = 0;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
@@ -139,7 +139,7 @@ namespace environment
                 }
                 return index;
             case 9:
-                if (oponentIsNearby(inputs))
+                if (genotype::opponentIsNearby(inputs))
                     return index;
                 else
                     outputs[index][0] = 0;
@@ -239,9 +239,9 @@ namespace environment
         return maxEnergy;
     }
 
-    genotype::Genotype Cell::getGenotype() const
+    genotype::Genotype Cell::getGenotype()
     {
-        return this->genotype;
+        return genotype;
     }
 
     bool Cell::isAlive()
@@ -277,7 +277,7 @@ namespace environment
         }
         else if (indexOfAction == 9) // find opponent!!!
         {
-            attack(opponent);
+            // TODO attack(opponent);
         }
         else if (indexOfAction == 10)
         {
