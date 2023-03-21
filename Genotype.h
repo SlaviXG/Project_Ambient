@@ -88,9 +88,8 @@ namespace genotype {
         Matrix getWeightsMatrixByIndex(int index);
 
         Matrix getBaesMatrixByIndex(int index);
-
-        int makeChoise(Matrix inputs, Point cellPosition);
     };
 
 }
+
 #endif  GENOTYPE_H

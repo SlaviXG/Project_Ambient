@@ -49,6 +49,9 @@ namespace environment
         void act(std::vector<double> inputs);
         void duplicate(Environment* environment);
 
+        int makeChoice(Matrix inputs);
+        int bestPossibleChoiceIndex(Matrix outputs, Matrix inputs);
+
         // TODO: Create static method Cell randomCell()
     };
 
