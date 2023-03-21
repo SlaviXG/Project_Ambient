@@ -8,6 +8,8 @@
 // inputs 0 - 23 - vision, 24 - current count of energy, 25 -  aggressiveness
 
 namespace genotype {
+    bool opponentIsNearby(Matrix inputs);
+
     struct Point {
         int i = 0, j = 0;
 
@@ -88,9 +90,8 @@ namespace genotype {
         Matrix getWeightsMatrixByIndex(int index);
 
         Matrix getBaesMatrixByIndex(int index);
-
-        int makeChoise(Matrix inputs, Point cellPosition);
     };
 
 }
+
 #endif  GENOTYPE_H

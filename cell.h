@@ -36,7 +36,7 @@ namespace environment
         double getCurrentEnergy() const;
         double getMaxEnergy() const;
         double getAggressiveness() const;
-        genotype::Genotype getGenotype() const;
+        genotype::Genotype getGenotype();
         bool isAlive();
 
         void setCurrentEnergy(double count) { currentEnergy = count; }
@@ -46,8 +46,11 @@ namespace environment
         void photosynthesis();
         void attack(Cell &opponent);
 
-        void act(std::vector<double> inputs);
+        void act(std::vector<double> inputs, Environment* environment);
         void duplicate(Environment* environment);
+
+        int makeChoice(Matrix inputs);
+        int bestPossibleChoiceIndex(Matrix outputs, Matrix inputs);
 
         // TODO: Create static method Cell randomCell()
     };

@@ -28,119 +28,12 @@
 10) duplication
  */
 namespace genotype {
-    bool oponentIsNearby(Matrix inputs) {
+    bool opponentIsNearby(Matrix inputs) {
         if (inputs[6][0] != 1 && inputs[7][0] != 1 && inputs[8][0] != 1 && inputs[11][0] != 1 &&
             inputs[12][0] != 1 && inputs[15][0] != 1 && inputs[16][0] != 1 && inputs[17][0] != 1) {
             return false;
         }
         return true;
-    }
-
-    int bestPosibleChoiseIndex(Matrix outputs, Matrix inputs, Point CellPosition)       // !!!!!!!!!!
-    {
-        int maxValue = outputs[0][0];
-        int index = 0;
-
-        for (int i = 1; i < outputs.getY(); i++) {
-            if (maxValue < outputs[i][0]) {
-                index = i;
-                maxValue = outputs[i][0];
-            }
-        }
-        switch (index) {
-            case 0:
-                if (CellPosition.i == 0) {
-                    outputs[index][0] = 0;
-                    return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-                }
-                if (inputs[7][0] == 1) {
-                    outputs[index][0] = 0;
-                    return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-                }
-                return index;
-            case 1:
-                if (CellPosition.i == 0 || CellPosition.j == kMapSize - 1)             // mapSIze == 100
-                {
-                    outputs[index][0] = 0;
-                    return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-                }
-                if (inputs[8][0] == 1) {
-                    outputs[index][0] = 0;
-                    return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-                }
-                return index;
-            case 2:
-                if (CellPosition.j == kMapSize - 1) {
-                    outputs[index][0] = 0;
-                    return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-                }
-                if (inputs[12][0] == 1) {
-                    outputs[index][0] = 0;
-                    return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-                }
-                return index;
-            case 3:
-                if (CellPosition.i == kMapSize - 1 || CellPosition.j == kMapSize - 1) {
-                    outputs[index][0] = 0;
-                    return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-                }
-                if (inputs[17][0] == 1) {
-                    outputs[index][0] = 0;
-                    return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-                }
-                return index;
-            case 4:
-                if (CellPosition.i == kMapSize - 1) {
-                    outputs[index][0] = 0;
-                    return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-                }
-                if (inputs[16][0] == 1) {
-                    outputs[index][0] = 0;
-                    return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-                }
-                return index;
-            case 5:
-                if (CellPosition.i == kMapSize - 1, CellPosition.j == 0) {
-                    outputs[index][0] = 0;
-                    return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-                }
-                if (inputs[15][0] == 1) {
-                    outputs[index][0] = 0;
-                    return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-                }
-                return index;
-            case 6:
-                if (CellPosition.j == 0) {
-                    outputs[index][0] = 0;
-                    return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-                }
-                if (inputs[11][0] == 1) {
-                    outputs[index][0] = 0;
-                    return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-                }
-                return index;
-            case 7:
-                if (CellPosition.i == 0 || CellPosition.j == 0) {
-                    outputs[index][0] = 0;
-                    return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-                }
-                if (inputs[6][0] == 1) {
-                    outputs[index][0] = 0;
-                    return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-                }
-                return index;
-            case 9:
-                if (oponentIsNearby(inputs))
-                    return index;
-                else
-                    outputs[index][0] = 0;
-                return bestPosibleChoiseIndex(outputs, inputs, CellPosition);
-            case 10:
-                if ()
-
-                    default:
-                        return index;
-        }
     }
 
     Matrix mutation(Matrix m) {
@@ -233,14 +126,4 @@ namespace genotype {
                 return Matrix();
         }
     }
-
-    int Genotype::makeChoise(Matrix inputs, Point cellPosition) {
-        Matrix firstLayer = ReLU(m1 * inputs + b1);
-        Matrix secondLayer = ReLU(m2 * firstLayer + b2);
-        Matrix thirdLayer = ReLU(m3 * secondLayer + b3);
-        Matrix output = m4 * thirdLayer + b4;                   // Add ReLU
-
-        return bestPosibleChoiseIndex(output, inputs, cellPosition );
-    }
-
 }

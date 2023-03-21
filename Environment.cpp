@@ -50,7 +50,7 @@ namespace environment
         return this->time;
     }
 
-    std::vector<bool> Environment::getVisionField(const Point& viewPoint) const
+    std::vector<bool> Environment::getVisionField(const genotype::Point& viewPoint) const
     {
         assert(checkPositionCorrectness(viewPoint));
 
@@ -61,7 +61,7 @@ namespace environment
         {
             for (int j = viewPoint.j - 2; j <= viewPoint.j + 2; ++j)
             {
-                Point checkPoint{i, j};
+                genotype::Point checkPoint{i, j};
                 if (!checkPositionCorrectness(checkPoint))
                 {
                     vec.push_back(false);
@@ -94,11 +94,11 @@ namespace environment
         frameMatrix[cell.getPosition().i][cell.getPosition().j] = &cells.back();
     }
 
-    Point Environment::randomFreePosition(const Point& point) const 
+    genotype::Point Environment::randomFreePosition(const genotype::Point& point) const
     {
         assert(checkPositionCorrectness(point));
 
-        constexpr int kAttemptCount = 50; Point randPoint;
+        constexpr int kAttemptCount = 50; genotype::Point randPoint;
         for (size_t i = 0; i < kAttemptCount; i++)
         {
             randPoint.i = RandomGenerator::generateRandomNumber(point.i - 1, point.i + 1);
