@@ -46,7 +46,7 @@ namespace environment
         void photosynthesis();
         void attack(Cell &opponent);
 
-        void act(std::vector<double> inputs);
+        void act(std::vector<double> inputs, Environment* environment);
         void duplicate(Environment* environment);
 
         int makeChoice(Matrix inputs);

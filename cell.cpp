@@ -196,7 +196,7 @@ namespace environment
         }
     }
     
-    void Cell::duplicate(Environment* environment)                      // TODO  add new cell to the map
+    void Cell::duplicate(Environment* environment)                    
     {
         genotype::Point freePosition = environment->randomFreePosition(position);
         Cell newCell(*this, freePosition);
@@ -241,7 +241,7 @@ namespace environment
 
     genotype::Genotype Cell::getGenotype() const
     {
-        return genotype;
+        return this->genotype;
     }
 
     bool Cell::isAlive()
@@ -249,7 +249,7 @@ namespace environment
         return isAliveStatus;
     }
 
-    void Cell::act(std::vector<double> inputs)
+    void Cell::act(std::vector<double> inputs, Environment* environment)
     {
         if (isAliveStatus == 0) // Remove or delete cell
             return;
@@ -260,7 +260,7 @@ namespace environment
         Matrix mInputs(0, 25);
         mInputs.addColumn(Row(inputs));
 
-        int indexOfAction = genotype.makeChoise(mInputs, position);
+        int indexOfAction = makeChoice(mInputs);
 
         if (indexOfAction < 0)
         {
@@ -277,10 +277,11 @@ namespace environment
         }
         else if (indexOfAction == 9) // find opponent!!!
         {
-            // attack(opponent);
+            attack(opponent);
         }
         else if (indexOfAction == 10)
         {
+            duplicate(environment);
         }
     }
 }
