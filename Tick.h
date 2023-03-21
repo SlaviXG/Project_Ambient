@@ -26,11 +26,11 @@ namespace environment
         }
         inline float GetDeltaTime() const
         {
-            return deltaTime;
+            return isPaused ? 0 : deltaTime;
         }
         inline float GetFPS() const
         {
-            return fps;
+            return isPaused ? 0 : fps;
         }
 
     private:
