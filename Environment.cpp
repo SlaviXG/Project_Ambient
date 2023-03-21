@@ -90,8 +90,9 @@ namespace environment
     }
     void Environment::AddCell(const Cell& cell)
     {
-        cells.push_back(cell);
-        frameMatrix[cell.getPosition().i][cell.getPosition().j] = &cells.back();
+        auto cellptr = new Cell(cell);
+        cells.push_back(cellptr);
+        frameMatrix[cell.getPosition().i][cell.getPosition().j] = cellptr;
     }
 
     genotype::Point Environment::randomFreePosition(const genotype::Point& point) const

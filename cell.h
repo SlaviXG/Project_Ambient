@@ -30,6 +30,7 @@ namespace environment
 
     public:
         Cell() {};
+        Cell(const Cell&) {/* TODO*/};
         Cell(genotype::Point startingPosition, Environment* environment = nullptr);
         Cell(Cell &mother, genotype::Point freePosition);
 

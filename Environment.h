@@ -1,8 +1,7 @@
 #ifndef ENVIRONMENT_H
 #define ENVIRONMENT_H
 
-#include <set>
-#include <list>
+#include <vector>
 #include <random>
 
 #include "Tick.h"
@@ -22,7 +21,7 @@ namespace environment
 
         std::vector<std::vector<Frame *>> frameMatrix;
 
-        std::list<Cell> cells;
+        std::vector<Cell *> cells;
         double time;
 
     public:
@@ -46,7 +45,7 @@ namespace environment
         inline size_t getCellNumber() const { return cells.size(); }
 
         // Cell Actions:
-        void AddCell(const Cell &cell);
+        void AddCell(const Cell& cell);
         void AddRandomCell(); // TODO
 
         // Cell Vision:
