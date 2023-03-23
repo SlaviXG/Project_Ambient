@@ -12,6 +12,7 @@ namespace environment
     {
     public:
         explicit Frame() {}
+        explicit Frame(const Frame& frame) { this->environment = frame.environment; this->position = frame.position; }
         explicit Frame(genotype::Point position, Environment* environment = nullptr)
             : environment(environment), position(position) {};
         virtual ~Frame() {}

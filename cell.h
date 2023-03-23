@@ -29,9 +29,9 @@ namespace environment
         bool isAliveStatus = true;
 
     public:
-        Cell() {};
-        Cell(const Cell&) {/* TODO*/};
-        Cell(genotype::Point startingPosition, Environment* environment = nullptr);
+        Cell() : Frame() {};
+        Cell(const Cell& cell) : Frame(cell) {/* TODO*/};
+        Cell(genotype::Point startingPosition = {-1, -1}, Environment* environment = nullptr);
         Cell(Cell &mother, genotype::Point freePosition);
 
         double getCurrentEnergy() const;
