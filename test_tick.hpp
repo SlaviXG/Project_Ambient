@@ -9,7 +9,7 @@ TEST_SUITE("Tick")
     TEST_CASE("Basic functionality")
     {
 
-        environment::Tick tick(60);
+        controller::Tick tick(60);
         float expectedDeltaTime = 1.0f / 60;
 
         // Check initial values
@@ -27,7 +27,7 @@ TEST_SUITE("Tick")
 
     TEST_CASE("Pausing and resuming")
     {
-        environment::Tick tick(60);
+        controller::Tick tick(60);
         float expectedDeltaTime = 1.0f / 60;
 
         // Check initial values
