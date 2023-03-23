@@ -4,7 +4,7 @@
 #include <chrono>
 #include <thread>
 
-namespace environment
+namespace controller
 {
 
     class Tick
