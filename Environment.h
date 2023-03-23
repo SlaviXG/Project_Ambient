@@ -36,6 +36,10 @@ namespace environment
         double getTime() const;
         inline int getWidth() const { return WIDTH; }
         inline int getHeight() const { return HEIGHT; }
+        inline Frame* getFrame(const genotype::Point& point) const {
+            assert(checkPositionCorrectness(point));
+            return frameMatrix[point.i][point.j];
+        }
 
         // Updates frameMatrix with the data in the vector "cells"
         // Difficulty: WIDTH * HEIGHT
@@ -49,7 +53,7 @@ namespace environment
         inline size_t getCellNumber() const { return cells.size(); }
 
         // Cell Actions:
-        void AddCell(Cell& cell);
+        void AddCell(Cell* cell);
 
         // Cell Vision:
         /*

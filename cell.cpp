@@ -199,8 +199,7 @@ namespace environment
     void Cell::duplicate(Environment* environment)                    
     {
         genotype::Point freePosition = environment->randomFreePosition(position);
-        Cell newCell(*this, freePosition);
-        environment->AddCell(newCell);
+        environment->AddCell(new Cell(*this, freePosition));
         genotype = genotype::Genotype(genotype);
     }
 

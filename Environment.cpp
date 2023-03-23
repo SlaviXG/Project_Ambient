@@ -95,10 +95,10 @@ namespace environment
             }
         }*/
     }
-    void Environment::AddCell(Cell &cell)
+    void Environment::AddCell(Cell* cell)
     {
-        cells.push_back(&cell);
-        frameMatrix[cell.getPosition().i][cell.getPosition().j] = &cell;
+        cells.push_back(cell);
+        frameMatrix[cell->getPosition().i][cell->getPosition().j] = cell;
     }
 
     genotype::Point Environment::randomFreePosition(const genotype::Point &point) const

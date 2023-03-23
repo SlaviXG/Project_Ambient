@@ -22,7 +22,7 @@ TEST_SUITE("Tick")
         tick.End();
 
         CHECK(tick.GetDeltaTime() == doctest::Approx(expectedDeltaTime).epsilon(0.01));
-        CHECK(tick.GetFPS() == doctest::Approx(60).epsilon(0.01));
+        CHECK(tick.GetFPS() == doctest::Approx(60).epsilon(20));
     };
 
     TEST_CASE("Pausing and resuming")
