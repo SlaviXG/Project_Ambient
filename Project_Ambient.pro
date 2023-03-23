@@ -21,8 +21,10 @@ SOURCES += \
 
 HEADERS += \
     CellView.h \
+    point.h \
     Environment.h \
     EnvironmentScene.h \
+    GameController.h \
     Genotype.h \
     Matrix.h \
     Tick.h \

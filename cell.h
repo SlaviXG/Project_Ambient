@@ -4,6 +4,8 @@
 #include "Genotype.h"
 #include "frame.h"
 #include "Environment.h"
+#include "point.h"
+
 
 namespace environment
 {
@@ -31,8 +33,8 @@ namespace environment
     public:
         Cell() : Frame() {};
         Cell(const Cell& cell) : Frame(cell) {/* TODO*/};
-        Cell(genotype::Point startingPosition = {-1, -1}, Environment* environment = nullptr);
-        Cell(Cell &mother, genotype::Point freePosition);
+        Cell(Point startingPosition, Environment* environment = nullptr);
+        Cell(Cell &mother, Point freePosition);
 
         double getCurrentEnergy() const;
         double getMaxEnergy() const;

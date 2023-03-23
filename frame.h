@@ -3,6 +3,7 @@
 
 #include "Genotype.h" // For Point struct
 #include "Environment.h"
+#include "point.h"
  
 
 namespace environment 
@@ -13,18 +14,18 @@ namespace environment
     public:
         explicit Frame() {}
         explicit Frame(const Frame& frame) { this->environment = frame.environment; this->position = frame.position; }
-        explicit Frame(genotype::Point position, Environment* environment = nullptr)
+        explicit Frame(Point position, Environment* environment = nullptr)
             : environment(environment), position(position) {};
         virtual ~Frame() {}
 
-        inline genotype::Point getPosition() const { return position; }
-        inline virtual void setPosition(genotype::Point newPosition) { position = newPosition; }
+        inline Point getPosition() const { return position; }
+        inline virtual void setPosition(Point newPosition) { position = newPosition; }
         inline Environment* getEnvironment() const { return environment; }
         inline virtual void setEnvironment(Environment* environment) { this->environment = environment; };
 
     protected:
         Environment* environment;
-        genotype::Point position;
+        Point position;
     };
 
 

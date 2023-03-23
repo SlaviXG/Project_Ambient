@@ -5,7 +5,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT
 
 #include "doctest.h"
-//#include "test_environment.hpp"
 #include "test_tick.hpp"
 #include "test_environment.hpp"
 
