@@ -4,7 +4,7 @@
 #include <QTimer>
 
 #include "EnvironmentScene.h"
-#include "CellGraphics.h"
+#include "CellView.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     EnvironmentScene* scene = new EnvironmentScene();
 
-    CellGraphics* cell = new CellGraphics(ui->environmentView->width() / 2, ui->environmentView->height() / 2, 10, 10);
+    CellView* cell = new CellView(ui->environmentView->width() / 2, ui->environmentView->height() / 2, 20, 20);
     scene->addItem(cell);
     ui->environmentView->setScene(scene);
 

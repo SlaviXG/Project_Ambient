@@ -9,7 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    CellGraphics.cpp \
+    CellView.cpp \
     Environment.cpp \
     EnvironmentScene.cpp \
     Genotype.cpp \
@@ -20,7 +20,7 @@ SOURCES += \
     mainwindow.cpp \
 
 HEADERS += \
-    CellGraphics.h \
+    CellView.h \
     Environment.h \
     EnvironmentScene.h \
     Genotype.h \

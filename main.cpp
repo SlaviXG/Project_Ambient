@@ -1,6 +1,6 @@
-//#include "mainwindow.h"
+#include "mainwindow.h"
 
-//#include <QApplication>
+#include <QApplication>
 
 #define DOCTEST_CONFIG_IMPLEMENT
 
@@ -25,8 +25,8 @@ int main(int argc, char *argv[])
     }
 //#endif // _DEBUG
 
-    /*QApplication a(argc, argv);
+    QApplication a(argc, argv);
     MainWindow w;
     w.show();
-    return a.exec();*/
+    return a.exec();
 }
