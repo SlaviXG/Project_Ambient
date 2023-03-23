@@ -5,25 +5,20 @@
 #include "frame.h"
 #include "cell.h"
 
-
 namespace environment
 {
     // Constructors / Destructors
-    Environment::Environment(int WIDTH, int HEIGHT, size_t cellNumber)
+    Environment::Environment(int WIDTH, int HEIGHT)
         : WIDTH(WIDTH), HEIGHT(HEIGHT)
     {
         frameMatrix.resize(HEIGHT);
 
-        for (auto &row : frameMatrix) {
+        for (auto &row : frameMatrix)
+        {
             row.resize(WIDTH, nullptr);
         }
 
         this->time = 0.0;
-
-        for (size_t i = 0; i < cellNumber; i++)
-        {
-            this->AddRandomCell();
-        }
     }
 
     // Enviroment Actions:
@@ -50,7 +45,19 @@ namespace environment
         return this->time;
     }
 
-    std::vector<bool> Environment::getVisionField(const genotype::Point& viewPoint) const
+    void Environment::updateMap()
+    {
+        for (auto &row : frameMatrix)
+            for (auto &frame : row)
+                frame = nullptr;
+
+        for (auto const &cell : cells)
+        {
+            frameMatrix[cell->getPosition().i][cell->getPosition().j] = cell;
+        }
+    };
+
+    std::vector<bool> Environment::getVisionField(const genotype::Point &viewPoint) const
     {
         assert(checkPositionCorrectness(viewPoint));
 
@@ -88,18 +95,18 @@ namespace environment
             }
         }*/
     }
-    void Environment::AddCell(const Cell& cell)
+    void Environment::AddCell(Cell &cell)
     {
-        auto cellptr = new Cell(cell);
-        cells.push_back(cellptr);
-        frameMatrix[cell.getPosition().i][cell.getPosition().j] = cellptr;
+        cells.push_back(&cell);
+        frameMatrix[cell.getPosition().i][cell.getPosition().j] = &cell;
     }
 
-    genotype::Point Environment::randomFreePosition(const genotype::Point& point) const
+    genotype::Point Environment::randomFreePosition(const genotype::Point &point) const
     {
         assert(checkPositionCorrectness(point));
 
-        constexpr int kAttemptCount = 50; genotype::Point randPoint;
+        constexpr int kAttemptCount = 50;
+        genotype::Point randPoint;
         for (size_t i = 0; i < kAttemptCount; i++)
         {
             randPoint.i = RandomGenerator::generateRandomNumber(point.i - 1, point.i + 1);
@@ -111,11 +118,4 @@ namespace environment
         }
         return {-1, -1};
     }
-
-    void Environment::AddRandomCell()
-    {
-        // TODO:
-        //this->AddCell(new Cell({gen.bounded(HEIGHT), gen.bounded(WIDTH)}, this));
-    }
-
 }

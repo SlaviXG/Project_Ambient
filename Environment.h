@@ -22,11 +22,11 @@ namespace environment
         std::vector<std::vector<Frame *>> frameMatrix;
 
         std::vector<Cell *> cells;
-        double time;
+        double time;    
 
     public:
         // Constructors / Destructors
-        explicit Environment(int WIDTH, int HEIGHT, std::size_t cellNumber = 0);
+        explicit Environment(int WIDTH, int HEIGHT);
         virtual ~Environment(){};
 
         // Enviroment Actions:
@@ -34,8 +34,12 @@ namespace environment
         bool isDay() const;
         bool isNight() const;
         double getTime() const;
-        inline int getWidth() { return WIDTH; }
-        inline int getHeight() { return HEIGHT; }
+        inline int getWidth() const { return WIDTH; }
+        inline int getHeight() const { return HEIGHT; }
+
+        // Updates frameMatrix with the data in the vector "cells"
+        // Difficulty: WIDTH * HEIGHT
+        void updateMap();
 
         // Checks if a point has negative or larger coordinates than the map size 
         // On failure returns Point{-1, -1}
@@ -45,8 +49,7 @@ namespace environment
         inline size_t getCellNumber() const { return cells.size(); }
 
         // Cell Actions:
-        void AddCell(const Cell& cell);
-        void AddRandomCell(); // TODO
+        void AddCell(Cell& cell);
 
         // Cell Vision:
         /*
