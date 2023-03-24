@@ -24,6 +24,8 @@ public:
 
 private:
     QList<CellView*> cells;
+    QVector <QImage> cellColorGradations;
 
+    bool loadColorGradations();
 };
 #endif // ENVIRONMENT_SCENE_H

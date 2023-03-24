@@ -94,13 +94,11 @@ namespace controller
             }
         };
 
-      
+
         MainWindow *view;
         EnvironmentScene *scene;
         environment::Environment *environment;
-
         std::map<environment::Cell *, CellView *> cellMap;
-
         Tick tick;
     };
 };
