@@ -3,6 +3,7 @@
 
 #include <chrono>
 #include <thread>
+#include <functional>
 
 namespace controller
 {
@@ -10,10 +11,12 @@ namespace controller
     class Tick
     {
     public:
-        Tick(int fps) : fps(fps), deltaTime(1.0f / fps) {}
+        explicit Tick(std::function<void()> func, int fps)
+            : fps(fps), interval(1.0f / fps * 1000), func(func) {}
+        virtual ~Tick() { this->Stop(); }
 
         void Start();
-        void End();
+        inline void Stop() { isRunning = false; isPaused = false; }
 
         inline void Pause() {
             isPaused = true;
@@ -24,9 +27,9 @@ namespace controller
         inline bool IsPaused() {
             return isPaused;
         }
-        inline float GetDeltaTime() const
+        inline float GetInterval() const
         {
-            return isPaused ? 0 : deltaTime;
+            return isPaused ? 0 : interval;
         }
         inline float GetFPS() const
         {
@@ -35,11 +38,11 @@ namespace controller
 
     private:
         float fps;
-        float deltaTime;
+        unsigned int interval; // Milliseconds
         bool isPaused = false;
+        bool isRunning = false;
 
-        std::chrono::high_resolution_clock::time_point startTime;
-        std::chrono::high_resolution_clock::time_point endTime;
+        std::function<void()> func;
     };
 }
 

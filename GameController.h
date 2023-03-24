@@ -12,7 +12,6 @@
 #include <vector>
 #include <map>
 
-
 namespace controller
 {
     constexpr int kCellSize = 20;
@@ -20,7 +19,7 @@ namespace controller
 
     /**
      * @brief  GameController class is responsible for managing the game logic and updating the graphical representation of the game.
-     * 
+     *
      */
     class GameController
     {
@@ -28,20 +27,13 @@ namespace controller
 
     public:
         explicit GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment)
-            : view(view), scene(scene), environment(environment), tick(kFps) {};
+            : view(view), scene(scene), environment(environment), tick(std::bind(&GameController::execute, this), kFps){};
+
         virtual ~GameController()
         {
             auto cells = environment->getCells();
             for (auto cell : cells)
                 delete cell;
-        };
-
-        inline void processAI()
-        {
-            auto cells = environment->getCells();
-            for (auto &cell : cells)
-                cell->act();
-            environment->updateMap();
         };
 
         void addCell(const Point &point)
@@ -55,6 +47,38 @@ namespace controller
 
             cellMap.insert({cellptr, cellViewptr});
         }
+
+        inline void start() {
+            tick.Start();
+        }
+
+        inline void stop() {
+            tick.Stop();
+        }
+
+        inline void pause() {
+            tick.Pause();
+        }
+
+        inline void resume() {
+            tick.Resume();
+        }
+
+        static void execute(GameController *gameController)
+        {
+            gameController->processAI();
+            gameController->render();
+        }
+        
+
+    private:
+        void processAI()
+        {
+            auto cells = environment->getCells();
+            for (auto &cell : cells)
+                cell->act();
+            environment->updateMap();
+        };
 
         void render()
         {
@@ -70,17 +94,7 @@ namespace controller
             }
         };
 
-        void execute()
-        {
-            tick.Start();
-
-            this->processAI();
-            this->render();
-
-            tick.End();
-        }
-
-    private:
+      
         MainWindow *view;
         EnvironmentScene *scene;
         environment::Environment *environment;
@@ -91,6 +105,4 @@ namespace controller
     };
 };
 
-/* = {gen::generateRandomNumber(0, environment->getHeight()),
-                                  gen::generateRandomNumber(0, environment->getWidth())}*/
 #endif

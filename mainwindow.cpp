@@ -28,12 +28,15 @@ MainWindow::MainWindow(QWidget *parent)
     timer->start(10);
 }
 
+qreal MainWindow::getWidth() const {
+    return ui->environmentView->width();
+}
+
+qreal MainWindow::getHeight() const {
+    return ui->environmentView->height();
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-qreal MainWindow::getWidth() const { return ui->environmentView->width(); }
-qreal MainWindow::getHeight() const { return ui->environmentView->height(); }
-
-
