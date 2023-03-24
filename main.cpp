@@ -2,6 +2,9 @@
 
 #include <QApplication>
 
+#include "GameController.h"
+#include "Environment.h"
+
 #define DOCTEST_CONFIG_IMPLEMENT
 
 #include "doctest.h"
@@ -25,7 +28,14 @@ int main(int argc, char *argv[])
 //#endif // _DEBUG
 
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+
+    environment::Environment env(100, 100);
+    EnvironmentScene scene;
+    MainWindow win;
+    // TODO: win.setScene(&scene);
+    controller::GameController cont(&win, &scene, &env);
+    cont.execute();
+
+    win.show();
     return a.exec();
 }
