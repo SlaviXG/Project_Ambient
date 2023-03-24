@@ -4,7 +4,7 @@
 #include <chrono>
 #include <thread>
 
-namespace environment
+namespace controller
 {
 
     class Tick
@@ -36,7 +36,7 @@ namespace environment
     private:
         float fps;
         float deltaTime;
-        bool isPaused;
+        bool isPaused = false;
 
         std::chrono::high_resolution_clock::time_point startTime;
         std::chrono::high_resolution_clock::time_point endTime;

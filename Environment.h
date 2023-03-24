@@ -20,13 +20,12 @@ namespace environment
         const int HEIGHT;
 
         std::vector<std::vector<Frame *>> frameMatrix;
-
+        double time;    
         std::vector<Cell *> cells;
-        double time;
 
     public:
         // Constructors / Destructors
-        explicit Environment(int WIDTH, int HEIGHT, std::size_t cellNumber = 0);
+        explicit Environment(int WIDTH, int HEIGHT);
         virtual ~Environment(){};
 
         // Enviroment Actions:
@@ -34,19 +33,27 @@ namespace environment
         bool isDay() const;
         bool isNight() const;
         double getTime() const;
-        inline int getWidth() { return WIDTH; }
-        inline int getHeight() { return HEIGHT; }
+        inline int getWidth() const { return WIDTH; }
+        inline int getHeight() const { return HEIGHT; }
+        inline Frame* getFrame(const Point& point) const {
+            assert(checkPositionCorrectness(point));
+            return frameMatrix[point.i][point.j];
+        }
+        inline size_t getCellNumber() const { return cells.size(); }
+        inline const std::vector<Cell *>& getCells() const { return cells; } 
+
+        // Updates frameMatrix with the data in the vector "cells"
+        // Difficulty: WIDTH * HEIGHT
+        void updateMap();
 
         // Checks if a point has negative or larger coordinates than the map size 
         // On failure returns Point{-1, -1}
-        inline bool checkPositionCorrectness(const genotype::Point& point) const { 
+        inline bool checkPositionCorrectness(const Point& point) const { 
             return !(point.i < 0 || point.i >= HEIGHT || point.j < 0 || point.j >= WIDTH); 
             }
-        inline size_t getCellNumber() const { return cells.size(); }
 
         // Cell Actions:
-        void AddCell(const Cell& cell);
-        void AddRandomCell(); // TODO
+        void AddCell(Cell* cell);
 
         // Cell Vision:
         /*
@@ -56,21 +63,29 @@ namespace environment
         14 15 16 17 18
         19 20 21 22 23
         */
-        std::vector<bool> getVisionField(const genotype::Point &point) const;
+        std::vector<bool> getVisionField(const Point &point) const;
 
         // Returns a random correct and empty cell coordinate within a radius of one from the given point
-        genotype::Point randomFreePosition(const genotype::Point &point) const;
+        Point randomFreePosition(const Point &point) const;
     };
 
     class RandomGenerator
     {
     public:
-        static int generateRandomNumber(int min, int max)
+        static int generateRandomIntNumber(int min, int max)
         {
             static std::random_device rd;
             static std::mt19937 rng(rd());
-            static std::uniform_int_distribution<int> dist(min, max);
-            return dist(rng);
+            static std::uniform_int_distribution<int> idist(min, max);
+            return idist(rng);
+        }
+
+        static double generateRandomDoubleNumber(double min, double max)
+        {
+            static std::random_device rd;
+            static std::mt19937 rng(rd());
+            static std::uniform_real_distribution<double> ddist(min, max);
+            return ddist(rng);
         }
     };
 

@@ -15,6 +15,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    qreal getWidth() const;
+    qreal getHeight() const;
+
 private:
     Ui::MainWindow *ui;
 };

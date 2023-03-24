@@ -4,6 +4,8 @@
 #include "Genotype.h"
 #include "frame.h"
 #include "Environment.h"
+#include "point.h"
+
 
 namespace environment
 {
@@ -29,10 +31,10 @@ namespace environment
         bool isAliveStatus = true;
 
     public:
-        Cell() {};
-        Cell(const Cell&) {/* TODO*/};
-        Cell(genotype::Point startingPosition, Environment* environment = nullptr);
-        Cell(Cell &mother, genotype::Point freePosition);
+        Cell() : Frame() {};
+        Cell(const Cell& cell) : Frame(cell) {/* TODO*/};
+        Cell(Point startingPosition, Environment* environment = nullptr);
+        Cell(Cell &mother, Point freePosition);
 
         double getCurrentEnergy() const;
         double getMaxEnergy() const;
@@ -47,13 +49,13 @@ namespace environment
         void photosynthesis();
         void attack(Cell &opponent);
 
+        // Make choice and do action
+        void act() {/* TODO */}
         void act(std::vector<double> inputs, Environment* environment);
         void duplicate(Environment* environment);
 
         int makeChoice(Matrix inputs);
         int bestPossibleChoiceIndex(Matrix outputs, Matrix inputs);
-
-        // TODO: Create static method Cell randomCell()
     };
 
 }

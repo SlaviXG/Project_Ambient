@@ -5,25 +5,20 @@
 #include "frame.h"
 #include "cell.h"
 
-
 namespace environment
 {
     // Constructors / Destructors
-    Environment::Environment(int WIDTH, int HEIGHT, size_t cellNumber)
+    Environment::Environment(int WIDTH, int HEIGHT)
         : WIDTH(WIDTH), HEIGHT(HEIGHT)
     {
         frameMatrix.resize(HEIGHT);
 
-        for (auto &row : frameMatrix) {
+        for (auto &row : frameMatrix)
+        {
             row.resize(WIDTH, nullptr);
         }
 
         this->time = 0.0;
-
-        for (size_t i = 0; i < cellNumber; i++)
-        {
-            this->AddRandomCell();
-        }
     }
 
     // Enviroment Actions:
@@ -50,7 +45,19 @@ namespace environment
         return this->time;
     }
 
-    std::vector<bool> Environment::getVisionField(const genotype::Point& viewPoint) const
+    void Environment::updateMap()
+    {
+        for (auto &row : frameMatrix)
+            for (auto &frame : row)
+                frame = nullptr;
+
+        for (auto const &cell : cells)
+        {
+            frameMatrix[cell->getPosition().i][cell->getPosition().j] = cell;
+        }
+    };
+
+    std::vector<bool> Environment::getVisionField(const Point &viewPoint) const
     {
         assert(checkPositionCorrectness(viewPoint));
 
@@ -61,7 +68,7 @@ namespace environment
         {
             for (int j = viewPoint.j - 2; j <= viewPoint.j + 2; ++j)
             {
-                genotype::Point checkPoint{i, j};
+                Point checkPoint{i, j};
                 if (!checkPositionCorrectness(checkPoint))
                 {
                     vec.push_back(false);
@@ -88,22 +95,22 @@ namespace environment
             }
         }*/
     }
-    void Environment::AddCell(const Cell& cell)
+    void Environment::AddCell(Cell* cell)
     {
-        auto cellptr = new Cell(cell);
-        cells.push_back(cellptr);
-        frameMatrix[cell.getPosition().i][cell.getPosition().j] = cellptr;
+        cells.push_back(cell);
+        frameMatrix[cell->getPosition().i][cell->getPosition().j] = cell;
     }
 
-    genotype::Point Environment::randomFreePosition(const genotype::Point& point) const
+    Point Environment::randomFreePosition(const Point &point) const
     {
         assert(checkPositionCorrectness(point));
 
-        constexpr int kAttemptCount = 50; genotype::Point randPoint;
+        constexpr int kAttemptCount = 50;
+        Point randPoint;
         for (size_t i = 0; i < kAttemptCount; i++)
         {
-            randPoint.i = RandomGenerator::generateRandomNumber(point.i - 1, point.i + 1);
-            randPoint.j = RandomGenerator::generateRandomNumber(point.j - 1, point.j + 1);
+            randPoint.i = RandomGenerator::generateRandomIntNumber(point.i - 1, point.i + 1);
+            randPoint.j = RandomGenerator::generateRandomIntNumber(point.j - 1, point.j + 1);
 
             if (checkPositionCorrectness(randPoint) && (randPoint.i != point.i || randPoint.j != point.j))
                 if (frameMatrix[randPoint.i][randPoint.j] == nullptr)
@@ -111,11 +118,4 @@ namespace environment
         }
         return {-1, -1};
     }
-
-    void Environment::AddRandomCell()
-    {
-        // TODO:
-        //this->AddCell(new Cell({gen.bounded(HEIGHT), gen.bounded(WIDTH)}, this));
-    }
-
 }

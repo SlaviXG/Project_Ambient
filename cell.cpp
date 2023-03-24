@@ -44,7 +44,7 @@ namespace environment
 
     int Cell::bestPossibleChoiceIndex(Matrix outputs, Matrix inputs)
     {
-        genotype::Point cellPosition = position;
+        Point cellPosition = position;
         int maxValue = outputs[0][0];
         int index = 0;
 
@@ -198,22 +198,21 @@ namespace environment
     
     void Cell::duplicate(Environment* environment)                    
     {
-        genotype::Point freePosition = environment->randomFreePosition(position);
-        Cell newCell(*this, freePosition);
-        environment->AddCell(newCell);
+        Point freePosition = environment->randomFreePosition(position);
+        environment->AddCell(new Cell(*this, freePosition));
         genotype = genotype::Genotype(genotype);
     }
 
-    Cell::Cell(genotype::Point startingPosition, Environment* environment)
+    Cell::Cell(Point startingPosition, Environment* environment)
         : Frame(startingPosition, environment)
     {
         genotype = genotype::Genotype();
-        aggressiveness = RandomGenerator::generateRandomNumber(0,1);
-        maxEnergy = RandomGenerator::generateRandomNumber(kMinEnergy,kMaxEnergy);
+        aggressiveness = RandomGenerator::generateRandomDoubleNumber(0,1);
+        maxEnergy = RandomGenerator::generateRandomDoubleNumber(kMinEnergy,kMaxEnergy);
         currentEnergy = maxEnergy;
     }
 
-    Cell::Cell(Cell &mother, genotype::Point freePosition)
+    Cell::Cell(Cell &mother, Point freePosition)
     {
         genotype::Genotype g = genotype::Genotype(mother.getGenotype());
 

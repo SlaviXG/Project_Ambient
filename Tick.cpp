@@ -1,11 +1,11 @@
 #include "Tick.h"
 
-void environment::Tick::Start()
+void controller::Tick::Start()
 {
     startTime = std::chrono::high_resolution_clock::now();
 }
 
-void environment::Tick::End()
+void controller::Tick::End()
 {
     endTime = std::chrono::high_resolution_clock::now();
     std::chrono::duration<float> duration = endTime - startTime;

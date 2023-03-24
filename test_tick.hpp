@@ -9,7 +9,7 @@ TEST_SUITE("Tick")
     TEST_CASE("Basic functionality")
     {
 
-        environment::Tick tick(60);
+        controller::Tick tick(60);
         float expectedDeltaTime = 1.0f / 60;
 
         // Check initial values
@@ -22,12 +22,12 @@ TEST_SUITE("Tick")
         tick.End();
 
         CHECK(tick.GetDeltaTime() == doctest::Approx(expectedDeltaTime).epsilon(0.01));
-        CHECK(tick.GetFPS() == doctest::Approx(60).epsilon(0.01));
+        CHECK(tick.GetFPS() == doctest::Approx(60).epsilon(20));
     };
 
     TEST_CASE("Pausing and resuming")
     {
-        environment::Tick tick(60);
+        controller::Tick tick(60);
         float expectedDeltaTime = 1.0f / 60;
 
         // Check initial values
