@@ -207,8 +207,8 @@ namespace environment
         : Frame(startingPosition, environment)
     {
         genotype = genotype::Genotype();
-        aggressiveness = RandomGenerator::generateRandomNumber(0,1);
-        maxEnergy = RandomGenerator::generateRandomNumber(kMinEnergy,kMaxEnergy);
+        aggressiveness = RandomGenerator::generateRandomDoubleNumber(0,1);
+        maxEnergy = RandomGenerator::generateRandomDoubleNumber(kMinEnergy,kMaxEnergy);
         currentEnergy = maxEnergy;
     }
 

@@ -72,12 +72,20 @@ namespace environment
     class RandomGenerator
     {
     public:
-        static int generateRandomNumber(double min, double max)
+        static int generateRandomIntNumber(int min, int max)
         {
             static std::random_device rd;
             static std::mt19937 rng(rd());
-            static std::uniform_real_distribution<double> dist(min, max);
-            return dist(rng);
+            static std::uniform_int_distribution<int> idist(min, max);
+            return idist(rng);
+        }
+
+        static double generateRandomDoubleNumber(double min, double max)
+        {
+            static std::random_device rd;
+            static std::mt19937 rng(rd());
+            static std::uniform_real_distribution<double> ddist(min, max);
+            return ddist(rng);
         }
     };
 
