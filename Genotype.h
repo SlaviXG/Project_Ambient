@@ -50,11 +50,13 @@ namespace genotype {
     public:
         Genotype();
 
+        Genotype(const Genotype &g);
+
         Genotype(Genotype &parent);
 
-        Matrix getWeightsMatrixByIndex(int index);
+        Matrix getWeightsMatrixByIndex(int index) const;
 
-        Matrix getBaesMatrixByIndex(int index);
+        Matrix getBaesMatrixByIndex(int index) const;
     };
 
 }

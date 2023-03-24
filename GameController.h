@@ -15,7 +15,7 @@
 namespace controller
 {
     constexpr int kCellSize = 20;
-    constexpr int kFps = 60;
+    constexpr int kFps = 1;
 
     /**
      * @brief  GameController class is responsible for managing the game logic and updating the graphical representation of the game.
@@ -28,6 +28,7 @@ namespace controller
     public:
         explicit GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment)
             : view(view), scene(scene), environment(environment), tick(std::bind(&GameController::execute, this), kFps){};
+
         virtual ~GameController()
         {
             auto cells = environment->getCells();
@@ -93,6 +94,7 @@ namespace controller
             }
         };
 
+      
         MainWindow *view;
         EnvironmentScene *scene;
         environment::Environment *environment;

@@ -196,10 +196,10 @@ namespace environment
         }
     }
     
-    void Cell::duplicate(Environment* environment)                    
+    void Cell::duplicate()
     {
         Point freePosition = environment->randomFreePosition(position);
-        environment->AddCell(new Cell(*this, freePosition));
+        this->environment->AddCell(new Cell(*this, freePosition));
         genotype = genotype::Genotype(genotype);
     }
 
@@ -238,17 +238,22 @@ namespace environment
         return maxEnergy;
     }
 
-    genotype::Genotype Cell::getGenotype()
+    genotype::Genotype Cell::getGenotype() const
     {
-        return genotype;
+        return this->genotype;
     }
 
-    bool Cell::isAlive()
+    bool Cell::isAlive() const
     {
         return isAliveStatus;
     }
 
-    void Cell::act(std::vector<double> inputs, Environment* environment)
+    int Cell::getStepsCount() const
+    {
+        return this->stepsCount;
+    }
+
+    void Cell::act(std::vector<double> inputs)
     {
         if (isAliveStatus == 0) // Remove or delete cell
             return;
@@ -280,7 +285,7 @@ namespace environment
         }
         else if (indexOfAction == 10)
         {
-            duplicate(environment);
+            duplicate();
         }
     }
 }
