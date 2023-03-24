@@ -49,13 +49,13 @@ namespace environment
         void photosynthesis();
         void attack(Cell &opponent);
 
+        // Make choice and do action
+        void act() {/* TODO */}
         void act(std::vector<double> inputs, Environment* environment);
         void duplicate(Environment* environment);
 
         int makeChoice(Matrix inputs);
         int bestPossibleChoiceIndex(Matrix outputs, Matrix inputs);
-
-        // TODO: Create static method Cell randomCell()
     };
 
 }
