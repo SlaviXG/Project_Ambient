@@ -57,6 +57,11 @@ namespace environment
         void move(int direction);
         void photosynthesis();
         void attack(Cell &opponent);
+        /**
+         * @brief Removes itself from the environment
+         * 
+         */
+        void die() { environment->RemoveCell(this); };
 
         /**
          * @brief Make choice and do action
