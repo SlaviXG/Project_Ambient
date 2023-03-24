@@ -20,8 +20,10 @@ public:
 
     inline void addCell(CellView* cell) { cells.append(cell); this->addItem(cell); }
     const QList<CellView*>& getCells() const { return cells; }
+    inline void removeCell(CellView* cell) {cells.removeOne(cell);}
 
 private:
     QList<CellView*> cells;
+
 };
 #endif // ENVIRONMENT_SCENE_H
