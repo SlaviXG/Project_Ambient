@@ -26,7 +26,7 @@ namespace controller
         using gen = environment::RandomGenerator;
 
     public:
-        explicit GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment)
+        explicit GameController(MainWindow   *view, EnvironmentScene *scene, environment::Environment *environment)
             : view(view), scene(scene), environment(environment), tick(std::bind(&GameController::execute, this), kFps){};
 
         virtual ~GameController()
@@ -75,8 +75,11 @@ namespace controller
         void processAI()
         {
             auto cells = environment->getCells();
-            for (auto &cell : cells)
-                cell->act();
+            for (auto &cell : cells) {
+                auto aggressiveness = cell->act();
+                /*if (aggressiveness.first) 
+                    cellMap.at(cell)->setGradient(aggressiveness.second)*/
+            }
             environment->updateMap();
         };
 
