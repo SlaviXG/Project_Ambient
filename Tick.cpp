@@ -1,21 +1,23 @@
 #include "Tick.h"
 
+#include <cassert>
+
+
 void controller::Tick::Start()
 {
-    startTime = std::chrono::high_resolution_clock::now();
-}
+    assert(!isRunning);
 
-void controller::Tick::End()
-{
-    endTime = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<float> duration = endTime - startTime;
-    float elapsed = duration.count();
+    isPaused = false;
+    isRunning = true;
 
-    if (elapsed < deltaTime && !isPaused)
-    {
-        std::this_thread::sleep_for(std::chrono::duration<float>(deltaTime - elapsed));
-        elapsed = deltaTime;
-    }
+    std::thread([&]()
+    { 
+        while (isRunning)
+        { 
+            auto x = std::chrono::steady_clock::now() + std::chrono::milliseconds(interval);
+            if(!isPaused) func();
+            std::this_thread::sleep_until(x);
+        }
+    }).detach();
 
-    fps = 1.0f / elapsed;
 }
