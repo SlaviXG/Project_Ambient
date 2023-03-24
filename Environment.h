@@ -20,9 +20,8 @@ namespace environment
         const int HEIGHT;
 
         std::vector<std::vector<Frame *>> frameMatrix;
-
-        std::vector<Cell *> cells;
         double time;    
+        std::vector<Cell *> cells;
 
     public:
         // Constructors / Destructors
@@ -40,6 +39,8 @@ namespace environment
             assert(checkPositionCorrectness(point));
             return frameMatrix[point.i][point.j];
         }
+        inline size_t getCellNumber() const { return cells.size(); }
+        inline const std::vector<Cell *>& getCells() const { return cells; } 
 
         // Updates frameMatrix with the data in the vector "cells"
         // Difficulty: WIDTH * HEIGHT
@@ -50,7 +51,6 @@ namespace environment
         inline bool checkPositionCorrectness(const Point& point) const { 
             return !(point.i < 0 || point.i >= HEIGHT || point.j < 0 || point.j >= WIDTH); 
             }
-        inline size_t getCellNumber() const { return cells.size(); }
 
         // Cell Actions:
         void AddCell(Cell* cell);
@@ -72,11 +72,11 @@ namespace environment
     class RandomGenerator
     {
     public:
-        static int generateRandomNumber(int min, int max)
+        static int generateRandomNumber(double min, double max)
         {
             static std::random_device rd;
             static std::mt19937 rng(rd());
-            static std::uniform_int_distribution<int> dist(min, max);
+            static std::uniform_real_distribution<double> dist(min, max);
             return dist(rng);
         }
     };
