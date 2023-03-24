@@ -4,7 +4,7 @@
 #include <QGraphicsRectItem>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class CellGraphics; }
+namespace Ui { class CellView; }
 QT_END_NAMESPACE
 
 /**
