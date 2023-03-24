@@ -85,6 +85,19 @@ namespace genotype {
         m4.setRandomValues();
     }
 
+    Genotype::Genotype(const Genotype& g)
+    {
+        this->b1 = g.getBaesMatrixByIndex(1);
+        this->b2 = g.getBaesMatrixByIndex(2);
+        this->b3 = g.getBaesMatrixByIndex(3);
+        this->b4 = g.getBaesMatrixByIndex(4);
+
+        this->m1 = g.getWeightsMatrixByIndex(1);
+        this->m2 = g.getWeightsMatrixByIndex(2);
+        this->m3 = g.getWeightsMatrixByIndex(3);
+        this->m4 = g.getWeightsMatrixByIndex(4);
+    }
+
     Genotype::Genotype(Genotype &parent) {
         m1 = mutation(parent.getWeightsMatrixByIndex(1));
         m2 = mutation(parent.getWeightsMatrixByIndex(2));
@@ -97,7 +110,7 @@ namespace genotype {
         b4 = mutation(parent.getBaesMatrixByIndex(4));
     }
 
-    Matrix Genotype::getWeightsMatrixByIndex(int index) {
+    Matrix Genotype::getWeightsMatrixByIndex(int index) const{
         switch (index) {
             case 1:
                 return m1;
@@ -112,7 +125,7 @@ namespace genotype {
         }
     }
 
-    Matrix Genotype::getBaesMatrixByIndex(int index) {
+    Matrix Genotype::getBaesMatrixByIndex(int index) const{
         switch (index) {
             case 1:
                 return b1;

@@ -32,15 +32,24 @@ namespace environment
 
     public:
         Cell() : Frame() {};
-        Cell(const Cell& cell) : Frame(cell) {/* TODO*/};
+        Cell(const Cell& cell) : Frame(cell)
+        {
+            this->genotype = cell.getGenotype();
+            this->maxEnergy = cell.getMaxEnergy();
+            this->currentEnergy = cell.getCurrentEnergy();
+            this->aggressiveness = cell.getAggressiveness();
+            this->isAliveStatus = cell.isAlive();
+            this->stepsCount = cell.getStepsCount();
+        }
         Cell(Point startingPosition, Environment* environment = nullptr);
         Cell(Cell &mother, Point freePosition);
 
         double getCurrentEnergy() const;
         double getMaxEnergy() const;
         double getAggressiveness() const;
-        genotype::Genotype getGenotype();
-        bool isAlive();
+        genotype::Genotype getGenotype() const;
+        bool isAlive() const;
+        int getStepsCount() const;
 
         void setCurrentEnergy(double count) { currentEnergy = count; }
         void setIsAlive(bool status) { isAliveStatus = status; }
@@ -51,8 +60,8 @@ namespace environment
 
         // Make choice and do action
         void act() {/* TODO */}
-        void act(std::vector<double> inputs, Environment* environment);
-        void duplicate(Environment* environment);
+        void act(std::vector<double> inputs);
+        void duplicate();
 
         int makeChoice(Matrix inputs);
         int bestPossibleChoiceIndex(Matrix outputs, Matrix inputs);
