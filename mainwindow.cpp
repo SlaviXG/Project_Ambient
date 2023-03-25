@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     EnvironmentScene* scene = new EnvironmentScene();
 
     CellView* cell = new CellView(ui->environmentView->width() / 2, ui->environmentView->height() / 2, 20, 20);
-    scene->addItem(cell);
+    scene->addCell(cell);
     ui->environmentView->setScene(scene);
 
     // Move example

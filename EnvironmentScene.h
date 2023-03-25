@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
 #include <QList>
+#include <QImage>
 
 #include "CellView.h"
 
