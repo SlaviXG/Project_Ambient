@@ -23,7 +23,7 @@ bool EnvironmentScene::loadColorGradations()
         QImage currentGradation;
         successfully = successfully & currentGradation.load(":/resources/cell_color_gradations/resources/cell_color_gradations/color_gradient_" + QString::number(i) + ".png");
         std::cout << QString::number(i).toStdString() << std::endl;
-        //currentGradation = currentGradation.scaledToWidth(20, Qt::SmoothTransformation);
+        currentGradation = currentGradation.scaledToWidth(20, Qt::SmoothTransformation);
         this->cellColorGradations->push_back(currentGradation);
     }
 
