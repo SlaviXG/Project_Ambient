@@ -17,11 +17,18 @@ namespace controller
     constexpr int kCellSize = 20;
     constexpr int kFps = 1;
 
+    class CellInteractor
+    {
+    public:
+        virtual void addCell(const Point &point) = 0;
+        virtual void removeCell(environment::Cell *cell) = 0;
+    };
+
     /**
      * @brief  GameController class is responsible for managing the game logic and updating the graphical representation of the game.
      *
      */
-    class GameController
+    class GameController : public CellInteractor
     {
         using gen = environment::RandomGenerator;
 
@@ -36,31 +43,59 @@ namespace controller
                 delete cell;
         };
 
-        void addCell(const Point &point)
+        void addCell(const Point &point) override
         {
-            environment::Cell *cellptr = new environment::Cell(point, environment);
-            environment->AddCell(cellptr);
+            // Check whether the cell already exists
+            bool exists = false;
+            for (const auto &cell : cellMap)
+            {
+                if (cell.first->getPosition() == point)
+                {
+                    exists = true;
+                    break;
+                }
+            }
 
-            double x = point.i * view->getWidth() / environment->getWidth();
-            double y = point.j * view->getHeight() / environment->getHeight();
-            CellView *cellViewptr = new CellView(x, y, kCellSize, kCellSize);
+            if (!exists)
+            {
+                environment::Cell *cellptr = new environment::Cell(point, environment);
+                environment->AddCell(cellptr);
 
-            cellMap.insert({cellptr, cellViewptr});
+                double x = point.i * view->getWidth() / environment->getWidth();
+                double y = point.j * view->getHeight() / environment->getHeight();
+                CellView *cellViewptr = new CellView(x, y, kCellSize, kCellSize);
+
+                cellMap.insert({cellptr, cellViewptr});
+            }
         }
 
-        inline void start() {
+        void removeCell(environment::Cell *cell) override
+        {
+            if (cellMap.find(cell) != cellMap.end())
+            {
+                this->scene->removeCell(cellMap.at(cell));
+                cellMap.erase(cell);
+                environment->RemoveCell(cell);
+            }
+        }
+
+        inline void start()
+        {
             tick.Start();
         }
 
-        inline void stop() {
+        inline void stop()
+        {
             tick.Stop();
         }
 
-        inline void pause() {
+        inline void pause()
+        {
             tick.Pause();
         }
 
-        inline void resume() {
+        inline void resume()
+        {
             tick.Resume();
         }
 
@@ -69,14 +104,17 @@ namespace controller
             gameController->processAI();
             gameController->render();
         }
-        
 
     private:
         void processAI()
         {
             auto cells = environment->getCells();
             for (auto &cell : cells)
-                cell->act();
+            {
+                auto aggressiveness = cell->act();
+                /*if (aggressiveness.first)
+                    cellMap.at(cell)->setGradient(aggressiveness.second)*/
+            }
             environment->updateMap();
         };
 
@@ -93,7 +131,6 @@ namespace controller
                 cellViewptr->setPos(x, y);
             }
         };
-
 
         MainWindow *view;
         EnvironmentScene *scene;

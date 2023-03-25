@@ -4,12 +4,13 @@
 
 #include "frame.h"
 #include "cell.h"
+#include "GameController.h"
 
 namespace environment
 {
     // Constructors / Destructors
-    Environment::Environment(int WIDTH, int HEIGHT)
-        : WIDTH(WIDTH), HEIGHT(HEIGHT)
+    Environment::Environment(int WIDTH, int HEIGHT, controller::CellInteractor *interactor)
+        : WIDTH(WIDTH), HEIGHT(HEIGHT), interactor(interactor)
     {
         frameMatrix.resize(HEIGHT);
 
@@ -38,6 +39,10 @@ namespace environment
     }
 
     // Set:
+    void Environment::setCellInteractor(controller::CellInteractor *interactor)
+    {
+        this->interactor = interactor;
+    }
 
     // Get:
     double Environment::getTime() const
@@ -53,7 +58,8 @@ namespace environment
 
         for (auto const &cell : cells)
         {
-            frameMatrix[cell->getPosition().i][cell->getPosition().j] = cell;
+            auto point = cell->getPosition();
+            frameMatrix[point.i][point.j] = cell;
         }
     };
 
@@ -95,10 +101,27 @@ namespace environment
             }
         }*/
     }
-    void Environment::AddCell(Cell* cell)
+    void Environment::AddCell(Cell *cell)
     {
-        cells.push_back(cell);
-        frameMatrix[cell->getPosition().i][cell->getPosition().j] = cell;
+        if (std::find(cells.begin(), cells.end(), cell) == cells.end())
+        {
+            cells.push_back(cell);
+            auto pos = cell->getPosition();
+            frameMatrix[pos.i][pos.j] = cell;
+            if (interactor != nullptr) interactor->addCell(cell->getPosition());
+        }
+    }
+
+    void Environment::RemoveCell(Cell *cell)
+    {
+        if (std::find(cells.begin(), cells.end(), cell) != cells.end())
+        {
+            auto pos = cell->getPosition();
+            frameMatrix[pos.i][pos.j] = nullptr;
+            delete cell;
+            cells.erase(std::remove(cells.begin(), cells.end(), cell), cells.end());
+            if (interactor != nullptr) interactor->removeCell(cell);
+        }
     }
 
     Point Environment::randomFreePosition(const Point &point) const

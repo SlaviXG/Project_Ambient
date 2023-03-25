@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+namespace controller { class GameController; }
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -20,5 +22,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    controller::GameController* controller = nullptr;
+    
 };
 #endif // MAINWINDOW_H

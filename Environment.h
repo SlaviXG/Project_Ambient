@@ -7,6 +7,7 @@
 #include "Tick.h"
 #include "Genotype.h" // For Point struct
 
+namespace controller { class CellInteractor; }
 
 namespace environment
 {
@@ -23,12 +24,15 @@ namespace environment
         double time;    
         std::vector<Cell *> cells;
 
+        controller::CellInteractor* interactor = nullptr;
+
     public:
         // Constructors / Destructors
-        explicit Environment(int WIDTH, int HEIGHT);
+        explicit Environment(int WIDTH, int HEIGHT, controller::CellInteractor* interactor = nullptr);
         virtual ~Environment(){};
 
         // Enviroment Actions:
+        // KISS 🥵😰
         void tickTime();
         bool isDay() const;
         bool isNight() const;
@@ -41,6 +45,8 @@ namespace environment
         }
         inline size_t getCellNumber() const { return cells.size(); }
         inline const std::vector<Cell *>& getCells() const { return cells; } 
+        
+        void setCellInteractor(controller::CellInteractor* interactor);
 
         // Updates frameMatrix with the data in the vector "cells"
         // Difficulty: WIDTH * HEIGHT
@@ -54,6 +60,7 @@ namespace environment
 
         // Cell Actions:
         void AddCell(Cell* cell);
+        void RemoveCell(Cell* cell);
 
         // Cell Vision:
         /*

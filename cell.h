@@ -57,9 +57,20 @@ namespace environment
         void move(int direction);
         void photosynthesis();
         void attack(Cell &opponent);
+        /**
+         * @brief Removes itself from the environment
+         * 
+         */
+        void die() { environment->RemoveCell(this); };
 
-        // Make choice and do action
-        void act() {/* TODO */}
+        /**
+         * @brief Make choice and do action
+         * 
+         * @return std::pair<bool, double> 
+         * bool - is aggressiveness changed,
+         * double - new aggressiveness
+         */
+        std::pair<bool, double> act() {/* TODO */}
         void act(std::vector<double> inputs);
         void duplicate();
 
