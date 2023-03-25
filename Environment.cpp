@@ -108,7 +108,7 @@ namespace environment
             cells.push_back(cell);
             auto pos = cell->getPosition();
             frameMatrix[pos.i][pos.j] = cell;
-            interactor->addCell(cell->getPosition());
+            if (interactor != nullptr) interactor->addCell(cell->getPosition());
         }
     }
 
@@ -120,7 +120,7 @@ namespace environment
             frameMatrix[pos.i][pos.j] = nullptr;
             delete cell;
             cells.erase(std::remove(cells.begin(), cells.end(), cell), cells.end());
-            interactor->removeCell(cell);
+            if (interactor != nullptr) interactor->removeCell(cell);
         }
     }
 
