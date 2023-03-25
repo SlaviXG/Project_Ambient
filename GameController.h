@@ -41,10 +41,6 @@ namespace controller
             auto cells = environment->getCells();
             for (auto cell : cells)
                 delete cell;
-
-            delete scene;
-            delete environment;
-            delete view;
         };
 
         void addCell(const Point &point) override
