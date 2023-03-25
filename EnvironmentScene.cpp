@@ -11,7 +11,7 @@ EnvironmentScene::EnvironmentScene(QObject *parent)
 
 EnvironmentScene::~EnvironmentScene()
 {
-
+    delete cellColorGradations;
 }
 
 bool EnvironmentScene::loadColorGradations()
