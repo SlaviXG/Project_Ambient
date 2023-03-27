@@ -1,5 +1,28 @@
 #include "cell.h"
 #include "Environment.h"
+enum actions
+{
+    kMoveUp,
+    kMoveUpRight,
+    kMoveRight,
+    kMoveRightDown,
+    kMoveDown,
+    kMoveLeftDown,
+    kMoveLeft,
+    kMoveLeftUp,
+    kPhotosynthesis,
+    kAttackUp,
+    kAttackUpRight,
+    kAttackRight,
+    kAttackRightDown,
+    kAttackDown,
+    kAttackLeftDown,
+    kAttackLeft,
+    kAttackLeftUp,
+    kDuplication
+};
+
+
 namespace environment
 {
     void Cell::move(int direction)
@@ -57,7 +80,7 @@ namespace environment
 
         switch (index)
         {
-            case 0:
+            case kMoveUp:
                 if (cellPosition.i == 0) {
                     outputs[index][0] = 0;
                     return bestPossibleChoiceIndex(outputs, inputs);
@@ -67,7 +90,7 @@ namespace environment
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
-            case 1:
+            case kMoveUpRight:
                 if (cellPosition.i == 0 || cellPosition.j == genotype::kMapSize - 1)             // mapSIze == 100
                 {
                     outputs[index][0] = 0;
@@ -78,7 +101,7 @@ namespace environment
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
-            case 2:
+            case kMoveRight:
                 if (cellPosition.j == genotype::kMapSize - 1) {
                     outputs[index][0] = 0;
                     return bestPossibleChoiceIndex(outputs, inputs);
@@ -88,7 +111,7 @@ namespace environment
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
-            case 3:
+            case kMoveRightDown:
                 if (cellPosition.i == genotype::kMapSize - 1 || cellPosition.j == genotype::kMapSize - 1) {
                     outputs[index][0] = 0;
                     return bestPossibleChoiceIndex(outputs, inputs);
@@ -98,7 +121,7 @@ namespace environment
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
-            case 4:
+            case kMoveDown:
                 if (cellPosition.i == genotype::kMapSize - 1) {
                     outputs[index][0] = 0;
                     return bestPossibleChoiceIndex(outputs, inputs);
@@ -108,7 +131,7 @@ namespace environment
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
-            case 5:
+            case kMoveLeftDown:
                 if (cellPosition.i == genotype::kMapSize - 1 || cellPosition.j == 0) {
                     outputs[index][0] = 0;
                     return bestPossibleChoiceIndex(outputs, inputs);
@@ -118,7 +141,7 @@ namespace environment
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
-            case 6:
+            case kMoveLeft:
                 if (cellPosition.j == 0) {
                     outputs[index][0] = 0;
                     return bestPossibleChoiceIndex(outputs, inputs);
@@ -128,7 +151,7 @@ namespace environment
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
-            case 7:
+            case kMoveLeftUp:
                 if (cellPosition.i == 0 || cellPosition.j == 0) {
                     outputs[index][0] = 0;
                     return bestPossibleChoiceIndex(outputs, inputs);
@@ -138,13 +161,63 @@ namespace environment
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
-            case 9:
-                if (genotype::opponentIsNearby(inputs))
-                    return index;
-                else
+            case kAttackUp:
+                if(inputs[7][0] == 0)
+                {
                     outputs[index][0] = 0;
-                return bestPossibleChoiceIndex(outputs, inputs);
-            case 10:
+                    return bestPossibleChoiceIndex(outputs, inputs);
+                }
+                return index;
+            case kAttackUpRight:
+                if(inputs[8][0] == 0)
+                {
+                    outputs[index][0] = 0;
+                    return bestPossibleChoiceIndex(outputs, inputs);
+                }
+                return index;
+            case kAttackRight:
+                if(inputs[12][0] == 0)
+                {
+                    outputs[index][0] = 0;
+                    return bestPossibleChoiceIndex(outputs, inputs);
+                }
+                return index;
+            case kAttackRightDown:
+                if(inputs[17][0] == 0)
+                {
+                    outputs[index][0] = 0;
+                    return bestPossibleChoiceIndex(outputs, inputs);
+                }
+                return index;
+            case kAttackDown:
+                if(inputs[16][0] == 0)
+                {
+                    outputs[index][0] = 0;
+                    return bestPossibleChoiceIndex(outputs, inputs);
+                }
+                return index;
+            case kAttackLeftDown:
+                if(inputs[15][0] == 0)
+                {
+                    outputs[index][0] = 0;
+                    return bestPossibleChoiceIndex(outputs, inputs);
+                }
+                return index;
+            case kAttackLeft:
+                if(inputs[11][0] == 0)
+                {
+                    outputs[index][0] = 0;
+                    return bestPossibleChoiceIndex(outputs, inputs);
+                }
+                return index;
+            case kAttackLeftUp:
+                if(inputs[6][0] == 0)
+                {
+                    outputs[index][0] = 0;
+                    return bestPossibleChoiceIndex(outputs, inputs);
+                }
+                return index;
+            case kDuplication:
                 if (inputs[24][0] < 300 )                     // indexation ? ; 300 == min_star_energy - 100
                 {
                     outputs[index][0] = 0;
@@ -152,7 +225,7 @@ namespace environment
                 }
 
                 return index;
-                    default:
+                default:
                         return index;
         }
     }
@@ -191,7 +264,8 @@ namespace environment
 
         if (opponentEnergy <= 0)
         {
-            opponent.setIsAlive(false);
+            opponent.die();                              //!!!!
+            //opponent.setIsAlive(false);
             increaseEnergy(currentEnergy, kPrise);
         }
     }
@@ -253,7 +327,7 @@ namespace environment
         return this->stepsCount;
     }
 
-    void Cell::act(std::vector<double> inputs)
+    void Cell::act(std::vector<double> inputs)          
     {
         if (isAliveStatus == 0) // Remove or delete cell
             return;
@@ -261,7 +335,7 @@ namespace environment
         inputs.push_back(currentEnergy);
         inputs.push_back(aggressiveness);
 
-        Matrix mInputs(0, 25);
+        Matrix mInputs(0, 25);              // Check !!
         mInputs.addColumn(Row(inputs));
 
         int indexOfAction = makeChoice(mInputs);
@@ -275,7 +349,7 @@ namespace environment
         {
             move(indexOfAction);
         }
-        else if (indexOfAction == 8)
+        else if (indexOfAction == kPhotosynthesis)
         {
             photosynthesis();
         }
@@ -283,7 +357,7 @@ namespace environment
         {
             // TODO attack(opponent);
         }
-        else if (indexOfAction == 10)
+        else if (indexOfAction == kDuplication)
         {
             duplicate();
         }

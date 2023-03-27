@@ -18,7 +18,7 @@ namespace genotype {
     constexpr Point
     kM3Size = {16, 16}; // third layer, second layer
     constexpr Point
-    kM4Size = {12, 16}; // output count (count of actions), third layer
+    kM4Size = {18, 16}; // output count (count of actions), third layer
     constexpr Point
     kB1Size = {16, 1}; // first baes
     constexpr Point
@@ -26,7 +26,7 @@ namespace genotype {
     constexpr Point
     kB3Size = {16, 1}; // third baes
     constexpr Point
-    kB4Size = {12, 1}; // last baes
+    kB4Size = {18, 1}; // last baes
 
     constexpr int kChance = 30;  // 1/30
     constexpr int kMapSize = 100;
