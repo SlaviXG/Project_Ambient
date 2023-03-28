@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     this->setCentralWidget(this->ui->horizontalLayoutWidget);
 
-    EnvironmentScene* scene = new EnvironmentScene();
+    /*EnvironmentScene* scene = new EnvironmentScene();
 
     CellView* cell = new CellView(ui->environmentView->width() / 2, ui->environmentView->height() / 2, 20, 20);
     scene->addCell(cell);
@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
         cell->moveBy(1, 2);
         qDebug() << "Move\n";
     });
-    timer->start(10);
+    timer->start(10);*/
 }
 
 qreal MainWindow::getWidth() const {
