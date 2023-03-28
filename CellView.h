@@ -12,17 +12,20 @@ QT_END_NAMESPACE
  * for Cell's graphic representation.
  **/
 
-class CellView : public QGraphicsRectItem
+class CellView : public QGraphicsPixmapItem
 {
 public:
     // x, y - starting position
-    CellView(qreal x, qreal y, qreal width, qreal heigh, QGraphicsItem *parent = nullptr);
+    CellView(qreal x, qreal y, qreal width, qreal heigh, QPixmap* colorGrad, QGraphicsItem *parent = nullptr);
     virtual~CellView();
+    void updateCellView(qreal x, qreal y, QPixmap* colorGrad);
+    void setColorGrad(QPixmap* colorGrad);
 
 private:
     //Position in the graphic field:
 
     qreal pos_x;
     qreal pos_y;
+
 };
 #endif // CELL_VIEW_H
