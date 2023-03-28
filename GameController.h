@@ -38,45 +38,24 @@ namespace controller
 
         virtual ~GameController()
         {
-            auto cells = environment->getCells();
-            for (auto cell : cells)
-                delete cell;
         };
 
         void addCell(const Point &point) override
         {
-            // Check whether the cell already exists
-            bool exists = false;
-            for (const auto &cell : cellMap)
-            {
-                if (cell.first->getPosition() == point)
-                {
-                    exists = true;
-                    break;
-                }
-            }
-
-            if (!exists)
-            {
-                environment::Cell *cellptr = new environment::Cell(point, environment);
-                environment->AddCell(cellptr);
+                auto cellptr = environment->AddCell(point);
 
                 double x = point.i * view->getWidth() / environment->getWidth();
                 double y = point.j * view->getHeight() / environment->getHeight();
-                CellView *cellViewptr = new CellView(x, y, kCellSize, kCellSize);
+                auto cellViewptr = scene->addCell(x, y, kCellSize, kCellSize, cellptr->getAggressiveness() * 100);
 
                 cellMap.insert({cellptr, cellViewptr});
-            }
         }
 
         void removeCell(environment::Cell *cell) override
         {
-            if (cellMap.find(cell) != cellMap.end())
-            {
-                this->scene->removeCell(cellMap.at(cell));
-                cellMap.erase(cell);
-                environment->RemoveCell(cell);
-            }
+            this->scene->removeCell(cellMap.at(cell));
+            cellMap.erase(cell);
+            environment->RemoveCell(cell);
         }
 
         inline void start()
@@ -111,7 +90,7 @@ namespace controller
             auto cells = environment->getCells();
             for (auto &cell : cells)
             {
-                //cell->act();
+                auto action =  cell->act();
 
                 /*if (aggressiveness.first)
                     cellMap.at(cell)->setGradient(aggressiveness.second)*/
@@ -121,14 +100,13 @@ namespace controller
         void render()
         {
             auto cells = environment->getCells();
-            for (auto &cell : cells)
+            for (const auto &cell : cells)
             {
                 auto point = cell->getPosition();
                 double x = point.i * view->getWidth() / environment->getWidth();
                 double y = point.j * view->getHeight() / environment->getHeight();
 
-                auto cellViewptr = cellMap.at(cell);
-                cellViewptr->setPos(x, y);
+                scene->updateCell(cellMap.at(cell), x, y, cell->getAggressiveness() * 100);
             }
         };
 
@@ -136,6 +114,7 @@ namespace controller
         EnvironmentScene *scene;
         environment::Environment *environment;
         std::map<environment::Cell *, CellView *> cellMap;
+
         Tick tick;
     };
 };

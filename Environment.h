@@ -51,9 +51,8 @@ namespace environment
          */
         inline Cell* getCell(const Point& point) const;
         inline size_t getCellNumber() const { return cells.size(); }
-        inline std::vector<Cell *>& getCells() { return cells; }
-        inline Cell* getCell(const Point& point) const;
-        
+        inline std::vector<Cell *> getCells() { return cells; }
+
         void setCellInteractor(controller::CellInteractor* interactor);
 
         /**
@@ -71,8 +70,9 @@ namespace environment
             }
 
         // Cell Actions:
-        void AddCell(Cell* cell);
-        void RemoveCell(Cell* cell);
+        Cell* AddCell(Cell* cell); // Call from logic
+        Cell* AddCell(const Point& point); // Call from controller
+        void RemoveCell(Cell* cell); // Call from logic
 
         // Cell Vision:
         /*
