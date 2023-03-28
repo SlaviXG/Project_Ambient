@@ -22,6 +22,12 @@ namespace environment
         this->time = 0.0;
     }
 
+    Environment::~Environment() {
+        for (auto line : frameMatrix)
+            for (auto frame : line)
+                delete frame;
+    }
+
     // Enviroment Actions:
     void Environment::tickTime()
     {

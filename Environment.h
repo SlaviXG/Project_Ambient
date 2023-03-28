@@ -29,7 +29,7 @@ namespace environment
     public:
         // Constructors / Destructors
         explicit Environment(int WIDTH, int HEIGHT, controller::CellInteractor* interactor = nullptr);
-        virtual ~Environment(){};
+        virtual ~Environment();
 
         // Enviroment Actions:
         // KISS 🥵😰
