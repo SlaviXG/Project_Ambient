@@ -41,11 +41,11 @@ namespace environment
             return;
         }
 
-        assert(environment != nullptr);
-        environment->updateCellPosition(this, oldPos);
-
         currentEnergy -= kMoveCost;
         isAliveStatus = currentEnergy > 0;
+
+        assert(environment != nullptr);
+        environment->updateCellPosition(this, oldPos);
     }
 
     int Cell::bestPossibleChoiceIndex(Matrix outputs, Matrix inputs)
