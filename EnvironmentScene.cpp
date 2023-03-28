@@ -5,7 +5,7 @@ EnvironmentScene::EnvironmentScene(QObject *parent)
     : QGraphicsScene(parent)
 {
     this->cellColorGradations = new QVector <QImage>;
-    this->colorGradationsLoaded = this->loadColorGradations();
+    // this->colorGradationsLoaded = this->loadColorGradations();
     std::cout << "Color gradations are " << (colorGradationsLoaded ? ("") : ("not ")) << "loaded." << std::endl;
 }
 

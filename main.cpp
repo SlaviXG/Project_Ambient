@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
     MainWindow win;
     // TODO: win.setScene(&scene);
     controller::GameController cont(&win, &scene, &env);
+    env.setCellInteractor(&cont);
     cont.start();
     win.show();
 

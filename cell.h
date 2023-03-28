@@ -92,7 +92,7 @@ namespace environment
          * bool - is aggressiveness changed,
          * double - new aggressiveness
          */
-        std::pair<bool, double> act() {/* TODO */}
+        actions act() { return kAttackLeftDown; /* TODO */}
         int act(std::vector<double> inputs);
         void duplicate();
 
