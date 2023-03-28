@@ -1,27 +1,5 @@
 #include "cell.h"
 #include "Environment.h"
-enum actions
-{
-    kMoveUp,
-    kMoveUpRight,
-    kMoveRight,
-    kMoveRightDown,
-    kMoveDown,
-    kMoveLeftDown,
-    kMoveLeft,
-    kMoveLeftUp,
-    kPhotosynthesis,
-    kAttackUp,
-    kAttackUpRight,
-    kAttackRight,
-    kAttackRightDown,
-    kAttackDown,
-    kAttackLeftDown,
-    kAttackLeft,
-    kAttackLeftUp,
-    kDuplication
-};
-
 
 namespace environment
 {
@@ -249,25 +227,67 @@ namespace environment
 
     void Cell::photosynthesis()
     {
-        increaseEnergy(currentEnergy, kPhotosynthesis);
+        increaseEnergy(currentEnergy, kPhotosynthesisAdd);
     }
 
-    void Cell::attack(Cell &opponent)
+    void Cell::attack(int action)
     {
-        double opponentEnergy = opponent.getCurrentEnergy();
-        opponentEnergy -= currentEnergy / kAttackCoefficient;
-        currentEnergy -= currentEnergy / kAttackCost;
+       // Cell opponent;
+        Point currentPosition = position;
+
+        if(action == kAttackUp)
+        {
+            currentPosition.i--;
+        }
+        else if(action == kAttackUpRight)
+        {
+            currentPosition.i--;
+            currentPosition.j++;
+        }
+        else if(action == kAttackRight)
+        {
+            currentPosition.j++;
+        }
+        else if(action == kAttackRightDown)
+        {
+            currentPosition.i++;
+            currentPosition.j++;
+        }
+        else if(action == kAttackDown)
+        {
+            currentPosition.i++;
+        }
+        else if(action == kAttackLeftDown)
+        {
+            currentPosition.i++;
+            currentPosition.j--;
+        }
+        else if(action == kAttackLeft)
+        {
+            currentPosition.j--;
+        }
+        else
+        {
+            currentPosition.i--;
+            currentPosition.j--;
+        }
+
+        Frame opponent(*environment->getFrame(currentPosition));                // TODO
+
+        //double opponentEnergy = opponent.getCurrentEnergy();
+        //opponentEnergy -= currentEnergy / kAttackCoefficient;
+        //currentEnergy -= currentEnergy / kAttackCost;
 
         aggressiveness += 0.1;
         if (aggressiveness > 1)
             aggressiveness = 1;
 
-        if (opponentEnergy <= 0)
-        {
-            opponent.die();                              //!!!!
+        //if (opponentEnergy <= 0)
+        //{
+        //   opponent.die();                              //!!!!
             //opponent.setIsAlive(false);
-            increaseEnergy(currentEnergy, kPrise);
-        }
+        //    increaseEnergy(currentEnergy, kPrise);
+        //}
     }
     
     void Cell::duplicate()
@@ -327,10 +347,10 @@ namespace environment
         return this->stepsCount;
     }
 
-    void Cell::act(std::vector<double> inputs)          
+    int Cell::act(std::vector<double> inputs)
     {
         if (isAliveStatus == 0) // Remove or delete cell
-            return;
+            return 0;
 
         inputs.push_back(currentEnergy);
         inputs.push_back(aggressiveness);
@@ -345,21 +365,26 @@ namespace environment
             std::cout << "negative action!" << std::endl;
         }
 
-        if (indexOfAction < 8)
+        if (indexOfAction < kPhotosynthesis)                  //  0 - 7 <- 8 directions for moving
         {
             move(indexOfAction);
         }
+
         else if (indexOfAction == kPhotosynthesis)
         {
             photosynthesis();
         }
-        else if (indexOfAction == 9) // find opponent!!!
-        {
-            // TODO attack(opponent);
-        }
+
         else if (indexOfAction == kDuplication)
         {
             duplicate();
         }
+
+        else
+        {
+            attack(indexOfAction);
+        }
+
+        return indexOfAction;
     }
 }

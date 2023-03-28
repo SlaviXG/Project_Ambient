@@ -10,11 +10,33 @@
 namespace environment
 {
 
+    enum actions
+    {
+        kMoveUp,
+        kMoveUpRight,
+        kMoveRight,
+        kMoveRightDown,
+        kMoveDown,
+        kMoveLeftDown,
+        kMoveLeft,
+        kMoveLeftUp,
+        kPhotosynthesis,
+        kAttackUp,
+        kAttackUpRight,
+        kAttackRight,
+        kAttackRightDown,
+        kAttackDown,
+        kAttackLeftDown,
+        kAttackLeft,
+        kAttackLeftUp,
+        kDuplication
+    };
+    
     constexpr int kMaxEnergy = 500;
     constexpr int kMinEnergy = 400;
     constexpr int kSteps = 20;
     constexpr int kMoveCost = 10;
-    constexpr int kPhotosynthesis = 25;
+    constexpr int kPhotosynthesisAdd = 25;
     constexpr int kAttackCoefficient = 4; // 1/4 * currentEnergy
     constexpr int kAttackCost = 10;       // 1/10 * currentEnergy
     constexpr int kPrise = 200;           // + energy after killing
@@ -56,7 +78,7 @@ namespace environment
 
         void move(int direction);
         void photosynthesis();
-        void attack(Cell &opponent);
+        void attack(int action);
         /**
          * @brief Removes itself from the environment
          * 
@@ -71,7 +93,7 @@ namespace environment
          * double - new aggressiveness
          */
         std::pair<bool, double> act() {/* TODO */}
-        void act(std::vector<double> inputs);
+        int act(std::vector<double> inputs);
         void duplicate();
 
         int makeChoice(Matrix inputs);
