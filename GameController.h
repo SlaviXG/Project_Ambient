@@ -36,26 +36,23 @@ namespace controller
         explicit GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment)
             : view(view), scene(scene), environment(environment), tick(std::bind(&GameController::execute, this), kFps){};
 
-        virtual ~GameController()
-        {
-        };
+        virtual ~GameController(){};
 
         void addCell(const Point &point) override
         {
-                auto cellptr = environment->AddCell(point);
+            auto cellptr = environment->AddCell(point);
 
-                double x = point.i * view->getWidth() / environment->getWidth();
-                double y = point.j * view->getHeight() / environment->getHeight();
-                auto cellViewptr = scene->addCell(x, y, kCellSize, kCellSize, cellptr->getAggressiveness() * 100);
+            double x = point.i * view->getWidth() / environment->getWidth();
+            double y = point.j * view->getHeight() / environment->getHeight();
+            auto cellViewptr = scene->addCell(x, y, kCellSize, kCellSize, cellptr->getAggressiveness() * 100);
 
-                cellMap.insert({cellptr, cellViewptr});
+            cellMap.insert({cellptr, cellViewptr});
         }
 
         void removeCell(environment::Cell *cell) override
         {
             this->scene->removeCell(cellMap.at(cell));
             cellMap.erase(cell);
-            environment->RemoveCell(cell);
         }
 
         inline void start()
@@ -90,7 +87,7 @@ namespace controller
             auto cells = environment->getCells();
             for (auto &cell : cells)
             {
-                auto action =  cell->act();
+                auto action = cell->act();
 
                 /*if (aggressiveness.first)
                     cellMap.at(cell)->setGradient(aggressiveness.second)*/
