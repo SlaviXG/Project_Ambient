@@ -13,6 +13,14 @@ EnvironmentScene::~EnvironmentScene()
 {
 }
 
+CellView *EnvironmentScene::addCell(qreal x, qreal y, int width, int height, int colorGrad)
+{
+    colorGrad = colorGrad % 100;
+    CellView* cell = new CellView(x, y, width, height, &(this->cellColorGradations[colorGrad]));
+    cells.append(cell);
+    this->addItem(cell);
+}
+
 void EnvironmentScene::addCell(CellView *cell, int colorGrad)
 {
     colorGrad = colorGrad % 100;
@@ -23,11 +31,13 @@ void EnvironmentScene::addCell(CellView *cell, int colorGrad)
 
 void EnvironmentScene::removeCell(CellView *cell)
 {
-
+    this->removeItem(cell);
+    this->cells.removeOne(cell);
+    delete cell;
 }
 
 
-void EnvironmentScene::updateCell(CellView *cell, int x, int y, int colorGrad)
+void EnvironmentScene::updateCell(CellView *cell, qreal x, qreal y, int colorGrad)
 {
     colorGrad = colorGrad % 100;
     cell->updateCellView(x, y, &(this->cellColorGradations[colorGrad]));
