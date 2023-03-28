@@ -4,33 +4,14 @@
 EnvironmentScene::EnvironmentScene(QObject *parent)
     : QGraphicsScene(parent)
 {
-    this->setBackgroundBrush(Qt::transparent);
-    this->colorGradationsLoaded = this->loadColorGradations();
+    this->cellColorGradations = new QVector <QImage>;
+    // this->colorGradationsLoaded = this->loadColorGradations();
     std::cout << "Color gradations are " << (colorGradationsLoaded ? ("") : ("not ")) << "loaded." << std::endl;
 }
 
 EnvironmentScene::~EnvironmentScene()
 {
-}
-
-void EnvironmentScene::addCell(CellView *cell, int colorGrad)
-{
-    colorGrad = colorGrad % 100;
-    cell->setColorGrad(&(this->cellColorGradations[colorGrad]));
-    cells.append(cell);
-    this->addItem(cell);
-}
-
-void EnvironmentScene::removeCell(CellView *cell)
-{
-
-}
-
-
-void EnvironmentScene::updateCell(CellView *cell, int x, int y, int colorGrad)
-{
-    colorGrad = colorGrad % 100;
-    cell->updateCellView(x, y, &(this->cellColorGradations[colorGrad]));
+    delete cellColorGradations;
 }
 
 bool EnvironmentScene::loadColorGradations()
@@ -40,11 +21,10 @@ bool EnvironmentScene::loadColorGradations()
     for(int i = 0; i < 100; i++)
     {
         QImage currentGradation;
-        successfully = successfully & currentGradation.load(":/resources/cell_color_gradations/resources/cell_color_gradations/color_gradient_" + QString::number(i) + ".png", "PNG");
-        currentGradation = currentGradation.scaledToWidth(20, Qt::SmoothTransformation);
-        QPixmap imagePixmap = QPixmap::fromImage(currentGradation);
-        this->cellColorGradations.push_back(imagePixmap);
+        successfully = successfully & currentGradation.load(":/resources/cell_color_gradations/resources/cell_color_gradations/color_gradient_" + QString::number(i) + ".png");
         std::cout << QString::number(i).toStdString() << std::endl;
+        currentGradation = currentGradation.scaledToWidth(20, Qt::SmoothTransformation);
+        this->cellColorGradations->push_back(currentGradation);
     }
 
     return successfully;
