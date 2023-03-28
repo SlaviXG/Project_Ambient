@@ -5,8 +5,6 @@ namespace environment
 {
     void Cell::move(int direction)
     {
-        auto oldPos = this->position;
-
         switch (direction)
         {
         case 0:
@@ -43,9 +41,6 @@ namespace environment
 
         currentEnergy -= kMoveCost;
         isAliveStatus = currentEnergy > 0;
-
-        assert(environment != nullptr);
-        environment->updateCellPosition(this, oldPos);
     }
 
     int Cell::bestPossibleChoiceIndex(Matrix outputs, Matrix inputs)

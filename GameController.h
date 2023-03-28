@@ -111,11 +111,11 @@ namespace controller
             auto cells = environment->getCells();
             for (auto &cell : cells)
             {
-                //cell->act();
-
+                auto aggressiveness = cell->act();
                 /*if (aggressiveness.first)
                     cellMap.at(cell)->setGradient(aggressiveness.second)*/
             }
+            environment->updateMap();
         };
 
         void render()

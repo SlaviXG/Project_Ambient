@@ -50,19 +50,18 @@ namespace environment
         return this->time;
     }
 
-    inline Cell* Environment::getCell(const Point& point) const {
-        return dynamic_cast<Cell*>(frameMatrix[point.i][point.j]);
-    }
+    void Environment::updateMap()
+    {
+        for (auto &row : frameMatrix)
+            for (auto &frame : row)
+                frame = nullptr;
 
-    void Environment::updateCellPosition(Cell* cell, const Point& oldPos)
-     {
-         assert(checkPositionCorrectness(oldPos));
-         assert(checkPositionCorrectness(cell->getPosition()));
-
-         frameMatrix[oldPos.i][oldPos.j] = nullptr;
-         auto newPos = cell->getPosition();
-         frameMatrix[newPos.i][newPos.j] = cell;
-     }
+        for (auto const &cell : cells)
+        {
+            auto point = cell->getPosition();
+            frameMatrix[point.i][point.j] = cell;
+        }
+    };
 
     std::vector<bool> Environment::getVisionField(const Point &viewPoint) const
     {

@@ -43,25 +43,14 @@ namespace environment
             assert(checkPositionCorrectness(point));
             return frameMatrix[point.i][point.j];
         }
-        /**
-         * @brief Get the Cell object
-         * 
-         * @param point Position on the map
-         * @return Cell or nullptr if the Cell is missing
-         */
-        inline Cell* getCell(const Point& point) const;
         inline size_t getCellNumber() const { return cells.size(); }
         inline const std::vector<Cell *>& getCells() const { return cells; } 
         
-        inline void setCellInteractor(controller::CellInteractor* interactor);
+        void setCellInteractor(controller::CellInteractor* interactor);
 
-        /**
-         * @brief Updates Cell position in the frameMatrix
-         * 
-         * @param cell Cell to update position
-         * @param oldPos Cell's old position on the map
-         */
-       void updateCellPosition(Cell* cell, const Point& oldPos);
+        // Updates frameMatrix with the data in the vector "cells"
+        // Difficulty: WIDTH * HEIGHT
+        void updateMap();
 
         // Checks if a point has negative or larger coordinates than the map size 
         // On failure returns Point{-1, -1}
