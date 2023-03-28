@@ -109,11 +109,10 @@ namespace controller
         void processAI()
         {
             auto cells = environment->getCells();
-            /*for (auto &cell : cells)
+            for (auto &cell : cells)
             {
-                auto aggressiveness = cell->act();
+                auto action = cell->act();
             }
-            environment->updateMap();*/
         };
 
         void render()

@@ -91,7 +91,7 @@ namespace environment
          * 
          * @return Action performed 
          */
-        actions act() {/* TODO */}
+        actions act() { return kAttackLeftDown; /* TODO */}
         int act(std::vector<double> inputs);
         void duplicate();
 
