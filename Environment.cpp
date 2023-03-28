@@ -22,6 +22,12 @@ namespace environment
         this->time = 0.0;
     }
 
+    Environment::~Environment() {
+        for (auto line : frameMatrix)
+            for (auto frame : line)
+                delete frame;
+    }
+
     // Enviroment Actions:
     void Environment::tickTime()
     {
@@ -102,15 +108,24 @@ namespace environment
             }
         }*/
     }
-    void Environment::AddCell(Cell *cell)
+    Cell* Environment::AddCell(Cell *cell)
     {
-        if (std::find(cells.begin(), cells.end(), cell) == cells.end())
-        {
-            cells.push_back(cell);
-            auto pos = cell->getPosition();
-            frameMatrix[pos.i][pos.j] = cell;
-            if (interactor != nullptr) interactor->addCell(cell->getPosition());
-        }
+        cells.push_back(cell);
+        auto pos = cell->getPosition();
+        frameMatrix[pos.i][pos.j] = cell;
+        if (interactor != nullptr) interactor->addCell(cell->getPosition());
+
+        return cell;
+    }
+
+    Cell* Environment::AddCell(const Point& point)
+    {
+        Cell* cell = new Cell(point, this);
+        cells.push_back(cell);
+        auto pos = cell->getPosition();
+        frameMatrix[pos.i][pos.j] = cell;
+        
+        return cell;
     }
 
     void Environment::RemoveCell(Cell *cell)

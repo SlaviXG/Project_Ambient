@@ -3,6 +3,7 @@
 
 #include <chrono>
 #include <thread>
+#include <atomic>
 #include <functional>
 
 namespace controller
@@ -39,8 +40,8 @@ namespace controller
     private:
         float fps;
         unsigned int interval; // Milliseconds
-        bool isPaused = false;
-        bool isRunning = false;
+        std::atomic<bool> isPaused {false};
+        std::atomic<bool> isRunning {false};
 
         std::function<void()> func;
     };
