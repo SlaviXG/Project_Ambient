@@ -43,6 +43,15 @@ namespace environment
             assert(checkPositionCorrectness(point));
             return frameMatrix[point.i][point.j];
         }
+        /**
+         * @brief Get the Cell object
+         * 
+         * @param point Position on the map
+         * @return Cell or nullptr if the Cell is missing
+         */
+        inline Cell* getCell(const Point& point) const {
+            return dynamic_cast<Cell*>(frameMatrix[point.i][point.j]);
+        }
         inline size_t getCellNumber() const { return cells.size(); }
         inline const std::vector<Cell *>& getCells() const { return cells; } 
         
