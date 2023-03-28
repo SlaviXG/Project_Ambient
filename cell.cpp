@@ -41,6 +41,9 @@ namespace environment
             return;
         }
 
+        assert(environment != nullptr);
+        environment->updateCellPosition(this, oldPos);
+
         currentEnergy -= kMoveCost;
         isAliveStatus = currentEnergy > 0;
 
