@@ -19,15 +19,16 @@ public:
     EnvironmentScene(QObject *parent = nullptr);
     ~EnvironmentScene();
 
-    void addCell(CellView* cell) { cells.append(cell); this->addItem(cell); }
-    const QList<CellView*>& getCells() const { return cells; }
-    void removeCell(CellView* cell) {cells.removeOne(cell);}
+    void addCell(CellView* cell, int colorGrad);
+    void removeCell(CellView* cell);
+    void updateCell(CellView* cell, int x, int y, int colorGrad);
+    const QList<CellView*>& getCells() const;
 
 private:
     QList<CellView*> cells;
-    QVector <QImage> *cellColorGradations;
+    QVector <QPixmap> cellColorGradations;
     bool colorGradationsLoaded;
 
-    bool loadColorGradations();
+    bool loadColorGradations();  
 };
 #endif // ENVIRONMENT_SCENE_H

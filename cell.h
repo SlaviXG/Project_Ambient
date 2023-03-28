@@ -85,14 +85,13 @@ namespace environment
          */
         void die() { environment->RemoveCell(this); };
 
+
         /**
-         * @brief Make choice and do action
+         * @brief Make choice and perform action
          * 
-         * @return std::pair<bool, double> 
-         * bool - is aggressiveness changed,
-         * double - new aggressiveness
+         * @return Action performed 
          */
-        actions act() { return kAttackLeftDown; /* TODO */}
+        actions act() {/* TODO */}
         int act(std::vector<double> inputs);
         void duplicate();
 
