@@ -5,6 +5,8 @@ namespace environment
 {
     void Cell::move(int direction)
     {
+        auto oldPos = this->position;
+
         switch (direction)
         {
         case 0:
@@ -38,6 +40,9 @@ namespace environment
         default:
             return;
         }
+
+        assert(environment != nullptr);
+        environment->updateCellPosition(this, oldPos);
 
         currentEnergy -= kMoveCost;
         isAliveStatus = currentEnergy > 0;

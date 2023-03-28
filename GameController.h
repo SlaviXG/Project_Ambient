@@ -113,7 +113,6 @@ namespace controller
             {
                 auto action = cell->act();
             }
-            environment->updateMap();
         };
 
         void render()

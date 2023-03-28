@@ -45,12 +45,17 @@ namespace environment
         }
         inline size_t getCellNumber() const { return cells.size(); }
         inline std::vector<Cell *>& getCells() { return cells; }
+        inline Cell* getCell(const Point& point) const;
         
         void setCellInteractor(controller::CellInteractor* interactor);
 
-        // Updates frameMatrix with the data in the vector "cells"
-        // Difficulty: WIDTH * HEIGHT
-        void updateMap();
+        /**
+         * @brief Updates Cell position in the frameMatrix
+         *
+         * @param cell Cell to update position
+         * @param oldPos Cell's old position on the map
+         */
+       void updateCellPosition(Cell* cell, const Point& oldPos);
 
         // Checks if a point has negative or larger coordinates than the map size 
         // On failure returns Point{-1, -1}
