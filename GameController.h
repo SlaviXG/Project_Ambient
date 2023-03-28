@@ -109,13 +109,11 @@ namespace controller
         void processAI()
         {
             auto cells = environment->getCells();
-            for (auto &cell : cells)
+            /*for (auto &cell : cells)
             {
                 auto aggressiveness = cell->act();
-                /*if (aggressiveness.first)
-                    cellMap.at(cell)->setGradient(aggressiveness.second)*/
             }
-            environment->updateMap();
+            environment->updateMap();*/
         };
 
         void render()

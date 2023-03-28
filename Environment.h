@@ -44,7 +44,7 @@ namespace environment
             return frameMatrix[point.i][point.j];
         }
         inline size_t getCellNumber() const { return cells.size(); }
-        inline const std::vector<Cell *>& getCells() const { return cells; } 
+        inline std::vector<Cell *>& getCells() { return cells; }
         
         void setCellInteractor(controller::CellInteractor* interactor);
 
