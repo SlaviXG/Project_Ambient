@@ -5,7 +5,7 @@ namespace environment
 {
     void Cell::move(int direction)
     {
-        auto oldPos = this->position;
+        auto oldPos = position;
 
         switch (direction)
         {
@@ -40,13 +40,9 @@ namespace environment
         default:
             return;
         }
-
-        assert(environment != nullptr);
-        environment->updateCellPosition(this, oldPos);
-
         currentEnergy -= kMoveCost;
-        isAliveStatus = currentEnergy > 0;
-
+        if(currentEnergy <= 0)
+            die();
         assert(environment != nullptr);
         environment->updateCellPosition(this, oldPos);
     }
@@ -240,7 +236,6 @@ namespace environment
 
     void Cell::attack(int action)
     {
-       // Cell opponent;
         Point currentPosition = position;
 
         if(action == kAttackUp)
@@ -280,27 +275,30 @@ namespace environment
             currentPosition.j--;
         }
 
-        Frame opponent(*environment->getFrame(currentPosition));                // TODO
+        Cell* opponent = environment->getCell(currentPosition); // TODO
 
-        //double opponentEnergy = opponent.getCurrentEnergy();
-        //opponentEnergy -= currentEnergy / kAttackCoefficient;
-        //currentEnergy -= currentEnergy / kAttackCost;
+        double opponentEnergy = (*opponent).getCurrentEnergy();
+        opponentEnergy -= currentEnergy / kAttackCoefficient;
+        currentEnergy -= currentEnergy / kAttackCost;
 
         aggressiveness += 0.1;
         if (aggressiveness > 1)
             aggressiveness = 1;
 
-        //if (opponentEnergy <= 0)
-        //{
-        //   opponent.die();                              //!!!!
+        if (opponentEnergy <= 0)
+        {
+            (*opponent).die();                              //!!!!
             //opponent.setIsAlive(false);
-        //    increaseEnergy(currentEnergy, kPrise);
-        //}
+            increaseEnergy(currentEnergy, kPrise);
+        }
+
+        opponent->setCurrentEnergy(opponentEnergy);
     }
     
     void Cell::duplicate()
     {
         Point freePosition = environment->randomFreePosition(position);
+        currentEnergy = currentEnergy * 0.4;
         this->environment->AddCell(new Cell(*this, freePosition));
         genotype = genotype::Genotype(genotype);
     }
@@ -355,10 +353,22 @@ namespace environment
         return this->stepsCount;
     }
 
-    int Cell::act(std::vector<double> inputs)
+    actions Cell::act() //std::vector<double> inputs
     {
+        std::vector<double> inputs;
+        std::vector<bool> vision;
+        vision = environment->getVisionField(position);
+        
+        for(int i = 0; i < vision.size(); i++)
+        {
+            inputs.push_back(vision[i]);
+        }
+
         if (isAliveStatus == 0) // Remove or delete cell
-            return 0;
+        {
+            die();
+            return kCellIsDead;
+        }
 
         inputs.push_back(currentEnergy);
         inputs.push_back(aggressiveness);
@@ -376,23 +386,25 @@ namespace environment
         if (indexOfAction < kPhotosynthesis)                  //  0 - 7 <- 8 directions for moving
         {
             move(indexOfAction);
+            return kMoveUp;
         }
 
         else if (indexOfAction == kPhotosynthesis)
         {
             photosynthesis();
+            return kPhotosynthesis;
         }
 
         else if (indexOfAction == kDuplication)
         {
             duplicate();
+            return kDuplication;
         }
 
         else
         {
             attack(indexOfAction);
+            return kAttackUp;
         }
-
-        return indexOfAction;
     }
 }

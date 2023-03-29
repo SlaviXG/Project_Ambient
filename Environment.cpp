@@ -56,7 +56,7 @@ namespace environment
         return this->time;
     }
 
-    inline Cell* Environment::getCell(const Point& point) const {
+    Cell* Environment::getCell(const Point& point) const {
         return dynamic_cast<Cell*>(frameMatrix[point.i][point.j]);
     }
 
