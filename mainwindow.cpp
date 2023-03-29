@@ -3,15 +3,15 @@
 
 #include <QTimer>
 
-#include "EnvironmentScene.h"
-#include "CellView.h"
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(EnvironmentScene* scene, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     this->setCentralWidget(this->ui->horizontalLayoutWidget);
+
+    ui->environmentView->setScene(scene);
 
     /*EnvironmentScene* scene = new EnvironmentScene();
 
