@@ -29,7 +29,9 @@ namespace environment
         kAttackLeftDown,
         kAttackLeft,
         kAttackLeftUp,
-        kDuplication
+        kDuplication,
+        kCellIsDead,
+        kNegativeAction = -1
     };
     
     constexpr int kMaxEnergy = 500;
@@ -91,8 +93,8 @@ namespace environment
          * 
          * @return Action performed 
          */
-        actions act() {/* TODO */}
-        int act(std::vector<double> inputs);
+        //actions act() {/* TODO */}
+        actions act();  //std::vector<double> inputs
         void duplicate();
 
         int makeChoice(Matrix inputs);

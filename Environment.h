@@ -49,7 +49,7 @@ namespace environment
          * @param point Position on the map
          * @return Cell or nullptr if the Cell is missing
          */
-        inline Cell* getCell(const Point& point) const;
+        Cell* getCell(const Point& point) const;
         inline size_t getCellNumber() const { return cells.size(); }
         inline std::vector<Cell *>& getCells() { return cells; }
 
