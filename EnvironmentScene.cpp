@@ -7,24 +7,25 @@ EnvironmentScene::EnvironmentScene(QObject *parent)
     this->setBackgroundBrush(Qt::transparent);
     this->colorGradationsLoaded = this->loadColorGradations();
     std::cout << "Color gradations are " << (colorGradationsLoaded ? ("") : ("not ")) << "loaded." << std::endl;
+
+    this->addCell(this->genCellViewPtr(40, 40, 20, 20, 99));
 }
 
 EnvironmentScene::~EnvironmentScene()
 {
 }
 
-CellView *EnvironmentScene::addCell(qreal x, qreal y, int width, int height, int colorGrad)
+CellView *EnvironmentScene::genCellViewPtr(qreal x, qreal y, int width, int height, int colorGrad)
 {
     colorGrad = colorGrad % 100;
     CellView* cell = new CellView(x, y, width, height, &(this->cellColorGradations[colorGrad]));
     cells.append(cell);
     this->addItem(cell);
+    return cell;
 }
 
-void EnvironmentScene::addCell(CellView *cell, int colorGrad)
+void EnvironmentScene::addCell(CellView *cell)
 {
-    colorGrad = colorGrad % 100;
-    cell->setColorGrad(&(this->cellColorGradations[colorGrad]));
     cells.append(cell);
     this->addItem(cell);
 }

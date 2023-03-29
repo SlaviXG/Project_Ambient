@@ -44,7 +44,7 @@ namespace controller
 
             double x = point.i * view->getWidth() / environment->getWidth();
             double y = point.j * view->getHeight() / environment->getHeight();
-            auto cellViewptr = scene->addCell(x, y, kCellSize, kCellSize, cellptr->getAggressiveness() * 100);
+            auto cellViewptr = scene->genCellViewPtr(x, y, kCellSize, kCellSize, cellptr->getAggressiveness() * 100);
 
             cellMap.insert({cellptr, cellViewptr});
         }

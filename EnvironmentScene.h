@@ -19,8 +19,8 @@ public:
     EnvironmentScene(QObject *parent = nullptr);
     ~EnvironmentScene();
 
-    CellView* addCell(qreal x, qreal y, int width, int height, int colorGrad);
-    void addCell(CellView* cell, int colorGrad);
+    CellView* genCellViewPtr(qreal x, qreal y, int width, int height, int colorGrad);
+    void addCell(CellView* cell);
     void removeCell(CellView* cell);
     void updateCell(CellView* cell, qreal x, qreal y, int colorGrad);
     const QList<CellView*>& getCells() const;
