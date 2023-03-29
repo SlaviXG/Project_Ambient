@@ -124,8 +124,7 @@ namespace environment
     {
         Cell *cell = new Cell(point, this);
         cells.push_back(cell);
-        auto pos = cell->getPosition();
-        frameMatrix[pos.i][pos.j] = cell;
+        frameMatrix[point.i][point.j] = cell;
 
         return cell;
     }
@@ -134,7 +133,9 @@ namespace environment
     {
         auto pos = cell->getPosition();
         frameMatrix[pos.i][pos.j] = nullptr;
+
         delete cell;
+
         cells.erase(std::remove(cells.begin(), cells.end(), cell), cells.end());
         if (interactor != nullptr)
             interactor->removeCell(cell);
