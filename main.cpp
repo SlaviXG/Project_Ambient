@@ -31,10 +31,11 @@ int main(int argc, char *argv[])
 
     environment::Environment env(100, 100);
     EnvironmentScene scene;
-    MainWindow win;
-    // TODO: win.setScene(&scene);
+    MainWindow win(&scene);;
     controller::GameController cont(&win, &scene, &env);
     env.setCellInteractor(&cont);
+    win.setController(&cont);
+    // cont.addCell({50, 50});
     cont.start();
     win.show();
 

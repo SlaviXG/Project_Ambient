@@ -88,26 +88,22 @@ namespace environment
         Point randomFreePosition(const Point &point) const;
     };
 
-    class RandomGenerator
-    {
+    class RandomGenerator {
     public:
-        static int generateRandomIntNumber(int min, int max)
-        {
+        static int generateRandomIntNumber(int min, int max) {
             static std::random_device rd;
             static std::mt19937 rng(rd());
-            static std::uniform_int_distribution<int> idist(min, max);
+            std::uniform_int_distribution<int> idist(min, max);
             return idist(rng);
         }
 
-        static double generateRandomDoubleNumber(double min, double max)
-        {
+        static double generateRandomDoubleNumber(double min, double max) {
             static std::random_device rd;
             static std::mt19937 rng(rd());
-            static std::uniform_real_distribution<double> ddist(min, max);
+            std::uniform_real_distribution<double> ddist(min, max);
             return ddist(rng);
         }
     };
-
 }
 
 #endif // ENVIRONMENT_H

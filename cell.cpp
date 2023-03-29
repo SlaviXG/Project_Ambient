@@ -308,7 +308,7 @@ namespace environment
     {
         genotype = genotype::Genotype();
         aggressiveness = RandomGenerator::generateRandomDoubleNumber(0,1);
-        maxEnergy = RandomGenerator::generateRandomDoubleNumber(kMinEnergy,kMaxEnergy);
+        maxEnergy = RandomGenerator::generateRandomIntNumber(kMinEnergy,kMaxEnergy);
         currentEnergy = maxEnergy;
     }
 

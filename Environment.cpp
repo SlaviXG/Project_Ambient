@@ -22,7 +22,8 @@ namespace environment
         this->time = 0.0;
     }
 
-    Environment::~Environment() {
+    Environment::~Environment()
+    {
         for (auto line : frameMatrix)
             for (auto frame : line)
                 delete frame;
@@ -60,15 +61,15 @@ namespace environment
         return dynamic_cast<Cell*>(frameMatrix[point.i][point.j]);
     }
 
-    void Environment::updateCellPosition(Cell* cell, const Point& oldPos)
-     {
-         assert(checkPositionCorrectness(oldPos));
-         assert(checkPositionCorrectness(cell->getPosition()));
+    void Environment::updateCellPosition(Cell *cell, const Point &oldPos)
+    {
+        assert(checkPositionCorrectness(oldPos));
+        assert(checkPositionCorrectness(cell->getPosition()));
 
-         frameMatrix[oldPos.i][oldPos.j] = nullptr;
-         auto newPos = cell->getPosition();
-         frameMatrix[newPos.i][newPos.j] = cell;
-     }
+        frameMatrix[oldPos.i][oldPos.j] = nullptr;
+        auto newPos = cell->getPosition();
+        frameMatrix[newPos.i][newPos.j] = cell;
+    }
 
     std::vector<bool> Environment::getVisionField(const Point &viewPoint) const
     {
@@ -108,36 +109,36 @@ namespace environment
             }
         }*/
     }
-    Cell* Environment::AddCell(Cell *cell)
+    Cell *Environment::AddCell(Cell *cell)
     {
         cells.push_back(cell);
         auto pos = cell->getPosition();
         frameMatrix[pos.i][pos.j] = cell;
-        if (interactor != nullptr) interactor->addCell(cell->getPosition());
+        if (interactor != nullptr)
+            interactor->addCell(cell->getPosition());
 
         return cell;
     }
 
-    Cell* Environment::AddCell(const Point& point)
+    Cell *Environment::AddCell(const Point &point)
     {
-        Cell* cell = new Cell(point, this);
+        Cell *cell = new Cell(point, this);
         cells.push_back(cell);
-        auto pos = cell->getPosition();
-        frameMatrix[pos.i][pos.j] = cell;
-        
+        frameMatrix[point.i][point.j] = cell;
+
         return cell;
     }
 
     void Environment::RemoveCell(Cell *cell)
     {
-        if (std::find(cells.begin(), cells.end(), cell) != cells.end())
-        {
-            auto pos = cell->getPosition();
-            frameMatrix[pos.i][pos.j] = nullptr;
-            delete cell;
-            cells.erase(std::remove(cells.begin(), cells.end(), cell), cells.end());
-            if (interactor != nullptr) interactor->removeCell(cell);
-        }
+        auto pos = cell->getPosition();
+        frameMatrix[pos.i][pos.j] = nullptr;
+
+        delete cell;
+
+        cells.erase(std::remove(cells.begin(), cells.end(), cell), cells.end());
+        if (interactor != nullptr)
+            interactor->removeCell(cell);
     }
 
     Point Environment::randomFreePosition(const Point &point) const
