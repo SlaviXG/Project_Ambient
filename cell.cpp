@@ -47,7 +47,7 @@ namespace environment
         environment->updateCellPosition(this, oldPos);
     }
 
-    int Cell::bestPossibleChoiceIndex(Matrix outputs, Matrix inputs)
+    int Cell::bestPossibleChoiceIndex(Matrix& outputs, Matrix& inputs)
     {
         Point cellPosition = position;
         int maxValue = outputs[0][0];
@@ -212,7 +212,7 @@ namespace environment
         }
     }
 
-    int Cell::makeChoice(Matrix inputs)
+    int Cell::makeChoice(Matrix& inputs)
     {
         Matrix firstLayer = genotype::ReLU(genotype.getWeightsMatrixByIndex(1) * inputs + genotype.getBaesMatrixByIndex(1));
         Matrix secondLayer = genotype::ReLU(genotype.getWeightsMatrixByIndex(2) * firstLayer + genotype.getBaesMatrixByIndex(2));
@@ -355,6 +355,12 @@ namespace environment
 
     actions Cell::act() //std::vector<double> inputs
     {
+        if (isAliveStatus == 0) // Remove or delete cell
+        {
+            die();
+            return kCellIsDead;
+        }
+
         std::vector<double> inputs;
         std::vector<bool> vision;
         vision = environment->getVisionField(position);
@@ -362,12 +368,6 @@ namespace environment
         for(int i = 0; i < vision.size(); i++)
         {
             inputs.push_back(vision[i]);
-        }
-
-        if (isAliveStatus == 0) // Remove or delete cell
-        {
-            die();
-            return kCellIsDead;
         }
 
         inputs.push_back(currentEnergy);

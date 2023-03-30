@@ -97,8 +97,8 @@ namespace environment
         actions act();  //std::vector<double> inputs
         void duplicate();
 
-        int makeChoice(Matrix inputs);
-        int bestPossibleChoiceIndex(Matrix outputs, Matrix inputs);
+        int makeChoice(Matrix& inputs);
+        int bestPossibleChoiceIndex(Matrix& outputs, Matrix& inputs);
     };
 
 }
