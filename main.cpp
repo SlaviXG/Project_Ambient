@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
     controller::GameController cont(&win, &scene, &env);
     env.setCellInteractor(&cont);
     win.setController(&cont);
-    // cont.addCell({50, 50});
+    cont.addCell({50, 50});
     cont.start();
     win.show();
 

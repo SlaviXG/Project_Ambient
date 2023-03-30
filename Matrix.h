@@ -164,7 +164,7 @@ public:
 	}
     Matrix operator + (Matrix other)
     {
-        if(this->y != other.getY() && this->x != other.getX())
+        if(this->y != other.getY() || this->x != other.getX())
             return *this;
         Matrix answer(this->x, this->y);
         
@@ -228,13 +228,13 @@ public:
 	}
 
     // CHECK!
-    void addColumn(Row r)
+    void addColumn(std::vector<double> r)
     {
         if(this->y != r.size())
             return;
         for(int i = 0; i < this->y; i++)
         {
-            this->table[i].addValue(r[i]);
+            this->table[i][0] = r[i];       //this->table[i].add(r[i]);
         }
     }
 };

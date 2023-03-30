@@ -50,7 +50,7 @@ namespace environment
     int Cell::bestPossibleChoiceIndex(Matrix& outputs, Matrix& inputs)
     {
         Point cellPosition = position;
-        int maxValue = outputs[0][0];
+        double maxValue = outputs[0][0];
         int index = 0;
 
         for (int i = 1; i < outputs.getY(); i++) {
@@ -355,6 +355,8 @@ namespace environment
 
     actions Cell::act() //std::vector<double> inputs
     {
+        duplicate();
+
         if (isAliveStatus == 0) // Remove or delete cell
         {
             die();
@@ -373,8 +375,8 @@ namespace environment
         inputs.push_back(currentEnergy);
         inputs.push_back(aggressiveness);
 
-        Matrix mInputs(0, 25);              // Check !!
-        mInputs.addColumn(Row(inputs));
+        Matrix mInputs(1, genotype::kM1Size.j);              // Check !!
+        mInputs.addColumn(inputs);
 
         int indexOfAction = makeChoice(mInputs);
 
