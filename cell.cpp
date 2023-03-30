@@ -320,7 +320,7 @@ namespace environment
         aggressiveness = mother.getAggressiveness();
         currentEnergy = mother.getCurrentEnergy() / 2;
         maxEnergy = mother.getMaxEnergy();
-        position = environment->randomFreePosition(this->getPosition());
+        position = freePosition;
     }
 
     double Cell::getAggressiveness() const
@@ -355,8 +355,6 @@ namespace environment
 
     actions Cell::act() //std::vector<double> inputs
     {
-        duplicate();
-
         if (isAliveStatus == 0) // Remove or delete cell
         {
             die();
