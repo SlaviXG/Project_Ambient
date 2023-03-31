@@ -21,6 +21,7 @@ SOURCES += \
 
 HEADERS += \
     CellView.h \
+    logger.h \
     point.h \
     Environment.h \
     EnvironmentScene.h \
