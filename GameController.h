@@ -64,7 +64,7 @@ namespace controller
             this->scene->removeCell(cellMap.at(cell));
             cellMap.erase(cell);
 
-            NotifyLoggers("Cell (" + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + "was removed");
+            NotifyLoggers("Cell (" + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + ") was removed");
         }
 
         inline void start()
@@ -109,7 +109,25 @@ namespace controller
             auto cells = environment->getCells();
             for (auto &cell : cells)
             {
-                auto action = cell->act();
+                environment::actions action = cell->act();
+
+                switch (action) {
+                case environment::kMoveUp:
+                    NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " moved");
+                    break;
+                case environment::kPhotosynthesis:
+                    NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " photosynthesized");
+                    break;
+                case environment::kDuplication:
+                    NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " duplicated");
+                    break;
+                case environment::kAttackUp:
+                    NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " attacked");
+                    break;
+                default:
+                    NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " did magic");
+                    break;
+                }
             }
         };
 
@@ -122,11 +140,9 @@ namespace controller
                 double x = point.i * view->getEnvironmentWidth() / environment->getWidth();
                 double y = point.j * view->getEnvironmentHeight() / environment->getHeight();
 
-                NotifyLoggers("Cell's (" + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + ") position: Environment {" +
+                NotifyLoggers("Cell's " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " position: Environment {" +
                               std::to_string(cell->getPosition().i) + ", " + std::to_string(cell->getPosition().j) + "}" +
                               ", Scene {" + std::to_string(x) + ", " + std::to_string(y) + "}");
-
-
 
                 scene->updateCell(cellMap.at(cell), x, y, cell->getAggressiveness() * 100);
             }
