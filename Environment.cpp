@@ -134,7 +134,8 @@ namespace environment
         auto pos = cell->getPosition();
         frameMatrix[pos.i][pos.j] = nullptr;
 
-        delete cell;
+        // TODO: Implement smth similar to deleteLater
+        // delete cell;
 
         cells.erase(std::remove(cells.begin(), cells.end(), cell), cells.end());
         if (interactor != nullptr)

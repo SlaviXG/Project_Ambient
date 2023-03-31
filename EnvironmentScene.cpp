@@ -8,7 +8,7 @@ EnvironmentScene::EnvironmentScene(QObject *parent)
     this->colorGradationsLoaded = this->loadColorGradations();
     std::cout << "Color gradations are " << (colorGradationsLoaded ? ("") : ("not ")) << "loaded." << std::endl;
 
-    this->addCell(this->genCellViewPtr(500, 500, 20, 20, 99));
+    // this->addCell(this->genCellViewPtr(500, 500, 20, 20, 99));
 }
 
 EnvironmentScene::~EnvironmentScene()
