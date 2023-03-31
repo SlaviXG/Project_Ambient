@@ -115,7 +115,7 @@ namespace environment
         auto pos = cell->getPosition();
         frameMatrix[pos.i][pos.j] = cell;
         if (interactor != nullptr)
-            interactor->addCell(cell->getPosition());
+            interactor->addCell(cell);
 
         return cell;
     }
