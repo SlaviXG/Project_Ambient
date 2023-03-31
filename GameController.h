@@ -22,7 +22,7 @@ namespace controller
     class CellInteractor
     {
     public:
-        virtual void addCell(const Point &point) = 0;
+        virtual void addCell(environment::Cell* cell) = 0;
         virtual void removeCell(environment::Cell *cell) = 0;
     };
 
@@ -40,9 +40,15 @@ namespace controller
 
         virtual ~GameController(){};
 
-        void addCell(const Point &point) override
+        void addCell(const Point &point)
         {
             auto cellptr = environment->AddCell(point);
+            this->addCell(cellptr);
+        }
+
+        void addCell(environment::Cell* cellptr) override
+        {
+            auto point = cellptr->getPosition();
 
             double x = point.i * view->getEnvironmentWidth() / environment->getWidth();
             double y = point.j * view->getEnvironmentHeight() / environment->getHeight();

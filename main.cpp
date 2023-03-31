@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     win.show();
     cont.addCell({50, 50});
     cont.addCell({12, 50});
-    //cont.addCell({50, 75});
+    cont.addCell({30, 75});
     //cont.addCell({90, 76});
     //cont.addCell({3, 65});
     //cont.addCell({23, 83});
