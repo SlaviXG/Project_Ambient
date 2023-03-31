@@ -1,14 +1,28 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-#include <iostream>>
+#include <chrono>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
 #include <fstream>
+#include <iostream>
 
 
 class Logger
 {
 public:
     virtual void log(const std::string& message) = 0;
+
+protected:
+    std::string getCurrentTime()
+    {
+        auto now = std::chrono::system_clock::now();
+        auto now_c = std::chrono::system_clock::to_time_t(now);
+        std::stringstream ss;
+        ss << std::put_time(std::localtime(&now_c), "%Y-%m-%d %H:%M:%S");
+        return ss.str();
+    }
 };
 
 
@@ -19,7 +33,7 @@ public:
 
     void log(const std::string& message) override
     {
-        file << message << std::endl;
+        file <<  getCurrentTime() << "  " << message << std::endl;
     }
 
 private:
@@ -32,7 +46,7 @@ class ConsoleLogger : public Logger
 public:
     void log(const std::string& message) override
     {
-        std::cout << message << std::endl;
+        std::cout << getCurrentTime() << "  " << message << std::endl;
     }
 };
 
