@@ -4,6 +4,7 @@
 
 #include "GameController.h"
 #include "Environment.h"
+#include "logger.h"
 
 #define DOCTEST_CONFIG_IMPLEMENT
 
@@ -33,6 +34,7 @@ int main(int argc, char *argv[])
     EnvironmentScene scene;
     MainWindow win(&scene);;
     controller::GameController cont(&win, &scene, &env);
+    cont.AddLogger(new ConsoleLogger());
     env.setCellInteractor(&cont);
     win.setController(&cont);
     cont.addCell({50, 50});

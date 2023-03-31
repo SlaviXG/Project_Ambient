@@ -11,6 +11,7 @@
 #include "logger.h"
 
 #include <vector>
+#include <string>
 #include <map>
 
 namespace controller
@@ -48,6 +49,13 @@ namespace controller
             auto cellViewptr = scene->genCellViewPtr(x, y, kCellSize, kCellSize, cellptr->getAggressiveness() * 100);
             scene->addCell(cellViewptr);
 
+            NotifyLoggers("Cell  " + std::to_string(reinterpret_cast<std::uintptr_t>(cellptr)) +
+                          "  { " + std::to_string(point.i) + ", " + std::to_string(point.j) + " } ""  was added ");
+
+            NotifyLoggers("Cell's (" + std::to_string(reinterpret_cast<std::uintptr_t>(cellptr)) + ") position: Environment {" +
+                          std::to_string(cellptr->getPosition().i) + ", " + std::to_string(cellptr->getPosition().j) + "}" +
+                          ", Scene {" + std::to_string(x) + ", " + std::to_string(y) + "}");
+
             cellMap.insert({cellptr, cellViewptr});
         }
 
@@ -55,6 +63,8 @@ namespace controller
         {
             this->scene->removeCell(cellMap.at(cell));
             cellMap.erase(cell);
+
+            NotifyLoggers("Cell (" + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + "was removed");
         }
 
         inline void start()
@@ -112,11 +122,23 @@ namespace controller
                 double x = point.i * view->getEnvironmentWidth() / environment->getWidth();
                 double y = point.j * view->getEnvironmentHeight() / environment->getHeight();
 
+                NotifyLoggers("Cell's (" + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + ") position: Environment {" +
+                              std::to_string(cell->getPosition().i) + ", " + std::to_string(cell->getPosition().j) + "}" +
+                              ", Scene {" + std::to_string(x) + ", " + std::to_string(y) + "}");
+
 
 
                 scene->updateCell(cellMap.at(cell), x, y, cell->getAggressiveness() * 100);
             }
         };
+
+        void NotifyLoggers(const std::string message)
+        {
+            for (auto& logger : loggers)
+            {
+                logger->log(message);
+            }
+        }
 
         MainWindow *view;
         EnvironmentScene *scene;
