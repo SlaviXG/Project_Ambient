@@ -8,6 +8,7 @@
 #include "point.h"
 #include "cell.h"
 #include "CellView.h"
+#include "logger.h"
 
 #include <vector>
 #include <map>
@@ -42,9 +43,10 @@ namespace controller
         {
             auto cellptr = environment->AddCell(point);
 
-            double x = point.i * view->getWidth() / environment->getWidth();
-            double y = point.j * view->getHeight() / environment->getHeight();
+            double x = point.i * view->getEnvironmentWidth() / environment->getWidth();
+            double y = point.j * view->getEnvironmentHeight() / environment->getHeight();
             auto cellViewptr = scene->genCellViewPtr(x, y, kCellSize, kCellSize, cellptr->getAggressiveness() * 100);
+            scene->addCell(cellViewptr);
 
             cellMap.insert({cellptr, cellViewptr});
         }
@@ -81,6 +83,16 @@ namespace controller
             gameController->render();
         }
 
+        inline void AddLogger(Logger* logger)
+        {
+            loggers.push_back(logger);
+        }
+
+        inline void RemoveLogger(Logger* logger)
+        {
+            loggers.erase(std::remove(loggers.begin(), loggers.end(), logger), loggers.end());
+        }
+
     private:
         void processAI()
         {
@@ -88,9 +100,6 @@ namespace controller
             for (auto &cell : cells)
             {
                 auto action = cell->act();
-
-                /*if (aggressiveness.first)
-                    cellMap.at(cell)->setGradient(aggressiveness.second)*/
             }
         };
 
@@ -100,8 +109,10 @@ namespace controller
             for (const auto &cell : cells)
             {
                 auto point = cell->getPosition();
-                double x = point.i * view->getWidth() / environment->getWidth();
-                double y = point.j * view->getHeight() / environment->getHeight();
+                double x = point.i * view->getEnvironmentWidth() / environment->getWidth();
+                double y = point.j * view->getEnvironmentHeight() / environment->getHeight();
+
+
 
                 scene->updateCell(cellMap.at(cell), x, y, cell->getAggressiveness() * 100);
             }
@@ -113,6 +124,7 @@ namespace controller
         std::map<environment::Cell *, CellView *> cellMap;
 
         Tick tick;
+        std::vector<Logger*> loggers;
     };
 };
 

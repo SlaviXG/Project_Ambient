@@ -8,7 +8,7 @@ EnvironmentScene::EnvironmentScene(QObject *parent)
     this->colorGradationsLoaded = this->loadColorGradations();
     std::cout << "Color gradations are " << (colorGradationsLoaded ? ("") : ("not ")) << "loaded." << std::endl;
 
-    this->addCell(this->genCellViewPtr(40, 40, 20, 20, 99));
+    this->addCell(this->genCellViewPtr(500, 500, 20, 20, 99));
 }
 
 EnvironmentScene::~EnvironmentScene()
@@ -19,8 +19,6 @@ CellView *EnvironmentScene::genCellViewPtr(qreal x, qreal y, int width, int heig
 {
     colorGrad = colorGrad % 100;
     CellView* cell = new CellView(x, y, width, height, &(this->cellColorGradations[colorGrad]));
-    cells.append(cell);
-    this->addItem(cell);
     return cell;
 }
 

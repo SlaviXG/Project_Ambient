@@ -12,6 +12,7 @@ MainWindow::MainWindow(EnvironmentScene* scene, QWidget *parent)
     this->setCentralWidget(this->ui->horizontalLayoutWidget);
 
     ui->environmentView->setScene(scene);
+    //scene->setSceneRect(QRect(0, 0, this->getEnvironmentWidth(), this->getEnvironmentHeight()));
 
     /*EnvironmentScene* scene = new EnvironmentScene();
 
@@ -28,11 +29,11 @@ MainWindow::MainWindow(EnvironmentScene* scene, QWidget *parent)
     timer->start(10);*/
 }
 
-qreal MainWindow::getWidth() const {
+qreal MainWindow::getEnvironmentWidth() const {
     return ui->environmentView->width();
 }
 
-qreal MainWindow::getHeight() const {
+qreal MainWindow::getEnvironmentHeight() const {
     return ui->environmentView->height();
 }
 

@@ -18,8 +18,8 @@ public:
     MainWindow(EnvironmentScene* scene, QWidget *parent = nullptr);
     ~MainWindow();
 
-    qreal getWidth() const;
-    qreal getHeight() const;
+    qreal getEnvironmentWidth() const;
+    qreal getEnvironmentHeight() const;
 
     void inline setController(controller::GameController* controller) {this->controller = controller; };
 
