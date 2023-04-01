@@ -9,8 +9,8 @@
 #define DOCTEST_CONFIG_IMPLEMENT
 
 #include "doctest.h"
-#include "test_tick.hpp"
-#include "test_environment.hpp"
+//#include "test_tick.hpp"
+//#include "test_environment.hpp"
 
 
 int main(int argc, char *argv[])
@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
     MainWindow win(&scene);;
     controller::GameController cont(&win, &scene, &env);
     cont.AddLogger(new ConsoleLogger());
+    cont.AddLogger(new FileLogger("logs.txt"));
     env.setCellInteractor(&cont);
     win.setController(&cont);
     cont.start();

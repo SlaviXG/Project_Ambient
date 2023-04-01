@@ -297,7 +297,7 @@ namespace environment
 
         opponent->setCurrentEnergy(opponentEnergy);
     }
-    
+
     void Cell::duplicate()
     {
         Point freePosition = environment->randomFreePosition(position);
@@ -317,7 +317,7 @@ namespace environment
         currentEnergy = maxEnergy;
     }
 
-    Cell::Cell(Cell &mother, Point freePosition)
+    Cell::Cell(Cell &mother, Point freePosition) : Frame(mother)
     {
         genotype = genotype::Genotype(mother.getGenotype());;
         aggressiveness = mother.getAggressiveness();
@@ -331,7 +331,7 @@ namespace environment
         return aggressiveness;
     }
 
-    double Cell::getCurrentEnergy() const 
+    double Cell::getCurrentEnergy() const
     {
         return currentEnergy;
     }
@@ -366,8 +366,9 @@ namespace environment
 
         std::vector<double> inputs;
         std::vector<bool> vision;
+        assert(environment!=nullptr);
         vision = environment->getVisionField(position);
-        
+
         for(int i = 0; i < vision.size(); i++)
         {
             inputs.push_back(vision[i]);

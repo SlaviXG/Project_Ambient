@@ -66,7 +66,7 @@ namespace environment
         // Checks if a point has negative or larger coordinates than the map size 
         // On failure returns Point{-1, -1}
         inline bool checkPositionCorrectness(const Point& point) const { 
-            return !(point.i < 0 || point.i >= HEIGHT || point.j < 0 || point.j >= WIDTH); 
+            return !(point.i < 0 || point.i >= HEIGHT || point.j < 0 || point.j >= WIDTH);
             }
 
         // Cell Actions:
