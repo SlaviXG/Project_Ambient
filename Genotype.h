@@ -33,7 +33,7 @@ namespace genotype {
 
     Matrix ReLU(Matrix m);
 
-    void mutation(Matrix &m);
+    Matrix mutation(Matrix m);
 
     class Genotype {
     private:
@@ -69,6 +69,8 @@ namespace genotype {
         Matrix getWeightsMatrixByIndex(int index) const;
 
         Matrix getBaesMatrixByIndex(int index) const;
+
+        void mutate();
     };
 
 }

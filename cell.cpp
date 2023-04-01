@@ -303,8 +303,9 @@ namespace environment
         Point freePosition = environment->randomFreePosition(position);
         currentEnergy = currentEnergy * 0.4;
         this->environment->AddCell(new Cell(*this, freePosition));
-        genotype::Genotype temp(this->genotype);// = genotype::Genotype(this->genotype);
-        genotype = temp;
+       //genotype::Genotype temp(this->genotype);// = genotype::Genotype(this->genotype);
+       //genotype = temp;
+        this->genotype.mutate();
     }
 
     Cell::Cell(Point startingPosition, Environment* environment)
@@ -357,8 +358,6 @@ namespace environment
 
     actions Cell::act() //std::vector<double> inputs
     {
-        duplicate();
-
         if (isAliveStatus == 0) // Remove or delete cell
         {
             //die();

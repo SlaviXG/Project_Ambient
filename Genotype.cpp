@@ -42,7 +42,7 @@ namespace genotype {
         std::uniform_real_distribution<double> distr(-1, 1);
 
         for (int i = 0; i < m.getY(); i++) {
-            for (int j = 0; j < m.getY(); j++) {
+            for (int j = 0; j < m.getX(); j++) {
                 if (rand() % kChance == 0) {
                     m[i][j] = distr(eng);
                 }
@@ -138,5 +138,18 @@ namespace genotype {
             default:
                 return Matrix();
         }
+    }
+
+    void Genotype::mutate()
+    {
+        m1 = mutation(m1);
+        m2 = mutation(m2);
+        m3 = mutation(m3);
+        m4 = mutation(m4);
+
+        b1 = mutation(b1);
+        b2 = mutation(b2);
+        b3 = mutation(b3);
+        b4 = mutation(b4);
     }
 }

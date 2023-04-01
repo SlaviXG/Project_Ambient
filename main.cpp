@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
     context.applyCommandLine(argc, argv);
 
-    //int res = context.run();
+    int res = context.run();
 
     if (context.shouldExit()) {
     return res;
