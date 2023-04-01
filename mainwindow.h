@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <EnvironmentScene.h>
 
-namespace controller { class GameController; }
+namespace controller { class GameInteractor; }
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,11 +21,11 @@ public:
     qreal getEnvironmentWidth() const;
     qreal getEnvironmentHeight() const;
 
-    void inline setController(controller::GameController* controller) {this->controller = controller; };
+    void inline setController(controller::GameInteractor*  controller) {this->controller = controller; };
 
 private:
     Ui::MainWindow *ui;
-    controller::GameController* controller = nullptr;
+    controller::GameInteractor* controller = nullptr;
 
 };
 #endif // MAINWINDOW_H

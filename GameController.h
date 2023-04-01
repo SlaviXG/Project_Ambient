@@ -19,6 +19,11 @@ namespace controller
     constexpr int kCellSize = 20;
     constexpr int kFps = 1;
 
+     /**
+     * @brief The CellInteractor class
+     *
+     * Used to interact with the controller from the logic
+     */
     class CellInteractor
     {
     public:
@@ -27,10 +32,25 @@ namespace controller
     };
 
     /**
+     * @brief The GameInteractor class
+     *
+     * Used to interact with the controller from the view
+     */
+    class GameInteractor
+    {
+    public:
+        virtual void addCell(const Point &point) = 0;
+        virtual void start() = 0;
+        virtual void stop() = 0;
+        virtual void pause() = 0;
+        virtual void resume() = 0;
+    };
+
+    /**
      * @brief  GameController class is responsible for managing the game logic and updating the graphical representation of the game.
      *
      */
-    class GameController : public CellInteractor
+    class GameController : public CellInteractor, public GameInteractor
     {
         using gen = environment::RandomGenerator;
 
@@ -40,63 +60,30 @@ namespace controller
 
         virtual ~GameController(){};
 
-        void addCell(const Point &point)
+        inline void addCell(const Point &point) override
         {
             auto cellptr = environment->AddCell(point);
             this->addCell(cellptr);
         }
 
-        void addCell(environment::Cell* cellptr) override
-        {
-            auto point = cellptr->getPosition();
-
-            double x = point.i * view->getEnvironmentWidth() / environment->getWidth();
-            double y = point.j * view->getEnvironmentHeight() / environment->getHeight();
-            auto cellViewptr = scene->genCellViewPtr(x, y, kCellSize, kCellSize, cellptr->getAggressiveness() * 100);
-            scene->addCell(cellViewptr);
-
-            NotifyLoggers("Cell  " + std::to_string(reinterpret_cast<std::uintptr_t>(cellptr)) +
-                          "  { " + std::to_string(point.i) + ", " + std::to_string(point.j) + " } ""  was added ");
-
-            NotifyLoggers("Cell's (" + std::to_string(reinterpret_cast<std::uintptr_t>(cellptr)) + ") position: Environment {" +
-                          std::to_string(cellptr->getPosition().i) + ", " + std::to_string(cellptr->getPosition().j) + "}" +
-                          ", Scene {" + std::to_string(x) + ", " + std::to_string(y) + "}");
-
-            cellMap.insert({cellptr, cellViewptr});
-        }
-
-        void removeCell(environment::Cell *cell) override
-        {
-            this->scene->removeCell(cellMap.at(cell));
-            cellMap.erase(cell);
-
-            NotifyLoggers("Cell (" + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + ") was removed");
-        }
-
-        inline void start()
+        inline void start() override
         {
             tick.Start();
         }
 
-        inline void stop()
+        inline void stop() override
         {
             tick.Stop();
         }
 
-        inline void pause()
+        inline void pause() override
         {
             tick.Pause();
         }
 
-        inline void resume()
+        inline void resume() override
         {
             tick.Resume();
-        }
-
-        static void execute(GameController *gameController)
-        {
-            gameController->processAI();
-            gameController->render();
         }
 
         inline void AddLogger(Logger* logger)
@@ -109,50 +96,18 @@ namespace controller
             loggers.erase(std::remove(loggers.begin(), loggers.end(), logger), loggers.end());
         }
 
+        void addCell(environment::Cell* cellptr) override;
+        void removeCell(environment::Cell *cell) override;
+
     private:
-        void processAI()
+        void processAI();
+        void render();
+
+        static void execute(GameController *gameController)
         {
-            auto cells = environment->getCells();
-            for (auto &cell : cells)
-            {
-                environment::actions action = cell->act();
-
-                switch (action) {
-                case environment::kMoveUp:
-                    NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " moved");
-                    break;
-                case environment::kPhotosynthesis:
-                    NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " photosynthesized");
-                    break;
-                case environment::kDuplication:
-                    NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " duplicated");
-                    break;
-                case environment::kAttackUp:
-                    NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " attacked");
-                    break;
-                default:
-                    NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " did magic");
-                    break;
-                }
-            }
-        };
-
-        void render()
-        {
-            auto cells = environment->getCells();
-            for (const auto &cell : cells)
-            {
-                auto point = cell->getPosition();
-                double x = point.i * view->getEnvironmentWidth() / environment->getWidth();
-                double y = point.j * view->getEnvironmentHeight() / environment->getHeight();
-
-                NotifyLoggers("Cell's " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " position: Environment {" +
-                              std::to_string(cell->getPosition().i) + ", " + std::to_string(cell->getPosition().j) + "}" +
-                              ", Scene {" + std::to_string(x) + ", " + std::to_string(y) + "}");
-
-                scene->updateCell(cellMap.at(cell), x, y, cell->getAggressiveness() * 100);
-            }
-        };
+            gameController->processAI();
+            gameController->render();
+        }
 
         void NotifyLoggers(const std::string message)
         {
