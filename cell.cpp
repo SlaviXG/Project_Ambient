@@ -67,145 +67,145 @@ namespace environment
         {
             case kMoveUp:
                 if (cellPosition.i == 0) {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 if (inputs[7][0] == 1) {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
             case kMoveUpRight:
                 if (cellPosition.i == 0 || cellPosition.j == genotype::kMapSize - 1)             // mapSIze == 100
                 {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 if (inputs[8][0] == 1) {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
             case kMoveRight:
                 if (cellPosition.j == genotype::kMapSize - 1) {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 if (inputs[12][0] == 1) {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
             case kMoveRightDown:
                 if (cellPosition.i == genotype::kMapSize - 1 || cellPosition.j == genotype::kMapSize - 1) {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 if (inputs[17][0] == 1) {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
             case kMoveDown:
                 if (cellPosition.i == genotype::kMapSize - 1) {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 if (inputs[16][0] == 1) {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
             case kMoveLeftDown:
                 if (cellPosition.i == genotype::kMapSize - 1 || cellPosition.j == 0) {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 if (inputs[15][0] == 1) {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
             case kMoveLeft:
                 if (cellPosition.j == 0) {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 if (inputs[11][0] == 1) {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
             case kMoveLeftUp:
                 if (cellPosition.i == 0 || cellPosition.j == 0) {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 if (inputs[6][0] == 1) {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
             case kAttackUp:
                 if(inputs[7][0] == 0)
                 {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
             case kAttackUpRight:
                 if(inputs[8][0] == 0)
                 {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
             case kAttackRight:
                 if(inputs[12][0] == 0)
                 {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
             case kAttackRightDown:
                 if(inputs[17][0] == 0)
                 {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
             case kAttackDown:
                 if(inputs[16][0] == 0)
                 {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
             case kAttackLeftDown:
                 if(inputs[15][0] == 0)
                 {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
             case kAttackLeft:
                 if(inputs[11][0] == 0)
                 {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
             case kAttackLeftUp:
                 if(inputs[6][0] == 0)
                 {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
                 return index;
             case kDuplication:
                 if (inputs[24][0] < 300 )                     // indexation ? ; 300 == min_star_energy - 100
                 {
-                    outputs[index][0] = 0;
+                    outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
 
