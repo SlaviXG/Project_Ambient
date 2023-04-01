@@ -85,7 +85,7 @@ namespace environment
          * @brief Removes itself from the environment
          * 
          */
-        void die() { environment->RemoveCell(this); };
+        void die() { environment->RemoveCell(this); this->isAliveStatus = false; };
 
 
         /**

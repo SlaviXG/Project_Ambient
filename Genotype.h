@@ -48,6 +48,18 @@ namespace genotype {
         Matrix b4;
 
     public:
+        void operator =(const Genotype &g)
+        {
+            m1 = g.m1;
+            m2 = g.m2;
+            m3 = g.m3;
+            m4 = g.m4;
+
+            b1 = g.b1;
+            b2 = g.b2;
+            b3 = g.b3;
+            b4 = g.b4;
+        }
         Genotype();
 
         Genotype(const Genotype &g);

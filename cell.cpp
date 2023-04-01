@@ -42,7 +42,10 @@ namespace environment
         }
         currentEnergy -= kMoveCost;
         if(currentEnergy <= 0)
+        {
             die();
+            return;
+        }
         assert(environment != nullptr);
         environment->updateCellPosition(this, oldPos);
     }
@@ -300,7 +303,8 @@ namespace environment
         Point freePosition = environment->randomFreePosition(position);
         currentEnergy = currentEnergy * 0.4;
         this->environment->AddCell(new Cell(*this, freePosition));
-        genotype = genotype::Genotype(genotype);
+        genotype::Genotype temp(this->genotype);// = genotype::Genotype(this->genotype);
+        genotype = temp;
     }
 
     Cell::Cell(Point startingPosition, Environment* environment)
@@ -314,11 +318,9 @@ namespace environment
 
     Cell::Cell(Cell &mother, Point freePosition)
     {
-        genotype::Genotype g = genotype::Genotype(mother.getGenotype());
-
-        genotype = g;
+        genotype = genotype::Genotype(mother.getGenotype());;
         aggressiveness = mother.getAggressiveness();
-        currentEnergy = mother.getCurrentEnergy() / 2;
+        currentEnergy = mother.getCurrentEnergy();
         maxEnergy = mother.getMaxEnergy();
         position = freePosition;
     }
@@ -355,9 +357,11 @@ namespace environment
 
     actions Cell::act() //std::vector<double> inputs
     {
+        duplicate();
+
         if (isAliveStatus == 0) // Remove or delete cell
         {
-            die();
+            //die();
             return kCellIsDead;
         }
 

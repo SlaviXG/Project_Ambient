@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
     context.applyCommandLine(argc, argv);
 
-    int res = context.run();
+    //int res = context.run();
 
     if (context.shouldExit()) {
     return res;
@@ -42,11 +42,17 @@ int main(int argc, char *argv[])
     cont.addCell({50, 50});
     cont.addCell({12, 50});
     cont.addCell({30, 75});
-    //cont.addCell({90, 76});
-    //cont.addCell({3, 65});
-    //cont.addCell({23, 83});
-    //cont.addCell({98, 12});
-
+    cont.addCell({90, 76});
+    cont.addCell({3, 65});
+    cont.addCell({23, 83});
+    cont.addCell({98, 12});
+    cont.addCell({52, 24});
+    cont.addCell({23, 23});
+    cont.addCell({93, 11});
+    cont.addCell({90, 64});
+    cont.addCell({84, 34});
+    cont.addCell({55, 22});
+    cont.addCell({18, 43});
 
     return a.exec();
 }
