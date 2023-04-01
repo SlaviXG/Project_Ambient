@@ -208,7 +208,13 @@ namespace environment
                     outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
                 }
-
+                return index;
+            case kPhotosynthesis:
+                if (inputs[24][0] == maxEnergy )                     // indexation ? ; 300 == min_star_energy - 100
+                {
+                    outputs[index][0] = -10;
+                    return bestPossibleChoiceIndex(outputs, inputs);
+                }
                 return index;
                 default:
                         return index;
@@ -225,16 +231,16 @@ namespace environment
         return bestPossibleChoiceIndex(outputs, inputs);
     }
 
-    void increaseEnergy(double &currentEnergy, double count)
+    void increaseEnergy(double &currentEnergy, double maxEnergy, double count)
     {
         currentEnergy += count;
-        if (currentEnergy > kMaxEnergy)
-            currentEnergy = kMaxEnergy;
+        if (currentEnergy > maxEnergy)
+            currentEnergy = maxEnergy;
     }
 
     void Cell::photosynthesis()
     {
-        increaseEnergy(currentEnergy, kPhotosynthesisAdd);
+        increaseEnergy(currentEnergy, maxEnergy, kPhotosynthesisAdd);
     }
 
     void Cell::attack(int action)
@@ -279,10 +285,10 @@ namespace environment
         }
 
         Cell* opponent = environment->getCell(currentPosition); // TODO
-
-        double opponentEnergy = (*opponent).getCurrentEnergy();
-        opponentEnergy -= currentEnergy / kAttackCoefficient;
-        currentEnergy -= currentEnergy / kAttackCost;
+        double opponentEnergy = opponent->getCurrentEnergy();
+        opponentEnergy -= currentEnergy * kAttackCoefficient;
+        currentEnergy -= currentEnergy * kAttackCost;
+        opponent->setCurrentEnergy(opponentEnergy);
 
         aggressiveness += 0.1;
         if (aggressiveness > 1)
@@ -290,12 +296,9 @@ namespace environment
 
         if (opponentEnergy <= 0)
         {
-            (*opponent).die();                              //!!!!
-            //opponent.setIsAlive(false);
-            increaseEnergy(currentEnergy, kPrise);
+            opponent->die();                              //!!!!
+            increaseEnergy(currentEnergy, maxEnergy, kPrise);
         }
-
-        opponent->setCurrentEnergy(opponentEnergy);
     }
 
     void Cell::duplicate()

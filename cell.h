@@ -39,8 +39,8 @@ namespace environment
     constexpr int kSteps = 20;
     constexpr int kMoveCost = 10;
     constexpr int kPhotosynthesisAdd = 25;
-    constexpr int kAttackCoefficient = 4; // 1/4 * currentEnergy
-    constexpr int kAttackCost = 10;       // 1/10 * currentEnergy
+    constexpr float kAttackCoefficient = 0.35;
+    constexpr float kAttackCost = 0.1;       // 1/10 * currentEnergy
     constexpr int kPrise = 200;           // + energy after killing
 
 
