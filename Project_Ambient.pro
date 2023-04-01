@@ -12,6 +12,7 @@ SOURCES += \
     CellView.cpp \
     Environment.cpp \
     EnvironmentScene.cpp \
+    GameController.cpp \
     Genotype.cpp \
     Tick.cpp \
     cell.cpp \
