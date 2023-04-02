@@ -17,7 +17,7 @@
 namespace controller
 {
     constexpr int kCellSize = 20;
-    constexpr int kFps = 1;
+    constexpr int kFps = 10;
 
      /**
      * @brief The CellInteractor class

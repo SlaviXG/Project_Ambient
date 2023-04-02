@@ -32,26 +32,31 @@ void controller::GameController::removeCell(environment::Cell *cell)
 
 void controller::GameController::processAI()
 {
-    auto cells = environment->getCells();
-    for (auto &cell : cells)
+    std::vector<environment::Cell*> cells = environment->getCells();
+    for (auto cell : cells)
     {
+        std::string address = std::to_string(reinterpret_cast<std::uintptr_t>(cell));
+
         environment::actions action = cell->act();
 
         switch (action) {
         case environment::kMoveUp:
-            NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " moved");
+            NotifyLoggers("Cell " + address + " moved");
             break;
         case environment::kPhotosynthesis:
-            NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " photosynthesized");
+            NotifyLoggers("Cell " + address + " photosynthesized");
             break;
         case environment::kDuplication:
-            NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " duplicated");
+            NotifyLoggers("Cell " + address + " duplicated");
             break;
         case environment::kAttackUp:
-            NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " attacked");
+            NotifyLoggers("Cell " + address + " attacked");
+            break;
+        case environment::kCellIsDead:
+            NotifyLoggers("Cell " + address + " dead");
             break;
         default:
-            NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " did magic");
+            NotifyLoggers("Cell " + address + " did magic");
             break;
         }
     }

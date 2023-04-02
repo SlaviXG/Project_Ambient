@@ -51,7 +51,7 @@ namespace environment
          */
         Cell* getCell(const Point& point) const;
         inline size_t getCellNumber() const { return cells.size(); }
-        inline std::vector<Cell *>& getCells() { return cells; }
+        inline std::vector<Cell *> getCells() { return cells; }
 
         void setCellInteractor(controller::CellInteractor* interactor);
 
