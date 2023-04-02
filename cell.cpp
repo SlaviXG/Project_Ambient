@@ -363,7 +363,7 @@ namespace environment
     {
         if (isAliveStatus == 0) // Remove or delete cell
         {
-            //die();
+            die();
             return kCellIsDead;
         }
 

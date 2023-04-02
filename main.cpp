@@ -9,8 +9,8 @@
 #define DOCTEST_CONFIG_IMPLEMENT
 
 #include "doctest.h"
-//#include "test_tick.hpp"
-//#include "test_environment.hpp"
+#include "test_tick.hpp"
+#include "test_environment.hpp"
 
 
 int main(int argc, char *argv[])
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     env.setCellInteractor(&cont);
     win.setController(&cont);
     cont.start();
-    //win.show();
+    win.show();
     cont.addCell({50, 50});
     cont.addCell({12, 50});
     cont.addCell({30, 75});
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
     cont.addCell({55, 22});
     cont.addCell({18, 43});
 
-    cont.addCell({54, 25});
+    /*cont.addCell({54, 25});
     cont.addCell({94, 23});
     cont.addCell({62, 72});
     cont.addCell({92, 8});
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
     cont.addCell({80, 44});
     cont.addCell({74, 34});
     cont.addCell({69, 21});
-    cont.addCell({38, 43});
+    cont.addCell({38, 43});*/
 
     return a.exec();
 }

@@ -58,7 +58,9 @@ namespace environment
     }
 
     Cell* Environment::getCell(const Point& point) const {
-        return dynamic_cast<Cell*>(frameMatrix[point.i][point.j]);
+        assert(checkPositionCorrectness(point));
+        Frame* frame = frameMatrix[point.i][point.j];
+        return dynamic_cast<Cell*>(frame);
     }
 
     void Environment::updateCellPosition(Cell *cell, const Point &oldPos)
@@ -95,22 +97,13 @@ namespace environment
         }
 
         return vec;
-
-        // HACK: Optimization
-        /*if (cellNumber < 25)
-        {
-            vec.resize(25);
-            foreach(auto cell, cells){
-                Point pos = cell->getPosition();
-                if (pos.i > viewPoint.i - 3 && pos.i < viewPoint.i + 3 &&
-                    pos.j > viewPoint.j - 3 && pos.j < viewPoint.j + 3){
-                    // TODO: Do the magic to turn the point into a vector coordinate
-                }
-            }
-        }*/
     }
+
     Cell *Environment::AddCell(Cell *cell)
     {
+        // Check whether the cell already exists
+        assert(std::find(cells.begin(), cells.end(), cell) == cells.end());
+
         cells.push_back(cell);
         auto pos = cell->getPosition();
         frameMatrix[pos.i][pos.j] = cell;
@@ -122,6 +115,9 @@ namespace environment
 
     Cell *Environment::AddCell(const Point &point)
     {
+        assert(checkPositionCorrectness(point));
+        assert(frameMatrix[point.i][point.j] == nullptr);
+
         Cell *cell = new Cell(point, this);
         cells.push_back(cell);
         frameMatrix[point.i][point.j] = cell;
@@ -129,17 +125,26 @@ namespace environment
         return cell;
     }
 
-    void Environment::RemoveCell(Cell *cell)
+    void Environment::InvalidateCell(Cell *cell)
     {
         auto pos = cell->getPosition();
+
+        assert(checkPositionCorrectness(pos));
+
         frameMatrix[pos.i][pos.j] = nullptr;
+    }
+
+    void Environment::RemoveCell(Cell* cell)
+    {
+        assert(frameMatrix[cell->getPosition().i][cell->getPosition().j] == nullptr);
+        assert(std::find(cells.begin(), cells.end(), cell) != cells.end());
 
         cells.erase(std::remove(cells.begin(), cells.end(), cell), cells.end());
+
         if (interactor != nullptr)
             interactor->removeCell(cell);
 
-        // TODO: fix
-        // delete cell;
+        delete cell;
     }
 
     Point Environment::randomFreePosition(const Point &point) const
