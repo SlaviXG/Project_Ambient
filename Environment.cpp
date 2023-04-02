@@ -134,12 +134,12 @@ namespace environment
         auto pos = cell->getPosition();
         frameMatrix[pos.i][pos.j] = nullptr;
 
-        // TODO: Implement smth similar to deleteLater
-        // delete cell;
-
         cells.erase(std::remove(cells.begin(), cells.end(), cell), cells.end());
         if (interactor != nullptr)
             interactor->removeCell(cell);
+
+        // TODO: fix
+        // delete cell;
     }
 
     Point Environment::randomFreePosition(const Point &point) const
