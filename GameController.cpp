@@ -13,9 +13,9 @@ void controller::GameController::addCell(environment::Cell* cellptr)
     NotifyLoggers("Cell  " + std::to_string(reinterpret_cast<std::uintptr_t>(cellptr)) +
                   "  { " + std::to_string(point.i) + ", " + std::to_string(point.j) + " } ""  was added ");
 
-    NotifyLoggers("Cell's (" + std::to_string(reinterpret_cast<std::uintptr_t>(cellptr)) + ") position: Environment {" +
+    /*NotifyLoggers("Cell's (" + std::to_string(reinterpret_cast<std::uintptr_t>(cellptr)) + ") position: Environment {" +
                   std::to_string(cellptr->getPosition().i) + ", " + std::to_string(cellptr->getPosition().j) + "}" +
-                  ", Scene {" + std::to_string(x) + ", " + std::to_string(y) + "}");
+                  ", Scene {" + std::to_string(x) + ", " + std::to_string(y) + "}");*/
 
     cellMap.insert({cellptr, cellViewptr});
 }
@@ -23,10 +23,12 @@ void controller::GameController::addCell(environment::Cell* cellptr)
 
 void controller::GameController::removeCell(environment::Cell *cell)
 {
+    assert(cellMap.find(cell) != cellMap.end());
+
     this->scene->removeCell(cellMap.at(cell));
     cellMap.erase(cell);
 
-    NotifyLoggers("Cell (" + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + ") was removed");
+    NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + "  { " + std::to_string(cell->getPosition().i) + ", " + std::to_string(cell->getPosition().j) + " } " + " was removed");
 }
 
 
@@ -35,30 +37,42 @@ void controller::GameController::processAI()
     std::vector<environment::Cell*> cells = environment->getCells();
     for (auto cell : cells)
     {
+        if (cell->isAlive())
+        {
         std::string address = std::to_string(reinterpret_cast<std::uintptr_t>(cell));
 
         environment::actions action = cell->act();
 
+        auto point = cell->getPosition();
+
         switch (action) {
         case environment::kMoveUp:
-            NotifyLoggers("Cell " + address + " moved");
+            NotifyLoggers("Cell " + address + "  { " + std::to_string(point.i) + ", " + std::to_string(point.j) + " } " + " moved");
             break;
         case environment::kPhotosynthesis:
-            NotifyLoggers("Cell " + address + " photosynthesized");
+            NotifyLoggers("Cell " + address + "  { " + std::to_string(point.i) + ", " + std::to_string(point.j) + " } " + " photosynthesized");
             break;
         case environment::kDuplication:
-            NotifyLoggers("Cell " + address + " duplicated");
+            NotifyLoggers("Cell " + address + "  { " + std::to_string(point.i) + ", " + std::to_string(point.j) + " } " + " duplicated");
             break;
         case environment::kAttackUp:
-            NotifyLoggers("Cell " + address + " attacked");
+            NotifyLoggers("Cell " + address + "  { " + std::to_string(point.i) + ", " + std::to_string(point.j) + " } " +  " attacked");
             break;
         case environment::kCellIsDead:
-            NotifyLoggers("Cell " + address + " dead");
+            NotifyLoggers("Cell " + address + "  { " + std::to_string(point.i) + ", " + std::to_string(point.j) + " } " + " dead");
             break;
         default:
-            NotifyLoggers("Cell " + address + " did magic");
+            NotifyLoggers("Cell " + address + "  { " + std::to_string(point.i) + ", " + std::to_string(point.j) + " } " + " did magic");
             break;
         }
+        }
+    }
+    // Removal of dead cells
+    cells = environment->getCells();
+    for (auto cell : cells)
+    {
+        if (!cell->isAlive())
+            environment->RemoveCell(cell);
     }
 };
 
@@ -72,10 +86,13 @@ void controller::GameController::render()
         double x = point.i * view->getEnvironmentWidth() / environment->getWidth();
         double y = point.j * view->getEnvironmentHeight() / environment->getHeight();
 
-        NotifyLoggers("Cell's " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " position: Environment {" +
+        /* NotifyLoggers("Cell's " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " position: Environment {" +
                       std::to_string(cell->getPosition().i) + ", " + std::to_string(cell->getPosition().j) + "}" +
-                      ", Scene {" + std::to_string(x) + ", " + std::to_string(y) + "}");
+                      ", Scene {" + std::to_string(x) + ", " + std::to_string(y) + "}"); */
 
-        scene->updateCell(cellMap.at(cell), x, y, cell->getAggressiveness() * 100);
+        CellView* cellView = cellMap.at(cell);
+
+        assert(cellView != nullptr);
+        scene->updateCell(cellView, x, y, cell->getAggressiveness() * 100);
     }
 };

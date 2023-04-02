@@ -82,10 +82,10 @@ namespace environment
         void photosynthesis();
         void attack(int action);
         /**
-         * @brief Removes itself from the environment
-         * 
+         * @brief Invalidates itself
+         *
          */
-        void die() { environment->RemoveCell(this); this->isAliveStatus = false; };
+        void die() { environment->InvalidateCell(this); this->isAliveStatus = false; };
 
 
         /**

@@ -107,6 +107,7 @@ namespace controller
         {
             gameController->processAI();
             gameController->render();
+
         }
 
         void NotifyLoggers(const std::string message)

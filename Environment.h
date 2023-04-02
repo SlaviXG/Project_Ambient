@@ -72,7 +72,20 @@ namespace environment
         // Cell Actions:
         Cell* AddCell(Cell* cell); // Call from logic
         Cell* AddCell(const Point& point); // Call from controller
-        void RemoveCell(Cell* cell); // Call from logic
+
+        /**
+         * @brief Removes the cell from the map
+         *
+         * @param cell
+         */
+        void InvalidateCell(Cell* cell);
+
+        /**
+         * @brief Removes Cell object
+         *
+         * @param cell
+         */
+        void RemoveCell(Cell* cell);
 
         // Cell Vision:
         /*
