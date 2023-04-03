@@ -298,8 +298,8 @@ namespace environment
         aggressiveness += 0.1;
         stepsCount = kSteps;
 
-        if (aggressiveness > 1)
-            aggressiveness = 1;
+        if (aggressiveness >= 1)
+            aggressiveness = 0.99;
 
         if (opponentEnergy <= 0)
         {
