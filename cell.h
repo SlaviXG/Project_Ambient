@@ -36,7 +36,7 @@ namespace environment
     
     constexpr int kMaxEnergy = 500;
     constexpr int kMinEnergy = 400;
-    constexpr int kSteps = 20;
+    constexpr int kSteps = 50;
     constexpr int kMoveCost = 10;
     constexpr int kPhotosynthesisAdd = 25;
     constexpr float kAttackCoefficient = 0.35;
