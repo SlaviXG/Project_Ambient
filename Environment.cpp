@@ -103,6 +103,7 @@ namespace environment
     {
         // Check whether the cell already exists
         assert(std::find(cells.begin(), cells.end(), cell) == cells.end());
+        assert(checkPositionCorrectness(cell->getPosition()));
 
         cells.push_back(cell);
         auto pos = cell->getPosition();
@@ -130,14 +131,17 @@ namespace environment
         auto pos = cell->getPosition();
 
         assert(checkPositionCorrectness(pos));
-        assert(this->getCell(pos) != nullptr);
+        assert(this->getCell(pos) == cell);
 
         frameMatrix[pos.i][pos.j] = nullptr;
     }
 
     void Environment::RemoveCell(Cell* cell)
     {
+        // FIX: Why?
         assert(frameMatrix[cell->getPosition().i][cell->getPosition().j] == nullptr);
+        //if (frameMatrix[cell->getPosition().i][cell->getPosition().j] != nullptr)
+            // this->InvalidateCell(cell);
         assert(std::find(cells.begin(), cells.end(), cell) != cells.end());
 
         cells.erase(std::remove(cells.begin(), cells.end(), cell), cells.end());
