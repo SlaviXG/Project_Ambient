@@ -82,11 +82,13 @@ void controller::GameController::render()
 {
     auto cells = environment->getCells();
     NotifyLoggers("Cells to render: " + std::to_string(environment->getCellNumber()));
+    double scaleW = view->getEnvironmentWidth() / environment->getWidth();
+    double scaleH = view->getEnvironmentHeight() / environment->getHeight();
     for (const auto &cell : cells)
     {
         auto point = cell->getPosition();
-        double x = point.i * view->getEnvironmentWidth() / environment->getWidth();
-        double y = point.j * view->getEnvironmentHeight() / environment->getHeight();
+        double x = point.i * scaleW;
+        double y = point.j * scaleH;
 
         /* NotifyLoggers("Cell's " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + " position: Environment {" +
                       std::to_string(cell->getPosition().i) + ", " + std::to_string(cell->getPosition().j) + "}" +
