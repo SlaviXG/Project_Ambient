@@ -41,13 +41,15 @@ namespace environment
             return;
         }
         currentEnergy -= kMoveCost;
+
+        assert(environment != nullptr);
+        environment->updateCellPosition(this, oldPos);
+
         if(currentEnergy <= 0)
         {
             die();
             return;
         }
-        assert(environment != nullptr);
-        environment->updateCellPosition(this, oldPos);
     }
 
     int Cell::bestPossibleChoiceIndex(Matrix& outputs, Matrix& inputs)

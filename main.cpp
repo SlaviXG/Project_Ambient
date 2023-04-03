@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     cont.addCell({50, 50});
     cont.addCell({12, 50});
     cont.addCell({30, 75});
-    cont.addCell({90, 76});
+    /*cont.addCell({90, 76});
     cont.addCell({3, 65});
     cont.addCell({23, 83});
     cont.addCell({98, 12});
@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
     cont.addCell({90, 64});
     cont.addCell({84, 34});
     cont.addCell({55, 22});
-    cont.addCell({18, 43});
+    cont.addCell({18, 43});*/
 
     /*cont.addCell({54, 25});
     cont.addCell({94, 23});
