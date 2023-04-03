@@ -41,11 +41,11 @@ int main(int argc, char *argv[])
     cont.start();
     win.show();
     cont.addCell({50, 50});
-    cont.addCell({12, 50});
+    cont.addCell({60, 50});
     cont.addCell({30, 75});
-    /*cont.addCell({90, 76});
+    cont.addCell({90, 76});
     cont.addCell({3, 65});
-    cont.addCell({23, 83});
+    /*cont.addCell({23, 83});
     cont.addCell({98, 12});
     cont.addCell({52, 24});
     cont.addCell({23, 23});
