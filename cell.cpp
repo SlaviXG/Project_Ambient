@@ -57,6 +57,7 @@ namespace environment
         Point cellPosition = position;
         double maxValue = outputs[0][0];
         int index = 0;
+        Point freePosition;
 
         for (int i = 1; i < outputs.getY(); i++) {
             if (maxValue < outputs[i][0]) {
@@ -205,7 +206,9 @@ namespace environment
                 }
                 return index;
             case kDuplication:
-                if (inputs[24][0] < 300 )                     // indexation ? ; 300 == min_star_energy - 100
+                freePosition = environment->randomFreePosition(position);
+
+                if (inputs[24][0] < 300 || freePosition.i == -1)                     // indexation ? ; 300 == min_star_energy - 100
                 {
                     outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
@@ -293,6 +296,8 @@ namespace environment
         opponent->setCurrentEnergy(opponentEnergy);
 
         aggressiveness += 0.1;
+        stepsCount = kSteps;
+
         if (aggressiveness > 1)
             aggressiveness = 1;
 
@@ -308,8 +313,6 @@ namespace environment
         Point freePosition = environment->randomFreePosition(position);
         currentEnergy = currentEnergy * 0.4;
         this->environment->AddCell(new Cell(*this, freePosition));
-       //genotype::Genotype temp(this->genotype);// = genotype::Genotype(this->genotype);
-       //genotype = temp;
         this->genotype.mutate();
     }
 
@@ -379,7 +382,7 @@ namespace environment
             inputs.push_back(vision[i]);
         }
 
-        inputs.push_back(currentEnergy);
+        inputs.push_back(currentEnergy / maxEnergy);
         inputs.push_back(aggressiveness);
 
         Matrix mInputs(1, genotype::kM1Size.j);              // Check !!
