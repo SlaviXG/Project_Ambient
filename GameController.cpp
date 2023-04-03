@@ -74,12 +74,14 @@ void controller::GameController::processAI()
         if (!cell->isAlive())
             environment->RemoveCell(cell);
     }
+    NotifyLoggers("Cells remained: " + std::to_string(environment->getCellNumber()));
 };
 
 
 void controller::GameController::render()
 {
     auto cells = environment->getCells();
+    NotifyLoggers("Cells to render: " + std::to_string(environment->getCellNumber()));
     for (const auto &cell : cells)
     {
         auto point = cell->getPosition();

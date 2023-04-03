@@ -78,7 +78,7 @@ namespace environment
         assert(checkPositionCorrectness(viewPoint));
 
         std::vector<bool> vec;
-        vec.reserve(25);
+       // vec.reserve(25);
 
         for (int i = viewPoint.i - 2; i <= viewPoint.i + 2; ++i)
         {
@@ -130,6 +130,7 @@ namespace environment
         auto pos = cell->getPosition();
 
         assert(checkPositionCorrectness(pos));
+        assert(this->getCell(pos) != nullptr);
 
         frameMatrix[pos.i][pos.j] = nullptr;
     }
