@@ -102,6 +102,13 @@ namespace controller
         void addCell(environment::Cell* cellptr) override;
         void removeCell(environment::Cell *cell) override;
 
+        void initViewSize() {
+            CellView* ptr1 = this->scene->genCellViewPtr(0, 0, kCellSize, kCellSize, 0); this->scene->addCell(ptr1);
+            CellView* ptr2 = this->scene->genCellViewPtr(this->view->getEnvironmentWidth() - kViewPadding, 0, kCellSize, kCellSize, 0); this->scene->addCell(ptr2);
+            CellView* ptr3 = this->scene->genCellViewPtr(0, this->view->getEnvironmentHeight() - kViewPadding, kCellSize, kCellSize, 0); this->scene->addCell(ptr3);
+            CellView* ptr4 = this->scene->genCellViewPtr(this->view->getEnvironmentWidth() - kViewPadding, this->view->getEnvironmentHeight() - kViewPadding, kCellSize, kCellSize, 0); this->scene->addCell(ptr4);
+        }
+
     private:
         void processAI();
         void render();
@@ -109,17 +116,6 @@ namespace controller
         void execute()
         {
             this->processAI();
-
-            /*CellView* ptr1 = gameController->scene->genCellViewPtr(0, 0, kCellSize, kCellSize, 0); gameController->scene->addCell(ptr1);
-            CellView* ptr2 = gameController->scene->genCellViewPtr(gameController->view->getEnvironmentWidth() - kViewPadding, 0, kCellSize, kCellSize, 0); gameController->scene->addCell(ptr2);
-            CellView* ptr3 = gameController->scene->genCellViewPtr(0, gameController->view->getEnvironmentHeight() - kViewPadding, kCellSize, kCellSize, 0); gameController->scene->addCell(ptr3);
-            CellView* ptr4 = gameController->scene->genCellViewPtr(gameController->view->getEnvironmentWidth() - kViewPadding, gameController->view->getEnvironmentHeight() - kViewPadding, kCellSize, kCellSize, 0); gameController->scene->addCell(ptr4);*/
-
-            //gameController->scene->removeCell(ptr1);
-            //gameController->scene->removeCell(ptr2);
-            //gameController->scene->removeCell(ptr3);
-            //gameController->scene->removeCell(ptr4);
-
             this->render();
         }
 
