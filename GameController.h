@@ -10,6 +10,9 @@
 #include "CellView.h"
 #include "logger.h"
 
+#include <QTimer>
+#include <QObject>
+
 #include <vector>
 #include <string>
 #include <map>
@@ -17,8 +20,8 @@
 namespace controller
 {
     constexpr int kCellSize = 20;
-    constexpr int kFps = 1;
-    constexpr int kViewPadding = kCellSize + 5;
+    constexpr int kFps = 10;
+    constexpr int kViewPadding = kCellSize / 2;
 
      /**
      * @brief The CellInteractor class
@@ -51,13 +54,11 @@ namespace controller
      * @brief  GameController class is responsible for managing the game logic and updating the graphical representation of the game.
      *
      */
-    class GameController : public CellInteractor, public GameInteractor
+    class GameController : public QObject, public CellInteractor, public GameInteractor
     {
-        using gen = environment::RandomGenerator;
-
     public:
         explicit GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment)
-            : view(view), scene(scene), environment(environment), tick(std::bind(&GameController::execute, this), kFps){};
+            : view(view), scene(scene), environment(environment), timer(this), loggers() {}
 
         virtual ~GameController(){};
 
@@ -69,22 +70,23 @@ namespace controller
 
         inline void start() override
         {
-            tick.Start();
+            connect(&timer, &QTimer::timeout, this, &GameController::execute);
+            timer.start(1000 / kFps);
         }
 
         inline void stop() override
         {
-            tick.Stop();
+            timer.stop();
         }
 
         inline void pause() override
         {
-            tick.Pause();
+            timer.stop();
         }
 
         inline void resume() override
         {
-            tick.Resume();
+            timer.start(1000 / kFps);
         }
 
         inline void AddLogger(Logger* logger)
@@ -111,21 +113,10 @@ namespace controller
         void processAI();
         void render();
 
-        static void execute(GameController *gameController)
+        void execute()
         {
-            gameController->processAI();
-
-            /*CellView* ptr1 = gameController->scene->genCellViewPtr(0, 0, kCellSize, kCellSize, 0); gameController->scene->addCell(ptr1);
-            CellView* ptr2 = gameController->scene->genCellViewPtr(gameController->view->getEnvironmentWidth() - kViewPadding, 0, kCellSize, kCellSize, 0); gameController->scene->addCell(ptr2);
-            CellView* ptr3 = gameController->scene->genCellViewPtr(0, gameController->view->getEnvironmentHeight() - kViewPadding, kCellSize, kCellSize, 0); gameController->scene->addCell(ptr3);
-            CellView* ptr4 = gameController->scene->genCellViewPtr(gameController->view->getEnvironmentWidth() - kViewPadding, gameController->view->getEnvironmentHeight() - kViewPadding, kCellSize, kCellSize, 0); gameController->scene->addCell(ptr4);*/
-
-            //gameController->scene->removeCell(ptr1);
-            //gameController->scene->removeCell(ptr2);
-            //gameController->scene->removeCell(ptr3);
-            //gameController->scene->removeCell(ptr4);
-
-            gameController->render();
+            this->processAI();
+            this->render();
         }
 
         void NotifyLoggers(const std::string message)
@@ -141,7 +132,7 @@ namespace controller
         environment::Environment *environment;
         std::map<environment::Cell *, CellView *> cellMap;
 
-        Tick tick;
+        QTimer timer;
         std::vector<Logger*> loggers;
     };
 };

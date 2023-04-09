@@ -23,9 +23,22 @@ public:
 
     void inline setController(controller::GameInteractor*  controller) {this->controller = controller; };
 
+    /**
+     * @brief Updates items' view location
+     */
+    void updateEnvironment();
+
+public slots:
+    /**
+     * @brief Scales up environment view size
+     */
+    void initEnvironmentSize();
+
 private:
     Ui::MainWindow *ui;
+    EnvironmentScene* scene;
     controller::GameInteractor* controller = nullptr;
 
+    void resizeEvent(QResizeEvent* event) override;
 };
 #endif // MAINWINDOW_H
