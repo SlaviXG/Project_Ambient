@@ -1,11 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QTimer>
+#include "GameController.h"
+
 
 
 MainWindow::MainWindow(EnvironmentScene* scene, QWidget *parent)
-    : QMainWindow(parent)
+    : QMainWindow(parent), scene(scene)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -39,4 +40,21 @@ qreal MainWindow::getEnvironmentHeight() const {
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::initEnvironmentSize() {
+    // Get the size of the viewport
+    QSize viewportSize = ui->environmentView->viewport()->size();
+
+    // Set the scene rect to the same size as the viewport
+    scene->setSceneRect(QRectF(QPointF(0, 0), viewportSize));
+
+    // Update the view
+    ui->environmentView->fitInView(scene->sceneRect(), Qt::KeepAspectRatio);
+}
+
+void MainWindow::resizeEvent(QResizeEvent* event) {
+    QMainWindow::resizeEvent(event);
+
+    this->initEnvironmentSize();
 }

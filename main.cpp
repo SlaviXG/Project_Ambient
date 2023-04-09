@@ -40,13 +40,14 @@ int main(int argc, char *argv[])
     win.setController(&cont);
     win.show();
 
-    cont.initViewSize();
+    win.initEnvironmentSize();
+
     cont.start();
 
-    cont.addCell({50, 50});
+    cont.addCell({0, 0});
     cont.addCell({60, 50});
     cont.addCell({30, 75});
-    /*cont.addCell({70, 76});
+    cont.addCell({70, 76});
     cont.addCell({31, 65});
     cont.addCell({23, 83});
     cont.addCell({68, 22});
@@ -71,9 +72,9 @@ int main(int argc, char *argv[])
     cont.addCell({80, 44});
     cont.addCell({74, 34});
     cont.addCell({69, 21});
-    cont.addCell({38, 43});*/
+    cont.addCell({38, 43});
 
-    /*cont.addCell({54, 25});
+    cont.addCell({54, 25});
     cont.addCell({94, 23});
     cont.addCell({62, 72});
     cont.addCell({92, 8});
@@ -86,7 +87,7 @@ int main(int argc, char *argv[])
     cont.addCell({80, 44});
     cont.addCell({74, 34});
     cont.addCell({69, 21});
-    cont.addCell({38, 43});*/
+    cont.addCell({38, 43});
 
     return a.exec();
 }
