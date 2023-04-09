@@ -83,11 +83,11 @@ void controller::GameController::render()
     auto cells = environment->getCells();
     NotifyLoggers("Cells to render: " + std::to_string(environment->getCellNumber()));
 
-    //double scaleW = (view->getEnvironmentWidth() - kViewPadding) / environment->getWidth();
-    //double scaleH = (view->getEnvironmentHeight() - kViewPadding) / environment->getHeight();
+    double scaleW = (view->getEnvironmentWidth() - kViewPadding) / environment->getWidth();
+    double scaleH = (view->getEnvironmentHeight() - kViewPadding) / environment->getHeight();
 
-    double scaleW = view->getEnvironmentWidth() / environment->getWidth();
-    double scaleH = view->getEnvironmentHeight() / environment->getHeight();
+    //double scaleW = view->getEnvironmentWidth() / environment->getWidth();
+    //double scaleH = view->getEnvironmentHeight() / environment->getHeight();
 
     for (const auto &cell : cells)
     {
