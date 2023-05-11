@@ -42,6 +42,7 @@ namespace environment
     constexpr float kAttackCost = 0.1;       // 1/10 * currentEnergy
     constexpr int kPrise = 200;           // + energy after killing
     constexpr int movesToDeath = 100;
+    constexpr int minDamage = 50;
 
     class Cell : public Frame
     {

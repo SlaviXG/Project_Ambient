@@ -54,6 +54,10 @@ namespace environment
 
     int Cell::bestPossibleChoiceIndex(Matrix& outputs, Matrix& inputs)
     {
+        // if currentEnergy < 0.05 * maxEnergy
+        //if(inputs[24][0] < 0.05)
+        //    return kPhotosynthesis;
+
         Point cellPosition = position;
         double maxValue = outputs[0][0];
         int index = 0;
@@ -297,9 +301,9 @@ namespace environment
             currentPosition.j--;
         }
 
-        Cell* opponent = environment->getCell(currentPosition); // TODO
+        Cell* opponent = environment->getCell(currentPosition);
         double opponentEnergy = opponent->getCurrentEnergy();
-        opponentEnergy -= currentEnergy * kAttackCoefficient;
+        opponentEnergy -= (currentEnergy * kAttackCoefficient + minDamage);
         currentEnergy -= currentEnergy * kAttackCost;
         opponent->setCurrentEnergy(opponentEnergy);
 
