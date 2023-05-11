@@ -6,7 +6,6 @@
 #include "Environment.h"
 #include "point.h"
 
-
 namespace environment
 {
 
@@ -33,7 +32,7 @@ namespace environment
         kCellIsDead,
         kNegativeAction = -1
     };
-    
+
     constexpr int kMaxEnergy = 500;
     constexpr int kMinEnergy = 400;
     constexpr int kSteps = 50;
@@ -42,7 +41,7 @@ namespace environment
     constexpr float kAttackCoefficient = 0.35;
     constexpr float kAttackCost = 0.1;       // 1/10 * currentEnergy
     constexpr int kPrise = 200;           // + energy after killing
-
+    constexpr int movesToDeath = 100;
 
     class Cell : public Frame
     {
@@ -53,6 +52,7 @@ namespace environment
         genotype::Genotype genotype;
         int stepsCount = kSteps;
         bool isAliveStatus = true;
+        int numberOfMovesToDeath = movesToDeath;
 
     public:
         Cell() : Frame() {};
@@ -66,6 +66,7 @@ namespace environment
             this->stepsCount = cell.getStepsCount();
         }
         Cell(Point startingPosition, Environment* environment = nullptr);
+        Cell(Point startingPosition, std::vector<int> countOfWeights, Environment* environment = nullptr);
         Cell(Cell &mother, Point freePosition);
 
         double getCurrentEnergy() const;

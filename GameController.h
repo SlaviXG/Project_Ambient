@@ -68,6 +68,11 @@ namespace controller
             this->addCell(cellptr);
         }
 
+        inline void addCell(const Point &point,  std::vector<int> countOfWeights)
+        {
+            auto cellptr = environment->AddCell(point, countOfWeights);
+            this->addCell(cellptr);
+        }
         inline void start() override
         {
             connect(&timer, &QTimer::timeout, this, &GameController::execute);

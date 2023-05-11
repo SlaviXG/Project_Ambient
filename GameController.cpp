@@ -66,13 +66,11 @@ void controller::GameController::processAI()
             break;
         }
         }
-    }
-    // Removal of dead cells
-    cells = environment->getCells();
-    for (auto cell : cells)
-    {
-        if (!cell->isAlive())
+
+        if(cell->isAlive() == false)
+        {
             environment->RemoveCell(cell);
+        }
     }
     NotifyLoggers("Cells remained: " + std::to_string(environment->getCellNumber()));
 };

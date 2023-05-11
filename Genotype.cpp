@@ -24,8 +24,8 @@
 7) Move LU
 8) photosynthesis
 9) sleep                            // skip
-9) attack
-10) duplication
+10) attack
+11) duplication
  */
 namespace genotype {
     bool opponentIsNearby(Matrix inputs) {
@@ -63,93 +63,86 @@ namespace genotype {
         return m;
     }
 
-    Genotype::Genotype() {
-        m1 = Matrix(kM1Size.j, kM1Size.i);
-        m2 = Matrix(kM2Size.j, kM2Size.i);
-        m3 = Matrix(kM3Size.j, kM3Size.i);
-        m4 = Matrix(kM4Size.j, kM4Size.i);
+    Genotype::Genotype()
+    {
+        this->weights = std::vector<Matrix>(0);
+        this->baeses = std::vector<Matrix>(0);
+        this->countOfLayers = 0;
+    }
 
-        b1 = Matrix(kB1Size.j, kB1Size.i);
-        b2 = Matrix(kB1Size.j, kB1Size.i);
-        b3 = Matrix(kB1Size.j, kB1Size.i);
-        b4 = Matrix(kB1Size.j, kB1Size.i);
 
-        b1.setRandomValues();
-        b2.setRandomValues();
-        b3.setRandomValues();
-        b4.setRandomValues();
+    Genotype::Genotype(std::vector<int> countOfWeights)
+    {
+        this->countOfLayers = 1;
+        std::vector<int> temp;
 
-        m1.setRandomValues();
-        m2.setRandomValues();
-        m3.setRandomValues();
-        m4.setRandomValues();
+        temp.push_back(countOfInputs);
+        for(int i = 0; i < countOfWeights.size(); i++)
+        {
+            if(countOfWeights[i] > 0)
+            {
+                temp.push_back(countOfWeights[i]);
+                this->countOfLayers++;
+            }
+        }
+        temp.push_back(countOfOutputs);
+
+        std::vector<Matrix> weight;
+        std::vector<Matrix> baes;
+
+        for(int i = 0; i < this->countOfLayers; i++)
+        {
+            Matrix w(temp[i],temp[i+1]);
+            Matrix b(1,temp[i+1]);
+
+            w.setRandomValues();
+            b.setRandomValues();
+
+            weight.push_back(w);
+            baes.push_back(b);
+        }
+
+        weights = weight;
+        baeses = baes;
     }
 
     Genotype::Genotype(const Genotype& g)
     {
-        this->b1 = g.getBaesMatrixByIndex(1);
-        this->b2 = g.getBaesMatrixByIndex(2);
-        this->b3 = g.getBaesMatrixByIndex(3);
-        this->b4 = g.getBaesMatrixByIndex(4);
+        this->countOfLayers = g.countOfLayers;
 
-        this->m1 = g.getWeightsMatrixByIndex(1);
-        this->m2 = g.getWeightsMatrixByIndex(2);
-        this->m3 = g.getWeightsMatrixByIndex(3);
-        this->m4 = g.getWeightsMatrixByIndex(4);
-    }
+        std::vector<Matrix> w;
+        std::vector<Matrix> b;
 
-    Genotype::Genotype(Genotype &parent) {
-        m1 = mutation(parent.getWeightsMatrixByIndex(1));
-        m2 = mutation(parent.getWeightsMatrixByIndex(2));
-        m3 = mutation(parent.getWeightsMatrixByIndex(3));
-        m4 = mutation(parent.getWeightsMatrixByIndex(4));
+        for(int i = 0; i < this->countOfLayers; i++)
+        {
+            w.push_back(mutation(g.weights[i]));
+            b.push_back(mutation(g.baeses[i]));
+        }
 
-        b1 = mutation(parent.getBaesMatrixByIndex(1));
-        b2 = mutation(parent.getBaesMatrixByIndex(2));
-        b3 = mutation(parent.getBaesMatrixByIndex(3));
-        b4 = mutation(parent.getBaesMatrixByIndex(4));
+        this->weights = w;
+        this->baeses = b;
     }
 
     Matrix Genotype::getWeightsMatrixByIndex(int index) const{
-        switch (index) {
-            case 1:
-                return m1;
-            case 2:
-                return m2;
-            case 3:
-                return m3;
-            case 4:
-                return m4;
-            default:
-                return Matrix();
-        }
+
+        if(index >= this->countOfLayers || index < 0)
+            return Matrix();
+        return this->weights[index];
     }
 
     Matrix Genotype::getBaesMatrixByIndex(int index) const{
-        switch (index) {
-            case 1:
-                return b1;
-            case 2:
-                return b2;
-            case 3:
-                return b3;
-            case 4:
-                return b4;
-            default:
-                return Matrix();
-        }
+        if(index >= this->countOfLayers || index < 0)
+            return Matrix();
+        return this->baeses[index];
     }
 
     void Genotype::mutate()
     {
-        m1 = mutation(m1);
-        m2 = mutation(m2);
-        m3 = mutation(m3);
-        m4 = mutation(m4);
 
-        b1 = mutation(b1);
-        b2 = mutation(b2);
-        b3 = mutation(b3);
-        b4 = mutation(b4);
+        for(int i = 0; i < this->countOfLayers; i++)
+        {
+            this->weights[i] = mutation(this->weights[i]);
+            this->baeses[i] = mutation(this->baeses[i]);
+        }
     }
 }

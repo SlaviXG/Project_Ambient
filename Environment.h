@@ -72,7 +72,7 @@ namespace environment
         // Cell Actions:
         Cell* AddCell(Cell* cell); // Call from logic
         Cell* AddCell(const Point& point); // Call from controller
-
+        Cell* AddCell(const Point& point, std::vector<int> countOfWeights);
         /**
          * @brief Removes the cell from the map
          *
