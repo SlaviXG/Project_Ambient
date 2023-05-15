@@ -58,3 +58,21 @@ void MainWindow::resizeEvent(QResizeEvent* event) {
 
     this->initEnvironmentSize();
 }
+
+void MainWindow::on_resumeButton_clicked()
+{
+    qDebug() << "Resume";
+}
+
+void MainWindow::on_pauseButton_clicked()
+{
+    qDebug() << "Pause";
+}
+
+void MainWindow::on_restartButton_clicked()
+{
+    qDebug() << "Restart";
+}
+
+
+

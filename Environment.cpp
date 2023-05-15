@@ -126,6 +126,19 @@ namespace environment
         return cell;
     }
 
+    // New method
+    Cell *Environment::AddCell(const Point &point, std::vector<int> countOfWeights)
+    {
+        assert(checkPositionCorrectness(point));
+        assert(frameMatrix[point.i][point.j] == nullptr);
+
+        Cell *cell = new Cell(point,countOfWeights, this);
+        cells.push_back(cell);
+        frameMatrix[point.i][point.j] = cell;
+
+        return cell;
+    }
+
     void Environment::InvalidateCell(Cell *cell)
     {
         auto pos = cell->getPosition();

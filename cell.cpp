@@ -54,6 +54,10 @@ namespace environment
 
     int Cell::bestPossibleChoiceIndex(Matrix& outputs, Matrix& inputs)
     {
+        // if currentEnergy < 0.05 * maxEnergy
+        //if(inputs[24][0] < 0.05)
+        //    return kPhotosynthesis;
+
         Point cellPosition = position;
         double maxValue = outputs[0][0];
         int index = 0;
@@ -207,8 +211,8 @@ namespace environment
                 return index;
             case kDuplication:
                 freePosition = environment->randomFreePosition(position);
-
-                if (inputs[24][0] < 300 || freePosition.i == -1)                     // indexation ? ; 300 == min_star_energy - 100
+                // 0.5 = 1/2 maxEnergy
+                if (inputs[24][0] < 0.5 || freePosition.i == -1)                     // indexation ? ; 300 == min_star_energy - 100
                 {
                     outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
@@ -228,12 +232,20 @@ namespace environment
 
     int Cell::makeChoice(Matrix& inputs)
     {
-        Matrix firstLayer = genotype::ReLU(genotype.getWeightsMatrixByIndex(1) * inputs + genotype.getBaesMatrixByIndex(1));
-        Matrix secondLayer = genotype::ReLU(genotype.getWeightsMatrixByIndex(2) * firstLayer + genotype.getBaesMatrixByIndex(2));
-        Matrix thirdLayer = genotype::ReLU(genotype.getWeightsMatrixByIndex(3) * secondLayer + genotype.getBaesMatrixByIndex(3));
-        Matrix outputs = genotype.getWeightsMatrixByIndex(4) * thirdLayer + genotype.getBaesMatrixByIndex(4);
+        const int countOfIteration = this->genotype.getCountOfLayers();
+        Matrix temp = genotype::ReLU(genotype.getWeightsMatrixByIndex(0) * inputs + genotype.getBaesMatrixByIndex(0));
+        for(int i = 1; i < countOfIteration; i++)
+        {
+            temp = genotype::ReLU(genotype.getWeightsMatrixByIndex(i) * temp + genotype.getBaesMatrixByIndex(i));
+        }
 
-        return bestPossibleChoiceIndex(outputs, inputs);
+        //Matrix firstLayer = genotype::ReLU(genotype.getWeightsMatrixByIndex(1) * inputs + genotype.getBaesMatrixByIndex(1));
+        //Matrix secondLayer = genotype::ReLU(genotype.getWeightsMatrixByIndex(2) * firstLayer + genotype.getBaesMatrixByIndex(2));
+        //Matrix thirdLayer = genotype::ReLU(genotype.getWeightsMatrixByIndex(3) * secondLayer + genotype.getBaesMatrixByIndex(3));
+        //Matrix outputs = genotype.getWeightsMatrixByIndex(4) * thirdLayer + genotype.getBaesMatrixByIndex(4);
+
+        //return bestPossibleChoiceIndex(outputs, inputs);
+        return bestPossibleChoiceIndex(temp, inputs);
     }
 
     void increaseEnergy(double &currentEnergy, double maxEnergy, double count)
@@ -289,9 +301,9 @@ namespace environment
             currentPosition.j--;
         }
 
-        Cell* opponent = environment->getCell(currentPosition); // TODO
+        Cell* opponent = environment->getCell(currentPosition);
         double opponentEnergy = opponent->getCurrentEnergy();
-        opponentEnergy -= currentEnergy * kAttackCoefficient;
+        opponentEnergy -= (currentEnergy * kAttackCoefficient + minDamage);
         currentEnergy -= currentEnergy * kAttackCost;
         opponent->setCurrentEnergy(opponentEnergy);
 
@@ -319,7 +331,7 @@ namespace environment
     Cell::Cell(Point startingPosition, Environment* environment)
         : Frame(startingPosition, environment)
     {
-        genotype = genotype::Genotype();
+        genotype = genotype::Genotype(std::vector<int>{20,20,20,20,20});
         aggressiveness = RandomGenerator::generateRandomDoubleNumber(0,1);
         maxEnergy = RandomGenerator::generateRandomIntNumber(kMinEnergy,kMaxEnergy);
         currentEnergy = maxEnergy;
@@ -327,11 +339,20 @@ namespace environment
 
     Cell::Cell(Cell &mother, Point freePosition) : Frame(mother)
     {
-        genotype = genotype::Genotype(mother.getGenotype());;
+        genotype = genotype::Genotype(mother.getGenotype());
         aggressiveness = mother.getAggressiveness();
         currentEnergy = mother.getCurrentEnergy();
         maxEnergy = mother.getMaxEnergy();
         position = freePosition;
+    }
+
+    // countOfWeights - Additional vector, which contain countOfWeights in i's layer(from 1 to n-1)
+    Cell::Cell(Point startingPosition, std::vector<int> countOfWeights, Environment* environment): Frame(startingPosition, environment)
+    {
+        genotype = genotype::Genotype(countOfWeights);
+        aggressiveness = RandomGenerator::generateRandomDoubleNumber(0,1);
+        maxEnergy = RandomGenerator::generateRandomIntNumber(kMinEnergy,kMaxEnergy);
+        currentEnergy = maxEnergy;
     }
 
     double Cell::getAggressiveness() const
@@ -366,12 +387,13 @@ namespace environment
 
     actions Cell::act() //std::vector<double> inputs
     {
-        if (isAliveStatus == 0) // Remove or delete cell
+        if (isAliveStatus == 0 || numberOfMovesToDeath == 0) // Remove or delete cell
         {
             die();
             return kCellIsDead;
         }
 
+        numberOfMovesToDeath--;
         std::vector<double> inputs;
         std::vector<bool> vision;
         assert(environment!=nullptr);
@@ -384,8 +406,7 @@ namespace environment
 
         inputs.push_back(currentEnergy / maxEnergy);
         inputs.push_back(aggressiveness);
-
-        Matrix mInputs(1, genotype::kM1Size.j);              // Check !!
+        Matrix mInputs(1, this->genotype.getWeightsMatrixByIndex(0).getX());
         mInputs.addColumn(inputs);
 
         int indexOfAction = makeChoice(mInputs);

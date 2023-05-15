@@ -34,6 +34,13 @@ public slots:
      */
     void initEnvironmentSize();
 
+private slots:
+    void on_restartButton_clicked();
+
+    void on_pauseButton_clicked();
+
+    void on_resumeButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     EnvironmentScene* scene;
