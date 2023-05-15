@@ -20,7 +20,7 @@
 namespace controller
 {
     constexpr int kCellSize = 20;
-    constexpr int kFps = 10;
+    constexpr int kFps = 2;
     constexpr int kViewPadding = kCellSize / 2;
 
      /**
@@ -101,13 +101,6 @@ namespace controller
 
         void addCell(environment::Cell* cellptr) override;
         void removeCell(environment::Cell *cell) override;
-
-        void initViewSize() {
-            CellView* ptr1 = this->scene->genCellViewPtr(0, 0, kCellSize, kCellSize, 0); this->scene->addCell(ptr1);
-            CellView* ptr2 = this->scene->genCellViewPtr(this->view->getEnvironmentWidth() - kViewPadding, 0, kCellSize, kCellSize, 0); this->scene->addCell(ptr2);
-            CellView* ptr3 = this->scene->genCellViewPtr(0, this->view->getEnvironmentHeight() - kViewPadding, kCellSize, kCellSize, 0); this->scene->addCell(ptr3);
-            CellView* ptr4 = this->scene->genCellViewPtr(this->view->getEnvironmentWidth() - kViewPadding, this->view->getEnvironmentHeight() - kViewPadding, kCellSize, kCellSize, 0); this->scene->addCell(ptr4);
-        }
 
     private:
         void processAI();

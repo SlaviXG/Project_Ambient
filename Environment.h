@@ -12,7 +12,7 @@ namespace controller { class CellInteractor; }
 namespace environment
 {
     class Frame;
-    class Cell;
+    class Cell; // Cell inherits Frame
 
     class Environment
     {
