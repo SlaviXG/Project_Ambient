@@ -35,13 +35,13 @@ namespace environment
 
     constexpr int kMaxEnergy = 500;
     constexpr int kMinEnergy = 400;
-    constexpr int kSteps = 50;
-    constexpr int kMoveCost = 10;
-    constexpr int kPhotosynthesisAdd = 25;
-    constexpr float kAttackCoefficient = 0.35;
-    constexpr float kAttackCost = 0.1;       // 1/10 * currentEnergy
-    constexpr int kPrise = 200;           // + energy after killing
-    constexpr int movesToDeath = 100;
+    constexpr int kSteps = 20;                  //
+    constexpr int kMoveCost = 5;                // count of energy, that cell will loose after move
+    constexpr int kPhotosynthesisAdd = 25;      // count of energy, that cell will recieve after Photosynthes
+    constexpr float kAttackCoefficient = 0.35;  // opponent energy -= currentEnergy * kAC + minDamage
+    constexpr float kAttackCost = 0.1;          // 1/10 * currentEnergy
+    constexpr int kPrise = 200;                 // + energy after killing
+    constexpr int movesToDeath = 250;           // every cell can make at max 250 actions
     constexpr int minDamage = 50;
 
     class Cell : public Frame
@@ -54,6 +54,7 @@ namespace environment
         int stepsCount = kSteps;
         bool isAliveStatus = true;
         int numberOfMovesToDeath = movesToDeath;
+        int totalScore = 0;                         // evaluation of cell's model
 
     public:
         Cell() : Frame() {};
@@ -76,6 +77,7 @@ namespace environment
         genotype::Genotype getGenotype() const;
         bool isAlive() const;
         int getStepsCount() const;
+        int getTotalScore() const;
 
         void setCurrentEnergy(double count) { currentEnergy = count; }
         void setIsAlive(bool status) { isAliveStatus = status; }

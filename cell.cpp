@@ -54,10 +54,6 @@ namespace environment
 
     int Cell::bestPossibleChoiceIndex(Matrix& outputs, Matrix& inputs)
     {
-        // if currentEnergy < 0.05 * maxEnergy
-        //if(inputs[24][0] < 0.05)
-        //    return kPhotosynthesis;
-
         Point cellPosition = position;
         double maxValue = outputs[0][0];
         int index = 0;
@@ -219,7 +215,7 @@ namespace environment
                 }
                 return index;
             case kPhotosynthesis:
-                if (inputs[24][0] == maxEnergy )                     // indexation ? ; 300 == min_star_energy - 100
+                if (inputs[24][0] >= 0.99 )                     // can Photosynthesis if energy is low than 99 procent
                 {
                     outputs[index][0] = -10;
                     return bestPossibleChoiceIndex(outputs, inputs);
@@ -238,13 +234,6 @@ namespace environment
         {
             temp = genotype::ReLU(genotype.getWeightsMatrixByIndex(i) * temp + genotype.getBaesMatrixByIndex(i));
         }
-
-        //Matrix firstLayer = genotype::ReLU(genotype.getWeightsMatrixByIndex(1) * inputs + genotype.getBaesMatrixByIndex(1));
-        //Matrix secondLayer = genotype::ReLU(genotype.getWeightsMatrixByIndex(2) * firstLayer + genotype.getBaesMatrixByIndex(2));
-        //Matrix thirdLayer = genotype::ReLU(genotype.getWeightsMatrixByIndex(3) * secondLayer + genotype.getBaesMatrixByIndex(3));
-        //Matrix outputs = genotype.getWeightsMatrixByIndex(4) * thirdLayer + genotype.getBaesMatrixByIndex(4);
-
-        //return bestPossibleChoiceIndex(outputs, inputs);
         return bestPossibleChoiceIndex(temp, inputs);
     }
 
@@ -307,7 +296,7 @@ namespace environment
         currentEnergy -= currentEnergy * kAttackCost;
         opponent->setCurrentEnergy(opponentEnergy);
 
-        aggressiveness += 0.1;
+        aggressiveness += 0.01;
         stepsCount = kSteps;
 
         if (aggressiveness >= 1)
@@ -325,13 +314,13 @@ namespace environment
         Point freePosition = environment->randomFreePosition(position);
         currentEnergy = currentEnergy * 0.4;
         this->environment->AddCell(new Cell(*this, freePosition));
-        this->genotype.mutate();
+        //this->genotype.mutate();
     }
 
     Cell::Cell(Point startingPosition, Environment* environment)
         : Frame(startingPosition, environment)
     {
-        genotype = genotype::Genotype(std::vector<int>{20,20,20,20,20});
+        genotype = genotype::Genotype(std::vector<int>{10,10,10,10,10});
         aggressiveness = RandomGenerator::generateRandomDoubleNumber(0,1);
         maxEnergy = RandomGenerator::generateRandomIntNumber(kMinEnergy,kMaxEnergy);
         currentEnergy = maxEnergy;
@@ -384,10 +373,13 @@ namespace environment
     {
         return this->stepsCount;
     }
-
+    int Cell::getTotalScore() const
+    {
+        return this->totalScore;
+    }
     actions Cell::act() //std::vector<double> inputs
     {
-        if (isAliveStatus == 0 || numberOfMovesToDeath == 0) // Remove or delete cell
+        if (numberOfMovesToDeath == 0) // Remove or delete cell
         {
             die();
             return kCellIsDead;
@@ -424,18 +416,21 @@ namespace environment
 
         else if (indexOfAction == kPhotosynthesis)
         {
+            this->totalScore += 2;
             photosynthesis();
             return kPhotosynthesis;
         }
 
         else if (indexOfAction == kDuplication)
         {
+            this->totalScore += 50;
             duplicate();
             return kDuplication;
         }
 
         else
         {
+            this->totalScore += 5;
             attack(indexOfAction);
             return kAttackUp;
         }
