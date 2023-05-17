@@ -131,7 +131,10 @@ namespace controller
 
             for (size_t i = 0; i < cell_count; ++i) {
                 auto pos = environment::RandomGenerator::generateRandomPoint({0, 0}, {environment->getHeight(), environment->getWidth()});
-                this->addCell(pos);
+                if (!environment->getFrame(pos))
+                    this->addCell(pos);
+                else
+                    --i;
             }
         }
 
@@ -140,7 +143,10 @@ namespace controller
 
             for (size_t i = 0; i < cell_count; ++i) {
                 auto pos = environment::RandomGenerator::generateRandomPoint({0, 0}, {environment->getHeight(), environment->getWidth()});
-                this->addCell(pos, countOfWeights);
+                if (!environment->getFrame(pos))
+                    this->addCell(pos, countOfWeights);
+                else
+                    --i;
             }
         }
 
@@ -157,7 +163,10 @@ namespace controller
 
             for (size_t i = 0; i < cell_count; ++i) {
                 auto pos = environment::RandomGenerator::generateRandomPoint(top_left, bottom_right);
-                this->addCell(pos);
+                if (!environment->getFrame(pos))
+                    this->addCell(pos);
+                else
+                    --i;
             }
         }
 
@@ -175,7 +184,10 @@ namespace controller
 
             for (size_t i = 0; i < cell_count; ++i) {
                 auto pos = environment::RandomGenerator::generateRandomPoint(top_left, bottom_right);
-                this->addCell(pos, countOfWeights);
+                if (!environment->getFrame(pos))
+                    this->addCell(pos, countOfWeights);
+                else
+                    --i;
             }
         }
 
