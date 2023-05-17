@@ -66,7 +66,6 @@ namespace environment
     void Environment::updateCellPosition(Cell *cell, const Point &oldPos)
     {
         assert(checkPositionCorrectness(oldPos));
-        std::cout << "\n" << cell->getPosition().i << " " << cell->getPosition().j<< "\n";
         assert(checkPositionCorrectness(cell->getPosition()));
         frameMatrix[oldPos.i][oldPos.j] = nullptr;
         auto newPos = cell->getPosition();
