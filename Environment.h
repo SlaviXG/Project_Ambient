@@ -8,6 +8,7 @@
 #include "Genotype.h" // For Point struct
 
 namespace controller { class CellInteractor; }
+namespace controller { class GameController; }
 
 namespace environment
 {
@@ -100,6 +101,7 @@ namespace environment
         // Returns a random correct and empty cell coordinate within a radius of one from the given point
         Point randomFreePosition(const Point &point) const;
         Point getRandomFreePosOnMap(unsigned int attemp_count = 50) const;
+        void generateCells(int N, controller::GameController *cont);
     };
 
     class RandomGenerator {

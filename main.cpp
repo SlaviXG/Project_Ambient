@@ -12,20 +12,6 @@
 #include "test_tick.hpp"
 #include "test_environment.hpp"
 
-void gen_cells(int N, controller::GameController *cont, environment::Environment *env){
-    for(int i = 0; i < N ; i++){
-        Point point = env->getRandomFreePosOnMap();
-        if(point.i != -1){
-            cont->addCell(point);
-        }
-        else{
-            continue;
-        }
-    }
-}
-
-
-
 int main(int argc, char *argv[])
 {
     srand(time(0));
@@ -55,7 +41,7 @@ int main(int argc, char *argv[])
     win.show();
 
     win.initEnvironmentSize();
-    gen_cells(100, &cont, &env);
+    env.generateCells(200, &cont);
     /*cont.addCell({0, 0});
         cont.addCell({60, 50});
         cont.addCell({30, 75});

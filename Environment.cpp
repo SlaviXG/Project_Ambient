@@ -66,8 +66,8 @@ namespace environment
     void Environment::updateCellPosition(Cell *cell, const Point &oldPos)
     {
         assert(checkPositionCorrectness(oldPos));
+        std::cout << "\n" << cell->getPosition().i << " " << cell->getPosition().j<< "\n";
         assert(checkPositionCorrectness(cell->getPosition()));
-
         frameMatrix[oldPos.i][oldPos.j] = nullptr;
         auto newPos = cell->getPosition();
         frameMatrix[newPos.i][newPos.j] = cell;
@@ -209,6 +209,19 @@ namespace environment
            }
         }
         return {-1, -1};
+    }
+
+    void Environment::generateCells(int N, controller::GameController *cont)
+    {
+        for(int i = 0; i < N ; i++){
+            Point point = this->getRandomFreePosOnMap();
+            if(point.i != -1){
+                cont->addCell(point);
+            }
+            else{
+                continue;
+            }
+        }
     }
 
 }
