@@ -36,6 +36,11 @@ namespace genotype {
         return true;
     }
 
+    int avalueateModel()
+    {
+
+    }
+
     Matrix mutation(Matrix m) {
         std::random_device rd;
         std::mt19937 eng(rd());
