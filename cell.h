@@ -35,14 +35,14 @@ namespace environment
 
     constexpr int kMaxEnergy = 500;
     constexpr int kMinEnergy = 400;
-    constexpr int kSteps = 20;                   //
+    constexpr int kSteps = 5;                   //
     constexpr int kMoveCost = 5;                // count of energy, that cell will loose after move
-    constexpr int kPhotosynthesisAdd = 20;      // count of energy, that cell will recieve after Photosynthes
-    constexpr float kAttackCoefficient = 0.35;  // opponent energy -= currentEnergy * kAC + minDamage
+    constexpr int kPhotosynthesisAdd = 25;      // count of energy, that cell will recieve after Photosynthes
+    constexpr float kAttackCoefficient = 0.5;  // opponent energy -= currentEnergy * kAC + minDamage
     constexpr float kAttackCost = 0.1;          // 1/10 * currentEnergy
-    constexpr int kDuplicationCost = 200;
+    constexpr int kDuplicationCost = 150;
     constexpr int kPrise = 100;                 // + energy after killing
-    constexpr int movesToDeath = 250;           // every cell can make at max 250 actions
+    constexpr int movesToDeath = 200;           // every cell can make at max 250 actions
     constexpr int minDamage = 100;
 
     class Cell : public Frame
@@ -58,6 +58,8 @@ namespace environment
         int totalScore = 0;                         // evaluation of cell's model
 
     public:
+        void evaluateAction(int action);
+
         Cell() : Frame() {};
         Cell(const Cell& cell) : Frame(cell)
         {
