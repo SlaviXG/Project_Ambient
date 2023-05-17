@@ -99,6 +99,7 @@ namespace environment
 
         // Returns a random correct and empty cell coordinate within a radius of one from the given point
         Point randomFreePosition(const Point &point) const;
+        Point getRandomFreePosOnMap(unsigned int attemp_count = 50) const;
     };
 
     class RandomGenerator {

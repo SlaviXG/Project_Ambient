@@ -176,11 +176,39 @@ namespace environment
         {
             randPoint.i = RandomGenerator::generateRandomIntNumber(point.i - 1, point.i + 1);
             randPoint.j = RandomGenerator::generateRandomIntNumber(point.j - 1, point.j + 1);
-
+            /*bool switcher = RandomGenerator::generateRandomIntNumber(0, 1);
+            if(switcher){
+                randPoint.i = point.i - 1;
+            }
+            else{
+                randPoint.i = point.i + 1;
+            }
+            switcher = RandomGenerator::generateRandomIntNumber(0, 1);
+            std::cout << switcher << std::endl;
+            if(switcher){
+                randPoint.j = point.j - 1;
+            }
+            else{
+                randPoint.j = point.j + 1;
+            }*/
             if (checkPositionCorrectness(randPoint) && (randPoint.i != point.i || randPoint.j != point.j))
                 if (frameMatrix[randPoint.i][randPoint.j] == nullptr)
                     return randPoint;
         }
         return {-1, -1};
     }
+
+    Point Environment::getRandomFreePosOnMap(unsigned int attemp_count) const
+    {
+        Point rand_point;
+        for(unsigned int i = 0; i < attemp_count; i++){
+           rand_point.i = RandomGenerator::generateRandomIntNumber(0, this->getWidth()-1);
+           rand_point.j = RandomGenerator::generateRandomIntNumber(0, this->getHeight()-1);
+           if(checkPositionCorrectness(rand_point) && !frameMatrix[rand_point.i][rand_point.j]){
+                return rand_point;
+           }
+        }
+        return {-1, -1};
+    }
+
 }

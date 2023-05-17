@@ -12,9 +12,23 @@
 #include "test_tick.hpp"
 #include "test_environment.hpp"
 
+void gen_cells(int N, controller::GameController *cont, environment::Environment *env){
+    for(int i = 0; i < N ; i++){
+        Point point = env->getRandomFreePosOnMap();
+        if(point.i != -1){
+            cont->addCell(point);
+        }
+        else{
+            continue;
+        }
+    }
+}
+
+
 
 int main(int argc, char *argv[])
 {
+    srand(time(0));
     // Unit tests
 //#ifdef _DEBUG
     doctest::Context context;
@@ -30,7 +44,7 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
 
-    environment::Environment env(100, 100);
+    environment::Environment env(2000, 2000);
     EnvironmentScene scene;
     MainWindow win(&scene);;
     controller::GameController cont(&win, &scene, &env);
@@ -41,7 +55,8 @@ int main(int argc, char *argv[])
     win.show();
 
     win.initEnvironmentSize();
-    cont.addCell({0, 0});
+    gen_cells(100, &cont, &env);
+    /*cont.addCell({0, 0});
         cont.addCell({60, 50});
         cont.addCell({30, 75});
         cont.addCell({70, 76});
@@ -54,7 +69,7 @@ int main(int argc, char *argv[])
         cont.addCell({90, 64});
         cont.addCell({84, 34});
         cont.addCell({55, 22});
-        cont.addCell({18, 43});
+        cont.addCell({18, 43});*/
 
 
     cont.start();
