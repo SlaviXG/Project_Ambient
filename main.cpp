@@ -41,35 +41,13 @@ int main(int argc, char *argv[])
     win.show();
 
     win.initEnvironmentSize();
-    cont.addCell({0, 0});
+        cont.addCell({0, 0});
         cont.addCell({60, 50});
         cont.addCell({30, 75});
         cont.addCell({70, 76});
         cont.addCell({31, 65});
-        cont.addCell({23, 83});
-        cont.addCell({68, 22});
-        cont.addCell({52, 24});
-        cont.addCell({23, 23});
-        cont.addCell({93, 11});
-        cont.addCell({90, 64});
-        cont.addCell({84, 34});
-        cont.addCell({55, 22});
-        cont.addCell({18, 43});
 
-        cont.addCell({54, 25});
-        cont.addCell({94, 23});
-        cont.addCell({62, 72});
-        cont.addCell({92, 8});
-        cont.addCell({5, 23});
-        cont.addCell({13, 23});
-        cont.addCell({20, 83});
-        cont.addCell({54, 74});
-        cont.addCell({90, 15});
-        cont.addCell({13, 11});
-        cont.addCell({80, 44});
-        cont.addCell({74, 34});
-        cont.addCell({69, 21});
-        cont.addCell({38, 43});
+
 
     cont.start();
     return a.exec();

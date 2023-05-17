@@ -23,9 +23,15 @@
 6) Move L
 7) Move LU
 8) photosynthesis
-9) sleep                            // skip
-10) attack
-11) duplication
+9) Move U
+10) Attack UR
+11) Attack R
+12) Attack RD
+13) Attack D
+14) Attack LD
+15) Attack L
+16) Attack LU
+17) duplication
  */
 namespace genotype {
     bool opponentIsNearby(Matrix inputs) {
