@@ -35,6 +35,9 @@ void controller::GameController::removeCell(environment::Cell *cell)
 void controller::GameController::processAI()
 {
     std::vector<environment::Cell*> cells = environment->getCells();
+
+
+
     for (auto cell : cells)
     {
         if (cell->isAlive())
@@ -65,6 +68,7 @@ void controller::GameController::processAI()
             NotifyLoggers("Cell " + address + "  { " + std::to_string(point.i) + ", " + std::to_string(point.j) + " } " + " did magic");
             break;
         }
+         NotifyLoggers("Cell " + address + "  { " + std::to_string(point.i) + ", " + std::to_string(point.j) + " } " + " total score is:" + std::to_string(cell->getTotalScore()));
         }
 
         if(cell->isAlive() == false)

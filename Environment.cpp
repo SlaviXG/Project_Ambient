@@ -155,6 +155,7 @@ namespace environment
         //InvalidateCell(cell);
 
         assert(frameMatrix[cell->getPosition().i][cell->getPosition().j] == nullptr);
+
         //if (frameMatrix[cell->getPosition().i][cell->getPosition().j] != nullptr)
             // this->InvalidateCell(cell);
         assert(std::find(cells.begin(), cells.end(), cell) != cells.end());
