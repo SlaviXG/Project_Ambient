@@ -264,7 +264,7 @@ namespace environment
             case kDuplication:
                 //freePosition = environment->randomFreePosition(position);
 
-                if (inputs[24][0] < 0.8 || freePosition.i == -1)
+                if (inputs[24][0] < 0.9 || freePosition.i == -1)
                 {
                     outputs[kDuplication][0] = -1000000;
                     return bestPossibleChoiceIndex(outputs, inputs);
