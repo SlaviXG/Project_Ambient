@@ -145,14 +145,15 @@ namespace environment
 
         assert(checkPositionCorrectness(pos));
         assert(this->getCell(pos) == cell);
+        frameMatrix[pos.i][pos.j] = nullptr;
         if(pool){
             pool->AddToPool(cell);
-            if(!getCellNumber() || getCellNumber() >= 10 * pool->get_pool_maxsize()){
+            if(!getCellNumber() || getCellNumber() >= 2 * pool->get_pool_maxsize()){
                 //Repopulate
+                RemoveAllCells();
                 generateCells(pool->get_pool_maxsize());
             }
         }
-        frameMatrix[pos.i][pos.j] = nullptr;
     }
 
     void Environment::RemoveCell(Cell* cell)
@@ -163,21 +164,31 @@ namespace environment
         if (frameMatrix[cell->getPosition().i][cell->getPosition().j] != nullptr)
         {
             for (const auto& row : this->frameMatrix)
-                for (const auto& frame :row)
+                for (const auto& frame :row){
                     assert(frame != cell);
+                }
         }
 #endif
 
         //if (frameMatrix[cell->getPosition().i][cell->getPosition().j] != nullptr)
             // this->InvalidateCell(cell);
         assert(std::find(cells.begin(), cells.end(), cell) != cells.end());
-
+        if(pool){
+            pool->AddToPool(cell);
+        }
         cells.erase(std::remove(cells.begin(), cells.end(), cell), cells.end());
 
         if (interactor != nullptr)
             interactor->removeCell(cell);
 
         delete cell;
+    }
+
+    void Environment::RemoveAllCells()
+    {
+        for(unsigned int i = 0; i < cells.size(); i++){
+            RemoveCell(cells[i]);
+        }
     }
 
     Point Environment::randomFreePosition(const Point &point) const

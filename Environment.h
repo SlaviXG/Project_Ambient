@@ -89,6 +89,8 @@ namespace environment
          */
         void RemoveCell(Cell* cell);
 
+        void RemoveAllCells();
+
         // Cell Vision:
         /*
         00 01 02 03 04

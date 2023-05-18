@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     unsigned int cell_num = 15;
     QApplication a(argc, argv);
     genepool::GenePool pool(cell_num);
-    environment::Environment env(100, 100, nullptr, &pool);
+    environment::Environment env(200, 200, nullptr, &pool);
     EnvironmentScene scene;
     MainWindow win(&scene);;
     controller::GameController cont(&win, &scene, &env);
