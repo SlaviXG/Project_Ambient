@@ -157,10 +157,16 @@ namespace environment
 
     void Environment::RemoveCell(Cell* cell)
     {
-        // Emits another assert 😥
-        //InvalidateCell(cell);
+        // assert(frameMatrix[cell->getPosition().i][cell->getPosition().j] == nullptr);
 
-        assert(frameMatrix[cell->getPosition().i][cell->getPosition().j] == nullptr);
+#ifdef QT_DEBUG
+        if (frameMatrix[cell->getPosition().i][cell->getPosition().j] != nullptr)
+        {
+            for (const auto& row : this->frameMatrix)
+                for (const auto& frame :row)
+                    assert(frame != cell);
+        }
+#endif
 
         //if (frameMatrix[cell->getPosition().i][cell->getPosition().j] != nullptr)
             // this->InvalidateCell(cell);
