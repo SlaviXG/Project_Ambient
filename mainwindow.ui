@@ -109,9 +109,71 @@
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
+           <widget class="QSplitter" name="splitter_2">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>140</y>
+              <width>71</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>Cell count:</string>
+             </property>
+            </widget>
+            <widget class="QLabel" name="cell_count_Label">
+             <property name="text">
+              <string>-</string>
+             </property>
+            </widget>
+           </widget>
+           <widget class="QSplitter" name="splitter">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>170</y>
+              <width>123</width>
+              <height>22</height>
+             </rect>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <widget class="QLabel" name="label_10">
+             <property name="maximumSize">
+              <size>
+               <width>49</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>To add:</string>
+             </property>
+            </widget>
+            <widget class="QLineEdit" name="cell_to_add_LineEdit">
+             <property name="maximumSize">
+              <size>
+               <width>71</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </widget>
           </widget>
          </item>
         </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="add_cells_Button">
+         <property name="text">
+          <string>Add Cells</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QPushButton" name="resumeButton">
@@ -166,7 +228,7 @@
      <x>0</x>
      <y>0</y>
      <width>816</width>
-     <height>26</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>

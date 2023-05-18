@@ -116,6 +116,23 @@ namespace environment
             std::uniform_real_distribution<double> ddist(min, max);
             return ddist(rng);
         }
+
+        /**
+         * @brief generateRandomPoint
+         * @param top_left Top left corner of the bounding box
+         * @param bottom_right Bottom right corner of the bounding box
+         * @return Random point that does not go beyond the bounding box
+         */
+        static Point generateRandomPoint(const Point& top_left, const Point& bottom_right) {
+            static std::random_device rd;
+            static std::mt19937 rng(rd());
+
+            std::uniform_int_distribution<int> xdist(top_left.j, bottom_right.j); // x
+            std::uniform_int_distribution<int> ydist(top_left.i, bottom_right.i); // y
+
+
+            return { ydist(rng), xdist(rng) };
+        }
     };
 }
 

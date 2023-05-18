@@ -29,6 +29,11 @@ MainWindow::MainWindow(EnvironmentScene* scene, QWidget *parent)
     timer->start(10);*/
 }
 
+void MainWindow::setController(controller::GameInteractor*  controller) {
+    this->controller = controller;
+};
+
+
 qreal MainWindow::getEnvironmentWidth() const {
     return ui->environmentView->width();
 }
@@ -61,18 +66,36 @@ void MainWindow::resizeEvent(QResizeEvent* event) {
 
 void MainWindow::on_resumeButton_clicked()
 {
+    controller->resume();
     qDebug() << "Resume";
 }
 
 void MainWindow::on_pauseButton_clicked()
 {
+    controller->pause();
     qDebug() << "Pause";
 }
 
 void MainWindow::on_restartButton_clicked()
 {
+    controller->stop();
+    controller->start();
     qDebug() << "Restart";
 }
 
+void MainWindow::on_add_cells_Button_clicked()
+{
+    size_t n = ui->cell_to_add_LineEdit->text().toUInt();
+    controller->GenerateRandomCells(n);
+}
 
+std::size_t MainWindow::getCellCountToAdd() const
+{
+    return ui->cell_to_add_LineEdit->text().toULongLong();
+}
+
+void MainWindow::setCurrentCellCountLabel(size_t n)
+{
+    ui->cell_count_Label->setText(QString::number(static_cast<qulonglong>(n)));
+}
 
