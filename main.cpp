@@ -5,7 +5,7 @@
 #include "GameController.h"
 #include "Environment.h"
 #include "logger.h"
-
+#include "genepool.h"
 #define DOCTEST_CONFIG_IMPLEMENT
 
 #include "doctest.h"
@@ -27,10 +27,10 @@ int main(int argc, char *argv[])
     return res;
     }
 //#endif // _DEBUG
-
+    unsigned int cell_num = 15;
     QApplication a(argc, argv);
-
-    environment::Environment env(2000, 2000);
+    genepool::GenePool pool(cell_num);
+    environment::Environment env(100, 100, nullptr, &pool);
     EnvironmentScene scene;
     MainWindow win(&scene);;
     controller::GameController cont(&win, &scene, &env);
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     win.show();
 
     win.initEnvironmentSize();
-    env.generateCells(200, &cont);
+    env.generateCells(cell_num, &cont);
     /*cont.addCell({0, 0});
         cont.addCell({60, 50});
         cont.addCell({30, 75});

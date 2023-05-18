@@ -5,11 +5,12 @@
 #include "frame.h"
 #include "cell.h"
 #include "GameController.h"
+#include "genepool.h"
 
 namespace environment
 {
     // Constructors / Destructors
-    Environment::Environment(int WIDTH, int HEIGHT, controller::CellInteractor *interactor)
+    Environment::Environment(int WIDTH, int HEIGHT, controller::CellInteractor *interactor, genepool::GenePool* pool)
         : WIDTH(WIDTH), HEIGHT(HEIGHT), interactor(interactor)
     {
         frameMatrix.resize(HEIGHT);
@@ -18,7 +19,7 @@ namespace environment
         {
             row.resize(WIDTH, nullptr);
         }
-
+        this->pool = pool;
         this->time = 0.0;
     }
 
@@ -144,7 +145,9 @@ namespace environment
 
         assert(checkPositionCorrectness(pos));
         assert(this->getCell(pos) == cell);
-
+        if(pool){
+            pool->AddToPool(cell);
+        }
         frameMatrix[pos.i][pos.j] = nullptr;
     }
 

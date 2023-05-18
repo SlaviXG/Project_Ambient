@@ -9,6 +9,7 @@
 
 namespace controller { class CellInteractor; }
 namespace controller { class GameController; }
+namespace genepool { class GenePool; }
 
 namespace environment
 {
@@ -24,12 +25,12 @@ namespace environment
         std::vector<std::vector<Frame *>> frameMatrix;
         double time;    
         std::vector<Cell *> cells;
-
+        genepool::GenePool* pool;
         controller::CellInteractor* interactor = nullptr;
 
     public:
         // Constructors / Destructors
-        explicit Environment(int WIDTH, int HEIGHT, controller::CellInteractor* interactor = nullptr);
+        explicit Environment(int WIDTH, int HEIGHT, controller::CellInteractor* interactor = nullptr, genepool::GenePool* pool = nullptr);
         virtual ~Environment();
 
         // Enviroment Actions:
@@ -100,7 +101,9 @@ namespace environment
 
         // Returns a random correct and empty cell coordinate within a radius of one from the given point
         Point randomFreePosition(const Point &point) const;
+        // Return a random free poisiotn on map
         Point getRandomFreePosOnMap(unsigned int attemp_count = 50) const;
+        // Autospawns N cells
         void generateCells(int N, controller::GameController *cont);
     };
 

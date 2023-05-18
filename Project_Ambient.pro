@@ -17,11 +17,13 @@ SOURCES += \
     Tick.cpp \
     cell.cpp \
     frame.cpp \
+    genepool.cpp \
     main.cpp \
     mainwindow.cpp \
 
 HEADERS += \
     CellView.h \
+    genepool.h \
     logger.h \
     point.h \
     Environment.h \
