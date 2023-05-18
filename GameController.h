@@ -12,6 +12,7 @@
 
 #include <QTimer>
 #include <QObject>
+#include <QElapsedTimer>
 
 #include <vector>
 #include <string>
@@ -19,7 +20,7 @@
 
 namespace controller
 {
-    constexpr int kCellSize = 2;
+    constexpr int kCellSize = 4;
     constexpr int kFps = 1000000;
     constexpr int kViewPadding = kCellSize / 2;
     constexpr size_t kStartingCellCount = 20;
@@ -82,6 +83,9 @@ namespace controller
             this->GenerateRandomCells(kStartingCellCount);
             connect(&timer, &QTimer::timeout, this, &GameController::execute);
             timer.start(1000 / kFps);
+
+            fpsTimer.start();
+            frameCount = 0;
         }
 
         inline void stop() override
@@ -127,6 +131,19 @@ namespace controller
         {
             this->processAI();
             this->render();
+
+            ++frameCount;
+
+            // Update and log FPS every second
+            if (fpsTimer.elapsed() > 1000)
+            {
+                qreal fps = frameCount * 1000.0 / fpsTimer.elapsed();
+                fpsTimer.restart();
+                frameCount = 0;
+
+                QString message = QString("FPS: %1").arg(fps);
+                qDebug() << message;
+            }
         }
 
         void NotifyLoggers(const std::string message)
@@ -209,6 +226,9 @@ namespace controller
 
         QTimer timer;
         std::vector<Logger*> loggers;
+
+        QElapsedTimer fpsTimer;
+        qint64 frameCount = 0;
     };
 };
 
