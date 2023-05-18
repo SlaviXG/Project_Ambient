@@ -34,6 +34,7 @@ namespace controller
     public:
         virtual void addCell(environment::Cell* cell) = 0;
         virtual void removeCell(environment::Cell *cell) = 0;
+        virtual void addCell(const Point &point) = 0;
     };
 
     /**

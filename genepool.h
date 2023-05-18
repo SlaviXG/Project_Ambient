@@ -57,6 +57,10 @@ namespace genepool {
             }
         }
 
+        inline unsigned int get_pool_maxsize(){
+            return pool_size;
+        }
+
     private:
         unsigned int pool_size;
         //const std::string pool_file_name = "genepool.dat";

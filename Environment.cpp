@@ -147,6 +147,10 @@ namespace environment
         assert(this->getCell(pos) == cell);
         if(pool){
             pool->AddToPool(cell);
+            if(!getCellNumber() || getCellNumber() >= 10 * pool->get_pool_maxsize()){
+                //Repopulate
+                generateCells(pool->get_pool_maxsize());
+            }
         }
         frameMatrix[pos.i][pos.j] = nullptr;
     }
@@ -215,12 +219,12 @@ namespace environment
         return {-1, -1};
     }
 
-    void Environment::generateCells(int N, controller::GameController *cont)
+    void Environment::generateCells(int N/*, controller::GameController *cont*/)
     {
         for(int i = 0; i < N ; i++){
             Point point = this->getRandomFreePosOnMap();
             if(point.i != -1){
-                cont->addCell(point);
+                interactor->addCell(point);
             }
             else{
                 continue;

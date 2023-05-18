@@ -104,7 +104,7 @@ namespace environment
         // Return a random free poisiotn on map
         Point getRandomFreePosOnMap(unsigned int attemp_count = 50) const;
         // Autospawns N cells
-        void generateCells(int N, controller::GameController *cont);
+        void generateCells(int N/*, controller::GameController *cont*/);
     };
 
     class RandomGenerator {

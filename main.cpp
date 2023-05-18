@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     win.show();
 
     win.initEnvironmentSize();
-    env.generateCells(cell_num, &cont);
+    env.generateCells(cell_num/*, &cont*/);
     /*cont.addCell({0, 0});
         cont.addCell({60, 50});
         cont.addCell({30, 75});
