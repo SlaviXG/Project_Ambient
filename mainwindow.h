@@ -48,7 +48,7 @@ private slots:
 
     void on_resumeButton_clicked();
 
-    void on_pushButton_clicked();
+    void on_pushButton_clicked() {};
 
     void on_add_cells_Button_clicked();
 

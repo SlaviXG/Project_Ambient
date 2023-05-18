@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
 
-    environment::Environment env(100, 100);
+    environment::Environment env(1000, 1000);
     EnvironmentScene scene;
     MainWindow win(&scene);;
     controller::GameController cont(&win, &scene, &env);
