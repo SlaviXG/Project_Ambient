@@ -30,12 +30,12 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
 
-    environment::Environment env(1000, 1000);
+    environment::Environment env(10000, 10000);
     EnvironmentScene scene;
     MainWindow win(&scene);;
     controller::GameController cont(&win, &scene, &env);
-    cont.AddLogger(new ConsoleLogger());
-    cont.AddLogger(new FileLogger("logs.txt"));
+    //cont.AddLogger(new ConsoleLogger());
+    //cont.AddLogger(new FileLogger("logs.txt"));
     env.setCellInteractor(&cont);
     win.setController(&cont);
     win.show();
