@@ -151,7 +151,9 @@ namespace environment
 
     void Environment::RemoveCell(Cell* cell)
     {
-        // FIX: Why?
+        // Emits another assert 😥
+        //InvalidateCell(cell);
+
         assert(frameMatrix[cell->getPosition().i][cell->getPosition().j] == nullptr);
         //if (frameMatrix[cell->getPosition().i][cell->getPosition().j] != nullptr)
             // this->InvalidateCell(cell);

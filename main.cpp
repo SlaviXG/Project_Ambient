@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     win.show();
 
     win.initEnvironmentSize();
-    cont.addCell({0, 0});
+    /*cont.addCell({0, 0});
         cont.addCell({60, 50});
         cont.addCell({30, 75});
         cont.addCell({70, 76});
@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
         cont.addCell({80, 44});
         cont.addCell({74, 34});
         cont.addCell({69, 21});
-        cont.addCell({38, 43});
+        cont.addCell({38, 43});*/
 
     cont.start();
     return a.exec();

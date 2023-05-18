@@ -21,12 +21,19 @@ public:
     qreal getEnvironmentWidth() const;
     qreal getEnvironmentHeight() const;
 
-    void inline setController(controller::GameInteractor*  controller) {this->controller = controller; };
+    void setController(controller::GameInteractor*  controller);
 
     /**
      * @brief Updates items' view location
      */
     void updateEnvironment();
+
+    /**
+     * @brief GetCellCountToAdd
+     * @return Value of the LineEdit "cell_to_add_LineEdit"
+     */
+    std::size_t getCellCountToAdd() const;
+    void setCurrentCellCountLabel(size_t n);
 
 public slots:
     /**
@@ -40,6 +47,10 @@ private slots:
     void on_pauseButton_clicked();
 
     void on_resumeButton_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_add_cells_Button_clicked();
 
 private:
     Ui::MainWindow *ui;

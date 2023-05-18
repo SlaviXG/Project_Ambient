@@ -73,6 +73,7 @@ void controller::GameController::processAI()
         }
     }
     NotifyLoggers("Cells remained: " + std::to_string(environment->getCellNumber()));
+    view->setCurrentCellCountLabel(environment->getCellNumber());
 };
 
 
