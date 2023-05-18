@@ -33,17 +33,17 @@ namespace environment
         kNegativeAction = -1
     };
 
-    constexpr int kMaxEnergy = 500;
-    constexpr int kMinEnergy = 400;
+    constexpr int kMaxEnergy = 2000;
+    constexpr int kMinEnergy = 1600;
     constexpr int kSteps = 5;                   //
     constexpr int kMoveCost = 5;                // count of energy, that cell will loose after move
     constexpr int kPhotosynthesisAdd = 25;      // count of energy, that cell will recieve after Photosynthes
     constexpr float kAttackCoefficient = 0.5;  // opponent energy -= currentEnergy * kAC + minDamage
-    constexpr float kAttackCost = 0.1;          // 1/10 * currentEnergy
-    constexpr int kDuplicationCost = 150;
+    constexpr float kAttackCost = 0.01;          // 1/10 * currentEnergy
+    constexpr int kDuplicationCost = 1200;
     constexpr int kPrise = 100;                 // + energy after killing
-    constexpr int movesToDeath = 200;           // every cell can make at max 250 actions
-    constexpr int minDamage = 100;
+    constexpr int movesToDeath = 800;           // every cell can make at max 250 actions
+    constexpr int minDamage = 1000;
 
     class Cell : public Frame
     {
