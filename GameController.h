@@ -19,8 +19,8 @@
 
 namespace controller
 {
-    constexpr int kCellSize = 20;
-    constexpr int kFps = 10;
+    constexpr int kCellSize = 5;
+    constexpr int kFps = 100;
     constexpr int kViewPadding = kCellSize / 2;
     constexpr size_t kStartingCellCount = 20;
 
@@ -35,6 +35,7 @@ namespace controller
         virtual void addCell(environment::Cell* cell) = 0;
         virtual void removeCell(environment::Cell *cell) = 0;
         virtual void addCell(const Point &point) = 0;
+        virtual void addCell(const Point &point, genotype::Genotype* genotype) = 0;
     };
 
     /**
@@ -77,10 +78,17 @@ namespace controller
             auto cellptr = environment->AddCell(point, countOfWeights);
             this->addCell(cellptr);
         }
+
+        inline void addCell(const Point &point, genotype::Genotype* genotype){
+            auto cellptr = environment->AddCell(point, genotype);
+            this->addCell(cellptr);
+        }
+
         inline void start() override
         {
             timer.disconnect();
-            this->GenerateRandomCells(kStartingCellCount);
+            //this->GenerateRandomCells(kStartingCellCount);
+            this->GenerateRandomCells(environment->getMaxCellCount());
             connect(&timer, &QTimer::timeout, this, &GameController::execute);
             timer.start(1000 / kFps);
         }
@@ -94,6 +102,7 @@ namespace controller
                 environment->InvalidateCell(cell);
                 environment->RemoveCell(cell);
             }
+           // environment->RemoveAllCells();
             assert(cellMap.empty());
         }
 

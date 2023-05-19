@@ -35,8 +35,7 @@ namespace genotype {
 
     Matrix ReLU(Matrix m);
 
-    Matrix mutation(Matrix m);
-
+    Matrix mutation(Matrix m, double chance = (double)kChance/100.0);
 
 
     class Genotype {
@@ -92,7 +91,7 @@ namespace genotype {
 
         Matrix getBaesMatrixByIndex(int index) const;
 
-        void mutate();
+        void mutate(double chance = (double)kChance/100.0);
     };
 
 }

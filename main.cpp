@@ -27,10 +27,10 @@ int main(int argc, char *argv[])
     return res;
     }
 //#endif // _DEBUG
-    unsigned int cell_num = 15;
+    unsigned int cell_num = 400;
     QApplication a(argc, argv);
     genepool::GenePool pool(cell_num);
-    environment::Environment env(200, 200, nullptr, &pool);
+    environment::Environment env(2000, 2000, nullptr, &pool);
     EnvironmentScene scene;
     MainWindow win(&scene);;
     controller::GameController cont(&win, &scene, &env);

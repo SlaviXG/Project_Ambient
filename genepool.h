@@ -46,8 +46,8 @@ namespace genepool {
             }
 
             //DEBUG
-            std::cout << "\n" << score << "\n";
-            print();
+//            std::cout << "\n" << score << "\n";
+//            print();
         }
 
         //DEBUG ZONE
@@ -59,8 +59,21 @@ namespace genepool {
             }
         }
 
+        inline unsigned int get_pool_cursize(){
+            return gene_pool.size();
+        }
+
         inline unsigned int get_pool_maxsize(){
             return pool_size;
+        }
+
+        inline genotype::Genotype* getGenotype(unsigned int pos){
+            assert(pos < gene_pool.size());
+            return &gene_pool[pos].first;
+        }
+
+        inline void clear_pool(){
+            gene_pool.clear();
         }
 
     private:

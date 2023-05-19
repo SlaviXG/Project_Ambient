@@ -399,6 +399,15 @@ namespace environment
         position = freePosition;
     }
 
+    // Constructor for next-generation cell (genotype pulled from GenePool)
+    Cell::Cell(Point startingPosition, genotype::Genotype *genotype, Environment* environment) : Frame(startingPosition, environment)
+    {
+        this->genotype = *genotype;
+        aggressiveness = RandomGenerator::generateRandomDoubleNumber(0,1);
+        maxEnergy = RandomGenerator::generateRandomIntNumber(kMinEnergy,kMaxEnergy);
+        currentEnergy = maxEnergy;
+    }
+
     // countOfWeights - Additional vector, which contain countOfWeights in i's layer(from 1 to n-1)
     Cell::Cell(Point startingPosition, std::vector<int> countOfWeights, Environment* environment): Frame(startingPosition, environment)
     {

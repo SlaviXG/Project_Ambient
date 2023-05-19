@@ -139,6 +139,15 @@ namespace environment
         return cell;
     }
 
+    Cell *Environment::AddCell(const Point &point, genotype::Genotype* genotype)
+    {
+        Cell *cell = new Cell(point,genotype, this);
+        cells.push_back(cell);
+        frameMatrix[point.i][point.j] = cell;
+
+        return cell;
+    }
+
     void Environment::InvalidateCell(Cell *cell)
     {
         auto pos = cell->getPosition();
@@ -236,7 +245,15 @@ namespace environment
         for(int i = 0; i < N ; i++){
             Point point = this->getRandomFreePosOnMap();
             if(point.i != -1){
-                interactor->addCell(point);
+                if(pool && pool->get_pool_cursize() != 0 && i < pool->get_pool_cursize()){
+                    genotype::Genotype* gen = pool->getGenotype(i);
+                    gen->mutate((double)i/N);
+                    interactor->addCell(point, gen);
+                }
+                else{
+                    interactor->addCell(point);
+                }
+
             }
             else{
                 continue;
@@ -251,7 +268,13 @@ namespace environment
             //Repopulate
             RemoveAllCells();
             generateCells(pool->get_pool_maxsize());
+            pool->clear_pool();
         }
+    }
+
+    unsigned int Environment::getMaxCellCount()
+    {
+        return this->pool->get_pool_maxsize();
     }
 
 }

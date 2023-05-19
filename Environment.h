@@ -23,7 +23,7 @@ namespace environment
         const int HEIGHT;
 
         //upper limit of population for environment validation ( 2 = 200% of original population)
-        const int population_upper_limit = 5;
+        const int population_upper_limit = 4;
 
         std::vector<std::vector<Frame *>> frameMatrix;
         double time;    
@@ -78,6 +78,7 @@ namespace environment
         Cell* AddCell(Cell* cell); // Call from logic
         Cell* AddCell(const Point& point); // Call from controller
         Cell* AddCell(const Point& point, std::vector<int> countOfWeights);
+        Cell* AddCell(const Point& point, genotype::Genotype* genotype);
         /**
          * @brief Removes the cell from the map
          *
@@ -116,6 +117,13 @@ namespace environment
          */
         //validates the environment by counting the number of cells
         void ValidateEnvironment();
+        //returns reference to GenePool
+        genepool::GenePool* getGenePool(){
+            return pool;
+        }
+
+        //return max cell count
+        unsigned int getMaxCellCount();
     };
 
     class RandomGenerator {
