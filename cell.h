@@ -35,6 +35,7 @@ namespace environment
 
     constexpr int kMaxEnergy = 2000;
     constexpr int kMinEnergy = 1600;
+
     constexpr int kSteps = 5;                   //
     constexpr int kMoveCost = 5;                // count of energy, that cell will loose after move
     constexpr int kPhotosynthesisAdd = 25;      // count of energy, that cell will recieve after Photosynthes
@@ -56,6 +57,7 @@ namespace environment
         bool isAliveStatus = true;
         int numberOfMovesToDeath = movesToDeath;
         int totalScore = 0;                         // evaluation of cell's model
+        int delayAfterDuplication = kDelay;
 
     public:
         void evaluateAction(int action);
@@ -85,6 +87,9 @@ namespace environment
         void setCurrentEnergy(double count) { currentEnergy = count; }
         void setIsAlive(bool status) { isAliveStatus = status; }
 
+        bool cellCanMakeThisAction(Matrix& inputs, int& actionIndex);
+
+        void removeBadOutputs(Matrix& inputs, Matrix& outputs);
         void move(int direction);
         void photosynthesis();
         void attack(int action);
