@@ -12,6 +12,7 @@
 
 #include <QTimer>
 #include <QObject>
+#include <QElapsedTimer>
 
 #include <vector>
 #include <string>
@@ -19,198 +20,216 @@
 
 namespace controller
 {
-    constexpr int kCellSize = 2;
-    constexpr int kFps = 1000000;
+constexpr int kCellSize = 4;
+constexpr int kFps = 1000000;
+constexpr int kViewPadding = kCellSize / 2;
+constexpr size_t kStartingCellCount = 20;
 
-    constexpr int kViewPadding = kCellSize / 2;
-    constexpr size_t kStartingCellCount = 20;
-
-     /**
+/**
      * @brief The CellInteractor class
      *
      * Used to interact with the controller from the logic
      */
-    class CellInteractor
-    {
-    public:
-        virtual void addCell(environment::Cell* cell) = 0;
-        virtual void removeCell(environment::Cell *cell) = 0;
-    };
+class CellInteractor
+{
+public:
+    virtual void addCell(environment::Cell* cell) = 0;
+    virtual void removeCell(environment::Cell *cell) = 0;
+};
 
-    /**
+/**
      * @brief The GameInteractor class
      *
      * Used to interact with the controller from the view
      */
-    class GameInteractor
-    {
-    public:
-        virtual void addCell(const Point &point) = 0;
-        virtual void addCell(const Point &point,  const std::vector<int>& countOfWeights) = 0;
-        virtual void GenerateRandomCells(size_t cell_count) = 0;
-        virtual void start() = 0;
-        virtual void stop() = 0;
-        virtual void pause() = 0;
-        virtual void resume() = 0;
-    };
+class GameInteractor
+{
+public:
+    virtual void addCell(const Point &point) = 0;
+    virtual void addCell(const Point &point,  const std::vector<int>& countOfWeights) = 0;
+    virtual void GenerateRandomCells(size_t cell_count) = 0;
+    virtual void start() = 0;
+    virtual void stop() = 0;
+    virtual void pause() = 0;
+    virtual void resume() = 0;
+};
 
-    /**
+/**
      * @brief  GameController class is responsible for managing the game logic and updating the graphical representation of the game.
      *
      */
-    class GameController : public QObject, public CellInteractor, public GameInteractor
+class GameController : public QObject, public CellInteractor, public GameInteractor
+{
+public:
+    explicit GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment)
+        : view(view), scene(scene), environment(environment), timer(this), loggers() {}
+
+    virtual ~GameController(){};
+
+    inline void addCell(const Point &point) override
     {
-    public:
-        explicit GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment)
-            : view(view), scene(scene), environment(environment), timer(this), loggers() {}
+        auto cellptr = environment->AddCell(point);
+        this->addCell(cellptr);
+    }
 
-        virtual ~GameController(){};
+    inline void addCell(const Point &point, const std::vector<int>& countOfWeights) override
+    {
+        auto cellptr = environment->AddCell(point, countOfWeights);
+        this->addCell(cellptr);
+    }
+    inline void start() override
+    {
+        timer.disconnect();
+        this->GenerateRandomCells(kStartingCellCount);
+        connect(&timer, &QTimer::timeout, this, &GameController::execute);
+        timer.start(1000 / kFps);
 
-        inline void addCell(const Point &point) override
+        fpsTimer.start();
+        frameCount = 0;
+    }
+
+    inline void stop() override
+    {
+        timer.stop();
+        auto cells = environment->getCells();
+        for (const auto& cell : cells)
         {
-            auto cellptr = environment->AddCell(point);
-            this->addCell(cellptr);
+            environment->InvalidateCell(cell);
+            environment->RemoveCell(cell);
         }
+        assert(cellMap.empty());
+    }
 
-        inline void addCell(const Point &point, const std::vector<int>& countOfWeights) override
+    inline void pause() override
+    {
+        timer.stop();
+    }
+
+    inline void resume() override
+    {
+        timer.start(1000 / kFps);
+    }
+
+    inline void AddLogger(Logger* logger)
+    {
+        loggers.push_back(logger);
+    }
+
+    inline void RemoveLogger(Logger* logger)
+    {
+        loggers.erase(std::remove(loggers.begin(), loggers.end(), logger), loggers.end());
+    }
+
+    void addCell(environment::Cell* cellptr) override;
+    void removeCell(environment::Cell *cell) override;
+
+private:
+    void processAI();
+    void render();
+
+    void execute()
+    {
+        this->processAI();
+        // this->render();
+
+        ++frameCount;
+
+        // Update and log FPS every second
+        if (fpsTimer.elapsed() > 1000)
         {
-            auto cellptr = environment->AddCell(point, countOfWeights);
-            this->addCell(cellptr);
+            qreal fps = frameCount * 1000.0 / fpsTimer.elapsed();
+            fpsTimer.restart();
+            frameCount = 0;
+
+            QString message = QString("FPS: %1").arg(fps);
+            qDebug() << message;
         }
-        inline void start() override
+    }
+
+    void NotifyLoggers(const std::string message)
+    {
+        for (auto&logger : loggers)
         {
-            timer.disconnect();
-            this->GenerateRandomCells(kStartingCellCount);
-            connect(&timer, &QTimer::timeout, this, &GameController::execute);
-            timer.start(1000 / kFps);
+            logger->log(message);
         }
+    }
 
-        inline void stop() override
-        {
-            timer.stop();
-            auto cells = environment->getCells();
-            for (const auto& cell : cells)
-            {
-                environment->InvalidateCell(cell);
-                environment->RemoveCell(cell);
-            }
-            assert(cellMap.empty());
+    void GenerateRandomCells(size_t cell_count) {
+        assert(environment != nullptr);
+
+        for (int i = 0; i < cell_count; ++i) {
+            auto pos = environment::RandomGenerator::generateRandomPoint({0, 0}, {environment->getHeight() - 1, environment->getWidth() - 1});
+            if (!environment->getFrame(pos))
+                this->addCell(pos);
+            else
+                --i;
         }
+    }
 
-        inline void pause() override
-        {
-            timer.stop();
+    void GenerateRandomCells(size_t cell_count, const std::vector<int>& countOfWeights) {
+        assert(environment != nullptr);
+
+        for (int i = 0; i < cell_count; ++i) {
+            auto pos = environment::RandomGenerator::generateRandomPoint({0, 0}, {environment->getHeight() - 1, environment->getWidth() - 1});
+            if (!environment->getFrame(pos))
+                this->addCell(pos, countOfWeights);
+            else
+                --i;
         }
+    }
 
-        inline void resume() override
-        {
-            timer.start(1000 / kFps);
+    /**
+            * @brief GenerateRandomCells
+                * @param cell_count
+                    * @param top_left Top left corner of the bounding box
+                        * @param bottom_right Bottom right corner of the bounding box
+                            */
+    void GenerateRandomCells(size_t cell_count, const Point& top_left, const Point& bottom_right) {
+        assert(environment != nullptr);
+        assert(environment->checkPositionCorrectness(top_left));
+        assert(environment->checkPositionCorrectness(bottom_right));
+
+        for (int i = 0; i < cell_count; ++i) {
+            auto pos = environment::RandomGenerator::generateRandomPoint(top_left, bottom_right);
+            if (!environment->getFrame(pos))
+                this->addCell(pos);
+            else
+                --i;
         }
+    }
 
-        inline void AddLogger(Logger* logger)
-        {
-            loggers.push_back(logger);
-        }
-
-        inline void RemoveLogger(Logger* logger)
-        {
-            loggers.erase(std::remove(loggers.begin(), loggers.end(), logger), loggers.end());
-        }
-
-        void addCell(environment::Cell* cellptr) override;
-        void removeCell(environment::Cell *cell) override;
-
-    private:
-        void processAI();
-        void render();
-
-        void execute()
-        {
-            this->processAI();
-            this->render();
-        }
-
-        void NotifyLoggers(const std::string message)
-        {
-            for (auto& logger : loggers)
-            {
-                logger->log(message);
-            }
-        }
-
-        void GenerateRandomCells(size_t cell_count) {
-            assert(environment != nullptr);
-
-            for (int i = 0; i < cell_count; ++i) {
-                auto pos = environment::RandomGenerator::generateRandomPoint({0, 0}, {environment->getHeight() - 1, environment->getWidth() - 1});
-                if (!environment->getFrame(pos))
-                    this->addCell(pos);
-                else
-                    --i;
-            }
-        }
-
-        void GenerateRandomCells(size_t cell_count, const std::vector<int>& countOfWeights) {
-            assert(environment != nullptr);
-
-            for (int i = 0; i < cell_count; ++i) {
-                auto pos = environment::RandomGenerator::generateRandomPoint({0, 0}, {environment->getHeight() - 1, environment->getWidth() - 1});
-                if (!environment->getFrame(pos))
-                    this->addCell(pos, countOfWeights);
-                else
-                    --i;
-            }
-        }
-
-        /**
-         * @brief GenerateRandomCells
-         * @param cell_count
-         * @param top_left Top left corner of the bounding box
-         * @param bottom_right Bottom right corner of the bounding box
-         */
-        void GenerateRandomCells(size_t cell_count, const Point& top_left, const Point& bottom_right) {
-            assert(environment != nullptr);
-            assert(environment->checkPositionCorrectness(top_left));
-            assert(environment->checkPositionCorrectness(bottom_right));
-
-            for (int i = 0; i < cell_count; ++i) {
-                auto pos = environment::RandomGenerator::generateRandomPoint(top_left, bottom_right);
-                if (!environment->getFrame(pos))
-                    this->addCell(pos);
-                else
-                    --i;
-            }
-        }
-
-        /**
+    /**
          * @brief GenerateRandomCells
          * @param cell_count
          * @param countOfWeights
          * @param top_left Top left corner of the bounding box
          * @param bottom_right Bottom right corner of the bounding box
          */
-        void GenerateRandomCells(size_t cell_count, const std::vector<int>& countOfWeights, const Point& top_left, const Point& bottom_right) {
-            assert(environment != nullptr);
-            assert(environment->checkPositionCorrectness(top_left));
-            assert(environment->checkPositionCorrectness(bottom_right));
+    void GenerateRandomCells(size_t cell_count, const std::vector<int>& countOfWeights, const Point& top_left, const Point& bottom_right) {
+        assert(environment != nullptr);
+        assert(environment->checkPositionCorrectness(top_left));
+        assert(environment->checkPositionCorrectness(bottom_right));
 
-            for (size_t i = 0; i < cell_count; ++i) {
-                auto pos = environment::RandomGenerator::generateRandomPoint(top_left, bottom_right);
-                if (!environment->getFrame(pos))
-                    this->addCell(pos, countOfWeights);
-                else
-                    --i;
-            }
+        for (size_t i = 0; i < cell_count; ++i) {
+            auto pos = environment::RandomGenerator::generateRandomPoint(top_left, bottom_right);
+            if (!environment->getFrame(pos))
+                this->addCell(pos, countOfWeights);
+            else
+                --i;
         }
+    }
 
-        MainWindow *view;
-        EnvironmentScene *scene;
-        environment::Environment *environment;
-        std::map<environment::Cell *, CellView *> cellMap;
+    MainWindow *view;
+    EnvironmentScene *scene;
+    environment::Environment *environment;
+    std::map<environment::Cell *, CellView *> cellMap;
 
-        QTimer timer;
-        std::vector<Logger*> loggers;
-    };
+    QTimer timer;
+    std::vector<Logger*> loggers;
+
+    QElapsedTimer fpsTimer;
+    qint64 frameCount = 0;
+};
 };
 
 #endif

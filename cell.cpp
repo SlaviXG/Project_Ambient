@@ -463,7 +463,7 @@ namespace environment
 
         if (indexOfAction < 0)
         {
-            std::cout << "negative action!" << std::endl;
+            //std::cout << "negative action!" << std::endl;
         }
 
         if (indexOfAction < kPhotosynthesis)                  //  0 - 7 <- 8 directions for moving
