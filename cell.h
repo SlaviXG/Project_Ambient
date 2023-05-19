@@ -33,17 +33,31 @@ namespace environment
         kNegativeAction = -1
     };
 
-    constexpr int kMaxEnergy = 500;
-    constexpr int kMinEnergy = 400;
+//<<<<<<< Updated upstream
+//    constexpr int kMaxEnergy = 500;
+//    constexpr int kMinEnergy = 400;
+//=======
+    constexpr int kMaxEnergy = 1000;
+    constexpr int kMinEnergy = 800;
+//>>>>>>> Stashed changes
     constexpr int kSteps = 5;                   //
     constexpr int kMoveCost = 5;                // count of energy, that cell will loose after move
     constexpr int kPhotosynthesisAdd = 25;      // count of energy, that cell will recieve after Photosynthes
     constexpr float kAttackCoefficient = 0.5;  // opponent energy -= currentEnergy * kAC + minDamage
-    constexpr float kAttackCost = 0.1;          // 1/10 * currentEnergy
-    constexpr int kDuplicationCost = 150;
+//<<<<<<< Updated upstream
+   // constexpr float kAttackCost = 0.1;          // 1/10 * currentEnergy
+   // constexpr int kDuplicationCost = 150;
+   // constexpr int kPrise = 100;                 // + energy after killing
+   // constexpr int movesToDeath = 200;           // every cell can make at max 250 actions
+   // constexpr int minDamage = 100;
+//=======
+    constexpr float kAttackCost = 0.01;          // 1/10 * currentEnergy
+    constexpr int kDuplicationCost = 600;
     constexpr int kPrise = 100;                 // + energy after killing
-    constexpr int movesToDeath = 200;           // every cell can make at max 250 actions
-    constexpr int minDamage = 100;
+    constexpr int movesToDeath = 800;           // every cell can make at max 250 actions
+    constexpr int minDamage = 500;
+    constexpr int kDelay = 10;
+//>>>>>>> Stashed changes
 
     class Cell : public Frame
     {
@@ -56,6 +70,7 @@ namespace environment
         bool isAliveStatus = true;
         int numberOfMovesToDeath = movesToDeath;
         int totalScore = 0;                         // evaluation of cell's model
+        int delayAfterDuplication = kDelay;
 
     public:
         void evaluateAction(int action);
@@ -85,6 +100,9 @@ namespace environment
         void setCurrentEnergy(double count) { currentEnergy = count; }
         void setIsAlive(bool status) { isAliveStatus = status; }
 
+        bool cellCanMakeThisAction(Matrix& inputs, int& actionIndex);
+
+        void removeBadOutputs(Matrix& inputs, Matrix& outputs);
         void move(int direction);
         void photosynthesis();
         void attack(int action);
