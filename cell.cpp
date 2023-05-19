@@ -56,6 +56,12 @@ namespace environment
 
     void Cell::evaluateAction(int action)
     {
+        if(action == -1)
+        {
+            this->totalScore -= 1000;
+            return;
+        }
+
         if(action <= 7)     // move
         {
             this->totalScore++;
@@ -73,10 +79,6 @@ namespace environment
         else if(action == actions::kDuplication)
         {
             this->totalScore += 100;
-        }
-        else if(action == -1)
-        {
-            this->totalScore -= 1000;
         }
     }
 
@@ -605,6 +607,7 @@ namespace environment
         if (indexOfAction < 0)
         {
             std::cout << "negative action!" << std::endl;
+            return kNegativeAction;
         }
 
         if (indexOfAction < kPhotosynthesis)                  //  0 - 7 <- 8 directions for moving
