@@ -607,6 +607,7 @@ namespace environment
         if (indexOfAction < 0)
         {
             std::cout << "negative action!" << std::endl;
+            die();
             return kNegativeAction;
         }
 
@@ -626,11 +627,6 @@ namespace environment
         {
             duplicate();
             return kDuplication;
-        }
-        else if (indexOfAction == -1)
-        {
-            die();
-            return kCellIsDead;
         }
         else
         {

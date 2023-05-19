@@ -42,7 +42,7 @@ namespace environment
     constexpr float kAttackCoefficient = 0.5;  // opponent energy -= currentEnergy * kAC + minDamage
     constexpr float kAttackCost = 0.01;          // 1/10 * currentEnergy
     constexpr int kDuplicationCost = 1200;
-    constexpr int kPrise = 100;                 // + energy after killing
+    constexpr int kPrise = 500;                 // + energy after killing
     constexpr int movesToDeath = 800;           // every cell can make at max 250 actions
     constexpr int minDamage = 1000;
     constexpr int kDelay = 10;
