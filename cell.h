@@ -45,6 +45,7 @@ namespace environment
     constexpr int kPrise = 100;                 // + energy after killing
     constexpr int movesToDeath = 800;           // every cell can make at max 250 actions
     constexpr int minDamage = 1000;
+    constexpr int kDelay = 10;
 
     class Cell : public Frame
     {
