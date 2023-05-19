@@ -148,11 +148,7 @@ namespace environment
         frameMatrix[pos.i][pos.j] = nullptr;
         if(pool){
             pool->AddToPool(cell);
-            if(!getCellNumber() || getCellNumber() >= 2 * pool->get_pool_maxsize()){
-                //Repopulate
-                RemoveAllCells();
-                generateCells(pool->get_pool_maxsize());
-            }
+
         }
     }
 
@@ -173,9 +169,6 @@ namespace environment
         //if (frameMatrix[cell->getPosition().i][cell->getPosition().j] != nullptr)
             // this->InvalidateCell(cell);
         assert(std::find(cells.begin(), cells.end(), cell) != cells.end());
-        if(pool){
-            pool->AddToPool(cell);
-        }
         cells.erase(std::remove(cells.begin(), cells.end(), cell), cells.end());
 
         if (interactor != nullptr)
@@ -187,7 +180,9 @@ namespace environment
     void Environment::RemoveAllCells()
     {
         for(unsigned int i = 0; i < cells.size(); i++){
-            RemoveCell(cells[i]);
+            if(cells[i]->isAlive()){
+                cells[i]->die();
+            }
         }
     }
 
@@ -246,6 +241,16 @@ namespace environment
             else{
                 continue;
             }
+        }
+    }
+
+    void Environment::ValidateEnvironment()
+    {
+        unsigned int cell_num = getCellNumber();
+        if(!cell_num || cell_num >= population_upper_limit * pool->get_pool_maxsize()){
+            //Repopulate
+            RemoveAllCells();
+            generateCells(pool->get_pool_maxsize());
         }
     }
 

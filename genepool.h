@@ -39,7 +39,9 @@ namespace genepool {
             }
             else{
                 if(is_fit){
-                    gene_pool[i] = {cell->getGenotype(), score};
+                    gene_pool.pop_back();
+                    std::vector<std::pair<genotype::Genotype, int>>::iterator it = gene_pool.begin() + i;
+                    gene_pool.insert(it, {cell->getGenotype(), score});
                 }
             }
 

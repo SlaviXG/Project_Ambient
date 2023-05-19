@@ -22,6 +22,9 @@ namespace environment
         const int WIDTH;
         const int HEIGHT;
 
+        //upper limit of population for environment validation ( 2 = 200% of original population)
+        const int population_upper_limit = 5;
+
         std::vector<std::vector<Frame *>> frameMatrix;
         double time;    
         std::vector<Cell *> cells;
@@ -107,6 +110,12 @@ namespace environment
         Point getRandomFreePosOnMap(unsigned int attemp_count = 50) const;
         // Autospawns N cells
         void generateCells(int N/*, controller::GameController *cont*/);
+
+        /*
+         * GenePool operations
+         */
+        //validates the environment by counting the number of cells
+        void ValidateEnvironment();
     };
 
     class RandomGenerator {

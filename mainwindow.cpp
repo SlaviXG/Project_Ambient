@@ -87,6 +87,7 @@ void MainWindow::on_add_cells_Button_clicked()
 {
     size_t n = ui->cell_to_add_LineEdit->text().toUInt();
     controller->GenerateRandomCells(n);
+
 }
 
 std::size_t MainWindow::getCellCountToAdd() const

@@ -92,7 +92,7 @@ namespace environment
          * @brief Invalidates itself
          *
          */
-        void die() { environment->InvalidateCell(this); this->isAliveStatus = false; };
+        void die() { environment->InvalidateCell(this); this->isAliveStatus = false;};
 
 
         /**
