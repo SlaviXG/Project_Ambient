@@ -108,6 +108,7 @@ namespace environment
         return 0;
     }
 
+
     int getBestOutputByProbabilyty(Matrix& outputs)
     {
         std::vector<int> indexes;
@@ -130,15 +131,144 @@ namespace environment
         return indexes[index];
     }
 
-    bool Cell::cellCanMakeThisAction(Matrix& inputs, int& actionIndex)
+    bool Cell::cellCanMakeThisAction(Matrix& inputs, Matrix& outputs, int& actionIndex)
     {
-
+        if(actionIndex == -1)
+            return true;
+        auto cellPosition = position;
+        switch (actionIndex)
+        {
+            case kMoveUp:
+                if (cellPosition.i == 0 || inputs[7][0] == 1) {
+                    outputs[kMoveUp][0] = -1;
+                    return false;
+                }
+                return true;
+            case kMoveUpRight:
+                if (cellPosition.i == 0 || cellPosition.j == (environment->getWidth() - 1) || inputs[8][0] == 1)
+                {
+                    outputs[kMoveUpRight][0] = -1;
+                    return false;
+                }
+                return true;
+            case kMoveRight:
+                if (cellPosition.j == (environment->getWidth() - 1) || inputs[12][0] == 1)
+                {
+                    outputs[kMoveRight][0] = -1;
+                    return false;
+                }
+                return true;
+            case kMoveRightDown:
+                if (cellPosition.i == (environment->getHeight() - 1) || cellPosition.j == (environment->getWidth() - 1) || inputs[17][0] == 1)
+                {
+                    outputs[kMoveRightDown][0] = -1;
+                    return false;
+                }
+                return true;
+            case kMoveDown:
+                if (cellPosition.i == (environment->getHeight() - 1) || inputs[16][0] == 1) {
+                    outputs[kMoveDown][0] = -1;
+                    return false;
+                }
+                return true;
+            case kMoveLeftDown:
+                if (cellPosition.i == (environment->getHeight() - 1) || cellPosition.j == 0 || inputs[15][0] == 1)
+                {
+                    outputs[kMoveLeftDown][0] = -1;
+                    return false;
+                }
+                return true;
+            case kMoveLeft:
+                if (cellPosition.j == 0 || inputs[11][0] == 1) {
+                    outputs[kMoveLeft][0] = -1;
+                    return false;
+                }
+                return true;
+            case kMoveLeftUp:
+                if (cellPosition.i == 0 || cellPosition.j == 0 || inputs[6][0] == 1) {
+                    outputs[kMoveLeftUp][0] = -1;
+                    return false;
+                }
+                return true;
+            case kAttackUp:
+                if(inputs[7][0] == 0)
+                {
+                    outputs[kAttackUp][0] = -1;
+                    return false;
+                }
+                return true;
+            case kAttackUpRight:
+                if(inputs[8][0] == 0)
+                {
+                    outputs[kAttackUpRight][0] = -1;
+                    return false;
+                }
+                return true;
+            case kAttackRight:
+                if(inputs[12][0] == 0)
+                {
+                    outputs[kAttackRight][0] = -1;
+                    return false;
+                }
+                return true;
+            case kAttackRightDown:
+                if(inputs[17][0] == 0)
+                {
+                    outputs[kAttackRightDown][0] = -1;
+                    return false;
+                }
+                return true;
+            case kAttackDown:
+                if(inputs[16][0] == 0)
+                {
+                    outputs[kAttackDown][0] = -1;
+                    return false;
+                }
+                return true;
+            case kAttackLeftDown:
+                if(inputs[15][0] == 0)
+                {
+                    outputs[kAttackLeftDown][0] = -1;
+                    return false;
+                }
+                return true;
+            case kAttackLeft:
+                if(inputs[11][0] == 0)
+                {
+                    outputs[kAttackLeft][0] = -1;
+                    return false;
+                }
+                return true;
+            case kAttackLeftUp:
+                if(inputs[6][0] == 0)
+                {
+                    outputs[kAttackLeftUp][0] = -1;
+                    return false;
+                }
+                return true;
+            case kDuplication:
+            {
+                auto freePosition = environment->randomFreePosition(position);
+                if (inputs[24][0] < 0.9 || freePosition.i == -1)
+                {
+                    outputs[kDuplication][0] = -1;
+                    return false;
+                }
+                return true;
+            }
+            case kPhotosynthesis:
+                if (inputs[24][0] >= 0.99 )                     // can Photosynthesis if energy is low than 99 procent
+                {
+                    outputs[kPhotosynthesis][0] = -1;
+                    return false;
+                }
+                return true;
+        }
+        return false;
     }
 
     void Cell::removeBadOutputs(Matrix& inputs, Matrix& outputs)             // return count of > 0 outputs
     {
-        int answer = 0;
-
         auto cellPosition = position;
         auto freePosition = environment->randomFreePosition(position);
 
@@ -253,19 +383,30 @@ namespace environment
         {
             outputs[kDuplication][0] = -1;
         }
+    }
 
-        //const int countOfIterations = outputs.getY();
-        //for(int i = 0; i < countOfIterations; i++)
-        //    if(outputs[i][0] > 0)
-        //        answer++;
-        //return answer;
+    int bestAction(Matrix& outputs)
+    {
+        double max = 0;
+        int index = -1;
+        const int countOfOutputs = outputs.getY();
+        for(int i = 0; i < countOfOutputs; i++)
+        {
+            if(max < outputs[i][0])
+            {
+                index = i;
+                max = outputs[i][0];
+            }
+        }
 
+        return index;
     }
 
     int Cell::bestPossibleChoiceIndex(Matrix& outputs, Matrix& inputs)
     {
-        removeBadOutputs(inputs, outputs);
-        return getBestOutputByProbabilyty(outputs);
+        removeBadOutputs(inputs,outputs);
+        int action = bestAction(outputs);
+        return action;
     }
 
     int Cell::makeChoice(Matrix& inputs)

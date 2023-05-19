@@ -88,7 +88,7 @@ namespace environment
         void setCurrentEnergy(double count) { currentEnergy = count; }
         void setIsAlive(bool status) { isAliveStatus = status; }
 
-        bool cellCanMakeThisAction(Matrix& inputs, int& actionIndex);
+        bool cellCanMakeThisAction(Matrix& inputs,Matrix& outputs, int& actionIndex);
 
         void removeBadOutputs(Matrix& inputs, Matrix& outputs);
         void move(int direction);
