@@ -144,114 +144,114 @@ namespace environment
 
         if (cellPosition.i == 0)
         {
-            outputs[kMoveUp][0] = -1000000;
-            outputs[kMoveUpRight][0] = -1000000;
-            outputs[kMoveLeftUp][0] = -1000000;
+            outputs[kMoveUp][0] = -1;
+            outputs[kMoveUpRight][0] = -1;
+            outputs[kMoveLeftUp][0] = -1;
         }
         if (cellPosition.j == 0)
         {
-            outputs[kMoveLeftDown][0] = -1000000;
-            outputs[kMoveLeft][0] = -1000000;
-            outputs[kMoveLeftUp][0] = -1000000;
+            outputs[kMoveLeftDown][0] = -1;
+            outputs[kMoveLeft][0] = -1;
+            outputs[kMoveLeftUp][0] = -1;
         }
         if(cellPosition.i == (environment->getHeight() - 1))
         {
-            outputs[kMoveRightDown][0] = -1000000;
-            outputs[kMoveDown][0] = -1000000;
-            outputs[kMoveLeftDown][0] = -1000000;
+            outputs[kMoveRightDown][0] = -1;
+            outputs[kMoveDown][0] = -1;
+            outputs[kMoveLeftDown][0] = -1;
         }
         if(cellPosition.j == (environment->getWidth() - 1))
         {
-            outputs[kMoveRight][0] = -1000000;
-            outputs[kMoveUpRight][0] = -1000000;
-            outputs[kMoveRightDown][0] = -1000000;
+            outputs[kMoveRight][0] = -1;
+            outputs[kMoveUpRight][0] = -1;
+            outputs[kMoveRightDown][0] = -1;
         }
         if(inputs[6][0] == 1)
         {
-            outputs[kMoveLeftUp][0] = -1000000;
+            outputs[kMoveLeftUp][0] = -1;
         }
         else
         {
-            outputs[kAttackLeftUp][0] = -1000000;
+            outputs[kAttackLeftUp][0] = -1;
         }
         if(inputs[7][0] == 1)
         {
-            outputs[kMoveUp][0] = -1000000;
+            outputs[kMoveUp][0] = -1;
         }
         else
         {
-            outputs[kAttackUp][0] = -1000000;
+            outputs[kAttackUp][0] = -1;
         }
         if(inputs[8][0] == 1)
         {
-            outputs[kMoveUpRight][0] = -1000000;
+            outputs[kMoveUpRight][0] = -1;
         }
         else
         {
-            outputs[kAttackUpRight][0] = -1000000;
+            outputs[kAttackUpRight][0] = -1;
         }
         if(inputs[11][0] == 1)
         {
-            outputs[kMoveLeft][0] = -1000000;
+            outputs[kMoveLeft][0] = -1;
         }
         else
         {
-            outputs[kAttackLeft][0] = -1000000;
+            outputs[kAttackLeft][0] = -1;
         }
         if(inputs[12][0] == 1)
         {
-            outputs[kMoveRight][0] = -1000000;
+            outputs[kMoveRight][0] = -1;
         }
         else
         {
-            outputs[kAttackRight][0] = -1000000;
+            outputs[kAttackRight][0] = -1;
         }
         if(inputs[15][0] == 1)
         {
-            outputs[kMoveLeftDown][0] = -1000000;
+            outputs[kMoveLeftDown][0] = -1;
         }
         else
         {
-            outputs[kAttackLeftDown][0] = -1000000;
+            outputs[kAttackLeftDown][0] = -1;
         }
         if(inputs[16][0] == 1)
         {
-            outputs[kMoveDown][0] = -1000000;
+            outputs[kMoveDown][0] = -1;
         }
         else
         {
-            outputs[kAttackDown][0] = -1000000;
+            outputs[kAttackDown][0] = -1;
         }
         if(inputs[17][0] == 1)
         {
-            outputs[kMoveRightDown][0] = -1000000;
+            outputs[kMoveRightDown][0] = -1;
         }
         else
         {
-            outputs[kAttackRightDown][0] = -1000000;
+            outputs[kAttackRightDown][0] = -1;
         }
         if(delayAfterDuplication > 0)
         {
-             outputs[kAttackLeftUp][0] = -1000000;
-             outputs[kAttackUp][0] = -1000000;
-             outputs[kAttackUpRight][0] = -1000000;
-             outputs[kAttackLeft][0] = -1000000;
-             outputs[kAttackRight][0] = -1000000;
-             outputs[kAttackLeftDown][0] = -1000000;
-             outputs[kAttackDown][0] = -1000000;
-             outputs[kAttackRightDown][0] = -1000000;
+             outputs[kAttackLeftUp][0] = -1;
+             outputs[kAttackUp][0] = -1;
+             outputs[kAttackUpRight][0] = -1;
+             outputs[kAttackLeft][0] = -1;
+             outputs[kAttackRight][0] = -1;
+             outputs[kAttackLeftDown][0] = -1;
+             outputs[kAttackDown][0] = -1;
+             outputs[kAttackRightDown][0] = -1;
         }
         if(inputs[24][0] < 0.95)                         // can Photosynthesis if energy is low than 95 procent, can duplicate if  energy is more than 95 proc
         {
-            outputs[kDuplication][0] = -1000000;
+            outputs[kDuplication][0] = -1;
         }
         else
         {
-            outputs[kPhotosynthesis][0] = -1000000;
+            outputs[kPhotosynthesis][0] = -1;
         }
         if(freePosition.i == -1)
         {
-            outputs[kDuplication][0] = -1000000;
+            outputs[kDuplication][0] = -1;
         }
 
         //const int countOfIterations = outputs.getY();
@@ -266,138 +266,6 @@ namespace environment
     {
         removeBadOutputs(inputs, outputs);
         return getBestOutputByProbabilyty(outputs);
-
-        //Point cellPosition = position;
-        //Point freePosition = environment->randomFreePosition(position);
-        /*
-        switch (index)
-        {
-            case kMoveUp:
-                if (cellPosition.i == 0 || inputs[7][0] == 1) {
-                    outputs[kMoveUp][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kMoveUpRight:
-                if (cellPosition.i == 0 || cellPosition.j == (environment->getWidth() - 1) || inputs[8][0] == 1)
-                {
-                    outputs[kMoveUpRight][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kMoveRight:
-                if (cellPosition.j == (environment->getWidth() - 1) || inputs[12][0] == 1) {
-                    outputs[kMoveRight][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kMoveRightDown:
-                if (cellPosition.i == (environment->getHeight() - 1) || cellPosition.j == (environment->getWidth() - 1) || inputs[17][0] == 1) {
-                    outputs[kMoveRightDown][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kMoveDown:
-                if (cellPosition.i == (environment->getHeight() - 1) || inputs[16][0] == 1) {
-                    outputs[kMoveDown][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kMoveLeftDown:
-                if (cellPosition.i == (environment->getHeight() - 1) || cellPosition.j == 0 || inputs[15][0] == 1) {
-                    outputs[kMoveLeftDown][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kMoveLeft:
-                if (cellPosition.j == 0 || inputs[11][0] == 1) {
-                    outputs[kMoveLeft][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kMoveLeftUp:
-                if (cellPosition.i == 0 || cellPosition.j == 0 || inputs[6][0] == 1) {
-                    outputs[kMoveLeftUp][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kAttackUp:
-                if(inputs[7][0] == 0 || delayAfterDuplication > 0)
-                {
-                    outputs[kAttackUp][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kAttackUpRight:
-                if(inputs[8][0] == 0 || delayAfterDuplication > 0)
-                {
-                    outputs[kAttackUpRight][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kAttackRight:
-                if(inputs[12][0] == 0 || delayAfterDuplication > 0)
-                {
-                    outputs[kAttackRight][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kAttackRightDown:
-                if(inputs[17][0] == 0 || delayAfterDuplication > 0)
-                {
-                    outputs[kAttackRightDown][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kAttackDown:
-                if(inputs[16][0] == 0 || delayAfterDuplication > 0)
-                {
-                    outputs[kAttackDown][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kAttackLeftDown:
-                if(inputs[15][0] == 0 || delayAfterDuplication > 0)
-                {
-                    outputs[kAttackLeftDown][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kAttackLeft:
-                if(inputs[11][0] == 0 || delayAfterDuplication > 0)
-                {
-                    outputs[kAttackLeft][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kAttackLeftUp:
-                if(inputs[6][0] == 0 || delayAfterDuplication > 0)
-                {
-                    outputs[kAttackLeftUp][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kDuplication:
-                //freePosition = environment->randomFreePosition(position);
-
-                if (inputs[24][0] < 0.8 || freePosition.i == -1)
-                {
-                    outputs[kDuplication][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kPhotosynthesis:
-                if (inputs[24][0] >= 0.99 )                     // can Photosynthesis if energy is low than 99 procent
-                {
-                    outputs[kPhotosynthesis][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-                default:
-                        return index;
-        }
-
-        */
     }
 
     int Cell::makeChoice(Matrix& inputs)

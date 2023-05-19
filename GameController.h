@@ -20,7 +20,7 @@
 namespace controller
 {
     constexpr int kCellSize = 20;
-    constexpr int kFps = 1000;
+    constexpr int kFps = 20;
     constexpr int kViewPadding = kCellSize / 2;
 
      /**
