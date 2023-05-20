@@ -133,7 +133,7 @@ namespace environment
         return indexes[index];
     }
 
-    bool Cell::cellCanMakeThisAction(Matrix& inputs, Matrix& outputs, int& actionIndex)
+    /*bool Cell::cellCanMakeThisAction(Matrix& inputs, Matrix& outputs, int& actionIndex)
     {
         if(actionIndex == -1)
             return true;
@@ -268,7 +268,7 @@ namespace environment
         }
         return false;
     }
-
+    */
     void Cell::removeBadOutputs(Matrix& inputs, Matrix& outputs)             // return count of > 0 outputs
     {
         auto cellPosition = position;
@@ -362,17 +362,17 @@ namespace environment
         {
             outputs[kAttackRightDown][0] = -1;
         }
-        if(delayAfterDuplication > 0)
-        {
-             outputs[kAttackLeftUp][0] = -1;
-             outputs[kAttackUp][0] = -1;
-             outputs[kAttackUpRight][0] = -1;
-             outputs[kAttackLeft][0] = -1;
-             outputs[kAttackRight][0] = -1;
-             outputs[kAttackLeftDown][0] = -1;
-             outputs[kAttackDown][0] = -1;
-             outputs[kAttackRightDown][0] = -1;
-        }
+        //if(delayAfterDuplication > 0)
+        //{
+        //     outputs[kAttackLeftUp][0] = -1;
+        //     outputs[kAttackUp][0] = -1;
+        //     outputs[kAttackUpRight][0] = -1;
+        //     outputs[kAttackLeft][0] = -1;
+        //     outputs[kAttackRight][0] = -1;
+        //     outputs[kAttackLeftDown][0] = -1;
+        //     outputs[kAttackDown][0] = -1;
+        //     outputs[kAttackRightDown][0] = -1;
+        //}
         if(inputs[24][0] < 0.95)                         // can Photosynthesis if energy is low than 95 procent, can duplicate if  energy is more than 95 proc
         {
             outputs[kDuplication][0] = -1;
@@ -407,7 +407,8 @@ namespace environment
     int Cell::bestPossibleChoiceIndex(Matrix& outputs, Matrix& inputs)
     {
         removeBadOutputs(inputs,outputs);
-        int action = bestAction(outputs);
+        int action = bestAction(outputs);                         // lineral
+        //int action = getBestOutputByProbabilyty(outputs);         // non-lineral
         return action;
     }
 
@@ -517,7 +518,8 @@ namespace environment
         genotype = genotype::Genotype(std::vector<int>{10,10,10,10,10});
         aggressiveness = RandomGenerator::generateRandomDoubleNumber(0,1);
         maxEnergy = RandomGenerator::generateRandomIntNumber(kMinEnergy,kMaxEnergy);
-        currentEnergy = maxEnergy;
+        //currentEnergy = maxEnergy;
+        currentEnergy = RandomGenerator::generateRandomIntNumber(0,maxEnergy);
     }
 
     Cell::Cell(Cell &mother, Point freePosition) : Frame(mother)
