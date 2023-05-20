@@ -23,7 +23,11 @@ namespace environment
         const int HEIGHT;
 
         //upper limit of population for environment validation ( 2 = 200% of original population)
-        const int population_upper_limit = 4;
+        const int population_upper_limit = 2;
+        //TESTING ZONE
+        // Added for step limitation in order to test out genepools
+        const int max_step_count_before_reset = 5000;
+        int cur_step_count = 0;
 
         std::vector<std::vector<Frame *>> frameMatrix;
         double time;    

@@ -263,13 +263,35 @@ namespace environment
 
     void Environment::ValidateEnvironment()
     {
-        unsigned int cell_num = getCellNumber();
-        if(!cell_num || cell_num >= population_upper_limit * pool->get_pool_maxsize()){
-            //Repopulate
+
+        //FOR TESTING
+        if(cur_step_count >= max_step_count_before_reset){
+
+            //DEBUG
+            pool->print();
+
+
             RemoveAllCells();
             generateCells(pool->get_pool_maxsize());
             pool->clear_pool();
+            cur_step_count = 0;
         }
+
+        unsigned int cell_num = getCellNumber();
+        if(!cell_num || cell_num >= population_upper_limit * pool->get_pool_maxsize()){
+            //Repopulate
+
+            //DEBUG
+            pool->print();
+
+
+            RemoveAllCells();
+            generateCells(pool->get_pool_maxsize());
+            pool->clear_pool();
+            cur_step_count = 0;
+        }
+        cur_step_count++;
+
     }
 
     unsigned int Environment::getMaxCellCount()

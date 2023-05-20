@@ -20,33 +20,35 @@ namespace genepool {
 
         inline void AddToPool(environment::Cell* cell){
             int score = cell->getTotalScore();
-            unsigned int i = 0;
+            unsigned int pos = 0;
             bool is_fit = false;
-            for(; i < gene_pool.size(); i++){
-                if(score >= gene_pool[i].second){
+            for(; pos < gene_pool.size(); pos++){
+                if(score >= gene_pool[pos].second){
                     is_fit = true;
                     break;
                 }
             }
+            //DEBUG
+//            std::cout << "\n" << cell->getTotalScore() << "\n";
+
             if(gene_pool.size() != pool_size){
                 if(is_fit){
-                    std::vector<std::pair<genotype::Genotype, int>>::iterator it = gene_pool.begin() + i;
-                    gene_pool.insert(it, {cell->getGenotype(), score});
+                    std::vector<std::pair<genotype::Genotype, int>>::iterator it = gene_pool.begin() + pos;
+                    gene_pool.insert(it, {cell->getGenotype(), cell->getTotalScore()});
                 }
                 else{
-                    gene_pool.push_back({cell->getGenotype(), score});
+                    gene_pool.push_back({cell->getGenotype(), cell->getTotalScore()});
                 }
             }
             else{
                 if(is_fit){
                     gene_pool.pop_back();
-                    std::vector<std::pair<genotype::Genotype, int>>::iterator it = gene_pool.begin() + i;
-                    gene_pool.insert(it, {cell->getGenotype(), score});
+                    std::vector<std::pair<genotype::Genotype, int>>::iterator it = gene_pool.begin() + pos;
+                    gene_pool.insert(it, {cell->getGenotype(), cell->getTotalScore()});
                 }
             }
 
             //DEBUG
-//            std::cout << "\n" << score << "\n";
 //            print();
         }
 
@@ -77,6 +79,7 @@ namespace genepool {
         }
 
     private:
+
         unsigned int pool_size;
         //const std::string pool_file_name = "genepool.dat";
         std::vector<std::pair<genotype::Genotype, int>> gene_pool;
