@@ -1,13 +1,5 @@
 #include "GameController.h"
-#include "GameLogicThread.h"
-#include "RenderingThread.h"
 
-
-controller::GameController::GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment)
-    : view(view), scene(scene), environment(environment), timer(this), loggers(), logicThread(new GameLogicThread(this)), renderingThread(new RenderingThread(this)) {
-    connect(logicThread, &GameLogicThread::logicCompleted, this, &GameController::executeRenderingThread);
-    connect(renderingThread, &RenderingThread::renderingCompleted, this, &GameController::renderingComplete);
-}
 
 void controller::GameController::addCell(environment::Cell* cellptr)
 {
@@ -39,16 +31,6 @@ void controller::GameController::removeCell(environment::Cell *cell)
     NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + "  { " + std::to_string(cell->getPosition().i) + ", " + std::to_string(cell->getPosition().j) + " } " + " was removed");
 }
 
-void controller::GameController::executeLogicThread() {
-    if (!logicThread->isRunning()) {
-        logicThread->start();
-    }
-}
-void controller::GameController::executeRenderingThread() {
-    if (!renderingThread->isRunning()) {
-        renderingThread->start();
-    }
-}
 
 void controller::GameController::processAI()
 {

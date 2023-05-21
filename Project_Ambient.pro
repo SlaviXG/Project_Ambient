@@ -14,6 +14,7 @@ SOURCES += \
     EnvironmentScene.cpp \
     GameController.cpp \
     Genotype.cpp \
+    Tick.cpp \
     cell.cpp \
     frame.cpp \
     main.cpp \
@@ -21,8 +22,6 @@ SOURCES += \
 
 HEADERS += \
     CellView.h \
-    GameLogicThread.h \
-    RenderingThread.h \
     logger.h \
     point.h \
     Environment.h \
@@ -30,12 +29,14 @@ HEADERS += \
     GameController.h \
     Genotype.h \
     Matrix.h \
+    Tick.h \
     cell.h \
     doctest.h \
     frame.h \
     mainwindow.h \
     test_Genotype.hpp \
-    test_environment.hpp
+    test_environment.hpp \
+    test_tick.hpp
 
 FORMS += \
     mainwindow.ui
