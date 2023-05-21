@@ -4,7 +4,6 @@
 #include "Environment.h"
 #include "EnvironmentScene.h"
 #include "mainwindow.h"
-#include "Tick.h"
 #include "point.h"
 #include "cell.h"
 #include "CellView.h"
@@ -17,6 +16,9 @@
 #include <vector>
 #include <string>
 #include <map>
+
+class GameLogicThread;
+class RenderingThread;
 
 namespace controller
 {
@@ -60,11 +62,14 @@ namespace controller
      */
     class GameController : public QObject, public CellInteractor, public GameInteractor
     {
-    public:
-        explicit GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment)
-            : view(view), scene(scene), environment(environment), timer(this), loggers() {}
+        Q_OBJECT
 
-        virtual ~GameController(){};
+    public:
+        explicit GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment);
+
+        virtual ~GameController(){
+            this->stop();
+        };
 
         inline void addCell(const Point &point) override
         {
@@ -77,11 +82,12 @@ namespace controller
             auto cellptr = environment->AddCell(point, countOfWeights);
             this->addCell(cellptr);
         }
+
         inline void start() override
         {
             timer.disconnect();
             this->GenerateRandomCells(kStartingCellCount);
-            connect(&timer, &QTimer::timeout, this, &GameController::execute);
+            connect(&timer, &QTimer::timeout, this, &GameController::executeLogicThread);
             timer.start(1000 / kFps);
 
             fpsTimer.start();
@@ -123,11 +129,19 @@ namespace controller
         void addCell(environment::Cell* cellptr) override;
         void removeCell(environment::Cell *cell) override;
 
-    private:
+    public slots:
+        void executeLogicThread();
+        void executeRenderingThread();
+        void renderingComplete() {
+            // Implementation of what you want to do after rendering is complete
+        }
+
         void processAI();
         void render();
 
-        void execute()
+private:
+
+        /*void execute()
         {
             this->processAI();
             this->render();
@@ -144,7 +158,7 @@ namespace controller
                 QString message = QString("FPS: %1").arg(fps);
                 qDebug() << message;
             }
-        }
+        }*/
 
         void NotifyLoggers(const std::string message)
         {
@@ -154,7 +168,7 @@ namespace controller
             }
         }
 
-        void GenerateRandomCells(size_t cell_count) {
+        void GenerateRandomCells(size_t cell_count) override {
             assert(environment != nullptr);
 
             for (int i = 0; i < cell_count; ++i) {
@@ -226,6 +240,8 @@ namespace controller
 
         QTimer timer;
         std::vector<Logger*> loggers;
+        GameLogicThread* logicThread;
+        RenderingThread* renderingThread;
 
         QElapsedTimer fpsTimer;
         qint64 frameCount = 0;
