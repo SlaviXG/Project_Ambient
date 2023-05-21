@@ -22,6 +22,7 @@ SOURCES += \
 
 HEADERS += \
     CellView.h \
+    EnvironmentDecorator.h \
     logger.h \
     point.h \
     Environment.h \

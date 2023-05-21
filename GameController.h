@@ -20,7 +20,7 @@
 namespace controller
 {
     constexpr int kCellSize = 2;
-    constexpr int kFps = 1000000;
+    constexpr int kFps = 5;
     constexpr int kViewPadding = kCellSize / 2;
     constexpr size_t kStartingCellCount = 20;
 
