@@ -4,7 +4,6 @@
 #include <vector>
 #include <random>
 
-#include "Tick.h"
 #include "Genotype.h" // For Point struct
 
 namespace controller { class CellInteractor; }

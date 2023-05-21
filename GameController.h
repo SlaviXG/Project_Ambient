@@ -4,7 +4,6 @@
 #include "Environment.h"
 #include "EnvironmentScene.h"
 #include "mainwindow.h"
-#include "Tick.h"
 #include "point.h"
 #include "cell.h"
 #include "CellView.h"
@@ -76,7 +75,8 @@ namespace controller
             auto cellptr = environment->AddCell(point, countOfWeights);
             this->addCell(cellptr);
         }
-        inline void start() override
+
+        void start() override
         {
             timer.disconnect();
             this->GenerateRandomCells(kStartingCellCount);
@@ -84,7 +84,7 @@ namespace controller
             timer.start(1000 / kFps);
         }
 
-        inline void stop() override
+        void stop() override
         {
             timer.stop();
             auto cells = environment->getCells();
@@ -96,12 +96,12 @@ namespace controller
             assert(cellMap.empty());
         }
 
-        inline void pause() override
+        void pause() override
         {
             timer.stop();
         }
 
-        inline void resume() override
+        void resume() override
         {
             timer.start(1000 / kFps);
         }
@@ -119,15 +119,16 @@ namespace controller
         void addCell(environment::Cell* cellptr) override;
         void removeCell(environment::Cell *cell) override;
 
-    private:
-        void processAI();
-        void render();
-
-        void execute()
+    protected:
+        virtual void execute()
         {
             this->processAI();
             this->render();
         }
+
+        void processAI();
+        void render();
+
 
         void NotifyLoggers(const std::string message)
         {
@@ -137,7 +138,7 @@ namespace controller
             }
         }
 
-        void GenerateRandomCells(size_t cell_count) {
+        void GenerateRandomCells(size_t cell_count) override {
             assert(environment != nullptr);
 
             for (int i = 0; i < cell_count; ++i) {
@@ -202,12 +203,14 @@ namespace controller
             }
         }
 
+        QTimer timer;
+
+    private:
         MainWindow *view;
         EnvironmentScene *scene;
         environment::Environment *environment;
         std::map<environment::Cell *, CellView *> cellMap;
 
-        QTimer timer;
         std::vector<Logger*> loggers;
     };
 };
