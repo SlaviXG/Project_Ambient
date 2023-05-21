@@ -58,15 +58,15 @@ namespace environment
     }
 
     Cell* Environment::getCell(const Point& point) const {
-        assert(checkPositionCorrectness(point));
+        Q_ASSERT(checkPositionCorrectness(point));
         Frame* frame = frameMatrix[point.i][point.j];
         return dynamic_cast<Cell*>(frame);
     }
 
     void Environment::updateCellPosition(Cell *cell, const Point &oldPos)
     {
-        assert(checkPositionCorrectness(oldPos));
-        assert(checkPositionCorrectness(cell->getPosition()));
+        Q_ASSERT(checkPositionCorrectness(oldPos));
+        Q_ASSERT(checkPositionCorrectness(cell->getPosition()));
 
         frameMatrix[oldPos.i][oldPos.j] = nullptr;
         auto newPos = cell->getPosition();
@@ -75,7 +75,7 @@ namespace environment
 
     std::vector<bool> Environment::getVisionField(const Point &viewPoint) const
     {
-        assert(checkPositionCorrectness(viewPoint));
+        Q_ASSERT(checkPositionCorrectness(viewPoint));
 
         std::vector<bool> vec;
        // vec.reserve(25);
@@ -102,8 +102,8 @@ namespace environment
     Cell *Environment::AddCell(Cell *cell)
     {
         // Check whether the cell already exists
-        assert(std::find(cells.begin(), cells.end(), cell) == cells.end());
-        assert(checkPositionCorrectness(cell->getPosition()));
+        Q_ASSERT(std::find(cells.begin(), cells.end(), cell) == cells.end());
+        Q_ASSERT(checkPositionCorrectness(cell->getPosition()));
 
         cells.push_back(cell);
         auto pos = cell->getPosition();
@@ -116,8 +116,8 @@ namespace environment
 
     Cell *Environment::AddCell(const Point &point)
     {
-        assert(checkPositionCorrectness(point));
-        assert(frameMatrix[point.i][point.j] == nullptr);
+        Q_ASSERT(checkPositionCorrectness(point));
+        Q_ASSERT(frameMatrix[point.i][point.j] == nullptr);
 
         Cell *cell = new Cell(point, this);
         cells.push_back(cell);
@@ -129,8 +129,8 @@ namespace environment
     // New method
     Cell *Environment::AddCell(const Point &point, std::vector<int> countOfWeights)
     {
-        assert(checkPositionCorrectness(point));
-        assert(frameMatrix[point.i][point.j] == nullptr);
+        Q_ASSERT(checkPositionCorrectness(point));
+        Q_ASSERT(frameMatrix[point.i][point.j] == nullptr);
 
         Cell *cell = new Cell(point,countOfWeights, this);
         cells.push_back(cell);
@@ -143,28 +143,28 @@ namespace environment
     {
         auto pos = cell->getPosition();
 
-        assert(checkPositionCorrectness(pos));
-        assert(this->getCell(pos) == cell);
+        Q_ASSERT(checkPositionCorrectness(pos));
+        Q_ASSERT(this->getCell(pos) == cell);
 
         frameMatrix[pos.i][pos.j] = nullptr;
     }
 
     void Environment::RemoveCell(Cell* cell)
     {
-        // assert(frameMatrix[cell->getPosition().i][cell->getPosition().j] == nullptr);
+        // Q_ASSERT(frameMatrix[cell->getPosition().i][cell->getPosition().j] == nullptr);
 
 #ifdef QT_DEBUG
         if (frameMatrix[cell->getPosition().i][cell->getPosition().j] != nullptr)
         {
             for (const auto& row : this->frameMatrix)
                 for (const auto& frame :row)
-                    assert(frame != cell);
+                    Q_ASSERT(frame != cell);
         }
 #endif
 
         //if (frameMatrix[cell->getPosition().i][cell->getPosition().j] != nullptr)
             // this->InvalidateCell(cell);
-        assert(std::find(cells.begin(), cells.end(), cell) != cells.end());
+        Q_ASSERT(std::find(cells.begin(), cells.end(), cell) != cells.end());
 
         cells.erase(std::remove(cells.begin(), cells.end(), cell), cells.end());
 
@@ -176,7 +176,7 @@ namespace environment
 
     Point Environment::randomFreePosition(const Point &point) const
     {
-        assert(checkPositionCorrectness(point));
+        Q_ASSERT(checkPositionCorrectness(point));
 
         constexpr int kAttemptCount = 50;
         Point randPoint;

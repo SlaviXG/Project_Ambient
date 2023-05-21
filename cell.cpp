@@ -42,7 +42,7 @@ namespace environment
         }
         currentEnergy -= kMoveCost;
 
-        assert(environment != nullptr);
+        Q_ASSERT(environment != nullptr);
         environment->updateCellPosition(this, oldPos);
 
         if(currentEnergy <= 0)
@@ -78,9 +78,9 @@ namespace environment
 
     int foo(double value1, double value2, double value3)
     {
-        assert(value1 >= 0);
-        assert(value2 >= 0);
-        assert(value3 >= 0);
+        Q_ASSERT(value1 >= 0);
+        Q_ASSERT(value2 >= 0);
+        Q_ASSERT(value3 >= 0);
 
         double sum = value1 + value2 + value3;
         double r = RandomGenerator::generateRandomDoubleNumber(0,sum);
@@ -455,7 +455,7 @@ namespace environment
 
         std::vector<double> inputs;
         std::vector<bool> vision;
-        assert(environment!=nullptr);
+        Q_ASSERT(environment!=nullptr);
         vision = environment->getVisionField(position);
 
         for(int i = 0; i < vision.size(); i++)

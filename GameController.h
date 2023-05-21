@@ -4,7 +4,6 @@
 #include "Environment.h"
 #include "EnvironmentScene.h"
 #include "mainwindow.h"
-#include "Tick.h"
 #include "point.h"
 #include "cell.h"
 #include "CellView.h"
@@ -93,7 +92,7 @@ namespace controller
                 environment->InvalidateCell(cell);
                 environment->RemoveCell(cell);
             }
-            assert(cellMap.empty());
+            Q_ASSERT(cellMap.empty());
         }
 
         inline void pause() override
@@ -126,7 +125,24 @@ namespace controller
         void execute()
         {
             this->processAI();
+<<<<<<< Updated upstream
             this->render();
+=======
+            //this->render();
+
+            ++frameCount;
+
+            // Update and log FPS every second
+            if (fpsTimer.elapsed() > 1000)
+            {
+                qreal fps = frameCount * 1000.0 / fpsTimer.elapsed();
+                fpsTimer.restart();
+                frameCount = 0;
+
+                QString message = QString("FPS: %1").arg(fps);
+                qDebug() << message;
+            }
+>>>>>>> Stashed changes
         }
 
         void NotifyLoggers(const std::string message)
@@ -138,7 +154,7 @@ namespace controller
         }
 
         void GenerateRandomCells(size_t cell_count) {
-            assert(environment != nullptr);
+            Q_ASSERT(environment != nullptr);
 
             for (int i = 0; i < cell_count; ++i) {
                 auto pos = environment::RandomGenerator::generateRandomPoint({0, 0}, {environment->getHeight() - 1, environment->getWidth() - 1});
@@ -150,7 +166,7 @@ namespace controller
         }
 
         void GenerateRandomCells(size_t cell_count, const std::vector<int>& countOfWeights) {
-            assert(environment != nullptr);
+            Q_ASSERT(environment != nullptr);
 
             for (int i = 0; i < cell_count; ++i) {
                 auto pos = environment::RandomGenerator::generateRandomPoint({0, 0}, {environment->getHeight() - 1, environment->getWidth() - 1});
@@ -168,9 +184,9 @@ namespace controller
          * @param bottom_right Bottom right corner of the bounding box
          */
         void GenerateRandomCells(size_t cell_count, const Point& top_left, const Point& bottom_right) {
-            assert(environment != nullptr);
-            assert(environment->checkPositionCorrectness(top_left));
-            assert(environment->checkPositionCorrectness(bottom_right));
+            Q_ASSERT(environment != nullptr);
+            Q_ASSERT(environment->checkPositionCorrectness(top_left));
+            Q_ASSERT(environment->checkPositionCorrectness(bottom_right));
 
             for (int i = 0; i < cell_count; ++i) {
                 auto pos = environment::RandomGenerator::generateRandomPoint(top_left, bottom_right);
@@ -189,9 +205,9 @@ namespace controller
          * @param bottom_right Bottom right corner of the bounding box
          */
         void GenerateRandomCells(size_t cell_count, const std::vector<int>& countOfWeights, const Point& top_left, const Point& bottom_right) {
-            assert(environment != nullptr);
-            assert(environment->checkPositionCorrectness(top_left));
-            assert(environment->checkPositionCorrectness(bottom_right));
+            Q_ASSERT(environment != nullptr);
+            Q_ASSERT(environment->checkPositionCorrectness(top_left));
+            Q_ASSERT(environment->checkPositionCorrectness(bottom_right));
 
             for (size_t i = 0; i < cell_count; ++i) {
                 auto pos = environment::RandomGenerator::generateRandomPoint(top_left, bottom_right);

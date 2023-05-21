@@ -1,7 +1,7 @@
 #ifndef MATRIX_H_
 #define MATRIX_H_
 
-#include <cassert>
+#include <QtGlobal>
 
 struct Point
 {
@@ -28,7 +28,7 @@ struct Point
     // Division operator
     Point operator/(int scalar) const
     {
-        assert(scalar != 0);
+        Q_ASSERT(scalar != 0);
         return Point{i / scalar, j / scalar};
     }
 

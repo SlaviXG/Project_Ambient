@@ -23,7 +23,7 @@ void controller::GameController::addCell(environment::Cell* cellptr)
 
 void controller::GameController::removeCell(environment::Cell *cell)
 {
-    assert(cellMap.find(cell) != cellMap.end());
+    Q_ASSERT(cellMap.find(cell) != cellMap.end());
 
     this->scene->removeCell(cellMap.at(cell));
     cellMap.erase(cell);
@@ -34,7 +34,7 @@ void controller::GameController::removeCell(environment::Cell *cell)
 
 void controller::GameController::processAI()
 {
-    std::vector<environment::Cell*> cells = environment->getCells();
+    auto cells = environment->getCells();
 
 
 
@@ -102,7 +102,7 @@ void controller::GameController::render()
 
         CellView* cellView = cellMap.at(cell);
 
-        assert(cellView != nullptr);
+        Q_ASSERT(cellView != nullptr);
         scene->updateCell(cellView, x, y, cell->getAggressiveness() * 100);
     }
 };
