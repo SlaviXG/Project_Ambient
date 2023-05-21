@@ -141,24 +141,11 @@ namespace controller
 
 private:
 
-        /*void execute()
+        void execute()
         {
             this->processAI();
             this->render();
-
-            ++frameCount;
-
-            // Update and log FPS every second
-            if (fpsTimer.elapsed() > 1000)
-            {
-                qreal fps = frameCount * 1000.0 / fpsTimer.elapsed();
-                fpsTimer.restart();
-                frameCount = 0;
-
-                QString message = QString("FPS: %1").arg(fps);
-                qDebug() << message;
-            }
-        }*/
+        }
 
         void NotifyLoggers(const std::string message)
         {
