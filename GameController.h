@@ -22,8 +22,8 @@ class RenderingThread;
 
 namespace controller
 {
-    constexpr int kCellSize = 4;
-    constexpr int kFps = 1000000;
+    constexpr int kCellSize = 2;
+    constexpr int kFps = 5;
     constexpr int kViewPadding = kCellSize / 2;
     constexpr size_t kStartingCellCount = 20;
 
@@ -83,7 +83,7 @@ namespace controller
             this->addCell(cellptr);
         }
 
-        inline void start() override
+        void start() override
         {
             timer.disconnect();
             this->GenerateRandomCells(kStartingCellCount);
@@ -94,7 +94,7 @@ namespace controller
             frameCount = 0;
         }
 
-        inline void stop() override
+        void stop() override
         {
             timer.stop();
             auto cells = environment->getCells();
@@ -106,12 +106,12 @@ namespace controller
             assert(cellMap.empty());
         }
 
-        inline void pause() override
+        void pause() override
         {
             timer.stop();
         }
 
-        inline void resume() override
+        void resume() override
         {
             timer.start(1000 / kFps);
         }
@@ -136,16 +136,17 @@ namespace controller
             // Implementation of what you want to do after rendering is complete
         }
 
-        void processAI();
-        void render();
 
-private:
-
-        void execute()
+    protected:
+        virtual void execute()
         {
             this->processAI();
             this->render();
         }
+
+        void processAI();
+        void render();
+
 
         void NotifyLoggers(const std::string message)
         {
@@ -220,12 +221,14 @@ private:
             }
         }
 
+        QTimer timer;
+
+    private:
         MainWindow *view;
         EnvironmentScene *scene;
         environment::Environment *environment;
         std::map<environment::Cell *, CellView *> cellMap;
 
-        QTimer timer;
         std::vector<Logger*> loggers;
         GameLogicThread* logicThread;
         RenderingThread* renderingThread;
