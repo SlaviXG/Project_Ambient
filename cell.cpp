@@ -56,6 +56,12 @@ namespace environment
 
     void Cell::evaluateAction(int action)
     {
+        if(action == -1)
+        {
+            this->totalScore -= 1000;
+            return;
+        }
+
         if(action <= 7)     // move
         {
             this->totalScore++;
@@ -76,210 +82,334 @@ namespace environment
         }
     }
 
-    int foo(double value1, double value2, double value3)
+    int foo(std::vector<double> values)
     {
-        assert(value1 >= 0);
-        assert(value2 >= 0);
-        assert(value3 >= 0);
+        const int size = values.size();
 
-        double sum = value1 + value2 + value3;
+        if(size == 0)                   // bad NN
+            return -1;
+
+        double sum = 0;
+
+        for(int i = 0; i < size; i++)
+        {
+            assert(values[i] >= 0);
+            sum += values[i];
+        }
+
         double r = RandomGenerator::generateRandomDoubleNumber(0,sum);
+        double temp = 0;
 
-        if(r <= value3)
-            return 3;
-        else if(r <= (value3 + value2))
-            return 2;
+        for(int i = 0; i < size; i++)
+        {
+            temp += values[i];
+            if(temp >= r)
+                return i;
+        }
+
+        return 0;
+    }
+
+
+    int getBestOutputByProbabilyty(Matrix& outputs)
+    {
+        std::vector<int> indexes;
+        std::vector<double> values;
+
+        const int countOfOutputs = outputs.getY();
+
+        for(int i = 0; i < countOfOutputs; i++)
+        {
+            if(outputs[i][0] > 0)
+            {
+                indexes.push_back(i);
+                values.push_back(outputs[i][0]);
+            }
+        }
+
+        const int index = foo(values);
+        if(index == -1)
+            return -1;
+        return indexes[index];
+    }
+
+    /*bool Cell::cellCanMakeThisAction(Matrix& inputs, Matrix& outputs, int& actionIndex)
+    {
+        if(actionIndex == -1)
+            return true;
+        auto cellPosition = position;
+        switch (actionIndex)
+        {
+            case kMoveUp:
+                if (cellPosition.i == 0 || inputs[7][0] == 1) {
+                    outputs[kMoveUp][0] = -1;
+                    return false;
+                }
+                return true;
+            case kMoveUpRight:
+                if (cellPosition.i == 0 || cellPosition.j == (environment->getWidth() - 1) || inputs[8][0] == 1)
+                {
+                    outputs[kMoveUpRight][0] = -1;
+                    return false;
+                }
+                return true;
+            case kMoveRight:
+                if (cellPosition.j == (environment->getWidth() - 1) || inputs[12][0] == 1)
+                {
+                    outputs[kMoveRight][0] = -1;
+                    return false;
+                }
+                return true;
+            case kMoveRightDown:
+                if (cellPosition.i == (environment->getHeight() - 1) || cellPosition.j == (environment->getWidth() - 1) || inputs[17][0] == 1)
+                {
+                    outputs[kMoveRightDown][0] = -1;
+                    return false;
+                }
+                return true;
+            case kMoveDown:
+                if (cellPosition.i == (environment->getHeight() - 1) || inputs[16][0] == 1) {
+                    outputs[kMoveDown][0] = -1;
+                    return false;
+                }
+                return true;
+            case kMoveLeftDown:
+                if (cellPosition.i == (environment->getHeight() - 1) || cellPosition.j == 0 || inputs[15][0] == 1)
+                {
+                    outputs[kMoveLeftDown][0] = -1;
+                    return false;
+                }
+                return true;
+            case kMoveLeft:
+                if (cellPosition.j == 0 || inputs[11][0] == 1) {
+                    outputs[kMoveLeft][0] = -1;
+                    return false;
+                }
+                return true;
+            case kMoveLeftUp:
+                if (cellPosition.i == 0 || cellPosition.j == 0 || inputs[6][0] == 1) {
+                    outputs[kMoveLeftUp][0] = -1;
+                    return false;
+                }
+                return true;
+            case kAttackUp:
+                if(inputs[7][0] == 0)
+                {
+                    outputs[kAttackUp][0] = -1;
+                    return false;
+                }
+                return true;
+            case kAttackUpRight:
+                if(inputs[8][0] == 0)
+                {
+                    outputs[kAttackUpRight][0] = -1;
+                    return false;
+                }
+                return true;
+            case kAttackRight:
+                if(inputs[12][0] == 0)
+                {
+                    outputs[kAttackRight][0] = -1;
+                    return false;
+                }
+                return true;
+            case kAttackRightDown:
+                if(inputs[17][0] == 0)
+                {
+                    outputs[kAttackRightDown][0] = -1;
+                    return false;
+                }
+                return true;
+            case kAttackDown:
+                if(inputs[16][0] == 0)
+                {
+                    outputs[kAttackDown][0] = -1;
+                    return false;
+                }
+                return true;
+            case kAttackLeftDown:
+                if(inputs[15][0] == 0)
+                {
+                    outputs[kAttackLeftDown][0] = -1;
+                    return false;
+                }
+                return true;
+            case kAttackLeft:
+                if(inputs[11][0] == 0)
+                {
+                    outputs[kAttackLeft][0] = -1;
+                    return false;
+                }
+                return true;
+            case kAttackLeftUp:
+                if(inputs[6][0] == 0)
+                {
+                    outputs[kAttackLeftUp][0] = -1;
+                    return false;
+                }
+                return true;
+            case kDuplication:
+            {
+                auto freePosition = environment->randomFreePosition(position);
+                if (inputs[24][0] < 0.9 || freePosition.i == -1)
+                {
+                    outputs[kDuplication][0] = -1;
+                    return false;
+                }
+                return true;
+            }
+            case kPhotosynthesis:
+                if (inputs[24][0] >= 0.99 )                     // can Photosynthesis if energy is low than 99 procent
+                {
+                    outputs[kPhotosynthesis][0] = -1;
+                    return false;
+                }
+                return true;
+        }
+        return false;
+    }
+    */
+    void Cell::removeBadOutputs(Matrix& inputs, Matrix& outputs)             // return count of > 0 outputs
+    {
+        auto cellPosition = position;
+        auto freePosition = environment->randomFreePosition(position);
+
+        if (cellPosition.i == 0)
+        {
+            outputs[kMoveUp][0] = -1;
+            outputs[kMoveUpRight][0] = -1;
+            outputs[kMoveLeftUp][0] = -1;
+        }
+        if (cellPosition.j == 0)
+        {
+            outputs[kMoveLeftDown][0] = -1;
+            outputs[kMoveLeft][0] = -1;
+            outputs[kMoveLeftUp][0] = -1;
+        }
+        if(cellPosition.i == (environment->getHeight() - 1))
+        {
+            outputs[kMoveRightDown][0] = -1;
+            outputs[kMoveDown][0] = -1;
+            outputs[kMoveLeftDown][0] = -1;
+        }
+        if(cellPosition.j == (environment->getWidth() - 1))
+        {
+            outputs[kMoveRight][0] = -1;
+            outputs[kMoveUpRight][0] = -1;
+            outputs[kMoveRightDown][0] = -1;
+        }
+        if(inputs[6][0] == 1)
+        {
+            outputs[kMoveLeftUp][0] = -1;
+        }
         else
-            return 1;
+        {
+            outputs[kAttackLeftUp][0] = -1;
+        }
+        if(inputs[7][0] == 1)
+        {
+            outputs[kMoveUp][0] = -1;
+        }
+        else
+        {
+            outputs[kAttackUp][0] = -1;
+        }
+        if(inputs[8][0] == 1)
+        {
+            outputs[kMoveUpRight][0] = -1;
+        }
+        else
+        {
+            outputs[kAttackUpRight][0] = -1;
+        }
+        if(inputs[11][0] == 1)
+        {
+            outputs[kMoveLeft][0] = -1;
+        }
+        else
+        {
+            outputs[kAttackLeft][0] = -1;
+        }
+        if(inputs[12][0] == 1)
+        {
+            outputs[kMoveRight][0] = -1;
+        }
+        else
+        {
+            outputs[kAttackRight][0] = -1;
+        }
+        if(inputs[15][0] == 1)
+        {
+            outputs[kMoveLeftDown][0] = -1;
+        }
+        else
+        {
+            outputs[kAttackLeftDown][0] = -1;
+        }
+        if(inputs[16][0] == 1)
+        {
+            outputs[kMoveDown][0] = -1;
+        }
+        else
+        {
+            outputs[kAttackDown][0] = -1;
+        }
+        if(inputs[17][0] == 1)
+        {
+            outputs[kMoveRightDown][0] = -1;
+        }
+        else
+        {
+            outputs[kAttackRightDown][0] = -1;
+        }
+        //if(delayAfterDuplication > 0)
+        //{
+        //     outputs[kAttackLeftUp][0] = -1;
+        //     outputs[kAttackUp][0] = -1;
+        //     outputs[kAttackUpRight][0] = -1;
+        //     outputs[kAttackLeft][0] = -1;
+        //     outputs[kAttackRight][0] = -1;
+        //     outputs[kAttackLeftDown][0] = -1;
+        //     outputs[kAttackDown][0] = -1;
+        //     outputs[kAttackRightDown][0] = -1;
+        //}
+        if(inputs[24][0] < 0.95)                         // can Photosynthesis if energy is low than 95 procent, can duplicate if  energy is more than 95 proc
+        {
+            outputs[kDuplication][0] = -1;
+        }
+        else
+        {
+            outputs[kPhotosynthesis][0] = -1;
+        }
+        if(freePosition.i == -1)
+        {
+            outputs[kDuplication][0] = -1;
+        }
+    }
 
+    int bestAction(Matrix& outputs)
+    {
+        double max = 0;
+        int index = -1;
+        const int countOfOutputs = outputs.getY();
+        for(int i = 0; i < countOfOutputs; i++)
+        {
+            if(max < outputs[i][0])
+            {
+                index = i;
+                max = outputs[i][0];
+            }
+        }
+
+        return index;
     }
 
     int Cell::bestPossibleChoiceIndex(Matrix& outputs, Matrix& inputs)
     {
-        Point cellPosition = position;
-        //double maxValue = outputs[0][0];
-        //int index = 0;
-        int indexP1 = -1;
-        int indexP2 = -1;
-        int indexP3 = -1;
-
-        double valueP1 = -100000;           // priority 1
-        double valueP2 = -100000;           // priority 2
-        double valueP3 = -100000;
-
-        Point freePosition = environment->randomFreePosition(position);
-        for (int i = 0; i < outputs.getY(); i++)
-        {
-            if(valueP3 < outputs[i][0])
-            {
-               valueP3 = outputs[i][0];
-               indexP3 = i;
-            }
-            if(valueP2 < valueP3)
-            {
-                double temp = valueP3;
-                int tempIndex = indexP3;
-                valueP3 = valueP2;
-                indexP3 = indexP2;
-                valueP2 = temp;
-                indexP2 = tempIndex;
-            }
-            if(valueP1 < valueP2)
-            {
-                double temp = valueP2;
-                int tempIndex = indexP2;
-                valueP2 = valueP1;
-                indexP2 = indexP1;
-                valueP1 = temp;
-                indexP1 = tempIndex;
-            }
-        }
-        int index = 0;
-
-        switch(foo(valueP1, valueP2, valueP3)){
-            case 1:
-                index = indexP1;
-                break;
-            case 2:
-                index = indexP2;
-                break;
-            case 3:
-                index = indexP3;
-                break;
-        }
-       // for (int i = 1; i < outputs.getY(); i++) {
-       //     if (maxValue < outputs[i][0]) {
-       //         index = i;
-       //         maxValue = outputs[i][0];
-       //     }
-       // }
-
-        switch (index)
-        {
-            case kMoveUp:
-                if (cellPosition.i == 0 || inputs[7][0] == 1) {
-                    outputs[kMoveUp][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kMoveUpRight:
-                if (cellPosition.i == 0 || cellPosition.j == (environment->getWidth() - 1) || inputs[8][0] == 1)
-                {
-                    outputs[kMoveUpRight][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kMoveRight:
-                if (cellPosition.j == (environment->getWidth() - 1) || inputs[12][0] == 1) {
-                    outputs[kMoveRight][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kMoveRightDown:
-                if (cellPosition.i == (environment->getHeight() - 1) || cellPosition.j == (environment->getWidth() - 1) || inputs[17][0] == 1) {
-                    outputs[kMoveRightDown][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kMoveDown:
-                if (cellPosition.i == (environment->getHeight() - 1) || inputs[16][0] == 1) {
-                    outputs[kMoveDown][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kMoveLeftDown:
-                if (cellPosition.i == (environment->getHeight() - 1) || cellPosition.j == 0 || inputs[15][0] == 1) {
-                    outputs[kMoveLeftDown][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kMoveLeft:
-                if (cellPosition.j == 0 || inputs[11][0] == 1) {
-                    outputs[kMoveLeft][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kMoveLeftUp:
-                if (cellPosition.i == 0 || cellPosition.j == 0 || inputs[6][0] == 1) {
-                    outputs[kMoveLeftUp][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kAttackUp:
-                if(inputs[7][0] == 0)
-                {
-                    outputs[kAttackUp][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kAttackUpRight:
-                if(inputs[8][0] == 0)
-                {
-                    outputs[kAttackUpRight][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kAttackRight:
-                if(inputs[12][0] == 0)
-                {
-                    outputs[kAttackRight][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kAttackRightDown:
-                if(inputs[17][0] == 0)
-                {
-                    outputs[kAttackRightDown][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kAttackDown:
-                if(inputs[16][0] == 0)
-                {
-                    outputs[kAttackDown][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kAttackLeftDown:
-                if(inputs[15][0] == 0)
-                {
-                    outputs[kAttackLeftDown][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kAttackLeft:
-                if(inputs[11][0] == 0)
-                {
-                    outputs[kAttackLeft][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kAttackLeftUp:
-                if(inputs[6][0] == 0)
-                {
-                    outputs[kAttackLeftUp][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kDuplication:
-                //freePosition = environment->randomFreePosition(position);
-
-                if (inputs[24][0] < 0.9 || freePosition.i == -1)
-                {
-                    outputs[kDuplication][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-            case kPhotosynthesis:
-                if (inputs[24][0] >= 0.99 )                     // can Photosynthesis if energy is low than 99 procent
-                {
-                    outputs[kPhotosynthesis][0] = -1000000;
-                    return bestPossibleChoiceIndex(outputs, inputs);
-                }
-                return index;
-                default:
-                        return index;
-        }
+        removeBadOutputs(inputs,outputs);
+        int action = bestAction(outputs);                         // lineral
+        //int action = getBestOutputByProbabilyty(outputs);         // non-lineral
+        return action;
     }
 
     int Cell::makeChoice(Matrix& inputs)
@@ -378,16 +508,18 @@ namespace environment
     {
         Point freePosition = environment->randomFreePosition(position);
         currentEnergy = (currentEnergy - kDuplicationCost) * 0.5;
+        delayAfterDuplication = kDelay;
         this->environment->AddCell(new Cell(*this, freePosition));
     }
 
     Cell::Cell(Point startingPosition, Environment* environment)
         : Frame(startingPosition, environment)
     {
-        genotype = genotype::Genotype(std::vector<int>{10,10});
+        genotype = genotype::Genotype(std::vector<int>{10,10,10,10,10});
         aggressiveness = RandomGenerator::generateRandomDoubleNumber(0,1);
         maxEnergy = RandomGenerator::generateRandomIntNumber(kMinEnergy,kMaxEnergy);
-        currentEnergy = maxEnergy;
+        //currentEnergy = maxEnergy;
+        currentEnergy = RandomGenerator::generateRandomIntNumber(0,maxEnergy);
     }
 
     Cell::Cell(Cell &mother, Point freePosition) : Frame(mother)
@@ -452,6 +584,8 @@ namespace environment
         }
 
         numberOfMovesToDeath--;
+        if(delayAfterDuplication > 0)
+            delayAfterDuplication--;
 
         std::vector<double> inputs;
         std::vector<bool> vision;
@@ -475,6 +609,8 @@ namespace environment
         if (indexOfAction < 0)
         {
             std::cout << "negative action!" << std::endl;
+            die();
+            return kNegativeAction;
         }
 
         if (indexOfAction < kPhotosynthesis)                  //  0 - 7 <- 8 directions for moving
@@ -494,7 +630,6 @@ namespace environment
             duplicate();
             return kDuplication;
         }
-
         else
         {
             attack(indexOfAction);
