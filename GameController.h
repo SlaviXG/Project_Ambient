@@ -11,19 +11,19 @@
 
 #include <QTimer>
 #include <QObject>
-#include <QElapsedTimer>
+#include <QMutex>
+#include <QMutexLocker>
 
 #include <vector>
 #include <string>
 #include <map>
 
 class GameLogicThread;
-class RenderingThread;
 
 namespace controller
 {
     constexpr int kCellSize = 2;
-    constexpr int kFps = 5;
+    constexpr int kFps = 1;
     constexpr int kViewPadding = kCellSize / 2;
     constexpr size_t kStartingCellCount = 20;
 
@@ -83,46 +83,13 @@ namespace controller
             this->addCell(cellptr);
         }
 
-        void start() override
-        {
-            timer.disconnect();
-            this->GenerateRandomCells(kStartingCellCount);
-            connect(&timer, &QTimer::timeout, this, &GameController::executeLogicThread);
-            timer.start(1000 / kFps);
+        void start() override;
+        void stop() override;
+        void pause() override;
+        void resume() override;
 
-            fpsTimer.start();
-            frameCount = 0;
-        }
-
-        void stop() override
-        {
-            timer.stop();
-            auto cells = environment->getCells();
-            for (const auto& cell : cells)
-            {
-                environment->InvalidateCell(cell);
-                environment->RemoveCell(cell);
-            }
-            assert(cellMap.empty());
-        }
-
-        void pause() override
-        {
-            timer.stop();
-        }
-
-        void resume() override
-        {
-            timer.start(1000 / kFps);
-        }
-
-        inline void AddLogger(Logger* logger)
-        {
-            loggers.push_back(logger);
-        }
-
-        inline void RemoveLogger(Logger* logger)
-        {
+        inline void AddLogger(Logger* logger) { loggers.push_back(logger); }
+        inline void RemoveLogger(Logger* logger) {
             loggers.erase(std::remove(loggers.begin(), loggers.end(), logger), loggers.end());
         }
 
@@ -131,20 +98,16 @@ namespace controller
 
     public slots:
         void executeLogicThread();
-        void executeRenderingThread();
-        void renderingComplete() {
-            // Implementation of what you want to do after rendering is complete
-        }
 
+        void processAI();
 
     protected:
         virtual void execute()
         {
-            this->processAI();
-            this->render();
+            //this->processAI();
+            //this->render();
         }
 
-        void processAI();
         void render();
 
 
@@ -157,6 +120,7 @@ namespace controller
         }
 
         void GenerateRandomCells(size_t cell_count) override {
+            QMutexLocker locker(&mutex);
             assert(environment != nullptr);
 
             for (int i = 0; i < cell_count; ++i) {
@@ -169,6 +133,7 @@ namespace controller
         }
 
         void GenerateRandomCells(size_t cell_count, const std::vector<int>& countOfWeights) {
+            QMutexLocker locker(&mutex);
             assert(environment != nullptr);
 
             for (int i = 0; i < cell_count; ++i) {
@@ -187,6 +152,8 @@ namespace controller
          * @param bottom_right Bottom right corner of the bounding box
          */
         void GenerateRandomCells(size_t cell_count, const Point& top_left, const Point& bottom_right) {
+            QMutexLocker locker(&mutex);
+
             assert(environment != nullptr);
             assert(environment->checkPositionCorrectness(top_left));
             assert(environment->checkPositionCorrectness(bottom_right));
@@ -208,6 +175,8 @@ namespace controller
          * @param bottom_right Bottom right corner of the bounding box
          */
         void GenerateRandomCells(size_t cell_count, const std::vector<int>& countOfWeights, const Point& top_left, const Point& bottom_right) {
+            QMutexLocker locker(&mutex);
+
             assert(environment != nullptr);
             assert(environment->checkPositionCorrectness(top_left));
             assert(environment->checkPositionCorrectness(bottom_right));
@@ -222,6 +191,7 @@ namespace controller
         }
 
         QTimer timer;
+        GameLogicThread* logicThread;
 
     private:
         MainWindow *view;
@@ -230,11 +200,8 @@ namespace controller
         std::map<environment::Cell *, CellView *> cellMap;
 
         std::vector<Logger*> loggers;
-        GameLogicThread* logicThread;
-        RenderingThread* renderingThread;
 
-        QElapsedTimer fpsTimer;
-        qint64 frameCount = 0;
+        QMutex mutex;
     };
 };
 

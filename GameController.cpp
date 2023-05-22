@@ -1,16 +1,16 @@
 #include "GameController.h"
 #include "GameLogicThread.h"
-#include "RenderingThread.h"
 
 
 controller::GameController::GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment)
-    : view(view), scene(scene), environment(environment), timer(this), loggers(), logicThread(new GameLogicThread(this)), renderingThread(new RenderingThread(this)) {
-    connect(logicThread, &GameLogicThread::logicCompleted, this, &GameController::executeRenderingThread);
-    connect(renderingThread, &RenderingThread::renderingCompleted, this, &GameController::renderingComplete);
+    : view(view), scene(scene), environment(environment), timer(this), loggers(), logicThread(new GameLogicThread(this)) {
+    connect(logicThread, &GameLogicThread::logicCompleted, this, &GameController::render);
 }
 
 void controller::GameController::addCell(environment::Cell* cellptr)
 {
+    QMutexLocker locker(&mutex);
+
     auto point = cellptr->getPosition();
 
     double x = point.i * view->getEnvironmentWidth() / environment->getWidth();
@@ -31,6 +31,8 @@ void controller::GameController::addCell(environment::Cell* cellptr)
 
 void controller::GameController::removeCell(environment::Cell *cell)
 {
+    QMutexLocker locker(&mutex);
+
     assert(cellMap.find(cell) != cellMap.end());
 
     this->scene->removeCell(cellMap.at(cell));
@@ -39,22 +41,46 @@ void controller::GameController::removeCell(environment::Cell *cell)
     NotifyLoggers("Cell " + std::to_string(reinterpret_cast<std::uintptr_t>(cell)) + "  { " + std::to_string(cell->getPosition().i) + ", " + std::to_string(cell->getPosition().j) + " } " + " was removed");
 }
 
+void controller::GameController::start()
+{
+    timer.disconnect();
+    this->logicThread->start();
+
+    logicThread->queueTask([this]() { this->GenerateRandomCells(kStartingCellCount); });
+
+    connect(&timer, &QTimer::timeout, this, &GameController::executeLogicThread);
+    timer.start(1000 / kFps);
+}
+
 void controller::GameController::executeLogicThread() {
-    if (!logicThread->isRunning()) {
-        logicThread->start();
+    if (logicThread->isRunning()) {
+        logicThread->queueTask([this]() { this->processAI(); });
     }
 }
-void controller::GameController::executeRenderingThread() {
-    if (!renderingThread->isRunning()) {
-        renderingThread->start();
+
+void controller::GameController::stop()
+{
+    QMutexLocker locker(&mutex);
+    logicThread->quit();
+    timer.stop();
+    auto cells = environment->getCells();
+    for (const auto& cell : cells)
+    {
+        environment->InvalidateCell(cell);
+        environment->RemoveCell(cell);
     }
+    assert(cellMap.empty());
 }
+
+void controller::GameController::pause()  {
+    timer.stop();
+    this->logicThread->clearTasks();
+}
+void controller::GameController::resume()  { timer.start(1000 / kFps); }
 
 void controller::GameController::processAI()
 {
     std::vector<environment::Cell*> cells = environment->getCells();
-
-
 
     for (auto cell : cells)
     {
@@ -95,7 +121,7 @@ void controller::GameController::processAI()
         }
     }
     NotifyLoggers("Cells remained: " + std::to_string(environment->getCellNumber()));
-    view->setCurrentCellCountLabel(environment->getCellNumber());
+    qDebug() << "AAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIi";
 };
 
 
@@ -123,4 +149,8 @@ void controller::GameController::render()
         assert(cellView != nullptr);
         scene->updateCell(cellView, x, y, cell->getAggressiveness() * 100);
     }
+
+    view->setCurrentCellCountLabel(environment->getCellNumber());
+    scene->update();
+    qDebug() << "RENDERRRRRRRRRRRRRRR";
 };

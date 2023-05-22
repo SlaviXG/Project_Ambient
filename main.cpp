@@ -37,9 +37,9 @@ int main(int argc, char *argv[])
     //environment::EnvironmentDecorator env(10000, 10000); env.setLogger(std::unique_ptr<Logger>(new ConsoleLogger()));
     EnvironmentScene scene;
     MainWindow win(&scene);;
-    //controller::GameController cont(&win, &scene, &env);
-    controller::GameControllerDecorator cont(&win, &scene, &env);
-    cont.AddLogger(new ConsoleLogger());
+    controller::GameController cont(&win, &scene, &env);
+    //controller::GameControllerDecorator cont(&win, &scene, &env);
+    //cont.AddLogger(new ConsoleLogger());
     //cont.AddLogger(new FileLogger("logs.txt"));
     env.setCellInteractor(&cont);
     win.setController(&cont);

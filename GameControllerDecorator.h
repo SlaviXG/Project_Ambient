@@ -2,6 +2,7 @@
 #define GAMECONTROLLERDECORATOR_H
 
 #include "GameController.h"
+#include "GameLogicThread.h"
 #include "Logger.h"
 
 #include <chrono>
@@ -30,20 +31,19 @@ public:
         measureExecutionTime("removeCell(environment::Cell *cell", [&]() { GameController::removeCell(cellptr); });
     }
 
-    void execute() override {
-        measureExecutionTime("processAI", [&]() { GameController::processAI(); });
-        measureExecutionTime("render", [&]() { GameController::render(); });
-    }
-
     void GenerateRandomCells(size_t cell_count) override {
         measureExecutionTime("GenerateRandomCells", [&]() { GameController::GenerateRandomCells(cell_count); });
     }
 
-    void start() override {
-        GameController::timer.disconnect();
-        this->GenerateRandomCells(kStartingCellCount);
-        connect(&timer, &QTimer::timeout, this, &GameControllerDecorator::execute);
-        GameController::timer.start(1000 / kFps);
+    void start() override
+    {
+        timer.disconnect();
+        this->logicThread->start();
+
+        logicThread->queueTask([this]() { this->GenerateRandomCells(kStartingCellCount); });
+
+        connect(&timer, &QTimer::timeout, this, &GameController::executeLogicThread);
+        timer.start(1000 / kFps);
     }
 
 private:
