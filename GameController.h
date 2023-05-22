@@ -8,10 +8,12 @@
 #include "cell.h"
 #include "CellView.h"
 #include "logger.h"
+#include "CellViewGarbageCollector.h"
 
 #include <QTimer>
 #include <QObject>
 #include <QMutex>
+#include <QStack>
 #include <QMutexLocker>
 
 #include <vector>
@@ -23,7 +25,7 @@ class GameLogicThread;
 namespace controller
 {
     constexpr int kCellSize = 2;
-    constexpr int kFps = 1;
+    constexpr int kFps = 100000;
     constexpr int kViewPadding = kCellSize / 2;
     constexpr size_t kStartingCellCount = 20;
 
@@ -49,7 +51,6 @@ namespace controller
     public:
         virtual void addCell(const Point &point) = 0;
         virtual void addCell(const Point &point,  const std::vector<int>& countOfWeights) = 0;
-        virtual void GenerateRandomCells(size_t cell_count) = 0;
         virtual void start() = 0;
         virtual void stop() = 0;
         virtual void pause() = 0;
@@ -96,20 +97,14 @@ namespace controller
         void addCell(environment::Cell* cellptr) override;
         void removeCell(environment::Cell *cell) override;
 
-    public slots:
-        void executeLogicThread();
-
         void processAI();
 
+    public slots:
+        void executeLogicThread();
+        void GenerateRandomCellsSlot();
+
     protected:
-        virtual void execute()
-        {
-            //this->processAI();
-            //this->render();
-        }
-
         void render();
-
 
         void NotifyLoggers(const std::string message)
         {
@@ -119,8 +114,7 @@ namespace controller
             }
         }
 
-        void GenerateRandomCells(size_t cell_count) override {
-            QMutexLocker locker(&mutex);
+        virtual void GenerateRandomCells(size_t cell_count) {
             assert(environment != nullptr);
 
             for (int i = 0; i < cell_count; ++i) {
@@ -132,8 +126,7 @@ namespace controller
             }
         }
 
-        void GenerateRandomCells(size_t cell_count, const std::vector<int>& countOfWeights) {
-            QMutexLocker locker(&mutex);
+        virtual void GenerateRandomCells(size_t cell_count, const std::vector<int>& countOfWeights) {
             assert(environment != nullptr);
 
             for (int i = 0; i < cell_count; ++i) {
@@ -151,8 +144,7 @@ namespace controller
          * @param top_left Top left corner of the bounding box
          * @param bottom_right Bottom right corner of the bounding box
          */
-        void GenerateRandomCells(size_t cell_count, const Point& top_left, const Point& bottom_right) {
-            QMutexLocker locker(&mutex);
+        virtual void GenerateRandomCells(size_t cell_count, const Point& top_left, const Point& bottom_right) {
 
             assert(environment != nullptr);
             assert(environment->checkPositionCorrectness(top_left));
@@ -174,8 +166,11 @@ namespace controller
          * @param top_left Top left corner of the bounding box
          * @param bottom_right Bottom right corner of the bounding box
          */
-        void GenerateRandomCells(size_t cell_count, const std::vector<int>& countOfWeights, const Point& top_left, const Point& bottom_right) {
-            QMutexLocker locker(&mutex);
+        virtual void GenerateRandomCells(size_t cell_count,
+                                         const std::vector<int>& countOfWeights,
+                                         const Point& top_left,
+                                         const Point& bottom_right)
+        {
 
             assert(environment != nullptr);
             assert(environment->checkPositionCorrectness(top_left));
@@ -202,7 +197,9 @@ namespace controller
         std::vector<Logger*> loggers;
 
         QMutex mutex;
+        CellViewGarbageCollector collector;
     };
 };
+
 
 #endif

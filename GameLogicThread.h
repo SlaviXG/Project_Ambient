@@ -10,6 +10,7 @@
 
 #include "GameController.h"
 
+constexpr size_t kMaxTaskCount = 1000000;
 
 class GameLogicThread : public QThread {
     Q_OBJECT
@@ -43,6 +44,8 @@ public:
                 task();
                 emit logicCompleted();
             } else {
+                if (tasks.size() > kMaxTaskCount)
+                    clearTasks();
                 QThread::msleep(10);
             }
         }

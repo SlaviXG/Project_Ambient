@@ -85,8 +85,7 @@ void MainWindow::on_restartButton_clicked()
 
 void MainWindow::on_add_cells_Button_clicked()
 {
-    size_t n = ui->cell_to_add_LineEdit->text().toUInt();
-    controller->GenerateRandomCells(n);
+    emit on_add_cells_Button_clicked_signal();
 }
 
 std::size_t MainWindow::getCellCountToAdd() const

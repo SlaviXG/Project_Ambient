@@ -21,6 +21,7 @@ SOURCES += \
 
 HEADERS += \
     CellView.h \
+    CellViewGarbageCollector.h \
     GameLogicThread.h \
     EnvironmentDecorator.h \
     GameControllerDecorator.h \
