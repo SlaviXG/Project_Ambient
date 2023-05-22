@@ -46,7 +46,6 @@ int main(int argc, char *argv[])
     win.show();
 
     win.initEnvironmentSize();
-
     cont.start();
     return a.exec();
 }

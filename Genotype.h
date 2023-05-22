@@ -31,7 +31,7 @@ namespace genotype {
     //kB4Size = {18, 1}; // last baes
 
     constexpr int kChance = 30;  // 1/30
-    constexpr int kMapSize = 100;
+    //constexpr int kMapSize = 100;
 
     Matrix ReLU(Matrix m);
 
