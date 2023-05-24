@@ -16,12 +16,14 @@ SOURCES += \
     Genotype.cpp \
     Tick.cpp \
     cell.cpp \
+    celltracker.cpp \
     frame.cpp \
     main.cpp \
     mainwindow.cpp \
 
 HEADERS += \
     CellView.h \
+    celltracker.h \
     logger.h \
     point.h \
     Environment.h \

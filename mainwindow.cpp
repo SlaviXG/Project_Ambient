@@ -6,13 +6,16 @@
 
 
 MainWindow::MainWindow(EnvironmentScene* scene, QWidget *parent)
-    : QMainWindow(parent), scene(scene)
-    , ui(new Ui::MainWindow)
+    : QMainWindow(parent), ui(new Ui::MainWindow), scene(scene),
+      cellDemoScene(), cellTracker(&cellDemoScene, this->ui->curEnergyLabel, this->ui->aggressiveness)
 {
     ui->setupUi(this);
     this->setCentralWidget(this->ui->horizontalLayoutWidget);
 
     ui->environmentView->setScene(scene);
+
+    this->ui->cellDemo->setScene(&this->cellDemoScene);
+
 
     /*EnvironmentScene* scene = new EnvironmentScene();
 
@@ -40,6 +43,11 @@ qreal MainWindow::getEnvironmentWidth() const {
 
 qreal MainWindow::getEnvironmentHeight() const {
     return ui->environmentView->height();
+}
+
+CellTracker *MainWindow::getCellTracker()
+{
+    return &this->cellTracker;
 }
 
 MainWindow::~MainWindow()
@@ -87,6 +95,11 @@ void MainWindow::on_add_cells_Button_clicked()
 {
     size_t n = ui->cell_to_add_LineEdit->text().toUInt();
     controller->GenerateRandomCells(n);
+}
+
+void MainWindow::on_cell_clicked()
+{
+    //TODO: ui->cellDemo->
 }
 
 std::size_t MainWindow::getCellCountToAdd() const

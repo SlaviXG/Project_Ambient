@@ -32,8 +32,10 @@ int main(int argc, char *argv[])
 
     environment::Environment env(10000, 10000);
     EnvironmentScene scene;
-    MainWindow win(&scene);;
+    MainWindow win(&scene);
     controller::GameController cont(&win, &scene, &env);
+    cont.setCellTracker(win.getCellTracker());
+
     //cont.AddLogger(new ConsoleLogger());
     //cont.AddLogger(new FileLogger("logs.txt"));
     env.setCellInteractor(&cont);

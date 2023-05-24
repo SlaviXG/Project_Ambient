@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <EnvironmentScene.h>
+#include <celltracker.h>
 
 namespace controller { class GameInteractor; }
 
@@ -21,6 +22,8 @@ public:
     qreal getEnvironmentWidth() const;
     qreal getEnvironmentHeight() const;
 
+    CellTracker* getCellTracker();
+
     void setController(controller::GameInteractor*  controller);
 
     /**
@@ -34,6 +37,8 @@ public:
      */
     std::size_t getCellCountToAdd() const;
     void setCurrentCellCountLabel(size_t n);
+
+
 
 public slots:
     /**
@@ -52,10 +57,14 @@ private slots:
 
     void on_add_cells_Button_clicked();
 
+    void on_cell_clicked();
+
 private:
     Ui::MainWindow *ui;
     EnvironmentScene* scene;
     controller::GameInteractor* controller = nullptr;
+    QGraphicsScene cellDemoScene;
+    CellTracker cellTracker;
 
     void resizeEvent(QResizeEvent* event) override;
 };

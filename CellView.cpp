@@ -24,3 +24,14 @@ void CellView::setColorGrad(QPixmap *colorGrad)
 {
     this->setPixmap(*colorGrad);
 }
+
+QPixmap CellView::getCurrentPixmap()
+{
+    return this->pixmap();
+}
+
+void CellView::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+    qDebug() <<"Cell clicked: " << pos_x << ' ' << pos_y;
+    QGraphicsPixmapItem::mousePressEvent(event);
+}

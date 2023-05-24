@@ -19,7 +19,7 @@
 
 namespace controller
 {
-    constexpr int kCellSize = 2;
+    constexpr int kCellSize = 20;
     constexpr int kFps = 1000000;
     constexpr int kViewPadding = kCellSize / 2;
     constexpr size_t kStartingCellCount = 20;
@@ -64,6 +64,11 @@ namespace controller
             : view(view), scene(scene), environment(environment), timer(this), loggers() {}
 
         virtual ~GameController(){};
+
+        void setCellTracker(CellTracker* cellTracker)
+        {
+            this->cellTracker = cellTracker;
+        };
 
         inline void addCell(const Point &point) override
         {
@@ -206,6 +211,7 @@ namespace controller
         EnvironmentScene *scene;
         environment::Environment *environment;
         std::map<environment::Cell *, CellView *> cellMap;
+        CellTracker* cellTracker;
 
         QTimer timer;
         std::vector<Logger*> loggers;

@@ -14,12 +14,14 @@ QT_END_NAMESPACE
 
 class CellView : public QGraphicsPixmapItem
 {
+    friend class CellTracker;
 public:
     // x, y - starting position
     CellView(qreal x, qreal y, qreal width, qreal heigh, QPixmap* colorGrad, QGraphicsItem *parent = nullptr);
     virtual~CellView();
     void updateCellView(qreal x, qreal y, QPixmap* colorGrad);
     void setColorGrad(QPixmap* colorGrad);
+    QPixmap getCurrentPixmap();
 
 private:
     //Position in the graphic field:
@@ -27,5 +29,8 @@ private:
     qreal pos_x;
     qreal pos_y;
 
+
+protected:
+    void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
 };
 #endif // CELL_VIEW_H

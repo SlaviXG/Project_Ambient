@@ -6,9 +6,10 @@
 #include "Environment.h"
 #include "point.h"
 
+class CellTracker;
+
 namespace environment
 {
-
     enum actions
     {
         kMoveUp,
@@ -47,6 +48,8 @@ namespace environment
 
     class Cell : public Frame
     {
+        friend class ::CellTracker;
+
     private:
         double currentEnergy;
         double maxEnergy;
