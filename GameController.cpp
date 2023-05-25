@@ -46,7 +46,7 @@ void controller::GameController::addCell(environment::Cell* cellptr)
 
 void controller::GameController::removeCell(environment::Cell *cell)
 {
-    assert(cellMap.find(cell) != cellMap.end());
+    Q_ASSERT(cellMap.find(cell) != cellMap.end());
 
     // Add CellView pointer into remove list to delete it from the GUI thread
     collector.append(cellMap.at(cell));
@@ -107,7 +107,7 @@ void controller::GameController::resume()  {
 // Works in the Worker thread
 void controller::GameController::processAI()
 {
-    std::vector<environment::Cell*> cells = environment->getCells();
+    auto cells = environment->getCells();
 
     for (auto cell : cells)
     {

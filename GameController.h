@@ -113,7 +113,7 @@ namespace controller
         }
 
         virtual void GenerateRandomCells(size_t cell_count) {
-            assert(environment != nullptr);
+            Q_ASSERT(environment != nullptr);
 
             for (int i = 0; i < cell_count; ++i) {
                 auto pos = environment::RandomGenerator::generateRandomPoint({0, 0}, {environment->getHeight() - 1, environment->getWidth() - 1});
@@ -125,7 +125,7 @@ namespace controller
         }
 
         virtual void GenerateRandomCells(size_t cell_count, const std::vector<int>& countOfWeights) {
-            assert(environment != nullptr);
+            Q_ASSERT(environment != nullptr);
 
             for (int i = 0; i < cell_count; ++i) {
                 auto pos = environment::RandomGenerator::generateRandomPoint({0, 0}, {environment->getHeight() - 1, environment->getWidth() - 1});
@@ -143,10 +143,9 @@ namespace controller
          * @param bottom_right Bottom right corner of the bounding box
          */
         virtual void GenerateRandomCells(size_t cell_count, const Point& top_left, const Point& bottom_right) {
-
-            assert(environment != nullptr);
-            assert(environment->checkPositionCorrectness(top_left));
-            assert(environment->checkPositionCorrectness(bottom_right));
+            Q_ASSERT(environment != nullptr);
+            Q_ASSERT(environment->checkPositionCorrectness(top_left));
+            Q_ASSERT(environment->checkPositionCorrectness(bottom_right));
 
             for (int i = 0; i < cell_count; ++i) {
                 auto pos = environment::RandomGenerator::generateRandomPoint(top_left, bottom_right);
@@ -164,15 +163,10 @@ namespace controller
          * @param top_left Top left corner of the bounding box
          * @param bottom_right Bottom right corner of the bounding box
          */
-        virtual void GenerateRandomCells(size_t cell_count,
-                                         const std::vector<int>& countOfWeights,
-                                         const Point& top_left,
-                                         const Point& bottom_right)
-        {
-
-            assert(environment != nullptr);
-            assert(environment->checkPositionCorrectness(top_left));
-            assert(environment->checkPositionCorrectness(bottom_right));
+        virtual void GenerateRandomCells(size_t cell_count, const std::vector<int>& countOfWeights, const Point& top_left, const Point& bottom_right) {
+            Q_ASSERT(environment != nullptr);
+            Q_ASSERT(environment->checkPositionCorrectness(top_left));
+            Q_ASSERT(environment->checkPositionCorrectness(bottom_right));
 
             for (size_t i = 0; i < cell_count; ++i) {
                 auto pos = environment::RandomGenerator::generateRandomPoint(top_left, bottom_right);

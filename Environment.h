@@ -1,10 +1,11 @@
 #ifndef ENVIRONMENT_H
 #define ENVIRONMENT_H
 
-#include <vector>
+#include <unordered_set>
 #include <random>
 
 #include "Point.h"
+
 
 namespace controller { class CellInteractor; }
 
@@ -39,7 +40,7 @@ namespace environment
         inline int getWidth() const { return WIDTH; }
         inline int getHeight() const { return HEIGHT; }
         inline Frame* getFrame(const Point& point) const {
-            assert(checkPositionCorrectness(point));
+            Q_ASSERT(checkPositionCorrectness(point));
             return frameMatrix[point.i][point.j];
         }
         /**
@@ -50,7 +51,7 @@ namespace environment
          */
         Cell* getCell(const Point& point) const;
         inline size_t getCellNumber() const { return cells.size(); }
-        inline std::vector<Cell *> getCells() { return cells; }
+        inline auto& getCells() { return cells; }
 
         void setCellInteractor(controller::CellInteractor* interactor);
 
