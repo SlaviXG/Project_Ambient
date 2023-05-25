@@ -40,13 +40,15 @@ public:
                     tasks.pop_front();
                 }
             }
+            qDebug() << "Task number:" << tasks.size();
             if (task != nullptr) {
                 task();
                 emit logicCompleted();
             } else {
-                if (tasks.size() > kMaxTaskCount)
-                    clearTasks();
                 QThread::msleep(10);
+            }
+            if (tasks.size() > kMaxTaskCount) {
+                clearTasks();
             }
         }
     }

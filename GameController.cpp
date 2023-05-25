@@ -1,5 +1,8 @@
 #include "GameController.h"
 
+#include <utility>
+
+#include <QApplication>
 #include <QCoreApplication>
 
 #include "GameLogicThread.h"
@@ -9,7 +12,15 @@ controller::GameController::GameController(MainWindow *view, EnvironmentScene *s
     : view(view), scene(scene), environment(environment), timer(this), loggers(), logicThread(new GameLogicThread(this)), collector(scene) {
     connect(logicThread, &GameLogicThread::logicCompleted, this, &GameController::render);
     connect(view, &MainWindow::on_add_cells_Button_clicked_signal, this, &GameController::GenerateRandomCellsSlot);
+    //connect(view, &MainWindow::resizeSignal, this, &GameController::render);
 }
+
+controller::GameController::~GameController(){
+    this->stop();
+    view->hide();
+    QThread::msleep(10000); // wait until worker thread removes all cells
+    this->logicThread->exit();
+};
 
 void controller::GameController::addCell(environment::Cell* cellptr)
 {
@@ -35,11 +46,9 @@ void controller::GameController::addCell(environment::Cell* cellptr)
 
 void controller::GameController::removeCell(environment::Cell *cell)
 {
-    //QMutexLocker locker(&mutex);
-
     assert(cellMap.find(cell) != cellMap.end());
 
-    // this->scene->removeCell(cellMap.at(cell));
+    // Add CellView pointer into remove list to delete it from the GUI thread
     collector.append(cellMap.at(cell));
     cellMap.erase(cell);
 
@@ -70,24 +79,32 @@ void controller::GameController::GenerateRandomCellsSlot() {
 
 void controller::GameController::stop()
 {
-    // QMutexLocker locker(&mutex);
-    logicThread->quit();
-    timer.stop();
+    this->pause();
+
     auto cells = environment->getCells();
-    for (const auto& cell : cells)
-    {
-        environment->InvalidateCell(cell);
-        environment->RemoveCell(cell);
-    }
-    assert(cellMap.empty());
+
+    this->logicThread->queueTask([cells = std::move(cells), environment = environment]() {
+        for (const auto& cell : cells)
+        {
+            environment->InvalidateCell(cell);
+            environment->RemoveCell(cell);
+        }
+    });
 }
 
 void controller::GameController::pause()  {
     timer.stop();
+    this->logicThread->requestInterruption();
+    this->logicThread->wait();
     this->logicThread->clearTasks();
+    QApplication::processEvents();
 }
-void controller::GameController::resume()  { timer.start(1000 / kFps); }
+void controller::GameController::resume()  {
+    timer.start(1000 / kFps);
+    this->logicThread->start();
+}
 
+// Works in the Worker thread
 void controller::GameController::processAI()
 {
     std::vector<environment::Cell*> cells = environment->getCells();
@@ -131,18 +148,20 @@ void controller::GameController::processAI()
         }
     }
     NotifyLoggers("Cells remained: " + std::to_string(environment->getCellNumber()));
-    qDebug() << "AAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIi";
 };
 
 
 void controller::GameController::render()
 {
-    //QMutexLocker locker(&mutex);
+    // Removes CellView objects that have been deleted from the Logic thread
+    collector.clear();
 
     // Checks if we are in a GUI thread
     Q_ASSERT(qApp->thread() == QThread::currentThread());
 
+
     auto cells = environment->getCells();
+
     NotifyLoggers("Cells to render: " + std::to_string(environment->getCellNumber()));
 
     double scaleW = (view->getEnvironmentWidth() - kViewPadding) / environment->getWidth();
@@ -158,7 +177,9 @@ void controller::GameController::render()
                       std::to_string(cell->getPosition().i) + ", " + std::to_string(cell->getPosition().j) + "}" +
                       ", Scene {" + std::to_string(x) + ", " + std::to_string(y) + "}"); */
 
-        Q_ASSERT(cellMap.find(cell) != cellMap.end());
+        // If the worker thread deleted a cell during the loop execution
+        if (cellMap.find(cell) == cellMap.end())
+            continue;
 
         CellView* cellView = cellMap.at(cell);
 
@@ -173,11 +194,6 @@ void controller::GameController::render()
         scene->updateCell(cellView, x, y, cell->getAggressiveness() * 100);
     }
 
-    mutex.lock();
-    collector.clear();
-    mutex.unlock();
-
     view->setCurrentCellCountLabel(environment->getCellNumber());
     scene->update();
-    qDebug() << "RENDERRRRRRRRRRRRRRR";
 };

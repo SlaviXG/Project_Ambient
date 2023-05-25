@@ -14,6 +14,7 @@
 #include <QObject>
 #include <QMutex>
 #include <QStack>
+#include <QThread>
 #include <QMutexLocker>
 
 #include <vector>
@@ -25,9 +26,9 @@ class GameLogicThread;
 namespace controller
 {
     constexpr int kCellSize = 2;
-    constexpr int kFps = 100000;
+    constexpr int kFps = 10444;
     constexpr int kViewPadding = kCellSize / 2;
-    constexpr size_t kStartingCellCount = 20;
+    constexpr size_t kStartingCellCount = 1000;
 
      /**
      * @brief The CellInteractor class
@@ -67,10 +68,7 @@ namespace controller
 
     public:
         explicit GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment);
-
-        virtual ~GameController(){
-            this->stop();
-        };
+        virtual ~GameController();
 
         inline void addCell(const Point &point) override
         {
@@ -192,7 +190,7 @@ namespace controller
         MainWindow *view;
         EnvironmentScene *scene;
         environment::Environment *environment;
-        std::map<environment::Cell *, CellView *> cellMap;
+        std::unordered_map<environment::Cell *, CellView *> cellMap;
 
         std::vector<Logger*> loggers;
 
