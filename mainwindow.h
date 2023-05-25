@@ -46,6 +46,9 @@ public slots:
      */
     void initEnvironmentSize();
 
+signals:
+    void on_add_cells_Button_clicked_signal();
+
 private slots:
     void on_restartButton_clicked();
 

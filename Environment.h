@@ -1,11 +1,11 @@
 #ifndef ENVIRONMENT_H
 #define ENVIRONMENT_H
 
-#include <vector>
+#include <unordered_set>
 #include <random>
 
-#include "Tick.h"
-#include "Genotype.h" // For Point struct
+#include "Point.h"
+
 
 namespace controller { class CellInteractor; }
 
@@ -40,7 +40,7 @@ namespace environment
         inline int getWidth() const { return WIDTH; }
         inline int getHeight() const { return HEIGHT; }
         inline Frame* getFrame(const Point& point) const {
-            assert(checkPositionCorrectness(point));
+            Q_ASSERT(checkPositionCorrectness(point));
             return frameMatrix[point.i][point.j];
         }
         /**
@@ -51,7 +51,7 @@ namespace environment
          */
         Cell* getCell(const Point& point) const;
         inline size_t getCellNumber() const { return cells.size(); }
-        inline std::vector<Cell *> getCells() { return cells; }
+        inline auto& getCells() { return cells; }
 
         void setCellInteractor(controller::CellInteractor* interactor);
 
@@ -61,7 +61,7 @@ namespace environment
          * @param cell Cell to update position
          * @param oldPos Cell's old position on the map
          */
-       void updateCellPosition(Cell* cell, const Point& oldPos);
+       virtual void updateCellPosition(Cell* cell, const Point& oldPos);
 
         // Checks if a point has negative or larger coordinates than the map size 
         // On failure returns Point{-1, -1}
@@ -70,22 +70,22 @@ namespace environment
             }
 
         // Cell Actions:
-        Cell* AddCell(Cell* cell); // Call from logic
-        Cell* AddCell(const Point& point); // Call from controller
-        Cell* AddCell(const Point& point, std::vector<int> countOfWeights);
+        virtual Cell* AddCell(Cell* cell); // Call from logic
+        virtual Cell* AddCell(const Point& point); // Call from controller
+        virtual Cell* AddCell(const Point& point, std::vector<int> countOfWeights);
         /**
          * @brief Removes the cell from the map
          *
          * @param cell
          */
-        void InvalidateCell(Cell* cell);
+        virtual void InvalidateCell(Cell* cell);
 
         /**
          * @brief Removes Cell object
          *
          * @param cell
          */
-        void RemoveCell(Cell* cell);
+        virtual void RemoveCell(Cell* cell);
 
         // Cell Vision:
         /*
@@ -95,10 +95,10 @@ namespace environment
         14 15 16 17 18
         19 20 21 22 23
         */
-        std::vector<bool> getVisionField(const Point &point) const;
+        virtual std::vector<bool> getVisionField(const Point &point) const;
 
         // Returns a random correct and empty cell coordinate within a radius of one from the given point
-        Point randomFreePosition(const Point &point) const;
+        virtual Point randomFreePosition(const Point &point) const;
     };
 
     class RandomGenerator {

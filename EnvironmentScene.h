@@ -3,6 +3,7 @@
 
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
+#include <QSet>
 #include <QList>
 #include <QImage>
 
@@ -24,9 +25,11 @@ public:
     void removeCell(CellView* cell);
     void updateCell(CellView* cell, qreal x, qreal y, int colorGrad);
     const QList<CellView*>& getCells() const;
+    bool contains(CellView* cellptr) const;
 
 private:
     QList<CellView*> cells;
+    QSet<CellView*> cellSet; // used for fast O(1) checking for an element instead of O(n) when using qlist
     QVector <QPixmap> cellColorGradations;
     bool colorGradationsLoaded;
 

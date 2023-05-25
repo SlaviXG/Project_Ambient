@@ -93,8 +93,7 @@ void MainWindow::on_restartButton_clicked()
 
 void MainWindow::on_add_cells_Button_clicked()
 {
-    size_t n = ui->cell_to_add_LineEdit->text().toUInt();
-    controller->GenerateRandomCells(n);
+    emit on_add_cells_Button_clicked_signal();
 }
 
 void MainWindow::on_cell_clicked()

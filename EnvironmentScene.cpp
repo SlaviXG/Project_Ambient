@@ -26,6 +26,7 @@ CellView *EnvironmentScene::genCellViewPtr(qreal x, qreal y, int width, int heig
 void EnvironmentScene::addCell(CellView *cell)
 {
     cells.append(cell);
+    cellSet.insert(cell);
     this->addItem(cell);
 }
 
@@ -33,14 +34,21 @@ void EnvironmentScene::removeCell(CellView *cell)
 {
     this->removeItem(cell);
     this->cells.removeOne(cell);
+    this->cellSet.remove(cell);
     delete cell;
+}
+
+bool EnvironmentScene::contains(CellView* cellptr) const {
+    return cellSet.contains(cellptr);
 }
 
 
 void EnvironmentScene::updateCell(CellView *cell, qreal x, qreal y, int colorGrad)
 {
+    cellSet.remove(cell);
     colorGrad = colorGrad % 100;
     cell->updateCellView(x, y, &(this->cellColorGradations[colorGrad]));
+    cellSet.insert(cell);
 }
 
 bool EnvironmentScene::loadColorGradations()
