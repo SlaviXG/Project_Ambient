@@ -15,11 +15,7 @@ public:
         while (!cells.isEmpty())
         {
             cellptr = cells.pop();
-            // FIX:
-            if (!scene->contains(cellptr)){
-                qDebug() << "wtf\n";
-            }
-            //Q_ASSERT(scene->contains(cellptr));
+
             if (scene->contains(cellptr))
                 scene->removeCell(cellptr);
         }

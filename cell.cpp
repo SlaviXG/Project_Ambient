@@ -96,9 +96,6 @@ namespace environment
             assert(values[i] >= 0);
             sum += values[i];
         }
-        Q_ASSERT(value1 >= 0);
-        Q_ASSERT(value2 >= 0);
-        Q_ASSERT(value3 >= 0);
 
         double r = RandomGenerator::generateRandomDoubleNumber(0,sum);
         double temp = 0;

@@ -40,7 +40,7 @@ public:
                     tasks.pop_front();
                 }
             }
-            qDebug() << "Task number:" << tasks.size();
+            // qDebug() << "Task number:" << tasks.size();
             if (task != nullptr) {
                 task();
                 emit logicCompleted();
