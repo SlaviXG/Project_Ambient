@@ -22,6 +22,7 @@ SOURCES += \
 
 HEADERS += \
     CellView.h \
+    Debouncer.h \
     celltracker.h \
     CellViewGarbageCollector.h \
     GameLogicThread.h \
