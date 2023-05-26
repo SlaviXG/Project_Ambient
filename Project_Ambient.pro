@@ -17,6 +17,7 @@ SOURCES += \
     cell.cpp \
     celltracker.cpp \
     frame.cpp \
+    genepool.cpp \
     main.cpp \
     mainwindow.cpp \
 
@@ -28,6 +29,7 @@ HEADERS += \
     GameLogicThread.h \
     EnvironmentDecorator.h \
     GameControllerDecorator.h \
+    genepool.h \
     logger.h \
     point.h \
     Environment.h \

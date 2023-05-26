@@ -79,6 +79,7 @@ namespace environment
         Cell(Point startingPosition, Environment* environment = nullptr);
         Cell(Point startingPosition, std::vector<int> countOfWeights, Environment* environment = nullptr);
         Cell(Cell &mother, Point freePosition);
+        Cell(Point startingPosition, genotype::Genotype* genotype, Environment* environment = nullptr);
 
         double getCurrentEnergy() const;
         double getMaxEnergy() const;
@@ -101,7 +102,7 @@ namespace environment
          * @brief Invalidates itself
          *
          */
-        void die() { environment->InvalidateCell(this); this->isAliveStatus = false; };
+        void die() { environment->InvalidateCell(this); this->isAliveStatus = false;};
 
 
         /**

@@ -6,7 +6,7 @@
 #include "GameController.h"
 #include "Environment.h"
 #include "logger.h"
-
+#include "genepool.h"
 #define DOCTEST_CONFIG_IMPLEMENT
 
 #include "doctest.h"
@@ -18,6 +18,7 @@
 
 int main(int argc, char *argv[])
 {
+    srand(time(0));
     // Unit tests
 //#ifdef _DEBUG
     doctest::Context context;
@@ -30,11 +31,12 @@ int main(int argc, char *argv[])
     return res;
     }
 //#endif // _DEBUG
-
+    unsigned int cell_num = 100;
     QApplication a(argc, argv);
 
-    environment::Environment env(10000, 10000);
     //environment::EnvironmentDecorator env(10000, 10000); env.setLogger(std::unique_ptr<Logger>(new ConsoleLogger()));
+    genepool::GenePool pool(cell_num);
+    environment::Environment env(1000, 1000, nullptr, &pool);
     EnvironmentScene scene;
     MainWindow win(&scene);
     controller::GameController cont(&win, &scene, &env);

@@ -156,6 +156,9 @@ void controller::GameController::processAI()
         }
     }
     NotifyLoggers("Cells remained: " + std::to_string(environment->getCellNumber()));
+    view->setCurrentCellCountLabel(environment->getCellNumber());
+    //Didn`t know where to put environment validation to validate after all cells have acted)
+    environment->ValidateEnvironment();
 };
 
 

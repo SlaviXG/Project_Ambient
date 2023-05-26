@@ -40,6 +40,8 @@ namespace controller
     public:
         virtual void addCell(environment::Cell* cell) = 0;
         virtual void removeCell(environment::Cell *cell) = 0;
+        virtual void addCell(const Point &point) = 0;
+        virtual void addCell(const Point &point, genotype::Genotype* genotype) = 0;
     };
 
     /**
@@ -92,6 +94,11 @@ namespace controller
         void pause() override;
         void resume() override;
 
+        inline void addCell(const Point &point, genotype::Genotype* genotype){
+            auto cellptr = environment->AddCell(point, genotype);
+            this->addCell(cellptr);
+        }
+
         inline void AddLogger(Logger* logger) { loggers.push_back(logger); }
         inline void RemoveLogger(Logger* logger) {
             loggers.erase(std::remove(loggers.begin(), loggers.end(), logger), loggers.end());
@@ -120,13 +127,14 @@ namespace controller
         virtual void GenerateRandomCells(size_t cell_count) {
             Q_ASSERT(environment != nullptr);
 
-            for (int i = 0; i < cell_count; ++i) {
-                auto pos = environment::RandomGenerator::generateRandomPoint({0, 0}, {environment->getHeight() - 1, environment->getWidth() - 1});
-                if (!environment->getFrame(pos))
-                    this->addCell(pos);
-                else
-                    --i;
-            }
+//            for (int i = 0; i < cell_count; ++i) {
+//                auto pos = environment::RandomGenerator::generateRandomPoint({0, 0}, {environment->getHeight() - 1, environment->getWidth() - 1});
+//                if (!environment->getFrame(pos))
+//                    this->addCell(pos);
+//                else
+//                    --i;
+//            }
+            environment->generateCells(cell_count);
         }
 
         virtual void GenerateRandomCells(size_t cell_count, const std::vector<int>& countOfWeights) {

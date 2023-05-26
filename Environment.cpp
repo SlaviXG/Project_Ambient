@@ -5,11 +5,12 @@
 #include "frame.h"
 #include "cell.h"
 #include "GameController.h"
+#include "genepool.h"
 
 namespace environment
 {
     // Constructors / Destructors
-    Environment::Environment(int WIDTH, int HEIGHT, controller::CellInteractor *interactor)
+    Environment::Environment(int WIDTH, int HEIGHT, controller::CellInteractor *interactor, genepool::GenePool* pool)
         : WIDTH(WIDTH), HEIGHT(HEIGHT), interactor(interactor)
     {
         frameMatrix.resize(HEIGHT);
@@ -18,7 +19,7 @@ namespace environment
         {
             row.resize(WIDTH, nullptr);
         }
-
+        this->pool = pool;
         this->time = 0.0;
     }
 
@@ -139,6 +140,15 @@ namespace environment
         return cell;
     }
 
+    Cell *Environment::AddCell(const Point &point, genotype::Genotype* genotype)
+    {
+        Cell *cell = new Cell(point,genotype, this);
+        cells.push_back(cell);
+        frameMatrix[point.i][point.j] = cell;
+
+        return cell;
+    }
+
     void Environment::InvalidateCell(Cell *cell)
     {
         auto pos = cell->getPosition();
@@ -147,6 +157,10 @@ namespace environment
         Q_ASSERT(this->getCell(pos) == cell);
 
         frameMatrix[pos.i][pos.j] = nullptr;
+        if(pool){
+            pool->AddToPool(cell);
+
+        }
     }
 
     void Environment::RemoveCell(Cell* cell)
@@ -174,6 +188,15 @@ namespace environment
         delete cell;
     }
 
+    void Environment::RemoveAllCells()
+    {
+        for(unsigned int i = 0; i < cells.size(); i++){
+            if(cells[i]->isAlive()){
+                cells[i]->die();
+            }
+        }
+    }
+
     Point Environment::randomFreePosition(const Point &point) const
     {
         Q_ASSERT(checkPositionCorrectness(point));
@@ -184,11 +207,98 @@ namespace environment
         {
             randPoint.i = RandomGenerator::generateRandomIntNumber(point.i - 1, point.i + 1);
             randPoint.j = RandomGenerator::generateRandomIntNumber(point.j - 1, point.j + 1);
-
+            /*bool switcher = RandomGenerator::generateRandomIntNumber(0, 1);
+            if(switcher){
+                randPoint.i = point.i - 1;
+            }
+            else{
+                randPoint.i = point.i + 1;
+            }
+            switcher = RandomGenerator::generateRandomIntNumber(0, 1);
+            std::cout << switcher << std::endl;
+            if(switcher){
+                randPoint.j = point.j - 1;
+            }
+            else{
+                randPoint.j = point.j + 1;
+            }*/
             if (checkPositionCorrectness(randPoint) && (randPoint.i != point.i || randPoint.j != point.j))
                 if (frameMatrix[randPoint.i][randPoint.j] == nullptr)
                     return randPoint;
         }
         return {-1, -1};
     }
+
+    Point Environment::getRandomFreePosOnMap(unsigned int attemp_count) const
+    {
+        Point rand_point;
+        for(unsigned int i = 0; i < attemp_count; i++){
+           rand_point.i = RandomGenerator::generateRandomIntNumber(0, this->getWidth()-1);
+           rand_point.j = RandomGenerator::generateRandomIntNumber(0, this->getHeight()-1);
+           if(checkPositionCorrectness(rand_point) && !frameMatrix[rand_point.i][rand_point.j]){
+                return rand_point;
+           }
+        }
+        return {-1, -1};
+    }
+
+    void Environment::generateCells(int N/*, controller::GameController *cont*/)
+    {
+        for(int i = 0; i < N ; i++){
+            Point point = this->getRandomFreePosOnMap();
+            if(point.i != -1){
+                if(pool && pool->get_pool_cursize() != 0 && i < pool->get_pool_cursize()){
+                    genotype::Genotype* gen = pool->getGenotype(i);
+                    gen->mutate((double)i/N);
+                    interactor->addCell(point, gen);
+                }
+                else{
+                    interactor->addCell(point);
+                }
+
+            }
+            else{
+                continue;
+            }
+        }
+    }
+
+    void Environment::ValidateEnvironment()
+    {
+
+        //FOR TESTING
+        if(cur_step_count >= max_step_count_before_reset){
+
+            //DEBUG
+            pool->print();
+
+
+            RemoveAllCells();
+            generateCells(pool->get_pool_maxsize());
+            pool->clear_pool();
+            cur_step_count = 0;
+        }
+
+        unsigned int cell_num = getCellNumber();
+        if(!cell_num || cell_num >= population_upper_limit * pool->get_pool_maxsize()){
+            //Repopulate
+
+            //DEBUG
+            pool->print();
+
+
+            RemoveAllCells();
+            generateCells(pool->get_pool_maxsize());
+            pool->clear_pool();
+            cur_step_count = 0;
+        }
+        cur_step_count++;
+
+    }
+
+    unsigned int Environment::getMaxCellCount()
+    {
+        return this->pool->get_pool_maxsize();
+    }
+
 }

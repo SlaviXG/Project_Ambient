@@ -8,6 +8,8 @@
 
 
 namespace controller { class CellInteractor; }
+namespace controller { class GameController; }
+namespace genepool { class GenePool; }
 
 namespace environment
 {
@@ -20,15 +22,22 @@ namespace environment
         const int WIDTH;
         const int HEIGHT;
 
+        //upper limit of population for environment validation ( 2 = 200% of original population)
+        const int population_upper_limit = 2;
+        //TESTING ZONE
+        // Added for step limitation in order to test out genepools
+        const int max_step_count_before_reset = 5000;
+        int cur_step_count = 0;
+
         std::vector<std::vector<Frame *>> frameMatrix;
         double time;    
         std::vector<Cell *> cells;
-
+        genepool::GenePool* pool;
         controller::CellInteractor* interactor = nullptr;
 
     public:
         // Constructors / Destructors
-        explicit Environment(int WIDTH, int HEIGHT, controller::CellInteractor* interactor = nullptr);
+        explicit Environment(int WIDTH, int HEIGHT, controller::CellInteractor* interactor = nullptr, genepool::GenePool* pool = nullptr);
         virtual ~Environment();
 
         // Enviroment Actions:
@@ -70,9 +79,10 @@ namespace environment
             }
 
         // Cell Actions:
-        virtual Cell* AddCell(Cell* cell); // Call from logic
-        virtual Cell* AddCell(const Point& point); // Call from controller
-        virtual Cell* AddCell(const Point& point, std::vector<int> countOfWeights);
+        Cell* AddCell(Cell* cell); // Call from logic
+        Cell* AddCell(const Point& point); // Call from controller
+        Cell* AddCell(const Point& point, std::vector<int> countOfWeights);
+        Cell* AddCell(const Point& point, genotype::Genotype* genotype);
         /**
          * @brief Removes the cell from the map
          *
@@ -87,6 +97,8 @@ namespace environment
          */
         virtual void RemoveCell(Cell* cell);
 
+        void RemoveAllCells();
+
         // Cell Vision:
         /*
         00 01 02 03 04
@@ -98,7 +110,24 @@ namespace environment
         virtual std::vector<bool> getVisionField(const Point &point) const;
 
         // Returns a random correct and empty cell coordinate within a radius of one from the given point
-        virtual Point randomFreePosition(const Point &point) const;
+        Point randomFreePosition(const Point &point) const;
+        // Return a random free poisiotn on map
+        Point getRandomFreePosOnMap(unsigned int attemp_count = 50) const;
+        // Autospawns N cells
+        void generateCells(int N/*, controller::GameController *cont*/);
+
+        /*
+         * GenePool operations
+         */
+        //validates the environment by counting the number of cells
+        void ValidateEnvironment();
+        //returns reference to GenePool
+        genepool::GenePool* getGenePool(){
+            return pool;
+        }
+
+        //return max cell count
+        unsigned int getMaxCellCount();
     };
 
     class RandomGenerator {

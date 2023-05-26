@@ -42,14 +42,18 @@ namespace genotype {
         return true;
     }
 
-    Matrix mutation(Matrix m) {
+    Matrix mutation(Matrix m, double chance) {
         std::random_device rd;
         std::mt19937 eng(rd());
         std::uniform_real_distribution<double> distr(-1, 1);
 
+        std::random_device rd_chance;
+        std::mt19937 rng(rd_chance());
+        std::uniform_real_distribution<double> chance_dist(0, 1);
+
         for (int i = 0; i < m.getY(); i++) {
             for (int j = 0; j < m.getX(); j++) {
-                if (rand() % kChance == 0) {
+                if (/*rand() % kChance == 0*/ chance_dist(rng) <= chance) {
                     m[i][j] = distr(eng);
                 }
             }
@@ -142,13 +146,12 @@ namespace genotype {
         return this->baeses[index];
     }
 
-    void Genotype::mutate()
+    void Genotype::mutate(double chance)
     {
-
         for(int i = 0; i < this->countOfLayers; i++)
         {
-            this->weights[i] = mutation(this->weights[i]);
-            this->baeses[i] = mutation(this->baeses[i]);
+            this->weights[i] = mutation(this->weights[i], chance);
+            this->baeses[i] = mutation(this->baeses[i], chance);
         }
     }
 }
