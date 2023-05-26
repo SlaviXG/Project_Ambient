@@ -5,6 +5,7 @@
 #include <random>
 
 #include "Point.h"
+#include "Genotype.h"
 
 
 namespace controller { class CellInteractor; }
@@ -79,10 +80,10 @@ namespace environment
             }
 
         // Cell Actions:
-        Cell* AddCell(Cell* cell); // Call from logic
-        Cell* AddCell(const Point& point); // Call from controller
-        Cell* AddCell(const Point& point, std::vector<int> countOfWeights);
-        Cell* AddCell(const Point& point, genotype::Genotype* genotype);
+        virtual Cell* AddCell(Cell* cell); // Call from logic
+        virtual Cell* AddCell(const Point& point); // Call from controller
+        virtual Cell* AddCell(const Point& point, std::vector<int> countOfWeights);
+        virtual Cell* AddCell(const Point& point, genotype::Genotype* genotype);
         /**
          * @brief Removes the cell from the map
          *
@@ -110,17 +111,17 @@ namespace environment
         virtual std::vector<bool> getVisionField(const Point &point) const;
 
         // Returns a random correct and empty cell coordinate within a radius of one from the given point
-        Point randomFreePosition(const Point &point) const;
+        virtual Point randomFreePosition(const Point &point) const;
         // Return a random free poisiotn on map
-        Point getRandomFreePosOnMap(unsigned int attemp_count = 50) const;
+        virtual Point getRandomFreePosOnMap(unsigned int attemp_count = 50) const;
         // Autospawns N cells
-        void generateCells(int N/*, controller::GameController *cont*/);
+        virtual void generateCells(int N/*, controller::GameController *cont*/);
 
         /*
          * GenePool operations
          */
         //validates the environment by counting the number of cells
-        void ValidateEnvironment();
+        virtual void ValidateEnvironment();
         //returns reference to GenePool
         genepool::GenePool* getGenePool(){
             return pool;

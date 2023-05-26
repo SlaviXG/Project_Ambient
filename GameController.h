@@ -26,7 +26,7 @@ class GameLogicThread;
 namespace controller
 {
     constexpr int kCellSize = 20;
-    constexpr int kFps = 1;
+    constexpr int kFps = 10;
     constexpr int kViewPadding = kCellSize / 2;
     constexpr size_t kStartingCellCount = 20;
 
