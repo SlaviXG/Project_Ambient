@@ -67,7 +67,7 @@ private:
     EnvironmentScene* scene;
     controller::GameInteractor* controller = nullptr;
     QGraphicsScene cellDemoScene;
-    CellTracker cellTracker;
+    CellTracker* cellTracker;
 
     void resizeEvent(QResizeEvent* event) override;
 };

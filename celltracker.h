@@ -3,19 +3,26 @@
 
 #include <QGraphicsScene>
 #include <QLabel>
+#include <QObject>
+
 #include <cell.h>
 #include <CellView.h>
 #include <QString>
 
-class CellTracker
+class CellTracker : public QObject
 {
+    Q_OBJECT
+
 public:
     CellTracker(QGraphicsScene* sceneCellDemo, QLabel* labelEnergy, QLabel* labelAggressiveness);
     ~CellTracker();
 
+    void displayInfo();
+    CellView* getTrackedCell() const;
+
+public slots:
     void boundCell(environment::Cell* cellPtr, CellView* cellViewPtr);
     void unboundCell();
-    void displayInfo();
 
 private:
     QGraphicsScene* sceneCellTracking = nullptr;

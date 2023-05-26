@@ -7,7 +7,7 @@
 
 MainWindow::MainWindow(EnvironmentScene* scene, QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow), scene(scene),
-      cellDemoScene(), cellTracker(&cellDemoScene, this->ui->curEnergyLabel, this->ui->aggressiveness)
+    cellDemoScene(), cellTracker(new CellTracker(&cellDemoScene, this->ui->curEnergyLabel, this->ui->aggressiveness))
 {
     ui->setupUi(this);
     this->setCentralWidget(this->ui->horizontalLayoutWidget);
@@ -47,12 +47,13 @@ qreal MainWindow::getEnvironmentHeight() const {
 
 CellTracker *MainWindow::getCellTracker()
 {
-    return &this->cellTracker;
+    return this->cellTracker;
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete cellTracker;
 }
 
 void MainWindow::initEnvironmentSize() {

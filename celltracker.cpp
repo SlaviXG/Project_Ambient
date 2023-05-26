@@ -7,7 +7,7 @@ CellTracker::CellTracker(QGraphicsScene* sceneCellDemo, QLabel* labelEnergy, QLa
     this->labelCurrentEnergy = labelEnergy;
     this->labelAggressiveness = labelAggressiveness;
     this->isBounded = false;
-    this->curView = new QGraphicsPixmapItem;
+    this->curView = new QGraphicsPixmapItem();
     this->sceneCellTracking->addItem(curView);
 }
 
@@ -15,6 +15,11 @@ CellTracker::~CellTracker()
 {
     delete curView;
 }
+
+CellView* CellTracker::getTrackedCell() const {
+    return trackedCellView;
+}
+
 
 void CellTracker::boundCell(environment::Cell *cellPtr, CellView *cellViewPtr)
 {
@@ -51,3 +56,6 @@ void CellTracker::updateScene()
         this->curView->setPixmap(trackedCellView->getCurrentPixmap().scaledToHeight(this->sceneCellTracking->height()*0.8));
     }
 }
+
+
+

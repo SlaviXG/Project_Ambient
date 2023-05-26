@@ -1,5 +1,7 @@
 #include "CellView.h"
 
+#include <QGraphicsSceneMouseEvent>
+
 
 CellView::CellView(qreal x, qreal y, qreal width, qreal height, QPixmap* colorGrad = nullptr, QGraphicsItem *parent)
 : QGraphicsPixmapItem(QPixmap(width, height), parent)
@@ -9,7 +11,7 @@ CellView::CellView(qreal x, qreal y, qreal width, qreal height, QPixmap* colorGr
 
 CellView::~CellView()
 {
-
+    emit deleted(this);
 }
 
 void CellView::updateCellView(qreal x, qreal y, QPixmap *colorGrad)
@@ -34,4 +36,14 @@ void CellView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     qDebug() <<"Cell clicked: " << pos_x << ' ' << pos_y;
     QGraphicsPixmapItem::mousePressEvent(event);
+
+    // Check if the item is deleted
+    if (event->button() == Qt::RightButton)
+    {
+        emit deleted(this);
+    }
+    else
+    {
+        emit clicked(this);
+    }
 }
