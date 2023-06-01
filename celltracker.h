@@ -4,10 +4,11 @@
 #include <QGraphicsScene>
 #include <QLabel>
 #include <QObject>
+#include <QString>
 
 #include <cell.h>
 #include <CellView.h>
-#include <QString>
+#include <Debouncer.h>
 
 class CellTracker : public QObject
 {
@@ -36,6 +37,8 @@ private:
     QGraphicsPixmapItem* curView;
     double curEnergy;
     double curAggress;
+
+    Debouncer debouncer;
 
     void updateScene();
 };

@@ -6,7 +6,6 @@
 #include <QCoreApplication>
 
 #include "GameLogicThread.h"
-#include "Debouncer.h"
 
 
 controller::GameController::GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment)
@@ -31,7 +30,6 @@ void controller::GameController::addCell(environment::Cell* cellptr)
     auto cellViewptr = scene->genCellViewPtr(x, y, kCellSize, kCellSize, cellptr->getAggressiveness() * 100);
 
 
-    //static Debouncer debouncer(100);
     connect(cellViewptr, &CellView::clicked, cellTracker, [this, cellViewptr, cellptr]() {
         cellTracker->boundCell(cellptr, cellViewptr);
     });

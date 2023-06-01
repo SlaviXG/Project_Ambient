@@ -1,68 +1,48 @@
-#ifndef DEBOUNCER_H
-#define DEBOUNCER_H
-
+#include <chrono>
+#include <thread>
 #include <functional>
-#include <QTimer>
-#include <QObject>
 
 /**
  * @class Debouncer
- * @brief A class that implements the Debounce pattern to delay the execution of a function.
+ * @brief A class that provides a debounce functionality.
  *
- * The Debouncer class provides a mechanism to delay or throttle the execution of a given function
- * until a certain amount of time has passed without it being called again. It is commonly used to
- * prevent rapid or frequent invocations of a function.
+ * This class provides a way to ensure that a function or method is not called
+ * more frequently than a specified timeout. This can be useful in scenarios
+ * where a function is triggered by an event that can occur rapidly (such as a
+ * button press), but the function itself should not be executed too frequently.
  */
-class Debouncer : public QObject {
-    Q_OBJECT
-
+class Debouncer {
 public:
     /**
-     * Constructs a Debouncer object with the specified delay.
-     * @param delay The delay in milliseconds between subsequent invocations of the debounced function.
+     * @brief Construct a new Debouncer object.
+     *
+     * @param timeout The minimum time interval between function calls.
      */
-    explicit Debouncer(int delay) : delay(delay) {}
-    virtual ~Debouncer() override {}
+    Debouncer(std::chrono::milliseconds timeout) : timeout(timeout), last_call(std::chrono::steady_clock::now() - timeout) {}
 
     /**
-     * Schedules the invocation of a function, debouncing subsequent calls within the specified delay.
-     * @tparam Func The type of the function or callable object.
-     * @tparam Args The types of the arguments passed to the function.
-     * @param func The function or callable object to be invoked after the debounce delay.
-     * @param args The arguments to be passed to the function.
+     * @brief Call a function if enough time has passed since the last call.
      *
-     * The debounced function will be called only once, after the specified delay has elapsed and no
-     * subsequent invocations have occurred within that time. Any previous pending invocation will be
-     * canceled.
+     * This method will call the provided function with the provided arguments
+     * if enough time has passed since the last call to this method. The time
+     * interval is specified by the `timeout` parameter passed to the
+     * constructor.
+     *
+     * @tparam Callable The type of the function to call.
+     * @tparam Args The types of the arguments to pass to the function.
+     * @param func The function to call.
+     * @param args The arguments to pass to the function.
      */
-    template<typename Func, typename... Args>
-    void debounce(Func&& func, Args&&... args) {
-        // Cancel any previous pending invocation
-        if (timer.isActive()) {
-            timer.stop();
+    template<typename Callable, typename... Args>
+    void debounce(Callable&& func, Args&&... args) {
+        auto now = std::chrono::steady_clock::now();
+        if(now - last_call >= timeout) {
+            std::forward<Callable>(func)(std::forward<Args>(args)...);
+            last_call = now;
         }
-
-        // Schedule the new invocation
-        std::function<void()> callback = std::bind(std::forward<Func>(func), std::forward<Args>(args)...);
-        timer.setSingleShot(true);
-        timer.start(delay);
-
-        // Connect the timeout signal to the slot
-        connect(&timer, &QTimer::timeout, this, [this, callback]() {
-            handleTimeout(callback);
-        });
-    }
-
-    void setDelay(int delay) {this->delay = delay;}
-
-private slots:
-    void handleTimeout(std::function<void()> callback) {
-        callback();
     }
 
 private:
-    QTimer timer;
-    int delay;
+    std::chrono::milliseconds timeout;  ///< The minimum time interval between function calls.
+    std::chrono::steady_clock::time_point last_call;  ///< The time point of the last function call.
 };
-
-#endif // DEBOUNCER_H

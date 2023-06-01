@@ -1,7 +1,10 @@
 #include "celltracker.h"
 
+static constexpr int kDebouncerDelay = 100;// ms
+
 
 CellTracker::CellTracker(QGraphicsScene* sceneCellDemo, QLabel* labelEnergy, QLabel* labelAggressiveness)
+    : debouncer(std::chrono::milliseconds(kDebouncerDelay))
 {
     this->sceneCellTracking = sceneCellDemo;
     this->labelCurrentEnergy = labelEnergy;
@@ -23,9 +26,11 @@ CellView* CellTracker::getTrackedCell() const {
 
 void CellTracker::boundCell(environment::Cell *cellPtr, CellView *cellViewPtr)
 {
-    this->trackedCell = cellPtr;
-    this->trackedCellView = cellViewPtr;
-    this->isBounded = true;
+    debouncer.debounce([this, cellPtr, cellViewPtr]() {
+        this->trackedCell = cellPtr;
+        this->trackedCellView = cellViewPtr;
+        this->isBounded = true;
+    });
 }
 
 void CellTracker::unboundCell()
