@@ -7,7 +7,7 @@
 
 MainWindow::MainWindow(EnvironmentScene* scene, QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow), scene(scene),
-    cellDemoScene(), cellTracker(new CellTracker(&cellDemoScene, this->ui->curEnergyLabel, this->ui->aggressiveness))
+    cellDemoScene()
 {
     ui->setupUi(this);
     this->setCentralWidget(this->ui->horizontalLayoutWidget);
@@ -16,6 +16,7 @@ MainWindow::MainWindow(EnvironmentScene* scene, QWidget *parent)
 
     this->ui->cellDemo->setScene(&this->cellDemoScene);
 
+    cellTracker = new CellTracker(&cellDemoScene, this->ui->curEnergyLabel, this->ui->aggressiveness);
 
     /*EnvironmentScene* scene = new EnvironmentScene();
 

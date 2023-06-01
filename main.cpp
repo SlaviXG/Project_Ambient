@@ -40,13 +40,13 @@ int main(int argc, char *argv[])
     EnvironmentScene scene;
     MainWindow win(&scene);
     controller::GameController cont(&win, &scene, &env);
-    cont.setCellTracker(win.getCellTracker());
     //controller::GameControllerDecorator cont(&win, &scene, &env);
     //cont.AddLogger(new ConsoleLogger());
     //cont.AddLogger(new FileLogger("logs.txt"));
     env.setCellInteractor(&cont);
     win.setController(&cont);
     win.show();
+    cont.setCellTracker(win.getCellTracker());
 
     win.initEnvironmentSize();
     cont.start();
