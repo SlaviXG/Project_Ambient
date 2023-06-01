@@ -47,21 +47,20 @@ namespace environment
         bool isDay() const;
         bool isNight() const;
         double getTime() const;
-        inline int getWidth() const { return WIDTH; }
-        inline int getHeight() const { return HEIGHT; }
-        inline Frame* getFrame(const Point& point) const {
-            Q_ASSERT(checkPositionCorrectness(point));
-            return frameMatrix[point.i][point.j];
-        }
+        int getWidth() const;
+        int getHeight() const;
+        Frame* getFrame(const Point& point) const;
         /**
          * @brief Get the Cell object
-         * 
+         *
          * @param point Position on the map
          * @return Cell or nullptr if the Cell is missing
          */
         Cell* getCell(const Point& point) const;
-        inline size_t getCellNumber() const { return cells.size(); }
-        inline auto& getCells() { return cells; }
+        size_t getCellNumber() const;
+        std::vector<Cell*>& getCells();
+
+
 
         void setCellInteractor(controller::CellInteractor* interactor);
 
@@ -75,9 +74,8 @@ namespace environment
 
         // Checks if a point has negative or larger coordinates than the map size 
         // On failure returns Point{-1, -1}
-        inline bool checkPositionCorrectness(const Point& point) const { 
-            return !(point.i < 0 || point.i >= HEIGHT || point.j < 0 || point.j >= WIDTH);
-            }
+       bool checkPositionCorrectness(const Point& point) const;
+
 
         // Cell Actions:
         virtual Cell* AddCell(Cell* cell); // Call from logic
@@ -123,9 +121,7 @@ namespace environment
         //validates the environment by counting the number of cells
         virtual void ValidateEnvironment();
         //returns reference to GenePool
-        genepool::GenePool* getGenePool(){
-            return pool;
-        }
+        genepool::GenePool* getGenePool();
 
         //return max cell count
         unsigned int getMaxCellCount();

@@ -58,6 +58,46 @@ namespace environment
         return this->time;
     }
 
+    int Environment::getWidth() const
+    {
+        return WIDTH;
+    }
+
+    int Environment::getHeight() const
+    {
+        return HEIGHT;
+    }
+
+    Frame* Environment::getFrame(const Point& point) const
+    {
+        Q_ASSERT(checkPositionCorrectness(point));
+        return frameMatrix[point.i][point.j];
+    }
+
+    std::vector<Cell*>& Environment::getCells()
+    {
+        return cells;
+    }
+
+    bool Environment::checkPositionCorrectness(const Point& point) const
+    {
+        return !(point.i < 0 || point.i >= HEIGHT || point.j < 0 || point.j >= WIDTH);
+    }
+
+    genepool::GenePool* Environment::getGenePool()
+    {
+        return pool;
+    }
+
+    size_t Environment::getCellNumber() const {
+        return cells.size();
+    }
+
+    unsigned int Environment::getMaxCellCount()
+    {
+        return this->pool->get_pool_maxsize();
+    }
+
     Cell* Environment::getCell(const Point& point) const {
         Q_ASSERT(checkPositionCorrectness(point));
         Frame* frame = frameMatrix[point.i][point.j];
@@ -295,10 +335,4 @@ namespace environment
         cur_step_count++;
 
     }
-
-    unsigned int Environment::getMaxCellCount()
-    {
-        return this->pool->get_pool_maxsize();
-    }
-
 }
