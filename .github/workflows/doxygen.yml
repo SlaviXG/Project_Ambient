@@ -1,5 +1,8 @@
 name: Generate Doxygen Documentation
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
@@ -22,6 +25,7 @@ jobs:
 
     - name: Deploy documentation
       uses: peaceiris/actions-gh-pages@v3
+
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./public
