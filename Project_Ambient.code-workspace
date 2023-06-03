@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"qmainwindow": "cpp",
+			"qgraphicsscene": "cpp",
+			"qgraphicsrectitem": "cpp",
+			"qvector": "cpp",
+			"*.tcc": "cpp",
+			"string": "cpp",
+			"new": "cpp"
+		}
+	}
+}
