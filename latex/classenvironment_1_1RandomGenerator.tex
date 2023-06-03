@@ -1,0 +1,53 @@
+\hypertarget{classenvironment_1_1RandomGenerator}{}\doxysection{environment\+::Random\+Generator Class Reference}
+\label{classenvironment_1_1RandomGenerator}\index{environment::RandomGenerator@{environment::RandomGenerator}}
+
+
+A utility class for generating random numbers and points.  
+
+
+
+
+{\ttfamily \#include $<$Environment.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classenvironment_1_1RandomGenerator_ad33e2e02933de3b49db5d8ddbd2b2aca}\label{classenvironment_1_1RandomGenerator_ad33e2e02933de3b49db5d8ddbd2b2aca}} 
+static int {\bfseries generate\+Random\+Int\+Number} (int min, int max)
+\item 
+\mbox{\Hypertarget{classenvironment_1_1RandomGenerator_a86f19ee7d4c0f5ec6802b6aaabfd28e1}\label{classenvironment_1_1RandomGenerator_a86f19ee7d4c0f5ec6802b6aaabfd28e1}} 
+static double {\bfseries generate\+Random\+Double\+Number} (double min, double max)
+\item 
+static \mbox{\hyperlink{structPoint}{Point}} \mbox{\hyperlink{classenvironment_1_1RandomGenerator_ac6569fbfd2bf165c65dc8dade225fe52}{generate\+Random\+Point}} (const \mbox{\hyperlink{structPoint}{Point}} \&top\+\_\+left, const \mbox{\hyperlink{structPoint}{Point}} \&bottom\+\_\+right)
+\begin{DoxyCompactList}\small\item\em generate\+Random\+Point \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A utility class for generating random numbers and points. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classenvironment_1_1RandomGenerator_ac6569fbfd2bf165c65dc8dade225fe52}\label{classenvironment_1_1RandomGenerator_ac6569fbfd2bf165c65dc8dade225fe52}} 
+\index{environment::RandomGenerator@{environment::RandomGenerator}!generateRandomPoint@{generateRandomPoint}}
+\index{generateRandomPoint@{generateRandomPoint}!environment::RandomGenerator@{environment::RandomGenerator}}
+\doxysubsubsection{\texorpdfstring{generateRandomPoint()}{generateRandomPoint()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structPoint}{Point}} environment\+::\+Random\+Generator\+::generate\+Random\+Point (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structPoint}{Point}} \&}]{top\+\_\+left,  }\item[{const \mbox{\hyperlink{structPoint}{Point}} \&}]{bottom\+\_\+right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+generate\+Random\+Point 
+
+
+\begin{DoxyParams}{Parameters}
+{\em top\+\_\+left} & Top left corner of the bounding box \\
+\hline
+{\em bottom\+\_\+right} & Bottom right corner of the bounding box \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Random point that does not go beyond the bounding box 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Environment.\+h\end{DoxyCompactItemize}
