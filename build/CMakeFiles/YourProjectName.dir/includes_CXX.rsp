@@ -1,0 +1,1 @@
+-ID:/Projects/Project_Ambient/build/YourProjectName_autogen/include -ID:/Projects/Project_Ambient -isystem C:/Qt/6.3.2/mingw_64/include/QtCore -isystem C:/Qt/6.3.2/mingw_64/include -isystem "C:/Qt/6.3.2/mingw_64/mkspecs/win32-g++" -isystem C:/Qt/6.3.2/mingw_64/include/QtGui -isystem C:/Qt/6.3.2/mingw_64/include/QtWidgets

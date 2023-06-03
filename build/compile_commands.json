@@ -1,0 +1,62 @@
+[
+{
+  "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/YourProjectName.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\YourProjectName.dir\\YourProjectName_autogen\\mocs_compilation.cpp.obj -c D:\\Projects\\Project_Ambient\\build\\YourProjectName_autogen\\mocs_compilation.cpp",
+  "file": "D:/Projects/Project_Ambient/build/YourProjectName_autogen/mocs_compilation.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/YourProjectName.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\YourProjectName.dir\\CellView.cpp.obj -c D:\\Projects\\Project_Ambient\\CellView.cpp",
+  "file": "D:/Projects/Project_Ambient/CellView.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/YourProjectName.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\YourProjectName.dir\\Environment.cpp.obj -c D:\\Projects\\Project_Ambient\\Environment.cpp",
+  "file": "D:/Projects/Project_Ambient/Environment.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/YourProjectName.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\YourProjectName.dir\\EnvironmentScene.cpp.obj -c D:\\Projects\\Project_Ambient\\EnvironmentScene.cpp",
+  "file": "D:/Projects/Project_Ambient/EnvironmentScene.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/YourProjectName.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\YourProjectName.dir\\GameController.cpp.obj -c D:\\Projects\\Project_Ambient\\GameController.cpp",
+  "file": "D:/Projects/Project_Ambient/GameController.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/YourProjectName.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\YourProjectName.dir\\Genotype.cpp.obj -c D:\\Projects\\Project_Ambient\\Genotype.cpp",
+  "file": "D:/Projects/Project_Ambient/Genotype.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/YourProjectName.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\YourProjectName.dir\\cell.cpp.obj -c D:\\Projects\\Project_Ambient\\cell.cpp",
+  "file": "D:/Projects/Project_Ambient/cell.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/YourProjectName.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\YourProjectName.dir\\celltracker.cpp.obj -c D:\\Projects\\Project_Ambient\\celltracker.cpp",
+  "file": "D:/Projects/Project_Ambient/celltracker.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/YourProjectName.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\YourProjectName.dir\\frame.cpp.obj -c D:\\Projects\\Project_Ambient\\frame.cpp",
+  "file": "D:/Projects/Project_Ambient/frame.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/YourProjectName.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\YourProjectName.dir\\genepool.cpp.obj -c D:\\Projects\\Project_Ambient\\genepool.cpp",
+  "file": "D:/Projects/Project_Ambient/genepool.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/YourProjectName.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\YourProjectName.dir\\main.cpp.obj -c D:\\Projects\\Project_Ambient\\main.cpp",
+  "file": "D:/Projects/Project_Ambient/main.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/YourProjectName.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\YourProjectName.dir\\mainwindow.cpp.obj -c D:\\Projects\\Project_Ambient\\mainwindow.cpp",
+  "file": "D:/Projects/Project_Ambient/mainwindow.cpp"
+}
+]
