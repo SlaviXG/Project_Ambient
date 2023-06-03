@@ -1,4 +1,0 @@
-D:/Projects/Project_Ambient/CMakeFiles/Project_Ambient.dir
-D:/Projects/Project_Ambient/CMakeFiles/INSTALL.dir
-D:/Projects/Project_Ambient/CMakeFiles/ALL_BUILD.dir
-D:/Projects/Project_Ambient/CMakeFiles/ZERO_CHECK.dir
