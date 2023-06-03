@@ -1,0 +1,57 @@
+\hypertarget{classCellView}{}\doxysection{Cell\+View Class Reference}
+\label{classCellView}\index{CellView@{CellView}}
+
+
+{\ttfamily \#include $<$Cell\+View.\+h$>$}
+
+Inheritance diagram for Cell\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCellView}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCellView_a8d7aeae23c17f1649bbb5219928e872d}\label{classCellView_a8d7aeae23c17f1649bbb5219928e872d}} 
+void {\bfseries clicked} (\mbox{\hyperlink{classCellView}{Cell\+View}} $\ast$cell\+View)
+\item 
+\mbox{\Hypertarget{classCellView_ae054ee721a51499e249f35f51fb2675b}\label{classCellView_ae054ee721a51499e249f35f51fb2675b}} 
+void {\bfseries deleted} (\mbox{\hyperlink{classCellView}{Cell\+View}} $\ast$cell\+View)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCellView_a14421d0ffd70dc2b7c6bca3315a4afea}\label{classCellView_a14421d0ffd70dc2b7c6bca3315a4afea}} 
+{\bfseries Cell\+View} (qreal x, qreal y, qreal width, qreal heigh, QPixmap $\ast$color\+Grad, QGraphics\+Item $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{classCellView_ab7cc326007388f99e689e83af35cc1ce}\label{classCellView_ab7cc326007388f99e689e83af35cc1ce}} 
+void {\bfseries update\+Cell\+View} (qreal x, qreal y, QPixmap $\ast$color\+Grad)
+\item 
+\mbox{\Hypertarget{classCellView_a6d580fec315ba2b2eacc7b80bb681e50}\label{classCellView_a6d580fec315ba2b2eacc7b80bb681e50}} 
+void {\bfseries set\+Color\+Grad} (QPixmap $\ast$color\+Grad)
+\item 
+\mbox{\Hypertarget{classCellView_ab7191d43ea1507f8bf786e562c42f1f2}\label{classCellView_ab7191d43ea1507f8bf786e562c42f1f2}} 
+QPixmap {\bfseries get\+Current\+Pixmap} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCellView_a9849cbd11c26ba8e9b02951c110f2cf1}\label{classCellView_a9849cbd11c26ba8e9b02951c110f2cf1}} 
+void {\bfseries mouse\+Press\+Event} (QGraphics\+Scene\+Mouse\+Event $\ast$event) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCellView_a2a0fb7588a2d7424f75ac950ad4247bd}\label{classCellView_a2a0fb7588a2d7424f75ac950ad4247bd}} 
+class {\bfseries Cell\+Tracker}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The class \mbox{\hyperlink{classCellView}{Cell\+View}} is responsible for Cell\textquotesingle{}s graphic representation. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Cell\+View.\+h\item 
+src/Cell\+View.\+cpp\end{DoxyCompactItemize}
