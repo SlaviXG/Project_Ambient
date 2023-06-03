@@ -17,7 +17,6 @@ c5e1aae110981ae495f1caac3ea4ec44 include/moc_genepool.cpp
 dd60b0541cb737ae8de60e709bcd1be7 include/moc_logger.cpp
 068413904f5cfb3869202e9099e2830d include/moc_mainwindow.cpp
 51672432e633b6e6292fc0c5e132d839 include/moc_point.cpp
-fdcc2694edc0ce58206ec52c133507c7 moc_resource.cpp
 251ff7f2bb5dbb507001a93efc6a2906 qrc_resource.cpp
 7aebbcc44404405494da930dbe915df6 tests/moc_doctest.cpp
 f9518716a2d643a982ad6a7be6568842 tests/moc_test_Genotype.cpp
