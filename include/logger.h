@@ -8,13 +8,24 @@
 #include <fstream>
 #include <iostream>
 
-
+/**
+ * @class Logger
+ * @brief An abstract class for logging messages.
+ */
 class Logger
 {
 public:
-    virtual void log(const std::string& message) = 0;
+    /**
+     * @brief Log a message.
+     * @param message The message to be logged.
+     */
+    virtual void log(const std::string &message) = 0;
 
 protected:
+    /**
+     * @brief Get the current time as a string.
+     * @return The current time as a string in the format "%Y-%m-%d %H:%M:%S".
+     */
     std::string getCurrentTime()
     {
         auto now = std::chrono::system_clock::now();
@@ -25,26 +36,44 @@ protected:
     }
 };
 
-
+/**
+ * @class FileLogger
+ * @brief A class for logging messages to a file.
+ */
 class FileLogger : public Logger
 {
 public:
-    FileLogger(const std::string& filename) : file(filename, std::ios::app) {}
+    /**
+     * @brief Construct a FileLogger with a given filename.
+     * @param filename The name of the log file.
+     */
+    FileLogger(const std::string &filename) : file(filename, std::ios::app) {}
 
-    void log(const std::string& message) override
+    /**
+     * @brief Log a message to the file.
+     * @param message The message to be logged.
+     */
+    void log(const std::string &message) override
     {
-        file <<  getCurrentTime() << "  " << message << std::endl;
+        file << getCurrentTime() << "  " << message << std::endl;
     }
 
 private:
-    std::ofstream file;
+    std::ofstream file; ///< The log file.
 };
 
-
+/**
+ * @class ConsoleLogger
+ * @brief A class for logging messages to the console.
+ */
 class ConsoleLogger : public Logger
 {
 public:
-    void log(const std::string& message) override
+    /**
+     * @brief Log a message to the console.
+     * @param message The message to be logged.
+     */
+    void log(const std::string &message) override
     {
         std::cout << getCurrentTime() << "  " << message << std::endl;
     }
