@@ -1,0 +1,73 @@
+\hypertarget{classFileLogger}{}\doxysection{File\+Logger Class Reference}
+\label{classFileLogger}\index{FileLogger@{FileLogger}}
+
+
+A class for logging messages to a file.  
+
+
+
+
+{\ttfamily \#include $<$logger.\+h$>$}
+
+Inheritance diagram for File\+Logger\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classFileLogger}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFileLogger_a9bbb2ab32c62d399224c5a8961cbaa75}{File\+Logger}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Construct a \mbox{\hyperlink{classFileLogger}{File\+Logger}} with a given filename. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFileLogger_af7693a2294bb726c836290f78b9099a7}{log}} (const std\+::string \&message) override
+\begin{DoxyCompactList}\small\item\em Log a message to the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A class for logging messages to a file. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFileLogger_a9bbb2ab32c62d399224c5a8961cbaa75}\label{classFileLogger_a9bbb2ab32c62d399224c5a8961cbaa75}} 
+\index{FileLogger@{FileLogger}!FileLogger@{FileLogger}}
+\index{FileLogger@{FileLogger}!FileLogger@{FileLogger}}
+\doxysubsubsection{\texorpdfstring{FileLogger()}{FileLogger()}}
+{\footnotesize\ttfamily File\+Logger\+::\+File\+Logger (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a \mbox{\hyperlink{classFileLogger}{File\+Logger}} with a given filename. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the log file. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFileLogger_af7693a2294bb726c836290f78b9099a7}\label{classFileLogger_af7693a2294bb726c836290f78b9099a7}} 
+\index{FileLogger@{FileLogger}!log@{log}}
+\index{log@{log}!FileLogger@{FileLogger}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily void File\+Logger\+::log (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Log a message to the file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to be logged. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classLogger_ad96ba5a85fbd7e13ef87b8c9caa24801}{Logger}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/logger.\+h\end{DoxyCompactItemize}

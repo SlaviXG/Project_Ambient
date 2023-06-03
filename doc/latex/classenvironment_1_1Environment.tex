@@ -1,0 +1,530 @@
+\hypertarget{classenvironment_1_1Environment}{}\doxysection{environment\+::Environment Class Reference}
+\label{classenvironment_1_1Environment}\index{environment::Environment@{environment::Environment}}
+
+
+This class represents the environment in which cells live.  
+
+
+
+
+{\ttfamily \#include $<$Environment.\+h$>$}
+
+Inheritance diagram for environment\+::Environment\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classenvironment_1_1Environment}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classenvironment_1_1Environment_a068ae10cc70ddbc7011d59eb17662d82}{Environment}} (int WIDTH, int HEIGHT, \mbox{\hyperlink{classcontroller_1_1CellInteractor}{controller\+::\+Cell\+Interactor}} $\ast$interactor=nullptr, \mbox{\hyperlink{classgenepool_1_1GenePool}{genepool\+::\+Gene\+Pool}} $\ast$pool=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs an \mbox{\hyperlink{classenvironment_1_1Environment}{Environment}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classenvironment_1_1Environment_a20639dc0f4dc0983984f5ad5ce69218a}\label{classenvironment_1_1Environment_a20639dc0f4dc0983984f5ad5ce69218a}} 
+virtual \mbox{\hyperlink{classenvironment_1_1Environment_a20639dc0f4dc0983984f5ad5ce69218a}{$\sim$\+Environment}} ()
+\begin{DoxyCompactList}\small\item\em Destructs the \mbox{\hyperlink{classenvironment_1_1Environment}{Environment}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classenvironment_1_1Environment_ad3934ba1c7e615f586e016d4e79b9187}\label{classenvironment_1_1Environment_ad3934ba1c7e615f586e016d4e79b9187}} 
+void \mbox{\hyperlink{classenvironment_1_1Environment_ad3934ba1c7e615f586e016d4e79b9187}{tick\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Advances the time in the environment. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classenvironment_1_1Environment_abf5bdec08851536fcf350cf391887b1d}{is\+Day}} () const
+\begin{DoxyCompactList}\small\item\em Checks if it is day in the environment. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classenvironment_1_1Environment_abae5caf76d31f46447172b98d59f4afd}{is\+Night}} () const
+\begin{DoxyCompactList}\small\item\em Checks if it is night in the environment. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classenvironment_1_1Environment_a47b63198b9d47bb3fcc844722e6e55a1}{get\+Time}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current time in the environment. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classenvironment_1_1Environment_a534f2cac9fe67574edcab320edd21ec4}{get\+Width}} () const
+\begin{DoxyCompactList}\small\item\em Gets the width of the environment. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classenvironment_1_1Environment_a263c4f8a82126a59532791f3c01716eb}{get\+Height}} () const
+\begin{DoxyCompactList}\small\item\em Gets the height of the environment. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classenvironment_1_1Frame}{Frame}} $\ast$ \mbox{\hyperlink{classenvironment_1_1Environment_af9acbf4e34c5b51fda118eaa1c156681}{get\+Frame}} (const \mbox{\hyperlink{structPoint}{Point}} \&point) const
+\begin{DoxyCompactList}\small\item\em Gets the frame at a specific point in the environment. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$ \mbox{\hyperlink{classenvironment_1_1Environment_ab64bd11e299adf5cf3911bd7cbd750bd}{get\+Cell}} (const \mbox{\hyperlink{structPoint}{Point}} \&point) const
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} object at a specific point. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classenvironment_1_1Environment_ae38823639fdf0fcdbc3fcaea5e4ae18a}{get\+Cell\+Number}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of cells in the environment. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$ $>$ \& \mbox{\hyperlink{classenvironment_1_1Environment_ad7811624c2ed1db672a789a0a60fd405}{get\+Cells}} ()
+\begin{DoxyCompactList}\small\item\em Gets the cells in the environment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classenvironment_1_1Environment_a9239d1e63b0e65d2752576fbf155e303}{set\+Cell\+Interactor}} (\mbox{\hyperlink{classcontroller_1_1CellInteractor}{controller\+::\+Cell\+Interactor}} $\ast$interactor)
+\begin{DoxyCompactList}\small\item\em Sets the cell interactor for the environment. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classenvironment_1_1Environment_a574e469f0c5ec97013623fc27a0f08c7}{update\+Cell\+Position}} (\mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$cell, const \mbox{\hyperlink{structPoint}{Point}} \&old\+Pos)
+\begin{DoxyCompactList}\small\item\em Updates a cell\textquotesingle{}s position in the frame\+Matrix. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classenvironment_1_1Environment_a05da99756911645988040be7b37fcc53}{check\+Position\+Correctness}} (const \mbox{\hyperlink{structPoint}{Point}} \&point) const
+\begin{DoxyCompactList}\small\item\em Checks if a point is within the bounds of the environment. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$ \mbox{\hyperlink{classenvironment_1_1Environment_a5f1ec92914956aab1edf51897b50ec71}{Add\+Cell}} (\mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$cell)
+\begin{DoxyCompactList}\small\item\em Adds a cell to the environment. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$ \mbox{\hyperlink{classenvironment_1_1Environment_a4c533f94d677e41100156447c8988353}{Add\+Cell}} (const \mbox{\hyperlink{structPoint}{Point}} \&point)
+\begin{DoxyCompactList}\small\item\em Adds a cell to the environment at a specific point. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$ \mbox{\hyperlink{classenvironment_1_1Environment_ab98075db19a3eec345b4ef70d1a71d5f}{Add\+Cell}} (const \mbox{\hyperlink{structPoint}{Point}} \&point, std\+::vector$<$ int $>$ count\+Of\+Weights)
+\begin{DoxyCompactList}\small\item\em Adds a cell to the environment at a specific point with a specific count of weights. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$ \mbox{\hyperlink{classenvironment_1_1Environment_ae877ee7de532db279682bbbdc983d799}{Add\+Cell}} (const \mbox{\hyperlink{structPoint}{Point}} \&point, \mbox{\hyperlink{classgenotype_1_1Genotype}{genotype\+::\+Genotype}} $\ast$genotype)
+\begin{DoxyCompactList}\small\item\em Adds a cell to the environment at a specific point with a specific genotype. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classenvironment_1_1Environment_ab92a70d53baa4850ff284bed67b930d2}{Invalidate\+Cell}} (\mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$cell)
+\begin{DoxyCompactList}\small\item\em Removes a cell from the map. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classenvironment_1_1Environment_a305e7edc0356f5a516c03202b6f54c03}{Remove\+Cell}} (\mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$cell)
+\begin{DoxyCompactList}\small\item\em Removes a cell from the environment. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classenvironment_1_1Environment_ac8437e23167b9713c82caeb0e6213a76}\label{classenvironment_1_1Environment_ac8437e23167b9713c82caeb0e6213a76}} 
+void \mbox{\hyperlink{classenvironment_1_1Environment_ac8437e23167b9713c82caeb0e6213a76}{Remove\+All\+Cells}} ()
+\begin{DoxyCompactList}\small\item\em Removes all cells from the environment. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ bool $>$ \mbox{\hyperlink{classenvironment_1_1Environment_ab65ee6b30c1e9c401ef4bbcfccfecdc6}{get\+Vision\+Field}} (const \mbox{\hyperlink{structPoint}{Point}} \&point) const
+\begin{DoxyCompactList}\small\item\em Gets the vision field of a cell at a specific point. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{structPoint}{Point}} \mbox{\hyperlink{classenvironment_1_1Environment_a87760c221755f9215af5724829588830}{random\+Free\+Position}} (const \mbox{\hyperlink{structPoint}{Point}} \&point) const
+\begin{DoxyCompactList}\small\item\em Returns a random correct and empty cell coordinate within a radius of one from the given point. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{structPoint}{Point}} \mbox{\hyperlink{classenvironment_1_1Environment_a415223a990793853c63153ce41e56cdf}{get\+Random\+Free\+Pos\+On\+Map}} (unsigned int attemp\+\_\+count=50) const
+\begin{DoxyCompactList}\small\item\em Returns a random free position on the map. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classenvironment_1_1Environment_ad97855b4a0b5009586f0a9b4141b95f9}{generate\+Cells}} (int N)
+\begin{DoxyCompactList}\small\item\em Autospawns N cells in the environment. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classenvironment_1_1Environment_a9375e35c7a69c85296a3d9d06093930b}\label{classenvironment_1_1Environment_a9375e35c7a69c85296a3d9d06093930b}} 
+virtual void \mbox{\hyperlink{classenvironment_1_1Environment_a9375e35c7a69c85296a3d9d06093930b}{Validate\+Environment}} ()
+\begin{DoxyCompactList}\small\item\em Validates the environment by counting the number of cells. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgenepool_1_1GenePool}{genepool\+::\+Gene\+Pool}} $\ast$ \mbox{\hyperlink{classenvironment_1_1Environment_aa1ed8aa56fc201bf3ae825c7b6887f36}{get\+Gene\+Pool}} ()
+\begin{DoxyCompactList}\small\item\em Returns a reference to the Gene\+Pool. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classenvironment_1_1Environment_a79dd61e896836f04972f24ae4a7b35c3}{get\+Max\+Cell\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Returns the maximum cell count. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents the environment in which cells live. 
+
+The \mbox{\hyperlink{classenvironment_1_1Environment}{Environment}} class is responsible for managing the cells and the frames in which they live. It provides methods for adding and removing cells, updating their positions, and performing various other operations related to the environment. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classenvironment_1_1Environment_a068ae10cc70ddbc7011d59eb17662d82}\label{classenvironment_1_1Environment_a068ae10cc70ddbc7011d59eb17662d82}} 
+\index{environment::Environment@{environment::Environment}!Environment@{Environment}}
+\index{Environment@{Environment}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{Environment()}{Environment()}}
+{\footnotesize\ttfamily environment\+::\+Environment\+::\+Environment (\begin{DoxyParamCaption}\item[{int}]{WIDTH,  }\item[{int}]{HEIGHT,  }\item[{\mbox{\hyperlink{classcontroller_1_1CellInteractor}{controller\+::\+Cell\+Interactor}} $\ast$}]{interactor = {\ttfamily nullptr},  }\item[{\mbox{\hyperlink{classgenepool_1_1GenePool}{genepool\+::\+Gene\+Pool}} $\ast$}]{pool = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs an \mbox{\hyperlink{classenvironment_1_1Environment}{Environment}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em WIDTH} & The width of the environment. \\
+\hline
+{\em HEIGHT} & The height of the environment. \\
+\hline
+{\em interactor} & The cell interactor for the environment (Controller interface). \\
+\hline
+{\em pool} & The gene pool of the environment. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classenvironment_1_1Environment_a5f1ec92914956aab1edf51897b50ec71}\label{classenvironment_1_1Environment_a5f1ec92914956aab1edf51897b50ec71}} 
+\index{environment::Environment@{environment::Environment}!AddCell@{AddCell}}
+\index{AddCell@{AddCell}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{AddCell()}{AddCell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$ environment\+::\+Environment\+::\+Add\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$}]{cell }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Adds a cell to the environment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & The cell to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cell that was added. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classenvironment_1_1EnvironmentDecorator_af4b42ee96d01ba27203636360d7c0a9d}{environment\+::\+Environment\+Decorator}}.
+
+\mbox{\Hypertarget{classenvironment_1_1Environment_a4c533f94d677e41100156447c8988353}\label{classenvironment_1_1Environment_a4c533f94d677e41100156447c8988353}} 
+\index{environment::Environment@{environment::Environment}!AddCell@{AddCell}}
+\index{AddCell@{AddCell}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{AddCell()}{AddCell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$ environment\+::\+Environment\+::\+Add\+Cell (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structPoint}{Point}} \&}]{point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Adds a cell to the environment at a specific point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point at which to add the cell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cell that was added. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classenvironment_1_1EnvironmentDecorator_a9a3c62c51ccbf0a99f7a822ad3c5ca5a}{environment\+::\+Environment\+Decorator}}.
+
+\mbox{\Hypertarget{classenvironment_1_1Environment_ae877ee7de532db279682bbbdc983d799}\label{classenvironment_1_1Environment_ae877ee7de532db279682bbbdc983d799}} 
+\index{environment::Environment@{environment::Environment}!AddCell@{AddCell}}
+\index{AddCell@{AddCell}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{AddCell()}{AddCell()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$ environment\+::\+Environment\+::\+Add\+Cell (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structPoint}{Point}} \&}]{point,  }\item[{\mbox{\hyperlink{classgenotype_1_1Genotype}{genotype\+::\+Genotype}} $\ast$}]{genotype }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Adds a cell to the environment at a specific point with a specific genotype. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point at which to add the cell. \\
+\hline
+{\em genotype} & The genotype of the cell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cell that was added. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classenvironment_1_1Environment_ab98075db19a3eec345b4ef70d1a71d5f}\label{classenvironment_1_1Environment_ab98075db19a3eec345b4ef70d1a71d5f}} 
+\index{environment::Environment@{environment::Environment}!AddCell@{AddCell}}
+\index{AddCell@{AddCell}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{AddCell()}{AddCell()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$ environment\+::\+Environment\+::\+Add\+Cell (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structPoint}{Point}} \&}]{point,  }\item[{std\+::vector$<$ int $>$}]{count\+Of\+Weights }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Adds a cell to the environment at a specific point with a specific count of weights. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point at which to add the cell. \\
+\hline
+{\em count\+Of\+Weights} & The count of weights for the cell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cell that was added. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classenvironment_1_1EnvironmentDecorator_a27ae18727558ee3b160dfe66ab67ebce}{environment\+::\+Environment\+Decorator}}.
+
+\mbox{\Hypertarget{classenvironment_1_1Environment_a05da99756911645988040be7b37fcc53}\label{classenvironment_1_1Environment_a05da99756911645988040be7b37fcc53}} 
+\index{environment::Environment@{environment::Environment}!checkPositionCorrectness@{checkPositionCorrectness}}
+\index{checkPositionCorrectness@{checkPositionCorrectness}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{checkPositionCorrectness()}{checkPositionCorrectness()}}
+{\footnotesize\ttfamily bool environment\+::\+Environment\+::check\+Position\+Correctness (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structPoint}{Point}} \&}]{point }\end{DoxyParamCaption}) const}
+
+
+
+Checks if a point is within the bounds of the environment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the point is within the bounds of the environment, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classenvironment_1_1Environment_ad97855b4a0b5009586f0a9b4141b95f9}\label{classenvironment_1_1Environment_ad97855b4a0b5009586f0a9b4141b95f9}} 
+\index{environment::Environment@{environment::Environment}!generateCells@{generateCells}}
+\index{generateCells@{generateCells}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{generateCells()}{generateCells()}}
+{\footnotesize\ttfamily void environment\+::\+Environment\+::generate\+Cells (\begin{DoxyParamCaption}\item[{int}]{N }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Autospawns N cells in the environment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & The number of cells to generate. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classenvironment_1_1Environment_ab64bd11e299adf5cf3911bd7cbd750bd}\label{classenvironment_1_1Environment_ab64bd11e299adf5cf3911bd7cbd750bd}} 
+\index{environment::Environment@{environment::Environment}!getCell@{getCell}}
+\index{getCell@{getCell}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{getCell()}{getCell()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$ environment\+::\+Environment\+::get\+Cell (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structPoint}{Point}} \&}]{point }\end{DoxyParamCaption}) const}
+
+
+
+Get the \mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} object at a specific point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point at which to get the cell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cell at the given point, or nullptr if no cell exists at that point. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classenvironment_1_1Environment_ae38823639fdf0fcdbc3fcaea5e4ae18a}\label{classenvironment_1_1Environment_ae38823639fdf0fcdbc3fcaea5e4ae18a}} 
+\index{environment::Environment@{environment::Environment}!getCellNumber@{getCellNumber}}
+\index{getCellNumber@{getCellNumber}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{getCellNumber()}{getCellNumber()}}
+{\footnotesize\ttfamily size\+\_\+t environment\+::\+Environment\+::get\+Cell\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the number of cells in the environment. 
+
+\begin{DoxyReturn}{Returns}
+The number of cells in theenvironment. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classenvironment_1_1Environment_ad7811624c2ed1db672a789a0a60fd405}\label{classenvironment_1_1Environment_ad7811624c2ed1db672a789a0a60fd405}} 
+\index{environment::Environment@{environment::Environment}!getCells@{getCells}}
+\index{getCells@{getCells}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{getCells()}{getCells()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$ $>$ \& environment\+::\+Environment\+::get\+Cells (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the cells in the environment. 
+
+\begin{DoxyReturn}{Returns}
+A vector of cells in the environment. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classenvironment_1_1Environment_af9acbf4e34c5b51fda118eaa1c156681}\label{classenvironment_1_1Environment_af9acbf4e34c5b51fda118eaa1c156681}} 
+\index{environment::Environment@{environment::Environment}!getFrame@{getFrame}}
+\index{getFrame@{getFrame}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{getFrame()}{getFrame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classenvironment_1_1Frame}{Frame}} $\ast$ environment\+::\+Environment\+::get\+Frame (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structPoint}{Point}} \&}]{point }\end{DoxyParamCaption}) const}
+
+
+
+Gets the frame at a specific point in the environment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point at which to get the frame. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The frame at the given point. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classenvironment_1_1Environment_aa1ed8aa56fc201bf3ae825c7b6887f36}\label{classenvironment_1_1Environment_aa1ed8aa56fc201bf3ae825c7b6887f36}} 
+\index{environment::Environment@{environment::Environment}!getGenePool@{getGenePool}}
+\index{getGenePool@{getGenePool}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{getGenePool()}{getGenePool()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgenepool_1_1GenePool}{genepool\+::\+Gene\+Pool}} $\ast$ environment\+::\+Environment\+::get\+Gene\+Pool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a reference to the Gene\+Pool. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the Gene\+Pool. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classenvironment_1_1Environment_a263c4f8a82126a59532791f3c01716eb}\label{classenvironment_1_1Environment_a263c4f8a82126a59532791f3c01716eb}} 
+\index{environment::Environment@{environment::Environment}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}}
+{\footnotesize\ttfamily int environment\+::\+Environment\+::get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the height of the environment. 
+
+\begin{DoxyReturn}{Returns}
+The height of the environment. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classenvironment_1_1Environment_a79dd61e896836f04972f24ae4a7b35c3}\label{classenvironment_1_1Environment_a79dd61e896836f04972f24ae4a7b35c3}} 
+\index{environment::Environment@{environment::Environment}!getMaxCellCount@{getMaxCellCount}}
+\index{getMaxCellCount@{getMaxCellCount}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{getMaxCellCount()}{getMaxCellCount()}}
+{\footnotesize\ttfamily unsigned int environment\+::\+Environment\+::get\+Max\+Cell\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the maximum cell count. 
+
+\begin{DoxyReturn}{Returns}
+The maximum cell count. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classenvironment_1_1Environment_a415223a990793853c63153ce41e56cdf}\label{classenvironment_1_1Environment_a415223a990793853c63153ce41e56cdf}} 
+\index{environment::Environment@{environment::Environment}!getRandomFreePosOnMap@{getRandomFreePosOnMap}}
+\index{getRandomFreePosOnMap@{getRandomFreePosOnMap}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{getRandomFreePosOnMap()}{getRandomFreePosOnMap()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPoint}{Point}} environment\+::\+Environment\+::get\+Random\+Free\+Pos\+On\+Map (\begin{DoxyParamCaption}\item[{unsigned int}]{attemp\+\_\+count = {\ttfamily 50} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns a random free position on the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attemp\+\_\+count} & The number of attempts to find a free position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A random free position on the map. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classenvironment_1_1Environment_a47b63198b9d47bb3fcc844722e6e55a1}\label{classenvironment_1_1Environment_a47b63198b9d47bb3fcc844722e6e55a1}} 
+\index{environment::Environment@{environment::Environment}!getTime@{getTime}}
+\index{getTime@{getTime}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{getTime()}{getTime()}}
+{\footnotesize\ttfamily double environment\+::\+Environment\+::get\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the current time in the environment. 
+
+\begin{DoxyReturn}{Returns}
+The current time. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classenvironment_1_1Environment_ab65ee6b30c1e9c401ef4bbcfccfecdc6}\label{classenvironment_1_1Environment_ab65ee6b30c1e9c401ef4bbcfccfecdc6}} 
+\index{environment::Environment@{environment::Environment}!getVisionField@{getVisionField}}
+\index{getVisionField@{getVisionField}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{getVisionField()}{getVisionField()}}
+{\footnotesize\ttfamily std\+::vector$<$ bool $>$ environment\+::\+Environment\+::get\+Vision\+Field (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structPoint}{Point}} \&}]{point }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the vision field of a cell at a specific point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point of the cell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of booleans representing the vision field of the cell. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classenvironment_1_1EnvironmentDecorator_a165f35fcd3da0262dd5f8f58f1f41430}{environment\+::\+Environment\+Decorator}}.
+
+\mbox{\Hypertarget{classenvironment_1_1Environment_a534f2cac9fe67574edcab320edd21ec4}\label{classenvironment_1_1Environment_a534f2cac9fe67574edcab320edd21ec4}} 
+\index{environment::Environment@{environment::Environment}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{getWidth()}{getWidth()}}
+{\footnotesize\ttfamily int environment\+::\+Environment\+::get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the width of the environment. 
+
+\begin{DoxyReturn}{Returns}
+The width of the environment. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classenvironment_1_1Environment_ab92a70d53baa4850ff284bed67b930d2}\label{classenvironment_1_1Environment_ab92a70d53baa4850ff284bed67b930d2}} 
+\index{environment::Environment@{environment::Environment}!InvalidateCell@{InvalidateCell}}
+\index{InvalidateCell@{InvalidateCell}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{InvalidateCell()}{InvalidateCell()}}
+{\footnotesize\ttfamily void environment\+::\+Environment\+::\+Invalidate\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$}]{cell }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Removes a cell from the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & The cell to remove. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classenvironment_1_1EnvironmentDecorator_a997bb0027745edfb62015d60cb809e6a}{environment\+::\+Environment\+Decorator}}.
+
+\mbox{\Hypertarget{classenvironment_1_1Environment_abf5bdec08851536fcf350cf391887b1d}\label{classenvironment_1_1Environment_abf5bdec08851536fcf350cf391887b1d}} 
+\index{environment::Environment@{environment::Environment}!isDay@{isDay}}
+\index{isDay@{isDay}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{isDay()}{isDay()}}
+{\footnotesize\ttfamily bool environment\+::\+Environment\+::is\+Day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if it is day in the environment. 
+
+\begin{DoxyReturn}{Returns}
+True if it is day, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classenvironment_1_1Environment_abae5caf76d31f46447172b98d59f4afd}\label{classenvironment_1_1Environment_abae5caf76d31f46447172b98d59f4afd}} 
+\index{environment::Environment@{environment::Environment}!isNight@{isNight}}
+\index{isNight@{isNight}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{isNight()}{isNight()}}
+{\footnotesize\ttfamily bool environment\+::\+Environment\+::is\+Night (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if it is night in the environment. 
+
+\begin{DoxyReturn}{Returns}
+True if it is night, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classenvironment_1_1Environment_a87760c221755f9215af5724829588830}\label{classenvironment_1_1Environment_a87760c221755f9215af5724829588830}} 
+\index{environment::Environment@{environment::Environment}!randomFreePosition@{randomFreePosition}}
+\index{randomFreePosition@{randomFreePosition}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{randomFreePosition()}{randomFreePosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPoint}{Point}} environment\+::\+Environment\+::random\+Free\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structPoint}{Point}} \&}]{point }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns a random correct and empty cell coordinate within a radius of one from the given point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point from which to get a random free position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A random free position within a radius of one from the given point. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classenvironment_1_1EnvironmentDecorator_ae030c92126b95123c316b0a8557ae0fc}{environment\+::\+Environment\+Decorator}}.
+
+\mbox{\Hypertarget{classenvironment_1_1Environment_a305e7edc0356f5a516c03202b6f54c03}\label{classenvironment_1_1Environment_a305e7edc0356f5a516c03202b6f54c03}} 
+\index{environment::Environment@{environment::Environment}!RemoveCell@{RemoveCell}}
+\index{RemoveCell@{RemoveCell}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{RemoveCell()}{RemoveCell()}}
+{\footnotesize\ttfamily void environment\+::\+Environment\+::\+Remove\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$}]{cell }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Removes a cell from the environment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & The cell to remove. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classenvironment_1_1EnvironmentDecorator_a9818db9651b589679fa4ec367efd2bb8}{environment\+::\+Environment\+Decorator}}.
+
+\mbox{\Hypertarget{classenvironment_1_1Environment_a9239d1e63b0e65d2752576fbf155e303}\label{classenvironment_1_1Environment_a9239d1e63b0e65d2752576fbf155e303}} 
+\index{environment::Environment@{environment::Environment}!setCellInteractor@{setCellInteractor}}
+\index{setCellInteractor@{setCellInteractor}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{setCellInteractor()}{setCellInteractor()}}
+{\footnotesize\ttfamily void environment\+::\+Environment\+::set\+Cell\+Interactor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcontroller_1_1CellInteractor}{controller\+::\+Cell\+Interactor}} $\ast$}]{interactor }\end{DoxyParamCaption})}
+
+
+
+Sets the cell interactor for the environment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interactor} & The cell interactor to set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classenvironment_1_1Environment_a574e469f0c5ec97013623fc27a0f08c7}\label{classenvironment_1_1Environment_a574e469f0c5ec97013623fc27a0f08c7}} 
+\index{environment::Environment@{environment::Environment}!updateCellPosition@{updateCellPosition}}
+\index{updateCellPosition@{updateCellPosition}!environment::Environment@{environment::Environment}}
+\doxysubsubsection{\texorpdfstring{updateCellPosition()}{updateCellPosition()}}
+{\footnotesize\ttfamily void environment\+::\+Environment\+::update\+Cell\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classenvironment_1_1Cell}{Cell}} $\ast$}]{cell,  }\item[{const \mbox{\hyperlink{structPoint}{Point}} \&}]{old\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Updates a cell\textquotesingle{}s position in the frame\+Matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & The cell to update. \\
+\hline
+{\em old\+Pos} & The old position of the cell. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classenvironment_1_1EnvironmentDecorator_a998eda115c184a8d738af79103137a09}{environment\+::\+Environment\+Decorator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Environment.\+h\item 
+src/Environment.\+cpp\end{DoxyCompactItemize}

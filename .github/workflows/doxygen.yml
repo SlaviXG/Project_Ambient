@@ -1,31 +1,31 @@
-name: Generate Doxygen Documentation
+name: Generate Doxygen
 
 on:
   push:
     branches:
       - master
-      - main
       
 permissions:
   contents: write
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout code
       uses: actions/checkout@v2
 
     - name: Install Doxygen
-      run: sudo apt-get install -y doxygen
+      run: sudo apt-get install doxygen
 
-    - name: Generate Doxygen documentation
+    - name: Generate documentation
       run: doxygen Doxyfile
 
-    - name: Deploy documentation
-      uses: peaceiris/actions-gh-pages@v3
-
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
+    - name: Push generated documentation
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Update documentation" -a || echo "No changes to commit"
+        git push origin master
