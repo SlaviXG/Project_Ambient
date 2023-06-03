@@ -26,6 +26,7 @@ set(SOURCES
     src/genepool.cpp
     src/main.cpp
     src/mainwindow.cpp
+    resources.rc
 )
 set(HEADERS
     include/CellView.h
@@ -57,7 +58,7 @@ set(RESOURCES
     resource.qrc
 )
 
-# invoke Qt moc, uic and rcc
+# invoke Qt moc, uic, and rcc
 qt6_wrap_cpp(MOC_SOURCES ${HEADERS})
 qt6_wrap_ui(UIS_HEADERS ${FORMS})
 qt6_add_resources(QRC_SOURCES ${RESOURCES})
@@ -66,14 +67,13 @@ qt6_add_resources(QRC_SOURCES ${RESOURCES})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 # add an executable using the sources
-add_executable(Project_Ambient
+add_executable(Project_Ambient WIN32
     ${SOURCES}
     ${HEADERS}
     ${MOC_SOURCES}
     ${UIS_HEADERS}
     ${QRC_SOURCES}
 )
-
 
 # link against the Qt libraries
 target_link_libraries(Project_Ambient PRIVATE

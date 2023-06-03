@@ -100,5 +100,6 @@
         <file>resources/cell_color_gradations/color_gradient_97.png</file>
         <file>resources/cell_color_gradations/color_gradient_98.png</file>
         <file>resources/cell_color_gradations/color_gradient_99.png</file>
+        <file>resources/icon.ico</file>
     </qresource>
 </RCC>

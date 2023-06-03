@@ -34,6 +34,8 @@ int main(int argc, char *argv[])
 //#endif // _DEBUG
     unsigned int cell_num = 100;
     QApplication a(argc, argv);
+    QApplication::setWindowIcon(QIcon(":/resources/cell_color_gradations/resources/icon.ico"));
+    QApplication::setApplicationName("Project Ambient");
 
     //environment::EnvironmentDecorator env(10000, 10000); env.setLogger(std::unique_ptr<Logger>(new ConsoleLogger()));
     genepool::GenePool pool(cell_num);
@@ -44,8 +46,11 @@ int main(int argc, char *argv[])
     //controller::GameControllerDecorator cont(&win, &scene, &env);
     //cont.AddLogger(new ConsoleLogger());
     //cont.AddLogger(new FileLogger("logs.txt"));
+    
     env.setCellInteractor(&cont);
     win.setController(&cont);
+
+    win.setWindowTitle("Project Ambient");
     win.show();
     cont.setCellTracker(win.getCellTracker());
 
