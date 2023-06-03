@@ -1,14 +1,14 @@
 name: Generate Doxygen Documentation
 
-permissions:
-  contents: write
-
 on:
   push:
     branches:
       - master
       - main
-
+      
+permissions:
+  contents: write
+  
 jobs:
   build:
     runs-on: ubuntu-latest
