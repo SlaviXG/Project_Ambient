@@ -49,11 +49,7 @@ namespace environment
           const int HEIGHT; ///< The height of the environment.
 
           // upper limit of population for environment validation ( 2 = 200% of original population)
-<<<<<<< HEAD
           const int population_upper_limit = 15;
-=======
-          const int population_upper_limit = 2;
->>>>>>> parent of 5ca7e22 (deploy: 8fcaa0a45f0abf3482480a09ac1e2897f420d718)
           // TESTING ZONE
           //  Added for step limitation in order to test out genepools
           const int max_step_count_before_reset = 5000;
