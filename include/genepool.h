@@ -1,6 +1,9 @@
 #ifndef GENEPOOL_H
 #define GENEPOOL_H
+
 #include <iostream>
+#include <cassert>
+
 #include "Genotype.h"
 #include "cell.h"
 

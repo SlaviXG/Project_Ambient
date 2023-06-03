@@ -1,11 +1,11 @@
-#include "GameController.h"
+#include "../include/GameController.h"
 
 #include <utility>
 
 #include <QApplication>
 #include <QCoreApplication>
 
-#include "GameLogicThread.h"
+#include "../include/GameLogicThread.h"
 
 
 controller::GameController::GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment)

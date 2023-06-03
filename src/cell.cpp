@@ -1,5 +1,8 @@
-#include "cell.h"
-#include "Environment.h"
+#include "../include/cell.h"
+#include "../include/Environment.h"
+
+#include <cassert>
+
 
 namespace environment
 {
@@ -42,7 +45,7 @@ namespace environment
         }
         currentEnergy -= kMoveCost;
 
-        Q_ASSERT(environment != nullptr);
+        assert(environment != nullptr);
         environment->updateCellPosition(this, oldPos);
 
         if(currentEnergy <= 0)
@@ -598,7 +601,7 @@ namespace environment
 
         std::vector<double> inputs;
         std::vector<bool> vision;
-        Q_ASSERT(environment!=nullptr);
+        assert(environment!=nullptr);
         vision = environment->getVisionField(position);
 
         for(int i = 0; i < vision.size(); i++)

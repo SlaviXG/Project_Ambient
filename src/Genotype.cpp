@@ -1,4 +1,4 @@
-#include "Genotype.h"
+#include "../include/Genotype.h"
 #include <random>
 
 /*  INPUTS

@@ -1,19 +1,20 @@
-#include "mainwindow.h"
+#include "../include/mainwindow.h"
 
 #include <QApplication>
 #include <memory>
 
-#include "GameController.h"
-#include "Environment.h"
-#include "logger.h"
-#include "genepool.h"
+#include "../include/GameController.h"
+#include "../include/Environment.h"
+#include "../include/logger.h"
+#include "../include/genepool.h"
+
 #define DOCTEST_CONFIG_IMPLEMENT
 
-#include "doctest.h"
-#include "test_environment.hpp"
+#include "../tests/doctest.h"
+#include "../tests/test_environment.hpp"
 
-#include "EnvironmentDecorator.h"
-#include "GameControllerDecorator.h"
+#include "../include/EnvironmentDecorator.h"
+#include "../include/GameControllerDecorator.h"
 
 
 int main(int argc, char *argv[])

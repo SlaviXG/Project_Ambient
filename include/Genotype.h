@@ -1,8 +1,6 @@
 #ifndef GENOTYPE_H
 #define GENOTYPE_H
 
-#include <cassert>
-
 #include "Matrix.h"
 #include "point.h"
 

@@ -1,7 +1,7 @@
 #ifndef FRAME_H
 #define FRAME_H
 
-#include "Genotype.h" // For Point struct
+#include "point.h" // For Point struct
 #include "Environment.h"
 #include "point.h"
  

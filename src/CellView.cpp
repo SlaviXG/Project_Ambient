@@ -1,4 +1,4 @@
-#include "CellView.h"
+#include "../include/CellView.h"
 
 #include <QGraphicsSceneMouseEvent>
 

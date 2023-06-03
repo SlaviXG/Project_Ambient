@@ -6,9 +6,9 @@
 #include <QObject>
 #include <QString>
 
-#include <cell.h>
-#include <CellView.h>
-#include <Debouncer.h>
+#include "cell.h"
+#include "CellView.h"
+#include "Debouncer.h"
 
 class CellTracker : public QObject
 {

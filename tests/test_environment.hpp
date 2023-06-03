@@ -1,5 +1,5 @@
-#include "Environment.h"
-#include "cell.h"
+#include "../include/Environment.h"
+#include "../include/cell.h"
 
 #include "doctest.h"
 

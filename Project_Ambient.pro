@@ -9,43 +9,43 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    CellView.cpp \
-    Environment.cpp \
-    EnvironmentScene.cpp \
-    GameController.cpp \
-    Genotype.cpp \
-    cell.cpp \
-    celltracker.cpp \
-    frame.cpp \
-    genepool.cpp \
-    main.cpp \
-    mainwindow.cpp \
+    src/CellView.cpp \
+    src/Environment.cpp \
+    src/EnvironmentScene.cpp \
+    src/GameController.cpp \
+    src/Genotype.cpp \
+    src/cell.cpp \
+    src/celltracker.cpp \
+    src/frame.cpp \
+    src/genepool.cpp \
+    src/main.cpp \
+    src/mainwindow.cpp \
 
 HEADERS += \
-    CellView.h \
-    Debouncer.h \
-    celltracker.h \
-    CellViewGarbageCollector.h \
-    GameLogicThread.h \
-    EnvironmentDecorator.h \
-    GameControllerDecorator.h \
-    genepool.h \
-    logger.h \
-    point.h \
-    Environment.h \
-    EnvironmentScene.h \
-    GameController.h \
-    Genotype.h \
-    Matrix.h \
-    cell.h \
-    doctest.h \
-    frame.h \
-    mainwindow.h \
-    test_Genotype.hpp \
-    test_environment.hpp
+    include/CellView.h \
+    include/Debouncer.h \
+    include/celltracker.h \
+    include/CellViewGarbageCollector.h \
+    include/GameLogicThread.h \
+    include/EnvironmentDecorator.h \
+    include/GameControllerDecorator.h \
+    include/genepool.h \
+    include/logger.h \
+    include/point.h \
+    include/Environment.h \
+    include/EnvironmentScene.h \
+    include/GameController.h \
+    include/Genotype.h \
+    include/Matrix.h \
+    include/cell.h \
+    tests/doctest.h \
+    include/frame.h \
+    include/mainwindow.h \
+    tests/test_Genotype.hpp \
+    tests/test_environment.hpp
 
 FORMS += \
-    mainwindow.ui
+    ui/mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

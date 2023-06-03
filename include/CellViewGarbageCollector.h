@@ -2,7 +2,8 @@
 #define CELLVIEWGARBAGECOLLECTOR_H
 
 #include <QStack>
-#include <EnvironmentScene.h>
+
+#include "EnvironmentScene.h"
 
 namespace controller {
 class CellViewGarbageCollector

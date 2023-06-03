@@ -1,6 +1,8 @@
-#include "EnvironmentScene.h"
-#include "GameController.h"
+#include "../include/EnvironmentScene.h"
+
 #include <iostream>
+
+#include "../include/GameController.h"
 
 EnvironmentScene::EnvironmentScene(QObject *parent)
     : QGraphicsScene(parent)

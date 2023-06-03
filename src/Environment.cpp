@@ -1,11 +1,9 @@
-#include "Environment.h"
+#include "../include/Environment.h"
 
-#include <cassert>
-
-#include "frame.h"
-#include "cell.h"
-#include "GameController.h"
-#include "genepool.h"
+#include "../include/frame.h"
+#include "../include/cell.h"
+#include "../include/GameController.h"
+#include "../include/genepool.h"
 
 namespace environment
 {

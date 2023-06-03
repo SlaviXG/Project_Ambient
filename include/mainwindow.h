@@ -2,8 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <EnvironmentScene.h>
-#include <celltracker.h>
+
+#include "EnvironmentScene.h"
+#include "celltracker.h"
 
 namespace controller { class GameInteractor; }
 

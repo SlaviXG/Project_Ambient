@@ -1,7 +1,7 @@
-#include "mainwindow.h"
+#include "../include/mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include "GameController.h"
+#include "../include/GameController.h"
 
 
 
