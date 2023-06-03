@@ -49,7 +49,7 @@ namespace environment
           const int HEIGHT; ///< The height of the environment.
 
           // upper limit of population for environment validation ( 2 = 200% of original population)
-          const int population_upper_limit = 2;
+          const int population_upper_limit = 15;
           // TESTING ZONE
           //  Added for step limitation in order to test out genepools
           const int max_step_count_before_reset = 5000;
