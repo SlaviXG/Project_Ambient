@@ -35,7 +35,6 @@ ui_*.h
 qrc_*.cpp
 Thumbs.db
 *.res
-*.rc
 /.qmake.cache
 /.qmake.stash
 
@@ -76,7 +75,7 @@ Thumbs.db
 *.exe
 
 .qt
-CMakeFiles/
+build/
 build/.cmake/api/v1/query/client-vscode/query.json
 build/CMakeFiles/CMakeOutput.log
 build/CMakeFiles/cmake.check_cache
