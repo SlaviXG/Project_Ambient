@@ -1,7 +1,7 @@
 #ifndef FRAME_H
 #define FRAME_H
 
-#include "point.h" // For Point struct
+#include "point.h"
 #include "Environment.h"
 #include "point.h"
  
