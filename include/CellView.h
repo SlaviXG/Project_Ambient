@@ -9,8 +9,7 @@ namespace Ui { class CellView; }
 QT_END_NAMESPACE
 
 /**
- * The class CellView is responsible
- * for Cell's graphic representation.
+ * @brief CellView is responsible for Cell's graphic representation.
  **/
 class CellView : public QObject, public QGraphicsPixmapItem
 {
