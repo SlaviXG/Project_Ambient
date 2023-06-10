@@ -46,8 +46,12 @@ set(HEADERS
     include/Matrix.h
     include/cell.h
     tests/doctest.h
+    libs/json/json.hpp
     include/frame.h
     include/mainwindow.h
+    include/configs/Configuration.h
+    include/configs/ConfigurationHandler.h
+    include/configs/ConfigurationChain.h
     tests/test_Genotype.hpp
     tests/test_environment.hpp
 )

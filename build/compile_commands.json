@@ -141,6 +141,11 @@
 },
 {
   "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Project_Ambient.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\Project_Ambient.dir\\libs\\json\\moc_json.cpp.obj -c D:\\Projects\\Project_Ambient\\build\\libs\\json\\moc_json.cpp",
+  "file": "D:/Projects/Project_Ambient/build/libs/json/moc_json.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
   "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Project_Ambient.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\Project_Ambient.dir\\include\\moc_frame.cpp.obj -c D:\\Projects\\Project_Ambient\\build\\include\\moc_frame.cpp",
   "file": "D:/Projects/Project_Ambient/build/include/moc_frame.cpp"
 },
@@ -148,6 +153,21 @@
   "directory": "D:/Projects/Project_Ambient/build",
   "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Project_Ambient.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\Project_Ambient.dir\\include\\moc_mainwindow.cpp.obj -c D:\\Projects\\Project_Ambient\\build\\include\\moc_mainwindow.cpp",
   "file": "D:/Projects/Project_Ambient/build/include/moc_mainwindow.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Project_Ambient.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\Project_Ambient.dir\\include\\configs\\moc_Configuration.cpp.obj -c D:\\Projects\\Project_Ambient\\build\\include\\configs\\moc_Configuration.cpp",
+  "file": "D:/Projects/Project_Ambient/build/include/configs/moc_Configuration.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Project_Ambient.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\Project_Ambient.dir\\include\\configs\\moc_ConfigurationHandler.cpp.obj -c D:\\Projects\\Project_Ambient\\build\\include\\configs\\moc_ConfigurationHandler.cpp",
+  "file": "D:/Projects/Project_Ambient/build/include/configs/moc_ConfigurationHandler.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Project_Ambient.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\Project_Ambient.dir\\include\\configs\\moc_ConfigurationChain.cpp.obj -c D:\\Projects\\Project_Ambient\\build\\include\\configs\\moc_ConfigurationChain.cpp",
+  "file": "D:/Projects/Project_Ambient/build/include/configs/moc_ConfigurationChain.cpp"
 },
 {
   "directory": "D:/Projects/Project_Ambient/build",

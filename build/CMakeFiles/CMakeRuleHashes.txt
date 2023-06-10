@@ -1,6 +1,10 @@
 # Hashes of file build rules.
+93bde17131f0b5254d018471c1e82621 include/configs/moc_Configuration.cpp
+52f124d16b3ae22ddae61cbd1293d4ea include/configs/moc_ConfigurationChain.cpp
+e20823abc01d1118e04ad6039f7814f0 include/configs/moc_ConfigurationHandler.cpp
 d5ee8aab43db8d0ca19deba11e1503ce include/moc_CellView.cpp
 76e6e72ec36f316d0db2680f75981a8d include/moc_CellViewGarbageCollector.cpp
+ef908a8e17be64753b47abb6724ebc4f include/moc_Configuration.cpp
 18ebbe97a4c806a01d6c3a9ddcf4e03c include/moc_Debouncer.cpp
 eeb5d064d5aa44e7ca74b19900e73916 include/moc_Environment.cpp
 11a378b2ca5eccad1812b0fd80a68756 include/moc_EnvironmentDecorator.cpp
@@ -17,6 +21,7 @@ c5e1aae110981ae495f1caac3ea4ec44 include/moc_genepool.cpp
 dd60b0541cb737ae8de60e709bcd1be7 include/moc_logger.cpp
 068413904f5cfb3869202e9099e2830d include/moc_mainwindow.cpp
 51672432e633b6e6292fc0c5e132d839 include/moc_point.cpp
+4c76f651874e9c20a25615bc39b22ea0 libs/json/moc_json.cpp
 251ff7f2bb5dbb507001a93efc6a2906 qrc_resource.cpp
 7aebbcc44404405494da930dbe915df6 tests/moc_doctest.cpp
 f9518716a2d643a982ad6a7be6568842 tests/moc_test_Genotype.cpp

@@ -3,6 +3,7 @@
 #include <QApplication>
 #include <memory>
 
+#include "../include/configs/ConfigurationChain.h""
 #include "../include/GameController.h"
 #include "../include/Environment.h"
 #include "../include/logger.h"

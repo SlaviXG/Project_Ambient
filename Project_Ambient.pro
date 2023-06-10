@@ -22,6 +22,9 @@ SOURCES += \
     src/mainwindow.cpp \
 
 HEADERS += \
+    include/configs/Configuration.h \
+    include/configs/ConfigurationHandler.h \
+    include/configs/ConfigurationChain.h \
     include/CellView.h \
     include/Debouncer.h \
     include/celltracker.h \
@@ -41,6 +44,7 @@ HEADERS += \
     tests/doctest.h \
     include/frame.h \
     include/mainwindow.h \
+    libs/json/json.hpp \
     tests/test_Genotype.hpp \
     tests/test_environment.hpp
 

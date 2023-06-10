@@ -38,6 +38,9 @@ set(CMAKE_RC_TARGET_INCLUDE_PATH
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "D:/Projects/Project_Ambient/build/include/configs/moc_Configuration.cpp" "CMakeFiles/Project_Ambient.dir/include/configs/moc_Configuration.cpp.obj" "gcc" "CMakeFiles/Project_Ambient.dir/include/configs/moc_Configuration.cpp.obj.d"
+  "D:/Projects/Project_Ambient/build/include/configs/moc_ConfigurationChain.cpp" "CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationChain.cpp.obj" "gcc" "CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationChain.cpp.obj.d"
+  "D:/Projects/Project_Ambient/build/include/configs/moc_ConfigurationHandler.cpp" "CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationHandler.cpp.obj" "gcc" "CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationHandler.cpp.obj.d"
   "D:/Projects/Project_Ambient/build/include/moc_CellView.cpp" "CMakeFiles/Project_Ambient.dir/include/moc_CellView.cpp.obj" "gcc" "CMakeFiles/Project_Ambient.dir/include/moc_CellView.cpp.obj.d"
   "D:/Projects/Project_Ambient/build/include/moc_CellViewGarbageCollector.cpp" "CMakeFiles/Project_Ambient.dir/include/moc_CellViewGarbageCollector.cpp.obj" "gcc" "CMakeFiles/Project_Ambient.dir/include/moc_CellViewGarbageCollector.cpp.obj.d"
   "D:/Projects/Project_Ambient/build/include/moc_Debouncer.cpp" "CMakeFiles/Project_Ambient.dir/include/moc_Debouncer.cpp.obj" "gcc" "CMakeFiles/Project_Ambient.dir/include/moc_Debouncer.cpp.obj.d"
@@ -56,6 +59,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/Projects/Project_Ambient/build/include/moc_logger.cpp" "CMakeFiles/Project_Ambient.dir/include/moc_logger.cpp.obj" "gcc" "CMakeFiles/Project_Ambient.dir/include/moc_logger.cpp.obj.d"
   "D:/Projects/Project_Ambient/build/include/moc_mainwindow.cpp" "CMakeFiles/Project_Ambient.dir/include/moc_mainwindow.cpp.obj" "gcc" "CMakeFiles/Project_Ambient.dir/include/moc_mainwindow.cpp.obj.d"
   "D:/Projects/Project_Ambient/build/include/moc_point.cpp" "CMakeFiles/Project_Ambient.dir/include/moc_point.cpp.obj" "gcc" "CMakeFiles/Project_Ambient.dir/include/moc_point.cpp.obj.d"
+  "D:/Projects/Project_Ambient/build/libs/json/moc_json.cpp" "CMakeFiles/Project_Ambient.dir/libs/json/moc_json.cpp.obj" "gcc" "CMakeFiles/Project_Ambient.dir/libs/json/moc_json.cpp.obj.d"
   "D:/Projects/Project_Ambient/build/qrc_resource.cpp" "CMakeFiles/Project_Ambient.dir/qrc_resource.cpp.obj" "gcc" "CMakeFiles/Project_Ambient.dir/qrc_resource.cpp.obj.d"
   "D:/Projects/Project_Ambient/src/CellView.cpp" "CMakeFiles/Project_Ambient.dir/src/CellView.cpp.obj" "gcc" "CMakeFiles/Project_Ambient.dir/src/CellView.cpp.obj.d"
   "D:/Projects/Project_Ambient/src/Environment.cpp" "CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj" "gcc" "CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj.d"
