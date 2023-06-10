@@ -196,4 +196,5 @@ CMakeFiles/Project_Ambient.dir/src/genepool.cpp.obj: \
  C:/msys64/mingw64/include/c++/11.2.0/bit \
  C:/msys64/mingw64/include/c++/11.2.0/pstl/glue_numeric_defs.h \
  C:/msys64/mingw64/include/c++/11.2.0/pstl/execution_defs.h \
- D:/Projects/Project_Ambient/include/Point.h
+ D:/Projects/Project_Ambient/include/Point.h \
+ D:/Projects/Project_Ambient/include/configs/default.h

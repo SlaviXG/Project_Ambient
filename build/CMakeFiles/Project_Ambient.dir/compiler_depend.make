@@ -7,6 +7,8 @@ CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationChain.cpp.obj: i
 
 CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationHandler.cpp.obj: include/configs/moc_ConfigurationHandler.cpp
 
+CMakeFiles/Project_Ambient.dir/include/configs/moc_default.cpp.obj: include/configs/moc_default.cpp
+
 CMakeFiles/Project_Ambient.dir/include/moc_CellInteractor.cpp.obj: include/moc_CellInteractor.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_CellView.cpp.obj: include/moc_CellView.cpp \
@@ -662,7 +664,41 @@ CMakeFiles/Project_Ambient.dir/include/moc_GameController.cpp.obj: include/moc_G
   C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/mingw64/include/c++/11.2.0/bits/random.tcc \
   ../include/point.h \
+  ../include/configs/default.h \
   ../include/GameInteractor.h \
+  ../include/configs/ConfigurationHandler.h \
+  ../include/configs/Configuration.h \
+  ../libs/json/json.hpp \
+  C:/msys64/mingw64/include/c++/11.2.0/forward_list \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/valarray \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_before.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/slice_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_after.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/gslice.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/gslice_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/mask_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/indirect_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/version \
+  C:/msys64/mingw64/include/c++/11.2.0/cassert \
+  C:/msys64/mingw64/include/c++/11.2.0/filesystem \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_fwd.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_path.h \
+  C:/msys64/mingw64/include/c++/11.2.0/locale \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.h \
+  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/time_members.h \
+  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h \
+  C:/msys64/mingw64/include/c++/11.2.0/iomanip \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/quoted_string.h \
+  C:/msys64/mingw64/include/c++/11.2.0/codecvt \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_dir.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h \
+  C:/msys64/mingw64/include/c++/11.2.0/any \
   ../include/EnvironmentScene.h \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
@@ -742,14 +778,6 @@ CMakeFiles/Project_Ambient.dir/include/moc_GameController.cpp.obj: include/moc_G
   C:/msys64/mingw64/include/c++/11.2.0/thread \
   C:/msys64/mingw64/include/c++/11.2.0/bits/this_thread_sleep.h \
   ../include/logger.h \
-  C:/msys64/mingw64/include/c++/11.2.0/iomanip \
-  C:/msys64/mingw64/include/c++/11.2.0/locale \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.h \
-  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/time_members.h \
-  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/quoted_string.h \
   ../include/CellViewGarbageCollector.h
 
 CMakeFiles/Project_Ambient.dir/include/moc_GameControllerDecorator.cpp.obj: include/moc_GameControllerDecorator.cpp \
@@ -1082,7 +1110,41 @@ CMakeFiles/Project_Ambient.dir/include/moc_GameControllerDecorator.cpp.obj: incl
   C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/mingw64/include/c++/11.2.0/bits/random.tcc \
   ../include/point.h \
+  ../include/configs/default.h \
   ../include/GameInteractor.h \
+  ../include/configs/ConfigurationHandler.h \
+  ../include/configs/Configuration.h \
+  ../libs/json/json.hpp \
+  C:/msys64/mingw64/include/c++/11.2.0/forward_list \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/valarray \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_before.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/slice_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_after.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/gslice.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/gslice_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/mask_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/indirect_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/version \
+  C:/msys64/mingw64/include/c++/11.2.0/cassert \
+  C:/msys64/mingw64/include/c++/11.2.0/filesystem \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_fwd.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_path.h \
+  C:/msys64/mingw64/include/c++/11.2.0/locale \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.h \
+  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/time_members.h \
+  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h \
+  C:/msys64/mingw64/include/c++/11.2.0/iomanip \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/quoted_string.h \
+  C:/msys64/mingw64/include/c++/11.2.0/codecvt \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_dir.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h \
+  C:/msys64/mingw64/include/c++/11.2.0/any \
   ../include/EnvironmentScene.h \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
@@ -1162,14 +1224,6 @@ CMakeFiles/Project_Ambient.dir/include/moc_GameControllerDecorator.cpp.obj: incl
   C:/msys64/mingw64/include/c++/11.2.0/thread \
   C:/msys64/mingw64/include/c++/11.2.0/bits/this_thread_sleep.h \
   ../include/logger.h \
-  C:/msys64/mingw64/include/c++/11.2.0/iomanip \
-  C:/msys64/mingw64/include/c++/11.2.0/locale \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.h \
-  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/time_members.h \
-  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/quoted_string.h \
   ../include/CellViewGarbageCollector.h \
   ../include/GameLogicThread.h \
   C:/msys64/mingw64/include/c++/11.2.0/deque \
@@ -1512,7 +1566,41 @@ CMakeFiles/Project_Ambient.dir/include/moc_GameLogicThread.cpp.obj: include/moc_
   C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/mingw64/include/c++/11.2.0/bits/random.tcc \
   ../include/point.h \
+  ../include/configs/default.h \
   ../include/GameInteractor.h \
+  ../include/configs/ConfigurationHandler.h \
+  ../include/configs/Configuration.h \
+  ../libs/json/json.hpp \
+  C:/msys64/mingw64/include/c++/11.2.0/forward_list \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/valarray \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_before.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/slice_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_after.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/gslice.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/gslice_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/mask_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/indirect_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/version \
+  C:/msys64/mingw64/include/c++/11.2.0/cassert \
+  C:/msys64/mingw64/include/c++/11.2.0/filesystem \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_fwd.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_path.h \
+  C:/msys64/mingw64/include/c++/11.2.0/locale \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.h \
+  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/time_members.h \
+  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h \
+  C:/msys64/mingw64/include/c++/11.2.0/iomanip \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/quoted_string.h \
+  C:/msys64/mingw64/include/c++/11.2.0/codecvt \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_dir.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h \
+  C:/msys64/mingw64/include/c++/11.2.0/any \
   ../include/EnvironmentScene.h \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
@@ -1592,14 +1680,6 @@ CMakeFiles/Project_Ambient.dir/include/moc_GameLogicThread.cpp.obj: include/moc_
   C:/msys64/mingw64/include/c++/11.2.0/thread \
   C:/msys64/mingw64/include/c++/11.2.0/bits/this_thread_sleep.h \
   ../include/logger.h \
-  C:/msys64/mingw64/include/c++/11.2.0/iomanip \
-  C:/msys64/mingw64/include/c++/11.2.0/locale \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.h \
-  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/time_members.h \
-  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/quoted_string.h \
   ../include/CellViewGarbageCollector.h
 
 CMakeFiles/Project_Ambient.dir/include/moc_Genotype.cpp.obj: include/moc_Genotype.cpp
@@ -1976,6 +2056,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_celltracker.cpp.obj: include/moc_cell
   C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/mingw64/include/c++/11.2.0/bits/random.tcc \
   ../include/point.h \
+  ../include/configs/default.h \
   ../include/CellView.h \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsRectItem \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
@@ -2374,6 +2455,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_mainwindow.cpp.obj: include/moc_mainw
   C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/mingw64/include/c++/11.2.0/bits/random.tcc \
   ../include/point.h \
+  ../include/configs/default.h \
   ../include/Debouncer.h \
   C:/msys64/mingw64/include/c++/11.2.0/thread \
   C:/msys64/mingw64/include/c++/11.2.0/bits/std_thread.h \
@@ -2899,6 +2981,7 @@ CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj: ../src/Environment.cpp \
   ../include/Environment.h \
   ../include/cell.h \
   ../include/frame.h \
+  ../include/configs/default.h \
   ../include/GameController.h \
   C:/msys64/mingw64/include/c++/11.2.0/map \
   C:/msys64/mingw64/include/c++/11.2.0/bits/stl_tree.h \
@@ -3035,6 +3118,39 @@ CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj: ../src/Environment.cpp \
   ../include/CellInteractor.h \
   ../include/cell.h \
   ../include/GameInteractor.h \
+  ../include/configs/ConfigurationHandler.h \
+  ../include/configs/Configuration.h \
+  ../libs/json/json.hpp \
+  C:/msys64/mingw64/include/c++/11.2.0/forward_list \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/valarray \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_before.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/slice_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_after.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/gslice.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/gslice_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/mask_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/indirect_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/version \
+  C:/msys64/mingw64/include/c++/11.2.0/cassert \
+  C:/msys64/mingw64/include/c++/11.2.0/filesystem \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_fwd.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_path.h \
+  C:/msys64/mingw64/include/c++/11.2.0/locale \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.h \
+  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/time_members.h \
+  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h \
+  C:/msys64/mingw64/include/c++/11.2.0/iomanip \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/quoted_string.h \
+  C:/msys64/mingw64/include/c++/11.2.0/codecvt \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_dir.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h \
+  C:/msys64/mingw64/include/c++/11.2.0/any \
   ../include/EnvironmentScene.h \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
@@ -3114,17 +3230,8 @@ CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj: ../src/Environment.cpp \
   C:/msys64/mingw64/include/c++/11.2.0/thread \
   C:/msys64/mingw64/include/c++/11.2.0/bits/this_thread_sleep.h \
   ../include/logger.h \
-  C:/msys64/mingw64/include/c++/11.2.0/iomanip \
-  C:/msys64/mingw64/include/c++/11.2.0/locale \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.h \
-  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/time_members.h \
-  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/quoted_string.h \
   ../include/CellViewGarbageCollector.h \
-  ../include/genepool.h \
-  C:/msys64/mingw64/include/c++/11.2.0/cassert
+  ../include/genepool.h
 
 CMakeFiles/Project_Ambient.dir/src/EnvironmentScene.cpp.obj: ../src/EnvironmentScene.cpp \
   ../include/EnvironmentScene.h \
@@ -3506,7 +3613,41 @@ CMakeFiles/Project_Ambient.dir/src/EnvironmentScene.cpp.obj: ../src/EnvironmentS
   C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/mingw64/include/c++/11.2.0/bits/random.tcc \
   ../include/point.h \
+  ../include/configs/default.h \
   ../include/GameInteractor.h \
+  ../include/configs/ConfigurationHandler.h \
+  ../include/configs/Configuration.h \
+  ../libs/json/json.hpp \
+  C:/msys64/mingw64/include/c++/11.2.0/forward_list \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/valarray \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_before.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/slice_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_after.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/gslice.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/gslice_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/mask_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/indirect_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/version \
+  C:/msys64/mingw64/include/c++/11.2.0/cassert \
+  C:/msys64/mingw64/include/c++/11.2.0/filesystem \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_fwd.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_path.h \
+  C:/msys64/mingw64/include/c++/11.2.0/locale \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.h \
+  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/time_members.h \
+  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h \
+  C:/msys64/mingw64/include/c++/11.2.0/iomanip \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/quoted_string.h \
+  C:/msys64/mingw64/include/c++/11.2.0/codecvt \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_dir.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h \
+  C:/msys64/mingw64/include/c++/11.2.0/any \
   ../include/EnvironmentScene.h \
   ../include/mainwindow.h \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/QMainWindow \
@@ -3536,14 +3677,6 @@ CMakeFiles/Project_Ambient.dir/src/EnvironmentScene.cpp.obj: ../src/EnvironmentS
   C:/msys64/mingw64/include/c++/11.2.0/thread \
   C:/msys64/mingw64/include/c++/11.2.0/bits/this_thread_sleep.h \
   ../include/logger.h \
-  C:/msys64/mingw64/include/c++/11.2.0/iomanip \
-  C:/msys64/mingw64/include/c++/11.2.0/locale \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.h \
-  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/time_members.h \
-  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/quoted_string.h \
   ../include/CellViewGarbageCollector.h
 
 CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj: ../src/GameController.cpp \
@@ -3875,7 +4008,41 @@ CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj: ../src/GameController
   C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/mingw64/include/c++/11.2.0/bits/random.tcc \
   ../include/point.h \
+  ../include/configs/default.h \
   ../include/GameInteractor.h \
+  ../include/configs/ConfigurationHandler.h \
+  ../include/configs/Configuration.h \
+  ../libs/json/json.hpp \
+  C:/msys64/mingw64/include/c++/11.2.0/forward_list \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/valarray \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_before.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/slice_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_after.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/gslice.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/gslice_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/mask_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/indirect_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/version \
+  C:/msys64/mingw64/include/c++/11.2.0/cassert \
+  C:/msys64/mingw64/include/c++/11.2.0/filesystem \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_fwd.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_path.h \
+  C:/msys64/mingw64/include/c++/11.2.0/locale \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.h \
+  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/time_members.h \
+  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h \
+  C:/msys64/mingw64/include/c++/11.2.0/iomanip \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/quoted_string.h \
+  C:/msys64/mingw64/include/c++/11.2.0/codecvt \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_dir.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h \
+  C:/msys64/mingw64/include/c++/11.2.0/any \
   ../include/EnvironmentScene.h \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
@@ -3955,14 +4122,6 @@ CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj: ../src/GameController
   C:/msys64/mingw64/include/c++/11.2.0/thread \
   C:/msys64/mingw64/include/c++/11.2.0/bits/this_thread_sleep.h \
   ../include/logger.h \
-  C:/msys64/mingw64/include/c++/11.2.0/iomanip \
-  C:/msys64/mingw64/include/c++/11.2.0/locale \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.h \
-  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/time_members.h \
-  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/quoted_string.h \
   ../include/CellViewGarbageCollector.h \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/QApplication \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/qapplication.h \
@@ -3981,7 +4140,8 @@ CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj: ../src/GameController
   C:/msys64/mingw64/include/c++/11.2.0/deque \
   C:/msys64/mingw64/include/c++/11.2.0/bits/stl_deque.h \
   C:/msys64/mingw64/include/c++/11.2.0/bits/deque.tcc \
-  ../include/GameController.h
+  ../include/GameController.h \
+  ../include/configs/default.h
 
 CMakeFiles/Project_Ambient.dir/src/Genotype.cpp.obj: ../src/Genotype.cpp \
   ../include/Genotype.h \
@@ -4357,6 +4517,7 @@ CMakeFiles/Project_Ambient.dir/src/cell.cpp.obj: ../src/cell.cpp \
   C:/msys64/mingw64/include/c++/11.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/mingw64/include/c++/11.2.0/pstl/execution_defs.h \
   ../include/point.h \
+  ../include/configs/default.h \
   ../include/Environment.h \
   C:/msys64/mingw64/include/c++/11.2.0/cassert \
   C:/msys64/mingw64/x86_64-w64-mingw32/include/assert.h
@@ -4729,6 +4890,7 @@ CMakeFiles/Project_Ambient.dir/src/celltracker.cpp.obj: ../src/celltracker.cpp \
   C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/mingw64/include/c++/11.2.0/bits/random.tcc \
   ../include/point.h \
+  ../include/configs/default.h \
   ../include/CellView.h \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsRectItem \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
@@ -5130,7 +5292,8 @@ CMakeFiles/Project_Ambient.dir/src/genepool.cpp.obj: ../src/genepool.cpp \
   C:/msys64/mingw64/include/c++/11.2.0/bit \
   C:/msys64/mingw64/include/c++/11.2.0/pstl/glue_numeric_defs.h \
   C:/msys64/mingw64/include/c++/11.2.0/pstl/execution_defs.h \
-  ../include/point.h
+  ../include/point.h \
+  ../include/configs/default.h
 
 CMakeFiles/Project_Ambient.dir/src/main.cpp.obj: ../src/main.cpp \
   ../include/mainwindow.h \
@@ -5515,6 +5678,7 @@ CMakeFiles/Project_Ambient.dir/src/main.cpp.obj: ../src/main.cpp \
   C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/mingw64/include/c++/11.2.0/bits/random.tcc \
   ../include/point.h \
+  ../include/configs/default.h \
   ../include/Debouncer.h \
   C:/msys64/mingw64/include/c++/11.2.0/thread \
   C:/msys64/mingw64/include/c++/11.2.0/bits/std_thread.h \
@@ -5530,7 +5694,6 @@ CMakeFiles/Project_Ambient.dir/src/main.cpp.obj: ../src/main.cpp \
   C:/Qt/6.3.2/mingw_64/include/QtGui/qinputmethod.h \
   C:/Qt/6.3.2/mingw_64/include/QtCore/qlocale.h \
   C:/Qt/6.3.2/mingw_64/include/QtGui/qguiapplication_platform.h \
-  ../include/configs/ConfigurationChain.h \
   ../include/configs/Configuration.h \
   ../libs/json/json.hpp \
   C:/msys64/mingw64/include/c++/11.2.0/forward_list \
@@ -5563,6 +5726,8 @@ CMakeFiles/Project_Ambient.dir/src/main.cpp.obj: ../src/main.cpp \
   C:/msys64/mingw64/include/c++/11.2.0/bits/fs_dir.h \
   C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h \
   C:/msys64/mingw64/include/c++/11.2.0/any \
+  ../include/configs/ConfigurationChain.h \
+  ../include/configs/Configuration.h \
   ../include/configs/ConfigurationHandler.h \
   ../include/GameController.h \
   C:/Qt/6.3.2/mingw_64/include/QtCore/QTimer \
@@ -5585,6 +5750,7 @@ CMakeFiles/Project_Ambient.dir/src/main.cpp.obj: ../src/main.cpp \
   C:/Qt/6.3.2/mingw_64/include/QtCore/QMutexLocker \
   ../include/CellInteractor.h \
   ../include/GameInteractor.h \
+  ../include/configs/ConfigurationHandler.h \
   ../include/mainwindow.h \
   ../include/logger.h \
   ../include/CellViewGarbageCollector.h \
@@ -6162,6 +6328,7 @@ CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.obj: ../src/mainwindow.cpp \
   C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/opt_random.h \
   C:/msys64/mingw64/include/c++/11.2.0/bits/random.tcc \
   ../include/point.h \
+  ../include/configs/default.h \
   ../include/Debouncer.h \
   C:/msys64/mingw64/include/c++/11.2.0/thread \
   C:/msys64/mingw64/include/c++/11.2.0/bits/std_thread.h \
@@ -6235,16 +6402,41 @@ CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.obj: ../src/mainwindow.cpp \
   C:/Qt/6.3.2/mingw_64/include/QtCore/QMutexLocker \
   ../include/CellInteractor.h \
   ../include/GameInteractor.h \
-  ../include/mainwindow.h \
-  ../include/logger.h \
-  C:/msys64/mingw64/include/c++/11.2.0/iomanip \
+  ../include/configs/ConfigurationHandler.h \
+  ../include/configs/Configuration.h \
+  ../libs/json/json.hpp \
+  C:/msys64/mingw64/include/c++/11.2.0/forward_list \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/valarray \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.tcc \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_before.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/slice_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_after.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/gslice.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/gslice_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/mask_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/indirect_array.h \
+  C:/msys64/mingw64/include/c++/11.2.0/version \
+  C:/msys64/mingw64/include/c++/11.2.0/cassert \
+  C:/msys64/mingw64/include/c++/11.2.0/filesystem \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_fwd.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_path.h \
   C:/msys64/mingw64/include/c++/11.2.0/locale \
   C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.h \
   C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/time_members.h \
   C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h \
   C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc \
   C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h \
+  C:/msys64/mingw64/include/c++/11.2.0/iomanip \
   C:/msys64/mingw64/include/c++/11.2.0/bits/quoted_string.h \
+  C:/msys64/mingw64/include/c++/11.2.0/codecvt \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_dir.h \
+  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h \
+  C:/msys64/mingw64/include/c++/11.2.0/any \
+  ../include/mainwindow.h \
+  ../include/logger.h \
   ../include/CellViewGarbageCollector.h
 
 CMakeFiles/Project_Ambient.dir/tests/moc_doctest.cpp.obj: tests/moc_doctest.cpp
@@ -6296,13 +6488,19 @@ C:/msys64/mingw64/include/c++/11.2.0/bits/stl_relops.h:
 
 include/configs/moc_ConfigurationHandler.cpp:
 
-include/moc_CellView.cpp:
-
 C:/msys64/mingw64/include/c++/11.2.0/bits/shared_ptr_base.h:
 
 C:/msys64/mingw64/x86_64-w64-mingw32/include/stdint.h:
 
 C:/msys64/mingw64/include/c++/11.2.0/bits/stl_algobase.h:
+
+include/configs/moc_default.cpp:
+
+C:/msys64/mingw64/include/c++/11.2.0/ratio:
+
+C:/msys64/mingw64/include/c++/11.2.0/istream:
+
+include/moc_CellView.cpp:
 
 C:/msys64/mingw64/x86_64-w64-mingw32/include/winbase.h:
 
@@ -6347,10 +6545,6 @@ C:/msys64/mingw64/x86_64-w64-mingw32/include/guiddef.h:
 C:/msys64/mingw64/include/c++/11.2.0/bits/exception_defines.h:
 
 C:/msys64/mingw64/include/c++/11.2.0/bits/cpp_type_traits.h:
-
-C:/msys64/mingw64/include/c++/11.2.0/bits/functional_hash.h:
-
-include/moc_EnvironmentScene.cpp:
 
 C:/msys64/mingw64/include/c++/11.2.0/debug/assertions.h:
 
@@ -6491,6 +6685,10 @@ C:/msys64/mingw64/include/c++/11.2.0/bits/range_access.h:
 C:/msys64/mingw64/include/c++/11.2.0/bits/stl_function.h:
 
 C:/msys64/mingw64/include/c++/11.2.0/unordered_map:
+
+C:/msys64/mingw64/include/c++/11.2.0/bits/functional_hash.h:
+
+include/moc_EnvironmentScene.cpp:
 
 C:/msys64/mingw64/include/c++/11.2.0/bits/quoted_string.h:
 
@@ -6982,17 +7180,17 @@ C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.h:
 
 C:/msys64/mingw64/include/c++/11.2.0/bits/cxxabi_forced.h:
 
-C:/msys64/mingw64/include/c++/11.2.0/bits/basic_string.tcc:
-
 C:/msys64/mingw64/x86_64-w64-mingw32/include/driverspecs.h:
+
+C:/msys64/mingw64/include/c++/11.2.0/bits/basic_string.tcc:
 
 C:/msys64/mingw64/include/c++/11.2.0/string_view:
 
 C:/msys64/mingw64/include/c++/11.2.0/bits/string_view.tcc:
 
-C:/Qt/6.3.2/mingw_64/include/QtCore/qcoreapplication_platform.h:
-
 C:/msys64/mingw64/include/c++/11.2.0/any:
+
+C:/Qt/6.3.2/mingw_64/include/QtCore/qcoreapplication_platform.h:
 
 C:/msys64/mingw64/include/c++/11.2.0/cstdio:
 
@@ -7018,9 +7216,9 @@ C:/msys64/mingw64/x86_64-w64-mingw32/include/jobapi.h:
 
 C:/msys64/mingw64/include/c++/11.2.0/bits/streambuf.tcc:
 
-C:/msys64/mingw64/include/c++/11.2.0/algorithm:
-
 C:/msys64/mingw64/x86_64-w64-mingw32/include/winnt.h:
+
+C:/msys64/mingw64/include/c++/11.2.0/algorithm:
 
 C:/msys64/mingw64/include/c++/11.2.0/pstl/glue_algorithm_defs.h:
 
@@ -7107,10 +7305,6 @@ C:/msys64/mingw64/include/c++/11.2.0/bits/stl_multimap.h:
 C:/Qt/6.3.2/mingw_64/include/QtCore/qbindingstorage.h:
 
 C:/msys64/mingw64/include/c++/11.2.0/chrono:
-
-C:/msys64/mingw64/include/c++/11.2.0/ratio:
-
-C:/msys64/mingw64/include/c++/11.2.0/istream:
 
 C:/msys64/mingw64/include/c++/11.2.0/ctime:
 
@@ -7294,7 +7488,45 @@ C:/msys64/mingw64/include/c++/11.2.0/random:
 
 C:/msys64/mingw64/include/c++/11.2.0/bits/random.h:
 
+../include/configs/default.h:
+
 ../include/GameInteractor.h:
+
+C:/msys64/mingw64/include/c++/11.2.0/climits:
+
+C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.h:
+
+C:/Qt/6.3.2/mingw_64/include/QtWidgets/qabstractbutton.h:
+
+C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.tcc:
+
+C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.tcc:
+
+../src/cell.cpp:
+
+C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_before.h:
+
+C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_after.h:
+
+C:/Qt/6.3.2/mingw_64/include/QtGui/qpen.h:
+
+C:/msys64/mingw64/include/c++/11.2.0/bits/fs_path.h:
+
+C:/msys64/mingw64/include/c++/11.2.0/locale:
+
+C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h:
+
+C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc:
+
+C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h:
+
+C:/msys64/mingw64/include/c++/11.2.0/codecvt:
+
+C:/msys64/mingw64/include/c++/11.2.0/bits/fs_dir.h:
+
+C:/msys64/mingw64/include/c++/11.2.0/deque:
+
+C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h:
 
 ../include/EnvironmentScene.h:
 
@@ -7303,10 +7535,6 @@ C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicsscene.h:
 C:/Qt/6.3.2/mingw_64/include/QtWidgets/qsplitter.h:
 
 C:/Qt/6.3.2/mingw_64/include/QtGui/qfont.h:
-
-C:/msys64/mingw64/include/c++/11.2.0/bits/fs_path.h:
-
-C:/Qt/6.3.2/mingw_64/include/QtGui/qpen.h:
 
 ../include/mainwindow.h:
 
@@ -7340,19 +7568,7 @@ C:/msys64/mingw64/include/c++/11.2.0/bits/this_thread_sleep.h:
 
 ../include/logger.h:
 
-C:/msys64/mingw64/include/c++/11.2.0/locale:
-
-C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h:
-
-C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc:
-
-C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h:
-
 ../include/CellViewGarbageCollector.h:
-
-C:/msys64/mingw64/include/c++/11.2.0/deque:
-
-C:/msys64/mingw64/include/c++/11.2.0/bits/fs_dir.h:
 
 include/moc_Genotype.cpp:
 
@@ -7391,26 +7607,6 @@ C:/Qt/6.3.2/mingw_64/include/QtCore/qnativeinterface.h:
 C:/Qt/6.3.2/mingw_64/include/QtGui/qinputmethod.h:
 
 C:/Qt/6.3.2/mingw_64/include/QtCore/qlocale.h:
-
-C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_before.h:
-
-../src/cell.cpp:
-
-C:/msys64/mingw64/include/c++/11.2.0/climits:
-
-C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.h:
-
-C:/Qt/6.3.2/mingw_64/include/QtWidgets/qabstractbutton.h:
-
-C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.tcc:
-
-C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.tcc:
-
-C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_after.h:
-
-C:/msys64/mingw64/include/c++/11.2.0/codecvt:
-
-C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h:
 
 C:/msys64/mingw64/x86_64-w64-mingw32/include/float.h:
 

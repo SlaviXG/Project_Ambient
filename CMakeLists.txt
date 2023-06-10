@@ -54,6 +54,7 @@ set(HEADERS
     include/configs/Configuration.h
     include/configs/ConfigurationHandler.h
     include/configs/ConfigurationChain.h
+    include/configs/default.h
     tests/test_Genotype.hpp
     tests/test_environment.hpp
 )

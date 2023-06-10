@@ -194,6 +194,7 @@ CMakeFiles/Project_Ambient.dir/src/cell.cpp.obj: \
  C:/msys64/mingw64/include/c++/11.2.0/pstl/glue_numeric_defs.h \
  C:/msys64/mingw64/include/c++/11.2.0/pstl/execution_defs.h \
  D:/Projects/Project_Ambient/include/Point.h \
+ D:/Projects/Project_Ambient/include/configs/default.h \
  D:/Projects/Project_Ambient/include/Environment.h \
  C:/msys64/mingw64/include/c++/11.2.0/cassert \
  C:/msys64/mingw64/x86_64-w64-mingw32/include/assert.h

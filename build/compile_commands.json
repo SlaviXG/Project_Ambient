@@ -181,6 +181,11 @@
 },
 {
   "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Project_Ambient.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\Project_Ambient.dir\\include\\configs\\moc_default.cpp.obj -c D:\\Projects\\Project_Ambient\\build\\include\\configs\\moc_default.cpp",
+  "file": "D:/Projects/Project_Ambient/build/include/configs/moc_default.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
   "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Project_Ambient.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\Project_Ambient.dir\\tests\\moc_test_Genotype.cpp.obj -c D:\\Projects\\Project_Ambient\\build\\tests\\moc_test_Genotype.cpp",
   "file": "D:/Projects/Project_Ambient/build/tests/moc_test_Genotype.cpp"
 },

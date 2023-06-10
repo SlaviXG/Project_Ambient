@@ -22,6 +22,7 @@
 
 #include "CellInteractor.h"
 #include "GameInteractor.h"
+#include "configs/ConfigurationHandler.h"
 #include "Environment.h"
 #include "EnvironmentScene.h"
 #include "mainwindow.h"
@@ -31,16 +32,14 @@
 #include "logger.h"
 #include "CellViewGarbageCollector.h"
 
-
 class GameLogicThread;
 
 namespace controller
 {
-    static int kCellSize = 4;                ///< Default size of a cell
-    static int kFps = 10;                    ///< Frames per second of the game update
-    static int kViewPadding;                 ///< Padding around the view
-    static size_t kStartingCellCount = 200;  ///< Initial cell count when the game starts
-
+    static int cellSize = 4;               ///< Default size of a cell
+    static int fps = 10;                   ///< Frames per second of the game update
+    static int viewPadding = 2;            ///< Padding around the view
+    static size_t startingCellCount = 200; ///< Initial cell count when the game starts
 
     /**
      * @brief GameController class is responsible for managing the game logic and updating the graphical representation of the game.
@@ -49,7 +48,7 @@ namespace controller
      * different parts of the application like views and environment, and provides an interface for generating random cells and
      * controlling the game.
      */
-    class GameController : public QObject, public CellInteractor, public GameInteractor
+    class GameController : public QObject, public CellInteractor, public GameInteractor, public ConfigurationHandler
     {
         Q_OBJECT
 
@@ -136,6 +135,18 @@ namespace controller
          * @brief Process AI actions for all active cells in the game.
          */
         void processAI();
+
+        /**
+         * @brief Load configurations from a Configuration object.
+         * @param config The Configuration object.
+         */
+        void loadConfiguration(Configuration &config) override;
+
+        /**
+         * @brief Save configurationsto a Configuration object.
+         * @param config The Configuration object.
+         */
+        void saveConfiguration(Configuration &config) override;
 
     public slots:
         /**

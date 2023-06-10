@@ -25,6 +25,7 @@ HEADERS += \
     include/configs/Configuration.h \
     include/configs/ConfigurationHandler.h \
     include/configs/ConfigurationChain.h \
+    include/configs/default.h  \
     include/CellView.h \
     include/Debouncer.h \
     include/celltracker.h \
