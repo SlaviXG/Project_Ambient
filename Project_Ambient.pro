@@ -44,6 +44,8 @@ HEADERS += \
     tests/doctest.h \
     include/frame.h \
     include/mainwindow.h \
+    include/CellInteractor.h \ 
+    include/GameInteractor.h \
     libs/json/json.hpp \
     tests/test_Genotype.hpp \
     tests/test_environment.hpp

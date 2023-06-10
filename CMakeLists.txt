@@ -49,6 +49,8 @@ set(HEADERS
     libs/json/json.hpp
     include/frame.h
     include/mainwindow.h
+    include/CellInteractor.h
+    include/GameInteractor.h
     include/configs/Configuration.h
     include/configs/ConfigurationHandler.h
     include/configs/ConfigurationChain.h

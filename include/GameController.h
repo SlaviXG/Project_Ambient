@@ -9,6 +9,19 @@
 #ifndef GAMECONTROLLER_H_
 #define GAMECONTROLLER_H_
 
+#include <vector>
+#include <string>
+#include <map>
+
+#include <QTimer>
+#include <QObject>
+#include <QMutex>
+#include <QStack>
+#include <QThread>
+#include <QMutexLocker>
+
+#include "CellInteractor.h"
+#include "GameInteractor.h"
 #include "Environment.h"
 #include "EnvironmentScene.h"
 #include "mainwindow.h"
@@ -18,85 +31,16 @@
 #include "logger.h"
 #include "CellViewGarbageCollector.h"
 
-#include <QTimer>
-#include <QObject>
-#include <QMutex>
-#include <QStack>
-#include <QThread>
-#include <QMutexLocker>
-
-#include <vector>
-#include <string>
-#include <map>
 
 class GameLogicThread;
 
 namespace controller
 {
-    constexpr int kCellSize = 4;                ///< Default size of a cell
-    constexpr int kFps = 10;                    ///< Frames per second of the game update
-    constexpr int kViewPadding = kCellSize / 2; ///< Padding around the view
-    constexpr size_t kStartingCellCount = 200;  ///< Initial cell count when the game starts
+    static int kCellSize = 4;                ///< Default size of a cell
+    static int kFps = 10;                    ///< Frames per second of the game update
+    static int kViewPadding;                 ///< Padding around the view
+    static size_t kStartingCellCount = 200;  ///< Initial cell count when the game starts
 
-    /**
-     * @brief CellInteractor interface for interacting with the controller from the logic layer.
-     */
-    class CellInteractor
-    {
-    public:
-        /**
-         * @brief Add a cell to the controller and view layer.
-         * @param cell The cell to add.
-         */
-        virtual void addCell(environment::Cell *cell) = 0;
-        /**
-         * @brief Remove a cell from the the controller and view layers
-         * @param cell The cell to remove.
-         */
-        virtual void removeCell(environment::Cell *cell) = 0;
-        /**
-         * @brief Add a cell to a specific point in the controller and view layer.
-         * @param point The point to add the cell.
-         */
-        virtual void addCell(const Point &point) = 0;
-        /**
-         * @brief Add a cell with a specific genotype to a specific point in the controller and view layer.
-         * @param point The point to add the cell.
-         * @param genotype The genotype of the cell.
-         */
-        virtual void addCell(const Point &point, genotype::Genotype *genotype) = 0;
-    };
-
-    /**
-     * @brief GameInteractor interface for interacting with the controller from the view layer.
-     */
-    class GameInteractor
-    {
-    public:
-        /**
-         * @brief Add a cell to a specific point in the game.
-         * @param point The point to add the cell.
-         */
-        virtual void addCell(const Point &point) = 0;
-        /**
-         * @brief Add a cell to a specific point in the game with specific count of weights.
-         * @param point The point to add the cell.
-         * @param countOfWeights The count of weights for the cell.
-         */
-        virtual void addCell(const Point &point, const std::vector<int> &countOfWeights) = 0;
-        /// Start the game.
-
-        virtual void start() = 0;
-        /// Stop the game.
-
-        virtual void stop() = 0;
-        /// Pause the game.
-
-        virtual void pause() = 0;
-        /// Resume the game.
-
-        virtual void resume() = 0;
-    };
 
     /**
      * @brief GameController class is responsible for managing the game logic and updating the graphical representation of the game.
