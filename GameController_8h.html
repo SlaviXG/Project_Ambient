@@ -67,8 +67,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
 <div class="title">GameController.h File Reference</div>  </div>
 </div><!--header-->
@@ -76,7 +75,19 @@ $(function() {
 
 <p>This header file contains GameController, GameInteractor and CellInteractor classes.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;Environment.h&quot;</code><br />
+<div class="textblock"><code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
+<code>#include &lt;QTimer&gt;</code><br />
+<code>#include &lt;QObject&gt;</code><br />
+<code>#include &lt;QMutex&gt;</code><br />
+<code>#include &lt;QStack&gt;</code><br />
+<code>#include &lt;QThread&gt;</code><br />
+<code>#include &lt;QMutexLocker&gt;</code><br />
+<code>#include &quot;CellInteractor.h&quot;</code><br />
+<code>#include &quot;GameInteractor.h&quot;</code><br />
+<code>#include &quot;configs/ConfigurationHandler.h&quot;</code><br />
+<code>#include &quot;Environment.h&quot;</code><br />
 <code>#include &quot;EnvironmentScene.h&quot;</code><br />
 <code>#include &quot;mainwindow.h&quot;</code><br />
 <code>#include &quot;point.h&quot;</code><br />
@@ -84,48 +95,15 @@ $(function() {
 <code>#include &quot;CellView.h&quot;</code><br />
 <code>#include &quot;logger.h&quot;</code><br />
 <code>#include &quot;CellViewGarbageCollector.h&quot;</code><br />
-<code>#include &lt;QTimer&gt;</code><br />
-<code>#include &lt;QObject&gt;</code><br />
-<code>#include &lt;QMutex&gt;</code><br />
-<code>#include &lt;QStack&gt;</code><br />
-<code>#include &lt;QThread&gt;</code><br />
-<code>#include &lt;QMutexLocker&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
+<code>#include &quot;configs/ConfigurationChain.h&quot;</code><br />
 </div>
 <p><a href="GameController_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcontroller_1_1CellInteractor.html">controller::CellInteractor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classcontroller_1_1CellInteractor.html" title="CellInteractor interface for interacting with the controller from the logic layer.">CellInteractor</a> interface for interacting with the controller from the logic layer.  <a href="classcontroller_1_1CellInteractor.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcontroller_1_1GameInteractor.html">controller::GameInteractor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classcontroller_1_1GameInteractor.html" title="GameInteractor interface for interacting with the controller from the view layer.">GameInteractor</a> interface for interacting with the controller from the view layer.  <a href="classcontroller_1_1GameInteractor.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcontroller_1_1GameController.html">controller::GameController</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classcontroller_1_1GameController.html" title="GameController class is responsible for managing the game logic and updating the graphical representa...">GameController</a> class is responsible for managing the game logic and updating the graphical representation of the game.  <a href="classcontroller_1_1GameController.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a142069569a103159fe2f66dc098dc35b"><td class="memItemLeft" align="right" valign="top"><a id="a142069569a103159fe2f66dc098dc35b"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GameController_8h.html#a142069569a103159fe2f66dc098dc35b">controller::kCellSize</a> = 4</td></tr>
-<tr class="memdesc:a142069569a103159fe2f66dc098dc35b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default size of a cell. <br /></td></tr>
-<tr class="separator:a142069569a103159fe2f66dc098dc35b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e76f2c1f4a1864cec03b1f6f6f64195"><td class="memItemLeft" align="right" valign="top"><a id="a8e76f2c1f4a1864cec03b1f6f6f64195"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GameController_8h.html#a8e76f2c1f4a1864cec03b1f6f6f64195">controller::kFps</a> = 10</td></tr>
-<tr class="memdesc:a8e76f2c1f4a1864cec03b1f6f6f64195"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frames per second of the game update. <br /></td></tr>
-<tr class="separator:a8e76f2c1f4a1864cec03b1f6f6f64195"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abac6d0ce7ec349b79d6203adc39bf976"><td class="memItemLeft" align="right" valign="top"><a id="abac6d0ce7ec349b79d6203adc39bf976"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GameController_8h.html#abac6d0ce7ec349b79d6203adc39bf976">controller::kViewPadding</a> = kCellSize / 2</td></tr>
-<tr class="memdesc:abac6d0ce7ec349b79d6203adc39bf976"><td class="mdescLeft">&#160;</td><td class="mdescRight">Padding around the view. <br /></td></tr>
-<tr class="separator:abac6d0ce7ec349b79d6203adc39bf976"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa211387e200f82144d67463fb9eaee7"><td class="memItemLeft" align="right" valign="top"><a id="aaa211387e200f82144d67463fb9eaee7"></a>
-constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="GameController_8h.html#aaa211387e200f82144d67463fb9eaee7">controller::kStartingCellCount</a> = 200</td></tr>
-<tr class="memdesc:aaa211387e200f82144d67463fb9eaee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial cell count when the game starts. <br /></td></tr>
-<tr class="separator:aaa211387e200f82144d67463fb9eaee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This header file contains GameController, GameInteractor and CellInteractor classes. </p>

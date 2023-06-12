@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['notifyloggers_68',['NotifyLoggers',['../classcontroller_1_1GameController.html#a3bbaf66abf38e72f7393a0859a5186bf',1,'controller::GameController']]]
+  ['opensettingswindow_66',['openSettingsWindow',['../classcontroller_1_1GameController.html#a786d9a0e02b5c47cee205064771ba345',1,'controller::GameController::openSettingsWindow()'],['../classcontroller_1_1GameInteractor.html#a7726e5c95f9f2ed4118f02fa4a74822a',1,'controller::GameInteractor::openSettingsWindow()']]]
 ];

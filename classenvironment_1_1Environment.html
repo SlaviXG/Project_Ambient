@@ -84,7 +84,7 @@ Inheritance diagram for environment::Environment:</div>
  <div class="center">
   <img src="classenvironment_1_1Environment.png" usemap="#environment::Environment_map" alt=""/>
   <map id="environment::Environment_map" name="environment::Environment_map">
-<area href="classenvironment_1_1EnvironmentDecorator.html" alt="environment::EnvironmentDecorator" shape="rect" coords="0,56,214,80"/>
+<area href="classenvironment_1_1EnvironmentDecorator.html" alt="environment::EnvironmentDecorator" shape="rect" coords="0,112,214,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -181,6 +181,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a79dd61e896836f04972f24ae4a7b35c3"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classenvironment_1_1Environment.html#a79dd61e896836f04972f24ae4a7b35c3">getMaxCellCount</a> ()</td></tr>
 <tr class="memdesc:a79dd61e896836f04972f24ae4a7b35c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum cell count.  <a href="classenvironment_1_1Environment.html#a79dd61e896836f04972f24ae4a7b35c3">More...</a><br /></td></tr>
 <tr class="separator:a79dd61e896836f04972f24ae4a7b35c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea5df7fe82e352953dce5f9a894e4a84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classenvironment_1_1Environment.html#aea5df7fe82e352953dce5f9a894e4a84">loadConfiguration</a> (Configuration &amp;config) override</td></tr>
+<tr class="memdesc:aea5df7fe82e352953dce5f9a894e4a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load configurations from a Configuration object.  <a href="classenvironment_1_1Environment.html#aea5df7fe82e352953dce5f9a894e4a84">More...</a><br /></td></tr>
+<tr class="separator:aea5df7fe82e352953dce5f9a894e4a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a806249eababd1fa588ed5b9938f460f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classenvironment_1_1Environment.html#a806249eababd1fa588ed5b9938f460f8">saveConfiguration</a> (Configuration &amp;config) const override</td></tr>
+<tr class="memdesc:a806249eababd1fa588ed5b9938f460f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save configurationsto a Configuration object.  <a href="classenvironment_1_1Environment.html#a806249eababd1fa588ed5b9938f460f8">More...</a><br /></td></tr>
+<tr class="separator:a806249eababd1fa588ed5b9938f460f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents the environment in which cells live. </p>
@@ -817,6 +823,40 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 
 </div>
 </div>
+<a id="aea5df7fe82e352953dce5f9a894e4a84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea5df7fe82e352953dce5f9a894e4a84">&#9670;&nbsp;</a></span>loadConfiguration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void environment::Environment::loadConfiguration </td>
+          <td>(</td>
+          <td class="paramtype">Configuration &amp;&#160;</td>
+          <td class="paramname"><em>config</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Load configurations from a Configuration object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>The Configuration object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a87760c221755f9215af5724829588830"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a87760c221755f9215af5724829588830">&#9670;&nbsp;</a></span>randomFreePosition()</h2>
 
@@ -887,6 +927,40 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </dl>
 
 <p>Reimplemented in <a class="el" href="classenvironment_1_1EnvironmentDecorator.html#a9818db9651b589679fa4ec367efd2bb8">environment::EnvironmentDecorator</a>.</p>
+
+</div>
+</div>
+<a id="a806249eababd1fa588ed5b9938f460f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a806249eababd1fa588ed5b9938f460f8">&#9670;&nbsp;</a></span>saveConfiguration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void environment::Environment::saveConfiguration </td>
+          <td>(</td>
+          <td class="paramtype">Configuration &amp;&#160;</td>
+          <td class="paramname"><em>config</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Save configurationsto a Configuration object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>The Configuration object. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

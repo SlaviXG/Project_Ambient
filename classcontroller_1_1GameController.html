@@ -89,7 +89,7 @@ Inheritance diagram for controller::GameController:</div>
   <map id="controller::GameController_map" name="controller::GameController_map">
 <area href="classcontroller_1_1CellInteractor.html" title="CellInteractor interface for interacting with the controller from the logic layer." alt="controller::CellInteractor" shape="rect" coords="227,0,444,24"/>
 <area href="classcontroller_1_1GameInteractor.html" title="GameInteractor interface for interacting with the controller from the view layer." alt="controller::GameInteractor" shape="rect" coords="454,0,671,24"/>
-<area href="classcontroller_1_1GameControllerDecorator.html" alt="controller::GameControllerDecorator" shape="rect" coords="227,112,444,136"/>
+<area href="classcontroller_1_1GameControllerDecorator.html" alt="controller::GameControllerDecorator" shape="rect" coords="340,112,557,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -153,6 +153,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcontroller_1_1GameController.html#a5256815655828dc44e3215666344e306">processAI</a> ()</td></tr>
 <tr class="memdesc:a5256815655828dc44e3215666344e306"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process AI actions for all active cells in the game. <br /></td></tr>
 <tr class="separator:a5256815655828dc44e3215666344e306"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a453a73e213a5fcb42b41d10ecae7688c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcontroller_1_1GameController.html#a453a73e213a5fcb42b41d10ecae7688c">setConfigs</a> (ConfigurationChain *chain, Configuration *configs)</td></tr>
+<tr class="memdesc:a453a73e213a5fcb42b41d10ecae7688c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the ConfigurationChain object.  <a href="classcontroller_1_1GameController.html#a453a73e213a5fcb42b41d10ecae7688c">More...</a><br /></td></tr>
+<tr class="separator:a453a73e213a5fcb42b41d10ecae7688c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dc6caea9c6975cd87c672b7d8c5c27b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcontroller_1_1GameController.html#a2dc6caea9c6975cd87c672b7d8c5c27b">loadConfiguration</a> (Configuration &amp;config) override</td></tr>
+<tr class="memdesc:a2dc6caea9c6975cd87c672b7d8c5c27b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load configurations from a Configuration object.  <a href="classcontroller_1_1GameController.html#a2dc6caea9c6975cd87c672b7d8c5c27b">More...</a><br /></td></tr>
+<tr class="separator:a2dc6caea9c6975cd87c672b7d8c5c27b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac1a3fd0f19600d75f2f45c045257f81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcontroller_1_1GameController.html#aac1a3fd0f19600d75f2f45c045257f81">saveConfiguration</a> (Configuration &amp;config) const override</td></tr>
+<tr class="memdesc:aac1a3fd0f19600d75f2f45c045257f81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save configurationsto a Configuration object.  <a href="classcontroller_1_1GameController.html#aac1a3fd0f19600d75f2f45c045257f81">More...</a><br /></td></tr>
+<tr class="separator:aac1a3fd0f19600d75f2f45c045257f81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a786d9a0e02b5c47cee205064771ba345"><td class="memItemLeft" align="right" valign="top"><a id="a786d9a0e02b5c47cee205064771ba345"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcontroller_1_1GameController.html#a786d9a0e02b5c47cee205064771ba345">openSettingsWindow</a> () override</td></tr>
+<tr class="memdesc:a786d9a0e02b5c47cee205064771ba345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open Settings Window. <br /></td></tr>
+<tr class="separator:a786d9a0e02b5c47cee205064771ba345"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -642,6 +655,40 @@ QTimer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 
 </div>
 </div>
+<a id="a2dc6caea9c6975cd87c672b7d8c5c27b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dc6caea9c6975cd87c672b7d8c5c27b">&#9670;&nbsp;</a></span>loadConfiguration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void controller::GameController::loadConfiguration </td>
+          <td>(</td>
+          <td class="paramtype">Configuration &amp;&#160;</td>
+          <td class="paramname"><em>config</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Load configurations from a Configuration object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>The Configuration object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a3bbaf66abf38e72f7393a0859a5186bf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3bbaf66abf38e72f7393a0859a5186bf">&#9670;&nbsp;</a></span>NotifyLoggers()</h2>
 
@@ -740,6 +787,40 @@ QTimer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 
 </div>
 </div>
+<a id="aac1a3fd0f19600d75f2f45c045257f81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac1a3fd0f19600d75f2f45c045257f81">&#9670;&nbsp;</a></span>saveConfiguration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void controller::GameController::saveConfiguration </td>
+          <td>(</td>
+          <td class="paramtype">Configuration &amp;&#160;</td>
+          <td class="paramname"><em>config</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Save configurationsto a Configuration object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>The Configuration object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="afe2cc2d05bfbdbf60b28098321ad5d0d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afe2cc2d05bfbdbf60b28098321ad5d0d">&#9670;&nbsp;</a></span>setCellTracker()</h2>
 
@@ -760,6 +841,43 @@ QTimer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cellTracker</td><td>The cell tracker object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a453a73e213a5fcb42b41d10ecae7688c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a453a73e213a5fcb42b41d10ecae7688c">&#9670;&nbsp;</a></span>setConfigs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void controller::GameController::setConfigs </td>
+          <td>(</td>
+          <td class="paramtype">ConfigurationChain *&#160;</td>
+          <td class="paramname"><em>chain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Configuration *&#160;</td>
+          <td class="paramname"><em>configs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the ConfigurationChain object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chain</td><td>The chain of all application parts </td></tr>
+    <tr><td class="paramname">configs</td><td>Application settings </td></tr>
   </table>
   </dd>
 </dl>
