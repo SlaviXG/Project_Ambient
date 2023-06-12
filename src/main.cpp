@@ -1,6 +1,7 @@
 #include "../include/mainwindow.h"
 
 #include <QApplication>
+#include <QFile>
 #include <memory>
 
 #include "../include/configs/Configuration.h"
@@ -50,6 +51,12 @@ int main(int argc, char *argv[])
     //controller::GameControllerDecorator cont(&win, &scene, &env);
     //cont.AddLogger(new ConsoleLogger());
     //cont.AddLogger(new FileLogger("logs.txt"));
+
+    QFile file(":/resources/cell_color_gradations/resources/SyNet.qss");
+    file.open(QFile::ReadOnly);
+    QString styleSheet = QLatin1String(file.readAll());
+    win.setStyleSheet(styleSheet);
+    a.setStyleSheet(styleSheet);
 
     chain.addHandler(&env);
     chain.addHandler(&cont);
