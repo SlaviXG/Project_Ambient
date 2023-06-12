@@ -9,7 +9,7 @@ namespace environment
 {
     // Constructors / Destructors
     Environment::Environment(int WIDTH, int HEIGHT, controller::CellInteractor *interactor, genepool::GenePool* pool)
-        : WIDTH(WIDTH), HEIGHT(HEIGHT), interactor(interactor)
+    : WIDTH(WIDTH), HEIGHT(HEIGHT), interactor(interactor)
     {
         frameMatrix.resize(HEIGHT);
 
@@ -332,5 +332,50 @@ namespace environment
         }
         cur_step_count++;
 
+    }
+
+    void Environment::loadConfiguration(Configuration &config)
+    {
+        kEnvironmentWidth = config.get<int>("kEnvironmentWidth", kEnvironmentWidth); WIDTH = kEnvironmentWidth;
+        kEnvironmentHeight = config.get<int>("kEnvironmentHeight", kEnvironmentHeight); HEIGHT = kEnvironmentHeight;
+
+        frameMatrix.resize(HEIGHT);
+        for (auto &row : frameMatrix)
+        {
+            row.resize(WIDTH, nullptr);
+        }
+
+        kMaxEnergy = config.get<int>("kMaxEnergy", kMaxEnergy);
+        kMinEnergy = config.get<int>("kMinEnergy", kMinEnergy);
+
+        kSteps = config.get<int>("kSteps", kSteps);
+        kMoveCost = config.get<int>("kMoveCost", kMoveCost);
+        kPhotosynthesisAdd = config.get<int>("kPhotosynthesisAdd", kPhotosynthesisAdd);
+        kAttackCoefficient = config.get<float>("kAttackCoefficient", kAttackCoefficient);
+        kAttackCost = config.get<float>("kAttackCost", kAttackCost);
+        kDuplicationCost = config.get<int>("kDuplicationCost", kDuplicationCost);
+        kPrise = config.get<int>("kPrise", kPrise);
+        kMovesToDeath = config.get<int>("kMovesToDeath", kMovesToDeath);
+        kMinDamage = config.get<int>("kMinDamage", kMinDamage);
+        kDelay = config.get<int>("kDelay", kDelay);
+    }
+
+    void  Environment::saveConfiguration(Configuration &config) const {
+        config.set<int>("kEnvironmentWidth", kEnvironmentWidth);
+        config.set<int>("kEnvironmentHeight", kEnvironmentHeight);
+
+        config.set<int>("kMaxEnergy", kMaxEnergy);
+        config.set<int>("kMinEnergy", kMinEnergy);
+
+        config.set<int>("kSteps", kSteps);
+        config.set<int>("kMoveCost", kMoveCost);
+        config.set<int>("kPhotosynthesisAdd", kPhotosynthesisAdd);
+        config.set<float>("kAttackCoefficient", kAttackCoefficient);
+        config.set<float>("kAttackCost", kAttackCost);
+        config.set<int>("kDuplicationCost", kDuplicationCost);
+        config.set<int>("kPrise", kPrise);
+        config.set<int>("kMovesToDeath", kMovesToDeath);
+        config.set<int>("kMinDamage", kMinDamage);
+        config.set<int>("kDelay", kDelay);
     }
 }

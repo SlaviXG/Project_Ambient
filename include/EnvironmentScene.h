@@ -1,4 +1,4 @@
-#ifndef ENVIRONMENT_SCENE_H
+    #ifndef ENVIRONMENT_SCENE_H
 #define ENVIRONMENT_SCENE_H
 
 #include <QGraphicsScene>

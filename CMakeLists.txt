@@ -26,6 +26,7 @@ set(SOURCES
     src/genepool.cpp
     src/main.cpp
     src/mainwindow.cpp
+    src/SettingsWindow.cpp
     resources.rc
 )
 set(HEADERS
@@ -46,8 +47,15 @@ set(HEADERS
     include/Matrix.h
     include/cell.h
     tests/doctest.h
+    libs/json/json.hpp
     include/frame.h
     include/mainwindow.h
+    include/CellInteractor.h
+    include/GameInteractor.h
+    include/configs/Configuration.h
+    include/configs/ConfigurationHandler.h
+    include/configs/ConfigurationChain.h
+    include/configs/SettingsWindow.h
     tests/test_Genotype.hpp
     tests/test_environment.hpp
 )

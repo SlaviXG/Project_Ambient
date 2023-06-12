@@ -9,14 +9,9 @@
 #ifndef GAMECONTROLLER_H_
 #define GAMECONTROLLER_H_
 
-#include "Environment.h"
-#include "EnvironmentScene.h"
-#include "mainwindow.h"
-#include "point.h"
-#include "cell.h"
-#include "CellView.h"
-#include "logger.h"
-#include "CellViewGarbageCollector.h"
+#include <vector>
+#include <string>
+#include <map>
 
 #include <QTimer>
 #include <QObject>
@@ -25,78 +20,27 @@
 #include <QThread>
 #include <QMutexLocker>
 
-#include <vector>
-#include <string>
-#include <map>
+#include "CellInteractor.h"
+#include "GameInteractor.h"
+#include "configs/ConfigurationHandler.h"
+#include "Environment.h"
+#include "EnvironmentScene.h"
+#include "mainwindow.h"
+#include "point.h"
+#include "cell.h"
+#include "CellView.h"
+#include "logger.h"
+#include "CellViewGarbageCollector.h"
+#include "configs/ConfigurationChain.h"
 
 class GameLogicThread;
 
 namespace controller
 {
-    constexpr int kCellSize = 4;                ///< Default size of a cell
-    constexpr int kFps = 10;                    ///< Frames per second of the game update
-    constexpr int kViewPadding = kCellSize / 2; ///< Padding around the view
-    constexpr size_t kStartingCellCount = 200;  ///< Initial cell count when the game starts
-
-    /**
-     * @brief CellInteractor interface for interacting with the controller from the logic layer.
-     */
-    class CellInteractor
-    {
-    public:
-        /**
-         * @brief Add a cell to the controller and view layer.
-         * @param cell The cell to add.
-         */
-        virtual void addCell(environment::Cell *cell) = 0;
-        /**
-         * @brief Remove a cell from the the controller and view layers
-         * @param cell The cell to remove.
-         */
-        virtual void removeCell(environment::Cell *cell) = 0;
-        /**
-         * @brief Add a cell to a specific point in the controller and view layer.
-         * @param point The point to add the cell.
-         */
-        virtual void addCell(const Point &point) = 0;
-        /**
-         * @brief Add a cell with a specific genotype to a specific point in the controller and view layer.
-         * @param point The point to add the cell.
-         * @param genotype The genotype of the cell.
-         */
-        virtual void addCell(const Point &point, genotype::Genotype *genotype) = 0;
-    };
-
-    /**
-     * @brief GameInteractor interface for interacting with the controller from the view layer.
-     */
-    class GameInteractor
-    {
-    public:
-        /**
-         * @brief Add a cell to a specific point in the game.
-         * @param point The point to add the cell.
-         */
-        virtual void addCell(const Point &point) = 0;
-        /**
-         * @brief Add a cell to a specific point in the game with specific count of weights.
-         * @param point The point to add the cell.
-         * @param countOfWeights The count of weights for the cell.
-         */
-        virtual void addCell(const Point &point, const std::vector<int> &countOfWeights) = 0;
-        /// Start the game.
-
-        virtual void start() = 0;
-        /// Stop the game.
-
-        virtual void stop() = 0;
-        /// Pause the game.
-
-        virtual void pause() = 0;
-        /// Resume the game.
-
-        virtual void resume() = 0;
-    };
+    static int kCellSize = 4;               ///< Default size of a cell
+    static int kFps = 10;                   ///< Frames per second of the game update
+    static int kViewPadding = 2;            ///< Padding around the view
+    static size_t kStartingCellCount = 200; ///< Initial cell count when the game starts
 
     /**
      * @brief GameController class is responsible for managing the game logic and updating the graphical representation of the game.
@@ -105,7 +49,7 @@ namespace controller
      * different parts of the application like views and environment, and provides an interface for generating random cells and
      * controlling the game.
      */
-    class GameController : public QObject, public CellInteractor, public GameInteractor
+    class GameController : public QObject, public CellInteractor, public GameInteractor, public ConfigurationHandler
     {
         Q_OBJECT
 
@@ -193,6 +137,33 @@ namespace controller
          */
         void processAI();
 
+        /**
+         * @brief Set the ConfigurationChain object
+         *
+         * @param chain: The chain of all application parts
+         * @param configs: Application settings
+         *
+         */
+        void setConfigs(ConfigurationChain *chain, Configuration* configs);
+
+        /**
+         * @brief Load configurations from a Configuration object.
+         * @param config: The Configuration object.
+         */
+        void loadConfiguration(Configuration &config) override;
+
+        /**
+         * @brief Save configurationsto a Configuration object.
+         * @param config: The Configuration object.
+         */
+        void saveConfiguration(Configuration &config) const override;
+
+        /**
+         * @brief Open Settings Window
+         *
+         */
+        void openSettingsWindow() override;
+
     public slots:
         /**
          * @brief Slot to execute the game logic thread.
@@ -257,8 +228,10 @@ namespace controller
 
         std::vector<Logger *> loggers; ///< Vector of loggers for the game.
 
-        QMutex mutex;                       ///< The mutex for thread safety.
-        CellViewGarbageCollector collector; ///< The garbage collector for unused CellView objects.
+        QMutex mutex;                        ///< The mutex for thread safety.
+        CellViewGarbageCollector collector;  ///< The garbage collector for unused CellView objects.
+        ConfigurationChain *chain = nullptr; ///< The chain of all application parts with configs
+        Configuration* configs = nullptr;    ///< Application settings
     };
 };
 

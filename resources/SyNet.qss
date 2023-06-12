@@ -459,3 +459,15 @@ QMenu::item:selected {
 QMenu::item:pressed {
     background: #2e2e2e;
 }
+
+QSpinBox {
+    color: #ffffff;
+}
+
+QDoubleSpinBox {
+    color: #ffffff;
+}
+
+QGroupBox {
+    color: #ffffff;
+}

@@ -4,6 +4,8 @@
 #include <QFile>
 #include <memory>
 
+#include "../include/configs/Configuration.h"
+#include "../include/configs/ConfigurationChain.h"
 #include "../include/GameController.h"
 #include "../include/Environment.h"
 #include "../include/logger.h"
@@ -38,9 +40,11 @@ int main(int argc, char *argv[])
     QApplication::setWindowIcon(QIcon(":/resources/cell_color_gradations/resources/icon.ico"));
     QApplication::setApplicationName("Project Ambient");
 
+    ConfigurationChain chain;
+
     //environment::EnvironmentDecorator env(10000, 10000); env.setLogger(std::unique_ptr<Logger>(new ConsoleLogger()));
     genepool::GenePool pool(cell_num);
-    environment::Environment env(1000, 1000, nullptr, &pool);
+    environment::Environment env(0, 0, nullptr, &pool);
     EnvironmentScene scene;
     MainWindow win(&scene);
     controller::GameController cont(&win, &scene, &env);
@@ -53,6 +57,14 @@ int main(int argc, char *argv[])
     QString styleSheet = QLatin1String(file.readAll());
     win.setStyleSheet(styleSheet);
     a.setStyleSheet(styleSheet);
+
+    chain.addHandler(&env);
+    chain.addHandler(&cont);
+
+    Configuration configs("configs.json");
+    chain.loadConfiguration(configs);
+
+    cont.setConfigs(&chain, &configs);
     
     env.setCellInteractor(&cont);
     win.setController(&cont);
@@ -63,5 +75,9 @@ int main(int argc, char *argv[])
 
     win.initEnvironmentSize();
     cont.start();
+
+    chain.saveConfiguration(configs);
+    configs.save();
+
     return a.exec();
 }

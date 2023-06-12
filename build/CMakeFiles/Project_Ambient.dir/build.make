@@ -136,25 +136,53 @@ tests/moc_doctest.cpp: ../tests/doctest.h
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating tests/moc_doctest.cpp"
 	cd /d D:\Projects\Project_Ambient\build\tests && C:\Qt\6.3.2\mingw_64\bin\moc.exe @D:/Projects/Project_Ambient/build/tests/moc_doctest.cpp_parameters
 
+libs/json/moc_json.cpp: ../libs/json/json.hpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating libs/json/moc_json.cpp"
+	cd /d D:\Projects\Project_Ambient\build\libs\json && C:\Qt\6.3.2\mingw_64\bin\moc.exe @D:/Projects/Project_Ambient/build/libs/json/moc_json.cpp_parameters
+
 include/moc_frame.cpp: ../include/frame.h
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating include/moc_frame.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating include/moc_frame.cpp"
 	cd /d D:\Projects\Project_Ambient\build\include && C:\Qt\6.3.2\mingw_64\bin\moc.exe @D:/Projects/Project_Ambient/build/include/moc_frame.cpp_parameters
 
 include/moc_mainwindow.cpp: ../include/mainwindow.h
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating include/moc_mainwindow.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating include/moc_mainwindow.cpp"
 	cd /d D:\Projects\Project_Ambient\build\include && C:\Qt\6.3.2\mingw_64\bin\moc.exe @D:/Projects/Project_Ambient/build/include/moc_mainwindow.cpp_parameters
 
+include/moc_CellInteractor.cpp: ../include/CellInteractor.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating include/moc_CellInteractor.cpp"
+	cd /d D:\Projects\Project_Ambient\build\include && C:\Qt\6.3.2\mingw_64\bin\moc.exe @D:/Projects/Project_Ambient/build/include/moc_CellInteractor.cpp_parameters
+
+include/moc_GameInteractor.cpp: ../include/GameInteractor.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating include/moc_GameInteractor.cpp"
+	cd /d D:\Projects\Project_Ambient\build\include && C:\Qt\6.3.2\mingw_64\bin\moc.exe @D:/Projects/Project_Ambient/build/include/moc_GameInteractor.cpp_parameters
+
+include/configs/moc_Configuration.cpp: ../include/configs/Configuration.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating include/configs/moc_Configuration.cpp"
+	cd /d D:\Projects\Project_Ambient\build\include\configs && C:\Qt\6.3.2\mingw_64\bin\moc.exe @D:/Projects/Project_Ambient/build/include/configs/moc_Configuration.cpp_parameters
+
+include/configs/moc_ConfigurationHandler.cpp: ../include/configs/ConfigurationHandler.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Generating include/configs/moc_ConfigurationHandler.cpp"
+	cd /d D:\Projects\Project_Ambient\build\include\configs && C:\Qt\6.3.2\mingw_64\bin\moc.exe @D:/Projects/Project_Ambient/build/include/configs/moc_ConfigurationHandler.cpp_parameters
+
+include/configs/moc_ConfigurationChain.cpp: ../include/configs/ConfigurationChain.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Generating include/configs/moc_ConfigurationChain.cpp"
+	cd /d D:\Projects\Project_Ambient\build\include\configs && C:\Qt\6.3.2\mingw_64\bin\moc.exe @D:/Projects/Project_Ambient/build/include/configs/moc_ConfigurationChain.cpp_parameters
+
+include/configs/moc_SettingsWindow.cpp: ../include/configs/SettingsWindow.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Generating include/configs/moc_SettingsWindow.cpp"
+	cd /d D:\Projects\Project_Ambient\build\include\configs && C:\Qt\6.3.2\mingw_64\bin\moc.exe @D:/Projects/Project_Ambient/build/include/configs/moc_SettingsWindow.cpp_parameters
+
 tests/moc_test_Genotype.cpp: ../tests/test_Genotype.hpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating tests/moc_test_Genotype.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Generating tests/moc_test_Genotype.cpp"
 	cd /d D:\Projects\Project_Ambient\build\tests && C:\Qt\6.3.2\mingw_64\bin\moc.exe @D:/Projects/Project_Ambient/build/tests/moc_test_Genotype.cpp_parameters
 
 tests/moc_test_environment.cpp: ../tests/test_environment.hpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating tests/moc_test_environment.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Generating tests/moc_test_environment.cpp"
 	cd /d D:\Projects\Project_Ambient\build\tests && C:\Qt\6.3.2\mingw_64\bin\moc.exe @D:/Projects/Project_Ambient/build/tests/moc_test_environment.cpp_parameters
 
 ui_mainwindow.h: ../ui/mainwindow.ui
 ui_mainwindow.h: C:/Qt/6.3.2/mingw_64/./bin/uic.exe
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating ui_mainwindow.h"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Generating ui_mainwindow.h"
 	C:\Qt\6.3.2\mingw_64\bin\uic.exe -o D:/Projects/Project_Ambient/build/ui_mainwindow.h D:/Projects/Project_Ambient/ui/mainwindow.ui
 
 qrc_resource.cpp: ../resource.qrc
@@ -262,14 +290,14 @@ qrc_resource.cpp: ../resources/icon.ico
 qrc_resource.cpp: ../resources/SyNet.qss
 qrc_resource.cpp: resource.qrc.depends
 qrc_resource.cpp: C:/Qt/6.3.2/mingw_64/./bin/rcc.exe
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating qrc_resource.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Generating qrc_resource.cpp"
 	C:\Qt\6.3.2\mingw_64\bin\rcc.exe --name resource --output D:/Projects/Project_Ambient/build/qrc_resource.cpp D:/Projects/Project_Ambient/resource.qrc
 
 CMakeFiles/Project_Ambient.dir/src/CellView.cpp.obj: CMakeFiles/Project_Ambient.dir/flags.make
 CMakeFiles/Project_Ambient.dir/src/CellView.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/src/CellView.cpp.obj: ../src/CellView.cpp
 CMakeFiles/Project_Ambient.dir/src/CellView.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/Project_Ambient.dir/src/CellView.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/Project_Ambient.dir/src/CellView.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/src/CellView.cpp.obj -MF CMakeFiles\Project_Ambient.dir\src\CellView.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\src\CellView.cpp.obj -c D:\Projects\Project_Ambient\src\CellView.cpp
 
 CMakeFiles/Project_Ambient.dir/src/CellView.cpp.i: cmake_force
@@ -284,7 +312,7 @@ CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj: CMakeFiles/Project_Ambie
 CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj: ../src/Environment.cpp
 CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj -MF CMakeFiles\Project_Ambient.dir\src\Environment.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\src\Environment.cpp.obj -c D:\Projects\Project_Ambient\src\Environment.cpp
 
 CMakeFiles/Project_Ambient.dir/src/Environment.cpp.i: cmake_force
@@ -299,7 +327,7 @@ CMakeFiles/Project_Ambient.dir/src/EnvironmentScene.cpp.obj: CMakeFiles/Project_
 CMakeFiles/Project_Ambient.dir/src/EnvironmentScene.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/src/EnvironmentScene.cpp.obj: ../src/EnvironmentScene.cpp
 CMakeFiles/Project_Ambient.dir/src/EnvironmentScene.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/Project_Ambient.dir/src/EnvironmentScene.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/Project_Ambient.dir/src/EnvironmentScene.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/src/EnvironmentScene.cpp.obj -MF CMakeFiles\Project_Ambient.dir\src\EnvironmentScene.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\src\EnvironmentScene.cpp.obj -c D:\Projects\Project_Ambient\src\EnvironmentScene.cpp
 
 CMakeFiles/Project_Ambient.dir/src/EnvironmentScene.cpp.i: cmake_force
@@ -314,7 +342,7 @@ CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj: CMakeFiles/Project_Am
 CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj: ../src/GameController.cpp
 CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj -MF CMakeFiles\Project_Ambient.dir\src\GameController.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\src\GameController.cpp.obj -c D:\Projects\Project_Ambient\src\GameController.cpp
 
 CMakeFiles/Project_Ambient.dir/src/GameController.cpp.i: cmake_force
@@ -329,7 +357,7 @@ CMakeFiles/Project_Ambient.dir/src/Genotype.cpp.obj: CMakeFiles/Project_Ambient.
 CMakeFiles/Project_Ambient.dir/src/Genotype.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/src/Genotype.cpp.obj: ../src/Genotype.cpp
 CMakeFiles/Project_Ambient.dir/src/Genotype.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/Project_Ambient.dir/src/Genotype.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/Project_Ambient.dir/src/Genotype.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/src/Genotype.cpp.obj -MF CMakeFiles\Project_Ambient.dir\src\Genotype.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\src\Genotype.cpp.obj -c D:\Projects\Project_Ambient\src\Genotype.cpp
 
 CMakeFiles/Project_Ambient.dir/src/Genotype.cpp.i: cmake_force
@@ -344,7 +372,7 @@ CMakeFiles/Project_Ambient.dir/src/cell.cpp.obj: CMakeFiles/Project_Ambient.dir/
 CMakeFiles/Project_Ambient.dir/src/cell.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/src/cell.cpp.obj: ../src/cell.cpp
 CMakeFiles/Project_Ambient.dir/src/cell.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/Project_Ambient.dir/src/cell.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/Project_Ambient.dir/src/cell.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/src/cell.cpp.obj -MF CMakeFiles\Project_Ambient.dir\src\cell.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\src\cell.cpp.obj -c D:\Projects\Project_Ambient\src\cell.cpp
 
 CMakeFiles/Project_Ambient.dir/src/cell.cpp.i: cmake_force
@@ -359,7 +387,7 @@ CMakeFiles/Project_Ambient.dir/src/celltracker.cpp.obj: CMakeFiles/Project_Ambie
 CMakeFiles/Project_Ambient.dir/src/celltracker.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/src/celltracker.cpp.obj: ../src/celltracker.cpp
 CMakeFiles/Project_Ambient.dir/src/celltracker.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/Project_Ambient.dir/src/celltracker.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/Project_Ambient.dir/src/celltracker.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/src/celltracker.cpp.obj -MF CMakeFiles\Project_Ambient.dir\src\celltracker.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\src\celltracker.cpp.obj -c D:\Projects\Project_Ambient\src\celltracker.cpp
 
 CMakeFiles/Project_Ambient.dir/src/celltracker.cpp.i: cmake_force
@@ -374,7 +402,7 @@ CMakeFiles/Project_Ambient.dir/src/frame.cpp.obj: CMakeFiles/Project_Ambient.dir
 CMakeFiles/Project_Ambient.dir/src/frame.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/src/frame.cpp.obj: ../src/frame.cpp
 CMakeFiles/Project_Ambient.dir/src/frame.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/Project_Ambient.dir/src/frame.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/Project_Ambient.dir/src/frame.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/src/frame.cpp.obj -MF CMakeFiles\Project_Ambient.dir\src\frame.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\src\frame.cpp.obj -c D:\Projects\Project_Ambient\src\frame.cpp
 
 CMakeFiles/Project_Ambient.dir/src/frame.cpp.i: cmake_force
@@ -389,7 +417,7 @@ CMakeFiles/Project_Ambient.dir/src/genepool.cpp.obj: CMakeFiles/Project_Ambient.
 CMakeFiles/Project_Ambient.dir/src/genepool.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/src/genepool.cpp.obj: ../src/genepool.cpp
 CMakeFiles/Project_Ambient.dir/src/genepool.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/Project_Ambient.dir/src/genepool.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/Project_Ambient.dir/src/genepool.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/src/genepool.cpp.obj -MF CMakeFiles\Project_Ambient.dir\src\genepool.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\src\genepool.cpp.obj -c D:\Projects\Project_Ambient\src\genepool.cpp
 
 CMakeFiles/Project_Ambient.dir/src/genepool.cpp.i: cmake_force
@@ -404,7 +432,7 @@ CMakeFiles/Project_Ambient.dir/src/main.cpp.obj: CMakeFiles/Project_Ambient.dir/
 CMakeFiles/Project_Ambient.dir/src/main.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/src/main.cpp.obj: ../src/main.cpp
 CMakeFiles/Project_Ambient.dir/src/main.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/Project_Ambient.dir/src/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/Project_Ambient.dir/src/main.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/src/main.cpp.obj -MF CMakeFiles\Project_Ambient.dir\src\main.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\src\main.cpp.obj -c D:\Projects\Project_Ambient\src\main.cpp
 
 CMakeFiles/Project_Ambient.dir/src/main.cpp.i: cmake_force
@@ -419,7 +447,7 @@ CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.obj: CMakeFiles/Project_Ambien
 CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.obj: ../src/mainwindow.cpp
 CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.obj -MF CMakeFiles\Project_Ambient.dir\src\mainwindow.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\src\mainwindow.cpp.obj -c D:\Projects\Project_Ambient\src\mainwindow.cpp
 
 CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.i: cmake_force
@@ -430,16 +458,31 @@ CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Projects\Project_Ambient\src\mainwindow.cpp -o CMakeFiles\Project_Ambient.dir\src\mainwindow.cpp.s
 
+CMakeFiles/Project_Ambient.dir/src/SettingsWindow.cpp.obj: CMakeFiles/Project_Ambient.dir/flags.make
+CMakeFiles/Project_Ambient.dir/src/SettingsWindow.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
+CMakeFiles/Project_Ambient.dir/src/SettingsWindow.cpp.obj: ../src/SettingsWindow.cpp
+CMakeFiles/Project_Ambient.dir/src/SettingsWindow.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/Project_Ambient.dir/src/SettingsWindow.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/src/SettingsWindow.cpp.obj -MF CMakeFiles\Project_Ambient.dir\src\SettingsWindow.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\src\SettingsWindow.cpp.obj -c D:\Projects\Project_Ambient\src\SettingsWindow.cpp
+
+CMakeFiles/Project_Ambient.dir/src/SettingsWindow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_Ambient.dir/src/SettingsWindow.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Projects\Project_Ambient\src\SettingsWindow.cpp > CMakeFiles\Project_Ambient.dir\src\SettingsWindow.cpp.i
+
+CMakeFiles/Project_Ambient.dir/src/SettingsWindow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_Ambient.dir/src/SettingsWindow.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Projects\Project_Ambient\src\SettingsWindow.cpp -o CMakeFiles\Project_Ambient.dir\src\SettingsWindow.cpp.s
+
 CMakeFiles/Project_Ambient.dir/resources.rc.obj: CMakeFiles/Project_Ambient.dir/flags.make
 CMakeFiles/Project_Ambient.dir/resources.rc.obj: ../resources.rc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building RC object CMakeFiles/Project_Ambient.dir/resources.rc.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building RC object CMakeFiles/Project_Ambient.dir/resources.rc.obj"
 	C:\msys64\mingw64\bin\windres.exe -O coff $(RC_DEFINES) $(RC_INCLUDES) $(RC_FLAGS) D:\Projects\Project_Ambient\resources.rc CMakeFiles\Project_Ambient.dir\resources.rc.obj
 
 CMakeFiles/Project_Ambient.dir/include/moc_CellView.cpp.obj: CMakeFiles/Project_Ambient.dir/flags.make
 CMakeFiles/Project_Ambient.dir/include/moc_CellView.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_CellView.cpp.obj: include/moc_CellView.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_CellView.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_CellView.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_CellView.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_CellView.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_CellView.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_CellView.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_CellView.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_CellView.cpp.i: cmake_force
@@ -454,7 +497,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_Debouncer.cpp.obj: CMakeFiles/Project
 CMakeFiles/Project_Ambient.dir/include/moc_Debouncer.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_Debouncer.cpp.obj: include/moc_Debouncer.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_Debouncer.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_Debouncer.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_Debouncer.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_Debouncer.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_Debouncer.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_Debouncer.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_Debouncer.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_Debouncer.cpp.i: cmake_force
@@ -469,7 +512,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_celltracker.cpp.obj: CMakeFiles/Proje
 CMakeFiles/Project_Ambient.dir/include/moc_celltracker.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_celltracker.cpp.obj: include/moc_celltracker.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_celltracker.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_celltracker.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_celltracker.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_celltracker.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_celltracker.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_celltracker.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_celltracker.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_celltracker.cpp.i: cmake_force
@@ -484,7 +527,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_CellViewGarbageCollector.cpp.obj: CMa
 CMakeFiles/Project_Ambient.dir/include/moc_CellViewGarbageCollector.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_CellViewGarbageCollector.cpp.obj: include/moc_CellViewGarbageCollector.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_CellViewGarbageCollector.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_CellViewGarbageCollector.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_CellViewGarbageCollector.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_CellViewGarbageCollector.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_CellViewGarbageCollector.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_CellViewGarbageCollector.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_CellViewGarbageCollector.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_CellViewGarbageCollector.cpp.i: cmake_force
@@ -499,7 +542,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_GameLogicThread.cpp.obj: CMakeFiles/P
 CMakeFiles/Project_Ambient.dir/include/moc_GameLogicThread.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_GameLogicThread.cpp.obj: include/moc_GameLogicThread.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_GameLogicThread.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_GameLogicThread.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_GameLogicThread.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_GameLogicThread.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_GameLogicThread.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_GameLogicThread.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_GameLogicThread.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_GameLogicThread.cpp.i: cmake_force
@@ -514,7 +557,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_EnvironmentDecorator.cpp.obj: CMakeFi
 CMakeFiles/Project_Ambient.dir/include/moc_EnvironmentDecorator.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_EnvironmentDecorator.cpp.obj: include/moc_EnvironmentDecorator.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_EnvironmentDecorator.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_EnvironmentDecorator.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_EnvironmentDecorator.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_EnvironmentDecorator.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_EnvironmentDecorator.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_EnvironmentDecorator.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_EnvironmentDecorator.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_EnvironmentDecorator.cpp.i: cmake_force
@@ -529,7 +572,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_GameControllerDecorator.cpp.obj: CMak
 CMakeFiles/Project_Ambient.dir/include/moc_GameControllerDecorator.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_GameControllerDecorator.cpp.obj: include/moc_GameControllerDecorator.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_GameControllerDecorator.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_GameControllerDecorator.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_GameControllerDecorator.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_GameControllerDecorator.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_GameControllerDecorator.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_GameControllerDecorator.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_GameControllerDecorator.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_GameControllerDecorator.cpp.i: cmake_force
@@ -544,7 +587,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_genepool.cpp.obj: CMakeFiles/Project_
 CMakeFiles/Project_Ambient.dir/include/moc_genepool.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_genepool.cpp.obj: include/moc_genepool.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_genepool.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_genepool.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_genepool.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_genepool.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_genepool.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_genepool.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_genepool.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_genepool.cpp.i: cmake_force
@@ -559,7 +602,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_logger.cpp.obj: CMakeFiles/Project_Am
 CMakeFiles/Project_Ambient.dir/include/moc_logger.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_logger.cpp.obj: include/moc_logger.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_logger.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_logger.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_logger.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_logger.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_logger.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_logger.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_logger.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_logger.cpp.i: cmake_force
@@ -574,7 +617,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_point.cpp.obj: CMakeFiles/Project_Amb
 CMakeFiles/Project_Ambient.dir/include/moc_point.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_point.cpp.obj: include/moc_point.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_point.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_point.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_point.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_point.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_point.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_point.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_point.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_point.cpp.i: cmake_force
@@ -589,7 +632,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_Environment.cpp.obj: CMakeFiles/Proje
 CMakeFiles/Project_Ambient.dir/include/moc_Environment.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_Environment.cpp.obj: include/moc_Environment.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_Environment.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_Environment.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_Environment.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_Environment.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_Environment.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_Environment.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_Environment.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_Environment.cpp.i: cmake_force
@@ -604,7 +647,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_EnvironmentScene.cpp.obj: CMakeFiles/
 CMakeFiles/Project_Ambient.dir/include/moc_EnvironmentScene.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_EnvironmentScene.cpp.obj: include/moc_EnvironmentScene.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_EnvironmentScene.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_EnvironmentScene.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_EnvironmentScene.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_EnvironmentScene.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_EnvironmentScene.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_EnvironmentScene.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_EnvironmentScene.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_EnvironmentScene.cpp.i: cmake_force
@@ -619,7 +662,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_GameController.cpp.obj: CMakeFiles/Pr
 CMakeFiles/Project_Ambient.dir/include/moc_GameController.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_GameController.cpp.obj: include/moc_GameController.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_GameController.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_GameController.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_GameController.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_GameController.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_GameController.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_GameController.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_GameController.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_GameController.cpp.i: cmake_force
@@ -634,7 +677,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_Genotype.cpp.obj: CMakeFiles/Project_
 CMakeFiles/Project_Ambient.dir/include/moc_Genotype.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_Genotype.cpp.obj: include/moc_Genotype.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_Genotype.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_Genotype.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_Genotype.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_Genotype.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_Genotype.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_Genotype.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_Genotype.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_Genotype.cpp.i: cmake_force
@@ -649,7 +692,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_Matrix.cpp.obj: CMakeFiles/Project_Am
 CMakeFiles/Project_Ambient.dir/include/moc_Matrix.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_Matrix.cpp.obj: include/moc_Matrix.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_Matrix.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_Matrix.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_Matrix.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_Matrix.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_Matrix.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_Matrix.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_Matrix.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_Matrix.cpp.i: cmake_force
@@ -664,7 +707,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_cell.cpp.obj: CMakeFiles/Project_Ambi
 CMakeFiles/Project_Ambient.dir/include/moc_cell.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_cell.cpp.obj: include/moc_cell.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_cell.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_cell.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_cell.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_cell.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_cell.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_cell.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_cell.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_cell.cpp.i: cmake_force
@@ -679,7 +722,7 @@ CMakeFiles/Project_Ambient.dir/tests/moc_doctest.cpp.obj: CMakeFiles/Project_Amb
 CMakeFiles/Project_Ambient.dir/tests/moc_doctest.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/tests/moc_doctest.cpp.obj: tests/moc_doctest.cpp
 CMakeFiles/Project_Ambient.dir/tests/moc_doctest.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/Project_Ambient.dir/tests/moc_doctest.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object CMakeFiles/Project_Ambient.dir/tests/moc_doctest.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/tests/moc_doctest.cpp.obj -MF CMakeFiles\Project_Ambient.dir\tests\moc_doctest.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\tests\moc_doctest.cpp.obj -c D:\Projects\Project_Ambient\build\tests\moc_doctest.cpp
 
 CMakeFiles/Project_Ambient.dir/tests/moc_doctest.cpp.i: cmake_force
@@ -690,11 +733,26 @@ CMakeFiles/Project_Ambient.dir/tests/moc_doctest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_Ambient.dir/tests/moc_doctest.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Projects\Project_Ambient\build\tests\moc_doctest.cpp -o CMakeFiles\Project_Ambient.dir\tests\moc_doctest.cpp.s
 
+CMakeFiles/Project_Ambient.dir/libs/json/moc_json.cpp.obj: CMakeFiles/Project_Ambient.dir/flags.make
+CMakeFiles/Project_Ambient.dir/libs/json/moc_json.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
+CMakeFiles/Project_Ambient.dir/libs/json/moc_json.cpp.obj: libs/json/moc_json.cpp
+CMakeFiles/Project_Ambient.dir/libs/json/moc_json.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object CMakeFiles/Project_Ambient.dir/libs/json/moc_json.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/libs/json/moc_json.cpp.obj -MF CMakeFiles\Project_Ambient.dir\libs\json\moc_json.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\libs\json\moc_json.cpp.obj -c D:\Projects\Project_Ambient\build\libs\json\moc_json.cpp
+
+CMakeFiles/Project_Ambient.dir/libs/json/moc_json.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_Ambient.dir/libs/json/moc_json.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Projects\Project_Ambient\build\libs\json\moc_json.cpp > CMakeFiles\Project_Ambient.dir\libs\json\moc_json.cpp.i
+
+CMakeFiles/Project_Ambient.dir/libs/json/moc_json.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_Ambient.dir/libs/json/moc_json.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Projects\Project_Ambient\build\libs\json\moc_json.cpp -o CMakeFiles\Project_Ambient.dir\libs\json\moc_json.cpp.s
+
 CMakeFiles/Project_Ambient.dir/include/moc_frame.cpp.obj: CMakeFiles/Project_Ambient.dir/flags.make
 CMakeFiles/Project_Ambient.dir/include/moc_frame.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_frame.cpp.obj: include/moc_frame.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_frame.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_frame.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_frame.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_frame.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_frame.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_frame.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_frame.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_frame.cpp.i: cmake_force
@@ -709,7 +767,7 @@ CMakeFiles/Project_Ambient.dir/include/moc_mainwindow.cpp.obj: CMakeFiles/Projec
 CMakeFiles/Project_Ambient.dir/include/moc_mainwindow.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/include/moc_mainwindow.cpp.obj: include/moc_mainwindow.cpp
 CMakeFiles/Project_Ambient.dir/include/moc_mainwindow.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_mainwindow.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_mainwindow.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_mainwindow.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_mainwindow.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_mainwindow.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_mainwindow.cpp
 
 CMakeFiles/Project_Ambient.dir/include/moc_mainwindow.cpp.i: cmake_force
@@ -720,11 +778,101 @@ CMakeFiles/Project_Ambient.dir/include/moc_mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_Ambient.dir/include/moc_mainwindow.cpp.s"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Projects\Project_Ambient\build\include\moc_mainwindow.cpp -o CMakeFiles\Project_Ambient.dir\include\moc_mainwindow.cpp.s
 
+CMakeFiles/Project_Ambient.dir/include/moc_CellInteractor.cpp.obj: CMakeFiles/Project_Ambient.dir/flags.make
+CMakeFiles/Project_Ambient.dir/include/moc_CellInteractor.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
+CMakeFiles/Project_Ambient.dir/include/moc_CellInteractor.cpp.obj: include/moc_CellInteractor.cpp
+CMakeFiles/Project_Ambient.dir/include/moc_CellInteractor.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_CellInteractor.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_CellInteractor.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_CellInteractor.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_CellInteractor.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_CellInteractor.cpp
+
+CMakeFiles/Project_Ambient.dir/include/moc_CellInteractor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_Ambient.dir/include/moc_CellInteractor.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Projects\Project_Ambient\build\include\moc_CellInteractor.cpp > CMakeFiles\Project_Ambient.dir\include\moc_CellInteractor.cpp.i
+
+CMakeFiles/Project_Ambient.dir/include/moc_CellInteractor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_Ambient.dir/include/moc_CellInteractor.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Projects\Project_Ambient\build\include\moc_CellInteractor.cpp -o CMakeFiles\Project_Ambient.dir\include\moc_CellInteractor.cpp.s
+
+CMakeFiles/Project_Ambient.dir/include/moc_GameInteractor.cpp.obj: CMakeFiles/Project_Ambient.dir/flags.make
+CMakeFiles/Project_Ambient.dir/include/moc_GameInteractor.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
+CMakeFiles/Project_Ambient.dir/include/moc_GameInteractor.cpp.obj: include/moc_GameInteractor.cpp
+CMakeFiles/Project_Ambient.dir/include/moc_GameInteractor.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object CMakeFiles/Project_Ambient.dir/include/moc_GameInteractor.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/moc_GameInteractor.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\moc_GameInteractor.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\moc_GameInteractor.cpp.obj -c D:\Projects\Project_Ambient\build\include\moc_GameInteractor.cpp
+
+CMakeFiles/Project_Ambient.dir/include/moc_GameInteractor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_Ambient.dir/include/moc_GameInteractor.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Projects\Project_Ambient\build\include\moc_GameInteractor.cpp > CMakeFiles\Project_Ambient.dir\include\moc_GameInteractor.cpp.i
+
+CMakeFiles/Project_Ambient.dir/include/moc_GameInteractor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_Ambient.dir/include/moc_GameInteractor.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Projects\Project_Ambient\build\include\moc_GameInteractor.cpp -o CMakeFiles\Project_Ambient.dir\include\moc_GameInteractor.cpp.s
+
+CMakeFiles/Project_Ambient.dir/include/configs/moc_Configuration.cpp.obj: CMakeFiles/Project_Ambient.dir/flags.make
+CMakeFiles/Project_Ambient.dir/include/configs/moc_Configuration.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
+CMakeFiles/Project_Ambient.dir/include/configs/moc_Configuration.cpp.obj: include/configs/moc_Configuration.cpp
+CMakeFiles/Project_Ambient.dir/include/configs/moc_Configuration.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object CMakeFiles/Project_Ambient.dir/include/configs/moc_Configuration.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/configs/moc_Configuration.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\configs\moc_Configuration.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\configs\moc_Configuration.cpp.obj -c D:\Projects\Project_Ambient\build\include\configs\moc_Configuration.cpp
+
+CMakeFiles/Project_Ambient.dir/include/configs/moc_Configuration.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_Ambient.dir/include/configs/moc_Configuration.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Projects\Project_Ambient\build\include\configs\moc_Configuration.cpp > CMakeFiles\Project_Ambient.dir\include\configs\moc_Configuration.cpp.i
+
+CMakeFiles/Project_Ambient.dir/include/configs/moc_Configuration.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_Ambient.dir/include/configs/moc_Configuration.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Projects\Project_Ambient\build\include\configs\moc_Configuration.cpp -o CMakeFiles\Project_Ambient.dir\include\configs\moc_Configuration.cpp.s
+
+CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationHandler.cpp.obj: CMakeFiles/Project_Ambient.dir/flags.make
+CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationHandler.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
+CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationHandler.cpp.obj: include/configs/moc_ConfigurationHandler.cpp
+CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationHandler.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationHandler.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationHandler.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\configs\moc_ConfigurationHandler.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\configs\moc_ConfigurationHandler.cpp.obj -c D:\Projects\Project_Ambient\build\include\configs\moc_ConfigurationHandler.cpp
+
+CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationHandler.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Projects\Project_Ambient\build\include\configs\moc_ConfigurationHandler.cpp > CMakeFiles\Project_Ambient.dir\include\configs\moc_ConfigurationHandler.cpp.i
+
+CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationHandler.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Projects\Project_Ambient\build\include\configs\moc_ConfigurationHandler.cpp -o CMakeFiles\Project_Ambient.dir\include\configs\moc_ConfigurationHandler.cpp.s
+
+CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationChain.cpp.obj: CMakeFiles/Project_Ambient.dir/flags.make
+CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationChain.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
+CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationChain.cpp.obj: include/configs/moc_ConfigurationChain.cpp
+CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationChain.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationChain.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationChain.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\configs\moc_ConfigurationChain.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\configs\moc_ConfigurationChain.cpp.obj -c D:\Projects\Project_Ambient\build\include\configs\moc_ConfigurationChain.cpp
+
+CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationChain.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationChain.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Projects\Project_Ambient\build\include\configs\moc_ConfigurationChain.cpp > CMakeFiles\Project_Ambient.dir\include\configs\moc_ConfigurationChain.cpp.i
+
+CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationChain.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationChain.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Projects\Project_Ambient\build\include\configs\moc_ConfigurationChain.cpp -o CMakeFiles\Project_Ambient.dir\include\configs\moc_ConfigurationChain.cpp.s
+
+CMakeFiles/Project_Ambient.dir/include/configs/moc_SettingsWindow.cpp.obj: CMakeFiles/Project_Ambient.dir/flags.make
+CMakeFiles/Project_Ambient.dir/include/configs/moc_SettingsWindow.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
+CMakeFiles/Project_Ambient.dir/include/configs/moc_SettingsWindow.cpp.obj: include/configs/moc_SettingsWindow.cpp
+CMakeFiles/Project_Ambient.dir/include/configs/moc_SettingsWindow.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object CMakeFiles/Project_Ambient.dir/include/configs/moc_SettingsWindow.cpp.obj"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/include/configs/moc_SettingsWindow.cpp.obj -MF CMakeFiles\Project_Ambient.dir\include\configs\moc_SettingsWindow.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\include\configs\moc_SettingsWindow.cpp.obj -c D:\Projects\Project_Ambient\build\include\configs\moc_SettingsWindow.cpp
+
+CMakeFiles/Project_Ambient.dir/include/configs/moc_SettingsWindow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_Ambient.dir/include/configs/moc_SettingsWindow.cpp.i"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Projects\Project_Ambient\build\include\configs\moc_SettingsWindow.cpp > CMakeFiles\Project_Ambient.dir\include\configs\moc_SettingsWindow.cpp.i
+
+CMakeFiles/Project_Ambient.dir/include/configs/moc_SettingsWindow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_Ambient.dir/include/configs/moc_SettingsWindow.cpp.s"
+	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Projects\Project_Ambient\build\include\configs\moc_SettingsWindow.cpp -o CMakeFiles\Project_Ambient.dir\include\configs\moc_SettingsWindow.cpp.s
+
 CMakeFiles/Project_Ambient.dir/tests/moc_test_Genotype.cpp.obj: CMakeFiles/Project_Ambient.dir/flags.make
 CMakeFiles/Project_Ambient.dir/tests/moc_test_Genotype.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/tests/moc_test_Genotype.cpp.obj: tests/moc_test_Genotype.cpp
 CMakeFiles/Project_Ambient.dir/tests/moc_test_Genotype.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/Project_Ambient.dir/tests/moc_test_Genotype.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object CMakeFiles/Project_Ambient.dir/tests/moc_test_Genotype.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/tests/moc_test_Genotype.cpp.obj -MF CMakeFiles\Project_Ambient.dir\tests\moc_test_Genotype.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\tests\moc_test_Genotype.cpp.obj -c D:\Projects\Project_Ambient\build\tests\moc_test_Genotype.cpp
 
 CMakeFiles/Project_Ambient.dir/tests/moc_test_Genotype.cpp.i: cmake_force
@@ -739,7 +887,7 @@ CMakeFiles/Project_Ambient.dir/tests/moc_test_environment.cpp.obj: CMakeFiles/Pr
 CMakeFiles/Project_Ambient.dir/tests/moc_test_environment.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/tests/moc_test_environment.cpp.obj: tests/moc_test_environment.cpp
 CMakeFiles/Project_Ambient.dir/tests/moc_test_environment.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/Project_Ambient.dir/tests/moc_test_environment.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object CMakeFiles/Project_Ambient.dir/tests/moc_test_environment.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/tests/moc_test_environment.cpp.obj -MF CMakeFiles\Project_Ambient.dir\tests\moc_test_environment.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\tests\moc_test_environment.cpp.obj -c D:\Projects\Project_Ambient\build\tests\moc_test_environment.cpp
 
 CMakeFiles/Project_Ambient.dir/tests/moc_test_environment.cpp.i: cmake_force
@@ -754,7 +902,7 @@ CMakeFiles/Project_Ambient.dir/qrc_resource.cpp.obj: CMakeFiles/Project_Ambient.
 CMakeFiles/Project_Ambient.dir/qrc_resource.cpp.obj: CMakeFiles/Project_Ambient.dir/includes_CXX.rsp
 CMakeFiles/Project_Ambient.dir/qrc_resource.cpp.obj: qrc_resource.cpp
 CMakeFiles/Project_Ambient.dir/qrc_resource.cpp.obj: CMakeFiles/Project_Ambient.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/Project_Ambient.dir/qrc_resource.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object CMakeFiles/Project_Ambient.dir/qrc_resource.cpp.obj"
 	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project_Ambient.dir/qrc_resource.cpp.obj -MF CMakeFiles\Project_Ambient.dir\qrc_resource.cpp.obj.d -o CMakeFiles\Project_Ambient.dir\qrc_resource.cpp.obj -c D:\Projects\Project_Ambient\build\qrc_resource.cpp
 
 CMakeFiles/Project_Ambient.dir/qrc_resource.cpp.i: cmake_force
@@ -778,6 +926,7 @@ Project_Ambient_OBJECTS = \
 "CMakeFiles/Project_Ambient.dir/src/genepool.cpp.obj" \
 "CMakeFiles/Project_Ambient.dir/src/main.cpp.obj" \
 "CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.obj" \
+"CMakeFiles/Project_Ambient.dir/src/SettingsWindow.cpp.obj" \
 "CMakeFiles/Project_Ambient.dir/resources.rc.obj" \
 "CMakeFiles/Project_Ambient.dir/include/moc_CellView.cpp.obj" \
 "CMakeFiles/Project_Ambient.dir/include/moc_Debouncer.cpp.obj" \
@@ -796,8 +945,15 @@ Project_Ambient_OBJECTS = \
 "CMakeFiles/Project_Ambient.dir/include/moc_Matrix.cpp.obj" \
 "CMakeFiles/Project_Ambient.dir/include/moc_cell.cpp.obj" \
 "CMakeFiles/Project_Ambient.dir/tests/moc_doctest.cpp.obj" \
+"CMakeFiles/Project_Ambient.dir/libs/json/moc_json.cpp.obj" \
 "CMakeFiles/Project_Ambient.dir/include/moc_frame.cpp.obj" \
 "CMakeFiles/Project_Ambient.dir/include/moc_mainwindow.cpp.obj" \
+"CMakeFiles/Project_Ambient.dir/include/moc_CellInteractor.cpp.obj" \
+"CMakeFiles/Project_Ambient.dir/include/moc_GameInteractor.cpp.obj" \
+"CMakeFiles/Project_Ambient.dir/include/configs/moc_Configuration.cpp.obj" \
+"CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationHandler.cpp.obj" \
+"CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationChain.cpp.obj" \
+"CMakeFiles/Project_Ambient.dir/include/configs/moc_SettingsWindow.cpp.obj" \
 "CMakeFiles/Project_Ambient.dir/tests/moc_test_Genotype.cpp.obj" \
 "CMakeFiles/Project_Ambient.dir/tests/moc_test_environment.cpp.obj" \
 "CMakeFiles/Project_Ambient.dir/qrc_resource.cpp.obj"
@@ -816,6 +972,7 @@ Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/src/frame.cpp.obj
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/src/genepool.cpp.obj
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/src/main.cpp.obj
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.obj
+Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/src/SettingsWindow.cpp.obj
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/resources.rc.obj
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/include/moc_CellView.cpp.obj
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/include/moc_Debouncer.cpp.obj
@@ -834,8 +991,15 @@ Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/include/moc_Genotype.cpp.obj
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/include/moc_Matrix.cpp.obj
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/include/moc_cell.cpp.obj
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/tests/moc_doctest.cpp.obj
+Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/libs/json/moc_json.cpp.obj
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/include/moc_frame.cpp.obj
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/include/moc_mainwindow.cpp.obj
+Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/include/moc_CellInteractor.cpp.obj
+Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/include/moc_GameInteractor.cpp.obj
+Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/include/configs/moc_Configuration.cpp.obj
+Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationHandler.cpp.obj
+Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/include/configs/moc_ConfigurationChain.cpp.obj
+Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/include/configs/moc_SettingsWindow.cpp.obj
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/tests/moc_test_Genotype.cpp.obj
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/tests/moc_test_environment.cpp.obj
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/qrc_resource.cpp.obj
@@ -847,7 +1011,7 @@ Project_Ambient.exe: C:/Qt/6.3.2/mingw_64/lib/libQt6EntryPoint.a
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/linklibs.rsp
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/objects1.rsp
 Project_Ambient.exe: CMakeFiles/Project_Ambient.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Linking CXX executable Project_Ambient.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Linking CXX executable Project_Ambient.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Project_Ambient.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -858,6 +1022,11 @@ CMakeFiles/Project_Ambient.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles\Project_Ambient.dir\cmake_clean.cmake
 .PHONY : CMakeFiles/Project_Ambient.dir/clean
 
+CMakeFiles/Project_Ambient.dir/depend: include/configs/moc_Configuration.cpp
+CMakeFiles/Project_Ambient.dir/depend: include/configs/moc_ConfigurationChain.cpp
+CMakeFiles/Project_Ambient.dir/depend: include/configs/moc_ConfigurationHandler.cpp
+CMakeFiles/Project_Ambient.dir/depend: include/configs/moc_SettingsWindow.cpp
+CMakeFiles/Project_Ambient.dir/depend: include/moc_CellInteractor.cpp
 CMakeFiles/Project_Ambient.dir/depend: include/moc_CellView.cpp
 CMakeFiles/Project_Ambient.dir/depend: include/moc_CellViewGarbageCollector.cpp
 CMakeFiles/Project_Ambient.dir/depend: include/moc_Debouncer.cpp
@@ -866,6 +1035,7 @@ CMakeFiles/Project_Ambient.dir/depend: include/moc_EnvironmentDecorator.cpp
 CMakeFiles/Project_Ambient.dir/depend: include/moc_EnvironmentScene.cpp
 CMakeFiles/Project_Ambient.dir/depend: include/moc_GameController.cpp
 CMakeFiles/Project_Ambient.dir/depend: include/moc_GameControllerDecorator.cpp
+CMakeFiles/Project_Ambient.dir/depend: include/moc_GameInteractor.cpp
 CMakeFiles/Project_Ambient.dir/depend: include/moc_GameLogicThread.cpp
 CMakeFiles/Project_Ambient.dir/depend: include/moc_Genotype.cpp
 CMakeFiles/Project_Ambient.dir/depend: include/moc_Matrix.cpp
@@ -876,6 +1046,7 @@ CMakeFiles/Project_Ambient.dir/depend: include/moc_genepool.cpp
 CMakeFiles/Project_Ambient.dir/depend: include/moc_logger.cpp
 CMakeFiles/Project_Ambient.dir/depend: include/moc_mainwindow.cpp
 CMakeFiles/Project_Ambient.dir/depend: include/moc_point.cpp
+CMakeFiles/Project_Ambient.dir/depend: libs/json/moc_json.cpp
 CMakeFiles/Project_Ambient.dir/depend: qrc_resource.cpp
 CMakeFiles/Project_Ambient.dir/depend: tests/moc_doctest.cpp
 CMakeFiles/Project_Ambient.dir/depend: tests/moc_test_Genotype.cpp

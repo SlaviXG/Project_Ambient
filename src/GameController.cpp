@@ -6,6 +6,7 @@
 #include <QCoreApplication>
 
 #include "../include/GameLogicThread.h"
+#include "../include/configs/SettingsWindow.h"
 
 controller::GameController::GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment)
     : view(view), scene(scene), environment(environment), timer(this), loggers(), logicThread(new GameLogicThread(this)), collector(scene)
@@ -248,6 +249,22 @@ void controller::GameController::render()
     scene->update();
 };
 
+void controller::GameController::loadConfiguration(Configuration &config)
+{
+    kCellSize = config.get<int>("kCellSize", kCellSize);
+    kFps = config.get<int>("kFps", kFps);
+    kViewPadding = config.get<int>("kViewPadding", kViewPadding);
+    kStartingCellCount = config.get<size_t>("kStartingCellCount", kStartingCellCount);
+}
+
+void controller::GameController::saveConfiguration(Configuration &config) const
+{
+    config.set<int>("kCellSize", kCellSize);
+    config.set<int>("kFps", kFps);
+    config.set<int>("kViewPadding", kViewPadding);
+    config.set<size_t>("kStartingCellCount", kStartingCellCount);
+}
+
 void controller::GameController::GenerateRandomCells(size_t cell_count)
 {
     Q_ASSERT(environment != nullptr);
@@ -306,4 +323,21 @@ void controller::GameController::GenerateRandomCells(size_t cell_count, const st
         else
             --i;
     }
+}
+
+void controller::GameController::setConfigs(ConfigurationChain *chain, Configuration* configs)
+{
+    this->chain = chain;
+    this->configs = configs;
+}
+
+void  controller::GameController::openSettingsWindow() 
+{
+    this->pause();
+    Q_ASSERT(this->chain != nullptr);
+    SettingsWindow win(*this->chain, this->configs, this->view);
+    win.exec();
+    chain->loadConfiguration(*configs);
+    configs->save();
+    this->resume();
 }

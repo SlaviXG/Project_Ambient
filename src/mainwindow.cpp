@@ -18,19 +18,14 @@ MainWindow::MainWindow(EnvironmentScene* scene, QWidget *parent)
 
     cellTracker = new CellTracker(&cellDemoScene, this->ui->curEnergyLabel, this->ui->aggressiveness);
 
-    /*EnvironmentScene* scene = new EnvironmentScene();
+    connect(ui->actionStart, &QAction::triggered, this, &MainWindow::on_startButton_clicked);
+    connect(ui->actionPause, &QAction::triggered, this, &MainWindow::on_pauseButton_clicked);
+    connect(ui->actionResume, &QAction::triggered, this, &MainWindow::on_resumeButton_clicked);
+    connect(ui->actionStop, &QAction::triggered, this, &MainWindow::on_stopButton_clicked);
+    connect(ui->actionRestart, &QAction::triggered, this, &MainWindow::on_restartButton_clicked);
+    connect(ui->actionClose, &QAction::triggered, this, &MainWindow::close);
 
-    CellView* cell = new CellView(ui->environmentView->width() / 2, ui->environmentView->height() / 2, 20, 20);
-    scene->addCell(cell);
-    ui->environmentView->setScene(scene);
-
-    // Move example
-    QTimer* timer = new QTimer();
-    connect(timer, &QTimer::timeout, [cell]() {
-        cell->moveBy(1, 2);
-        qDebug() << "Move\n";
-    });
-    timer->start(10);*/
+    connect(ui->actionOpen_Settings, &QAction::triggered, this, &MainWindow::on_settingsButton_clicked);
 }
 
 void MainWindow::setController(controller::GameInteractor*  controller) {
@@ -80,6 +75,18 @@ void MainWindow::on_resumeButton_clicked()
     qDebug() << "Resume";
 }
 
+void MainWindow::on_startButton_clicked()
+{
+    controller->start();
+    qDebug() << "start";
+}
+
+void MainWindow::on_stopButton_clicked()
+{
+    controller->stop();
+    qDebug() << "stop";
+}
+
 void MainWindow::on_pauseButton_clicked()
 {
     controller->pause();
@@ -112,4 +119,10 @@ void MainWindow::setCurrentCellCountLabel(size_t n)
 {
     ui->cell_count_Label->setText(QString::number(static_cast<qulonglong>(n)));
 }
+
+void MainWindow::on_settingsButton_clicked()
+{
+    controller->openSettingsWindow();
+}
+
 

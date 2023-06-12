@@ -27,25 +27,6 @@ namespace environment
         Environment* environment;
         Point position;
     };
-
-
-/*class Frame
-{
-private:
-    //enum Type {empty, cell, food};
-
-    Cell* cellPtr = nullptr;
-public:
-    Frame();
-    Frame(Cell* cell);
-
-    bool isCell();
-    void setCell(Cell* cell);
-    Cell* getCell();
-
-    void makeEmpty();
-};*/
-
 }
 
 #endif // FRAME_H

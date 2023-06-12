@@ -6,6 +6,7 @@
 
 #include "Point.h"
 #include "Genotype.h"
+#include "configs/ConfigurationHandler.h"
 
 // Cell Vision:
 /*
@@ -31,22 +32,39 @@ namespace genepool
 
 namespace environment
 {
+     static int kEnvironmentWidth = 1000;
+     static int kEnvironmentHeight = 1000;
+
+     static int kMaxEnergy = 2000;
+     static int kMinEnergy = 1600;
+
+     static int kSteps = 5;                 //
+     static int kMoveCost = 5;              // count of energy, that cell will loose after move
+     static int kPhotosynthesisAdd = 25;    // count of energy, that cell will recieve after Photosynthes
+     static float kAttackCoefficient = 0.5; // opponent energy -= currentEnergy * kAC + minDamage
+     static float kAttackCost = 0.01;       // 1/10 * currentEnergy
+     static int kDuplicationCost = 1200;
+     static int kPrise = 500;        // + energy after killing
+     static int kMovesToDeath = 800; // every cell can make at max 250 actions
+     static int kMinDamage = 1000;
+     static int kDelay = 10;
+
      class Frame;
      class Cell; // Cell inherits Frame
 
-    /**
-     * @class Environment
-     * @brief This class represents the environment in which cells live.
-     *
-     * The Environment class is responsible for managing the cells and the frames in which they live.
-     * It provides methods for adding and removing cells, updating their positions, and performing various
-     * other operations related to the environment.
-     */
-     class Environment
+     /**
+      * @class Environment
+      * @brief This class represents the environment in which cells live.
+      *
+      * The Environment class is responsible for managing the cells and the frames in which they live.
+      * It provides methods for adding and removing cells, updating their positions, and performing various
+      * other operations related to the environment.
+      */
+     class Environment : public ConfigurationHandler
      {
      private:
-          const int WIDTH;  ///< The width of the environment.
-          const int HEIGHT; ///< The height of the environment.
+          int WIDTH;  ///< The width of the environment.
+          int HEIGHT; ///< The height of the environment.
 
           // upper limit of population for environment validation ( 2 = 200% of original population)
           const int population_upper_limit = 15;
@@ -69,7 +87,7 @@ namespace environment
            * @param interactor The cell interactor for the environment (Controller interface).
            * @param pool The gene pool of the environment.
            */
-          explicit Environment(int WIDTH, int HEIGHT, controller::CellInteractor *interactor = nullptr, genepool::GenePool *pool = nullptr);
+         explicit Environment(int WIDTH, int HEIGHT, controller::CellInteractor *interactor = nullptr, genepool::GenePool *pool = nullptr);
 
           /**
            * @brief Destructs the Environment object.
@@ -247,43 +265,58 @@ namespace environment
            * @return The maximum cell count.
            */
           unsigned int getMaxCellCount();
+
+          /**
+           * @brief Load configurations from a Configuration object.
+           * @param config The Configuration object.
+           */
+          void loadConfiguration(Configuration &config) override;
+
+          /**
+           * @brief Save configurationsto a Configuration object.
+           * @param config The Configuration object.
+           */
+          void saveConfiguration(Configuration &config) const override;
      };
 
      /**
       * @class RandomGenerator
       * @brief A utility class for generating random numbers and points.
       */
-     class RandomGenerator {
-      public:
-          static int generateRandomIntNumber(int min, int max) {
-              static std::random_device rd;
-              static std::mt19937 rng(rd());
-              std::uniform_int_distribution<int> idist(min, max);
-              return idist(rng);
+     class RandomGenerator
+     {
+     public:
+          static int generateRandomIntNumber(int min, int max)
+          {
+               static std::random_device rd;
+               static std::mt19937 rng(rd());
+               std::uniform_int_distribution<int> idist(min, max);
+               return idist(rng);
           }
 
-          static double generateRandomDoubleNumber(double min, double max) {
-              static std::random_device rd;
-              static std::mt19937 rng(rd());
-              std::uniform_real_distribution<double> ddist(min, max);
-              return ddist(rng);
+          static double generateRandomDoubleNumber(double min, double max)
+          {
+               static std::random_device rd;
+               static std::mt19937 rng(rd());
+               std::uniform_real_distribution<double> ddist(min, max);
+               return ddist(rng);
           }
 
           /**
-         * @brief generateRandomPoint
-         * @param top_left Top left corner of the bounding box
-         * @param bottom_right Bottom right corner of the bounding box
-         * @return Random point that does not go beyond the bounding box
-         */
-          static Point generateRandomPoint(const Point& top_left, const Point& bottom_right) {
-              static std::random_device rd;
-              static std::mt19937 rng(rd());
+           * @brief generateRandomPoint
+           * @param top_left Top left corner of the bounding box
+           * @param bottom_right Bottom right corner of the bounding box
+           * @return Random point that does not go beyond the bounding box
+           */
+          static Point generateRandomPoint(const Point &top_left, const Point &bottom_right)
+          {
+               static std::random_device rd;
+               static std::mt19937 rng(rd());
 
-              std::uniform_int_distribution<int> xdist(top_left.j, bottom_right.j); // x
-              std::uniform_int_distribution<int> ydist(top_left.i, bottom_right.i); // y
+               std::uniform_int_distribution<int> xdist(top_left.j, bottom_right.j); // x
+               std::uniform_int_distribution<int> ydist(top_left.i, bottom_right.i); // y
 
-
-              return { ydist(rng), xdist(rng) };
+               return {ydist(rng), xdist(rng)};
           }
      };
 }
