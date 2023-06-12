@@ -9,7 +9,6 @@
 #include "../include/Environment.h"
 #include "../include/logger.h"
 #include "../include/genepool.h"
-#include "../include/configs/default.h"
 
 #define DOCTEST_CONFIG_IMPLEMENT
 
@@ -52,8 +51,6 @@ int main(int argc, char *argv[])
     //cont.AddLogger(new ConsoleLogger());
     //cont.AddLogger(new FileLogger("logs.txt"));
 
-    Defaults defaults;
-    chain.addHandler(&defaults);
     chain.addHandler(&env);
     chain.addHandler(&cont);
 

@@ -40,10 +40,10 @@ public:
         timer.disconnect();
         this->logicThread->start();
 
-        logicThread->queueTask([this]() { this->GenerateRandomCells(startingCellCount); });
+        logicThread->queueTask([this]() { this->GenerateRandomCells(kStartingCellCount); });
 
         connect(&timer, &QTimer::timeout, this, &GameController::executeLogicThread);
-        timer.start(1000 / fps);
+        timer.start(1000 / kFps);
     }
 
 private:

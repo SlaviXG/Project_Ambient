@@ -5,7 +5,6 @@
 #include "frame.h"
 #include "Environment.h"
 #include "point.h"
-#include "configs/default.h"
 
 class CellTracker;
 
@@ -46,7 +45,7 @@ namespace environment
         genotype::Genotype genotype;
         int stepsCount = kSteps;
         bool isAliveStatus = true;
-        int numberOfMovesToDeath = movesToDeath;
+        int numberOfMovesToDeath = kMovesToDeath;
         int totalScore = 0;                         // evaluation of cell's model
         int delayAfterDuplication = kDelay;
 

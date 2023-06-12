@@ -412,8 +412,6 @@ CMakeFiles/Project_Ambient.dir/src/EnvironmentScene.cpp.obj: \
  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_dir.h \
  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h \
  C:/msys64/mingw64/include/c++/11.2.0/any \
- D:/Projects/Project_Ambient/include/configs/default.h \
- D:/Projects/Project_Ambient/include/configs/ConfigurationHandler.h \
  D:/Projects/Project_Ambient/include/GameInteractor.h \
  D:/Projects/Project_Ambient/include/EnvironmentScene.h \
  D:/Projects/Project_Ambient/include/mainwindow.h \

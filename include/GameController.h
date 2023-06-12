@@ -36,10 +36,10 @@ class GameLogicThread;
 
 namespace controller
 {
-    static int cellSize = 4;               ///< Default size of a cell
-    static int fps = 10;                   ///< Frames per second of the game update
-    static int viewPadding = 2;            ///< Padding around the view
-    static size_t startingCellCount = 200; ///< Initial cell count when the game starts
+    static int kCellSize = 4;               ///< Default size of a cell
+    static int kFps = 10;                   ///< Frames per second of the game update
+    static int kViewPadding = 2;            ///< Padding around the view
+    static size_t kStartingCellCount = 200; ///< Initial cell count when the game starts
 
     /**
      * @brief GameController class is responsible for managing the game logic and updating the graphical representation of the game.

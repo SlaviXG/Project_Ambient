@@ -361,8 +361,6 @@ CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj: \
  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_dir.h \
  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h \
  C:/msys64/mingw64/include/c++/11.2.0/any \
- D:/Projects/Project_Ambient/include/configs/default.h \
- D:/Projects/Project_Ambient/include/configs/ConfigurationHandler.h \
  D:/Projects/Project_Ambient/include/GameInteractor.h \
  D:/Projects/Project_Ambient/include/EnvironmentScene.h \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsScene \
@@ -461,5 +459,4 @@ CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj: \
  C:/msys64/mingw64/include/c++/11.2.0/deque \
  C:/msys64/mingw64/include/c++/11.2.0/bits/stl_deque.h \
  C:/msys64/mingw64/include/c++/11.2.0/bits/deque.tcc \
- D:/Projects/Project_Ambient/include/GameController.h \
- D:/Projects/Project_Ambient/include/configs/default.h
+ D:/Projects/Project_Ambient/include/GameController.h

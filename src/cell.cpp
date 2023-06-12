@@ -489,7 +489,7 @@ namespace environment
 
         Cell* opponent = environment->getCell(currentPosition);
         double opponentEnergy = opponent->getCurrentEnergy();
-        opponentEnergy -= (currentEnergy * kAttackCoefficient + minDamage);
+        opponentEnergy -= (currentEnergy * kAttackCoefficient + kMinDamage);
         currentEnergy -= currentEnergy * kAttackCost;
         opponent->setCurrentEnergy(opponentEnergy);
 

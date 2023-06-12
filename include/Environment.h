@@ -32,19 +32,19 @@ namespace genepool
 
 namespace environment
 {
-     static int maxEnergy = 2000;
-     static int minEnergy = 1600;
+     static int kMaxEnergy = 2000;
+     static int kMinEnergy = 1600;
 
-     static int steps = 5;                 //
-     static int moveCost = 5;              // count of energy, that cell will loose after move
-     static int photosynthesisAdd = 25;    // count of energy, that cell will recieve after Photosynthes
-     static float attackCoefficient = 0.5; // opponent energy -= currentEnergy * kAC + minDamage
-     static float attackCost = 0.01;       // 1/10 * currentEnergy
-     static int duplicationCost = 1200;
-     static int prise = 500;        // + energy after killing
-     static int movesToDeath = 800; // every cell can make at max 250 actions
-     static int minDamage = 1000;
-     static int delay = 10;
+     static int kSteps = 5;                 //
+     static int kMoveCost = 5;              // count of energy, that cell will loose after move
+     static int kPhotosynthesisAdd = 25;    // count of energy, that cell will recieve after Photosynthes
+     static float kAttackCoefficient = 0.5; // opponent energy -= currentEnergy * kAC + minDamage
+     static float kAttackCost = 0.01;       // 1/10 * currentEnergy
+     static int kDuplicationCost = 1200;
+     static int kPrise = 500;        // + energy after killing
+     static int kMovesToDeath = 800; // every cell can make at max 250 actions
+     static int kMinDamage = 1000;
+     static int kDelay = 10;
 
      class Frame;
      class Cell; // Cell inherits Frame

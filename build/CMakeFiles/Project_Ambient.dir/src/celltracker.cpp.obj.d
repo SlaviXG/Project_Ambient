@@ -400,8 +400,6 @@ CMakeFiles/Project_Ambient.dir/src/celltracker.cpp.obj: \
  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_dir.h \
  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h \
  C:/msys64/mingw64/include/c++/11.2.0/any \
- D:/Projects/Project_Ambient/include/configs/default.h \
- D:/Projects/Project_Ambient/include/configs/ConfigurationHandler.h \
  D:/Projects/Project_Ambient/include/CellView.h \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsRectItem \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicsitem.h \

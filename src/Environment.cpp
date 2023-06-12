@@ -4,7 +4,6 @@
 #include "../include/cell.h"
 #include "../include/GameController.h"
 #include "../include/genepool.h"
-#include "../include/configs/default.h"
 
 namespace environment
 {
@@ -337,34 +336,34 @@ namespace environment
 
     void Environment::loadConfiguration(Configuration &config)
     {
-        maxEnergy = config.get<int>("maxEnergy", kMaxEnergy);
-        minEnergy = config.get<int>("minEnergy", kMinEnergy);
+        kMaxEnergy = config.get<int>("kMaxEnergy", kMaxEnergy);
+        kMinEnergy = config.get<int>("kMinEnergy", kMinEnergy);
 
-        steps = config.get<int>("steps", kSteps);
-        moveCost = config.get<int>("moveCost", kMoveCost);
-        photosynthesisAdd = config.get<int>("photosynthesisAdd", kPhotosynthesisAdd);
-        attackCoefficient = config.get<float>("attackCoefficient", kAttackCoefficient);
-        attackCost = config.get<float>("attackCost", kAttackCost);
-        duplicationCost = config.get<int>("duplicationCost", kDuplicationCost);
-        prise = config.get<int>("prise", kPrise);
-        movesToDeath = config.get<int>("movesToDeath", kMovesToDeath);
-        minDamage = config.get<int>("minDamage", kMinDamage);
-        delay = config.get<int>("delay", kDelay);
+        kSteps = config.get<int>("kSteps", kSteps);
+        kMoveCost = config.get<int>("kMoveCost", kMoveCost);
+        kPhotosynthesisAdd = config.get<int>("kPhotosynthesisAdd", kPhotosynthesisAdd);
+        kAttackCoefficient = config.get<float>("kAttackCoefficient", kAttackCoefficient);
+        kAttackCost = config.get<float>("kAttackCost", kAttackCost);
+        kDuplicationCost = config.get<int>("kDuplicationCost", kDuplicationCost);
+        kPrise = config.get<int>("kPrise", kPrise);
+        kMovesToDeath = config.get<int>("kMovesToDeath", kMovesToDeath);
+        kMinDamage = config.get<int>("kMinDamage", kMinDamage);
+        kDelay = config.get<int>("kDelay", kDelay);
     }
 
     void  Environment::saveConfiguration(Configuration &config) const {
-        config.set<int>("maxEnergy", maxEnergy);
-        config.set<int>("minEnergy", minEnergy);
+        config.set<int>("kMaxEnergy", kMaxEnergy);
+        config.set<int>("kMinEnergy", kMinEnergy);
 
-        config.set<int>("steps", steps);
-        config.set<int>("moveCost", moveCost);
-        config.set<int>("photosynthesisAdd", photosynthesisAdd);
-        config.set<float>("attackCoefficient", attackCoefficient);
-        config.set<float>("attackCost", attackCost);
-        config.set<int>("duplicationCost", duplicationCost);
-        config.set<int>("prise", prise);
-        config.set<int>("movesToDeath", movesToDeath);
-        config.set<int>("minDamage", minDamage);
-        config.set<int>("delay", delay);
+        config.set<int>("kSteps", kSteps);
+        config.set<int>("kMoveCost", kMoveCost);
+        config.set<int>("kPhotosynthesisAdd", kPhotosynthesisAdd);
+        config.set<float>("kAttackCoefficient", kAttackCoefficient);
+        config.set<float>("kAttackCost", kAttackCost);
+        config.set<int>("kDuplicationCost", kDuplicationCost);
+        config.set<int>("kPrise", kPrise);
+        config.set<int>("kMovesToDeath", kMovesToDeath);
+        config.set<int>("kMinDamage", kMinDamage);
+        config.set<int>("kDelay", kDelay);
     }
 }

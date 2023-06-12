@@ -267,8 +267,6 @@ CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj: \
  D:/Projects/Project_Ambient/include/Environment.h \
  D:/Projects/Project_Ambient/include/cell.h \
  D:/Projects/Project_Ambient/include/frame.h \
- D:/Projects/Project_Ambient/include/configs/default.h \
- D:/Projects/Project_Ambient/include/configs/ConfigurationHandler.h \
  D:/Projects/Project_Ambient/include/GameController.h \
  C:/Qt/6.3.2/mingw_64/include/QtCore/QTimer \
  C:/Qt/6.3.2/mingw_64/include/QtCore/qtimer.h \
@@ -447,5 +445,4 @@ CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj: \
  C:/msys64/mingw64/include/c++/11.2.0/bits/this_thread_sleep.h \
  D:/Projects/Project_Ambient/include/logger.h \
  D:/Projects/Project_Ambient/include/CellViewGarbageCollector.h \
- D:/Projects/Project_Ambient/include/genepool.h \
- D:/Projects/Project_Ambient/include/configs/default.h
+ D:/Projects/Project_Ambient/include/genepool.h

@@ -6,7 +6,6 @@
 #include <QCoreApplication>
 
 #include "../include/GameLogicThread.h"
-#include "../include/configs/default.h"
 
 controller::GameController::GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment)
     : view(view), scene(scene), environment(environment), timer(this), loggers(), logicThread(new GameLogicThread(this)), collector(scene)
@@ -45,7 +44,7 @@ void controller::GameController::addCell(environment::Cell *cellptr)
 
     double x = point.i * view->getEnvironmentWidth() / environment->getWidth();
     double y = point.j * view->getEnvironmentHeight() / environment->getHeight();
-    auto cellViewptr = scene->genCellViewPtr(x, y, cellSize, cellSize, cellptr->getAggressiveness() * 100);
+    auto cellViewptr = scene->genCellViewPtr(x, y, kCellSize, kCellSize, cellptr->getAggressiveness() * 100);
 
     connect(cellViewptr, &CellView::clicked, cellTracker, [this, cellViewptr, cellptr]()
             { cellTracker->boundCell(cellptr, cellViewptr); });
@@ -93,10 +92,10 @@ void controller::GameController::start()
     this->logicThread->start();
 
     logicThread->queueTask([this]()
-                           { this->GenerateRandomCells(startingCellCount); });
+                           { this->GenerateRandomCells(kStartingCellCount); });
 
     connect(&timer, &QTimer::timeout, this, &GameController::executeLogicThread);
-    timer.start(1000 / fps);
+    timer.start(1000 / kFps);
 }
 
 void controller::GameController::executeLogicThread()
@@ -140,7 +139,7 @@ void controller::GameController::pause()
 }
 void controller::GameController::resume()
 {
-    timer.start(1000 / fps);
+    timer.start(1000 / kFps);
     this->logicThread->start();
 }
 
@@ -214,8 +213,8 @@ void controller::GameController::render()
 
     NotifyLoggers("Cells to render: " + std::to_string(environment->getCellNumber()));
 
-    double scaleW = (view->getEnvironmentWidth() - viewPadding) / environment->getWidth();
-    double scaleH = (view->getEnvironmentHeight() - viewPadding) / environment->getHeight();
+    double scaleW = (view->getEnvironmentWidth() - kViewPadding) / environment->getWidth();
+    double scaleH = (view->getEnvironmentHeight() - kViewPadding) / environment->getHeight();
 
     for (const auto &cell : cells)
     {
@@ -251,18 +250,18 @@ void controller::GameController::render()
 
 void controller::GameController::loadConfiguration(Configuration &config)
 {
-    cellSize = config.get<int>("cellSize", kCellSize);
-    fps = config.get<int>("fps", kFps);
-    viewPadding = config.get<int>("viewPadding", kViewPadding);
-    startingCellCount = config.get<size_t>("startingCellCount", kStartingCellCount);
+        kCellSize = config.get<int>("kCellSize", kCellSize);
+        kFps = config.get<int>("kFps", kFps);
+        kViewPadding = config.get<int>("kViewPadding", kViewPadding);
+        kStartingCellCount = config.get<size_t>("kStartingCellCount", kStartingCellCount);
 }
 
 void controller::GameController::saveConfiguration(Configuration &config) const
 {
-    config.set<int>("cellSize", cellSize);
-    config.set<int>("fps", fps);
-    config.set<int>("viewPadding", viewPadding);
-    config.set<size_t>("startingCellCount", startingCellCount);
+        config.set<int>("kCellSize", kCellSize);
+        config.set<int>("kFps", kFps);
+        config.set<int>("kViewPadding", kViewPadding);
+        config.set<size_t>("kStartingCellCount", kStartingCellCount);
 }
 
 void controller::GameController::GenerateRandomCells(size_t cell_count)
