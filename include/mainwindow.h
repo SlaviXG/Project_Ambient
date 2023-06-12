@@ -51,6 +51,10 @@ signals:
     void on_add_cells_Button_clicked_signal();
 
 private slots:
+    void on_startButton_clicked();
+
+    void on_stopButton_clicked();
+
     void on_restartButton_clicked();
 
     void on_pauseButton_clicked();
@@ -62,6 +66,8 @@ private slots:
     void on_add_cells_Button_clicked();
 
     void on_cell_clicked();
+
+    void on_settingsButton_clicked();
 
 private:
     Ui::MainWindow *ui;
