@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "point.h"
+#include "configs/ConfigurationChain.h"
 
 namespace controller
 {
@@ -37,6 +38,9 @@ namespace controller
 
         /// Resume the game.
         virtual void resume() = 0;
+
+        /// Opens settings window
+        virtual void openSettingsWindow() = 0;
     };
 
 }

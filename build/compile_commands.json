@@ -56,6 +56,11 @@
 },
 {
   "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Project_Ambient.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\Project_Ambient.dir\\src\\SettingsWindow.cpp.obj -c D:\\Projects\\Project_Ambient\\src\\SettingsWindow.cpp",
+  "file": "D:/Projects/Project_Ambient/src/SettingsWindow.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
   "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Project_Ambient.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\Project_Ambient.dir\\include\\moc_CellView.cpp.obj -c D:\\Projects\\Project_Ambient\\build\\include\\moc_CellView.cpp",
   "file": "D:/Projects/Project_Ambient/build/include/moc_CellView.cpp"
 },
@@ -178,6 +183,11 @@
   "directory": "D:/Projects/Project_Ambient/build",
   "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Project_Ambient.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\Project_Ambient.dir\\include\\configs\\moc_ConfigurationChain.cpp.obj -c D:\\Projects\\Project_Ambient\\build\\include\\configs\\moc_ConfigurationChain.cpp",
   "file": "D:/Projects/Project_Ambient/build/include/configs/moc_ConfigurationChain.cpp"
+},
+{
+  "directory": "D:/Projects/Project_Ambient/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Project_Ambient.dir/includes_CXX.rsp -g -pthread -std=gnu++17 -o CMakeFiles\\Project_Ambient.dir\\include\\configs\\moc_SettingsWindow.cpp.obj -c D:\\Projects\\Project_Ambient\\build\\include\\configs\\moc_SettingsWindow.cpp",
+  "file": "D:/Projects/Project_Ambient/build/include/configs/moc_SettingsWindow.cpp"
 },
 {
   "directory": "D:/Projects/Project_Ambient/build",

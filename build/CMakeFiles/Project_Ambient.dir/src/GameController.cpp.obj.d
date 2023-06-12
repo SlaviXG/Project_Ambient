@@ -362,6 +362,8 @@ CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj: \
  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h \
  C:/msys64/mingw64/include/c++/11.2.0/any \
  D:/Projects/Project_Ambient/include/GameInteractor.h \
+ D:/Projects/Project_Ambient/include/configs/ConfigurationChain.h \
+ D:/Projects/Project_Ambient/include/configs/ConfigurationHandler.h \
  D:/Projects/Project_Ambient/include/EnvironmentScene.h \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsScene \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
@@ -459,4 +461,31 @@ CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj: \
  C:/msys64/mingw64/include/c++/11.2.0/deque \
  C:/msys64/mingw64/include/c++/11.2.0/bits/stl_deque.h \
  C:/msys64/mingw64/include/c++/11.2.0/bits/deque.tcc \
- D:/Projects/Project_Ambient/include/GameController.h
+ D:/Projects/Project_Ambient/include/GameController.h \
+ D:/Projects/Project_Ambient/include/configs/SettingsWindow.h \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/QDialog \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/qdialog.h \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/QSpinBox \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/qspinbox.h \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
+ C:/Qt/6.3.2/mingw_64/include/QtGui/qvalidator.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/QDoubleSpinBox \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/QPushButton \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/qpushbutton.h \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/QFormLayout \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/qformlayout.h \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/QLayout \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/qlayout.h \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/qlayoutitem.h \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/qlayout.h \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/QVBoxLayout \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGroupBox \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgroupbox.h \
+ C:/Qt/6.3.2/mingw_64/include/QtGui/QValidator \
+ C:/Qt/6.3.2/mingw_64/include/QtGui/qvalidator.h \
+ D:/Projects/Project_Ambient/include/configs/ConfigurationChain.h

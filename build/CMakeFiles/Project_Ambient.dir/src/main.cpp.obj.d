@@ -430,6 +430,9 @@ CMakeFiles/Project_Ambient.dir/src/main.cpp.obj: \
  C:/Qt/6.3.2/mingw_64/include/QtGui/qinputmethod.h \
  C:/Qt/6.3.2/mingw_64/include/QtCore/qlocale.h \
  C:/Qt/6.3.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/QFile \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qfile.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qfiledevice.h \
  D:/Projects/Project_Ambient/include/configs/Configuration.h \
  D:/Projects/Project_Ambient/include/configs/ConfigurationChain.h \
  D:/Projects/Project_Ambient/include/configs/ConfigurationHandler.h \
@@ -454,6 +457,7 @@ CMakeFiles/Project_Ambient.dir/src/main.cpp.obj: \
  C:/Qt/6.3.2/mingw_64/include/QtCore/QMutexLocker \
  D:/Projects/Project_Ambient/include/CellInteractor.h \
  D:/Projects/Project_Ambient/include/GameInteractor.h \
+ D:/Projects/Project_Ambient/include/configs/ConfigurationChain.h \
  D:/Projects/Project_Ambient/include/mainwindow.h \
  D:/Projects/Project_Ambient/include/logger.h \
  D:/Projects/Project_Ambient/include/CellViewGarbageCollector.h \

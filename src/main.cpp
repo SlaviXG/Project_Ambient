@@ -63,6 +63,8 @@ int main(int argc, char *argv[])
 
     Configuration configs("configs.json");
     chain.loadConfiguration(configs);
+
+    cont.setConfigs(&chain, &configs);
     
     env.setCellInteractor(&cont);
     win.setController(&cont);

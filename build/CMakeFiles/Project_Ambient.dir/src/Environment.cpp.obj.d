@@ -365,6 +365,8 @@ CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj: \
  D:/Projects/Project_Ambient/include/CellInteractor.h \
  D:/Projects/Project_Ambient/include/cell.h \
  D:/Projects/Project_Ambient/include/GameInteractor.h \
+ D:/Projects/Project_Ambient/include/configs/ConfigurationChain.h \
+ D:/Projects/Project_Ambient/include/configs/ConfigurationHandler.h \
  D:/Projects/Project_Ambient/include/EnvironmentScene.h \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsScene \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicsscene.h \

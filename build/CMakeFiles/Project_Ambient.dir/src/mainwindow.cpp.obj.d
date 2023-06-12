@@ -422,6 +422,8 @@ CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.obj: \
  D:/Projects/Project_Ambient/build/ui_mainwindow.h \
  C:/Qt/6.3.2/mingw_64/include/QtCore/QVariant \
  C:/Qt/6.3.2/mingw_64/include/QtCore/qvariant.h \
+ C:/Qt/6.3.2/mingw_64/include/QtGui/QAction \
+ C:/Qt/6.3.2/mingw_64/include/QtGui/qaction.h \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/QApplication \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/qapplication.h \
  C:/Qt/6.3.2/mingw_64/include/QtCore/qcoreapplication.h \
@@ -454,6 +456,8 @@ CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.obj: \
  C:/Qt/6.3.2/mingw_64/include/QtGui/qtextcursor.h \
  C:/Qt/6.3.2/mingw_64/include/QtGui/qtextformat.h \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/QMainWindow \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/QMenu \
+ C:/Qt/6.3.2/mingw_64/include/QtWidgets/qmenu.h \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/QMenuBar \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/qmenubar.h \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/qmenu.h \
@@ -462,8 +466,6 @@ CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.obj: \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/qabstractbutton.h \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/QSplitter \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/qsplitter.h \
- C:/Qt/6.3.2/mingw_64/include/QtWidgets/QStatusBar \
- C:/Qt/6.3.2/mingw_64/include/QtWidgets/qstatusbar.h \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/QVBoxLayout \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/QWidget \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/qwidget.h \
@@ -488,6 +490,8 @@ CMakeFiles/Project_Ambient.dir/src/mainwindow.cpp.obj: \
  C:/Qt/6.3.2/mingw_64/include/QtCore/QMutexLocker \
  D:/Projects/Project_Ambient/include/CellInteractor.h \
  D:/Projects/Project_Ambient/include/GameInteractor.h \
+ D:/Projects/Project_Ambient/include/configs/ConfigurationChain.h \
+ D:/Projects/Project_Ambient/include/configs/ConfigurationHandler.h \
  D:/Projects/Project_Ambient/include/mainwindow.h \
  D:/Projects/Project_Ambient/include/logger.h \
  D:/Projects/Project_Ambient/include/CellViewGarbageCollector.h

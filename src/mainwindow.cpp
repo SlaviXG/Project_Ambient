@@ -122,7 +122,7 @@ void MainWindow::setCurrentCellCountLabel(size_t n)
 
 void MainWindow::on_settingsButton_clicked()
 {
-    // TODO
+    controller->openSettingsWindow();
 }
 
 

@@ -413,6 +413,8 @@ CMakeFiles/Project_Ambient.dir/src/EnvironmentScene.cpp.obj: \
  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h \
  C:/msys64/mingw64/include/c++/11.2.0/any \
  D:/Projects/Project_Ambient/include/GameInteractor.h \
+ D:/Projects/Project_Ambient/include/configs/ConfigurationChain.h \
+ D:/Projects/Project_Ambient/include/configs/ConfigurationHandler.h \
  D:/Projects/Project_Ambient/include/EnvironmentScene.h \
  D:/Projects/Project_Ambient/include/mainwindow.h \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/QMainWindow \

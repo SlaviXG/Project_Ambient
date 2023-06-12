@@ -31,6 +31,7 @@
 #include "CellView.h"
 #include "logger.h"
 #include "CellViewGarbageCollector.h"
+#include "configs/ConfigurationChain.h"
 
 class GameLogicThread;
 
@@ -137,16 +138,31 @@ namespace controller
         void processAI();
 
         /**
+         * @brief Set the ConfigurationChain object
+         *
+         * @param chain: The chain of all application parts
+         * @param configs: Application settings
+         *
+         */
+        void setConfigs(ConfigurationChain *chain, Configuration* configs);
+
+        /**
          * @brief Load configurations from a Configuration object.
-         * @param config The Configuration object.
+         * @param config: The Configuration object.
          */
         void loadConfiguration(Configuration &config) override;
 
         /**
          * @brief Save configurationsto a Configuration object.
-         * @param config The Configuration object.
+         * @param config: The Configuration object.
          */
         void saveConfiguration(Configuration &config) const override;
+
+        /**
+         * @brief Open Settings Window
+         *
+         */
+        void openSettingsWindow() override;
 
     public slots:
         /**
@@ -212,8 +228,10 @@ namespace controller
 
         std::vector<Logger *> loggers; ///< Vector of loggers for the game.
 
-        QMutex mutex;                       ///< The mutex for thread safety.
-        CellViewGarbageCollector collector; ///< The garbage collector for unused CellView objects.
+        QMutex mutex;                        ///< The mutex for thread safety.
+        CellViewGarbageCollector collector;  ///< The garbage collector for unused CellView objects.
+        ConfigurationChain *chain = nullptr; ///< The chain of all application parts with configs
+        Configuration* configs = nullptr;    ///< Application settings
     };
 };
 
