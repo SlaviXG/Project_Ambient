@@ -192,75 +192,21 @@ CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj: \
  C:/msys64/mingw64/include/c++/11.2.0/bits/sstream.tcc \
  C:/msys64/mingw64/include/c++/11.2.0/ctime \
  D:/Projects/Project_Ambient/include/point.h \
- D:/Projects/Project_Ambient/include/frame.h \
- D:/Projects/Project_Ambient/include/Environment.h \
- D:/Projects/Project_Ambient/include/cell.h \
- D:/Projects/Project_Ambient/include/frame.h \
- D:/Projects/Project_Ambient/include/configs/default.h \
- D:/Projects/Project_Ambient/include/GameController.h \
- C:/msys64/mingw64/include/c++/11.2.0/map \
- C:/msys64/mingw64/include/c++/11.2.0/bits/stl_tree.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/stl_map.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/stl_multimap.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/QTimer \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qtimer.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qglobal.h \
- C:/msys64/mingw64/include/c++/11.2.0/cstddef \
- C:/msys64/mingw64/x86_64-w64-mingw32/include/assert.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qconfig.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qtcore-config.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qtcoreexports.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qsystemdetection.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qprocessordetection.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qcompilerdetection.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qtypeinfo.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qcontainerfwd.h \
- C:/msys64/mingw64/include/c++/11.2.0/variant \
- C:/msys64/mingw64/include/c++/11.2.0/bits/enable_special_members.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/parse_numbers.h \
- C:/msys64/mingw64/include/c++/11.2.0/optional \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qsysinfo.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qlogging.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qflags.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qcompare_impl.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qatomic.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qbasicatomic.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qatomic_cxx11.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qgenericatomic.h \
- C:/msys64/mingw64/include/c++/11.2.0/atomic \
- C:/msys64/mingw64/include/c++/11.2.0/bits/atomic_base.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/atomic_lockfree_defines.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qglobalstatic.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qnumeric.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qversiontagging.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qbasictimer.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qnamespace.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qtmetamacros.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qobject.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qobjectdefs.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qstring.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qchar.h \
+ D:/Projects/Project_Ambient/include/configs/ConfigurationHandler.h \
+ D:/Projects/Project_Ambient/include/configs/Configuration.h \
+ D:/Projects/Project_Ambient/libs/json/json.hpp \
+ C:/msys64/mingw64/include/c++/11.2.0/algorithm \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/stl_algo.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/algorithmfwd.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/stl_heap.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/stl_tempbuf.h \
+ C:/msys64/mingw64/include/c++/11.2.0/pstl/glue_algorithm_defs.h \
  C:/msys64/mingw64/include/c++/11.2.0/functional \
  C:/msys64/mingw64/include/c++/11.2.0/bits/refwrap.h \
  C:/msys64/mingw64/include/c++/11.2.0/bits/std_function.h \
  C:/msys64/mingw64/include/c++/11.2.0/unordered_map \
  C:/msys64/mingw64/include/c++/11.2.0/bits/unordered_map.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/stl_algo.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/algorithmfwd.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/stl_heap.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/stl_tempbuf.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qstringview.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qbytearray.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qrefcount.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qarraydata.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qpair.h \
- C:/msys64/mingw64/x86_64-w64-mingw32/include/string.h \
- C:/msys64/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qarraydatapointer.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qarraydataops.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qcontainertools_impl.h \
- C:/msys64/mingw64/include/c++/11.2.0/cstring \
+ C:/msys64/mingw64/include/c++/11.2.0/cstddef \
  C:/msys64/mingw64/include/c++/11.2.0/iterator \
  C:/msys64/mingw64/include/c++/11.2.0/bits/stream_iterator.h \
  C:/msys64/mingw64/include/c++/11.2.0/memory \
@@ -272,10 +218,100 @@ CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj: \
  C:/msys64/mingw64/include/c++/11.2.0/bits/allocated_ptr.h \
  C:/msys64/mingw64/include/c++/11.2.0/ext/concurrence.h \
  C:/msys64/mingw64/include/c++/11.2.0/bits/shared_ptr_atomic.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/atomic_base.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/atomic_lockfree_defines.h \
  C:/msys64/mingw64/include/c++/11.2.0/backward/auto_ptr.h \
  C:/msys64/mingw64/include/c++/11.2.0/pstl/glue_memory_defs.h \
- C:/msys64/mingw64/include/c++/11.2.0/algorithm \
- C:/msys64/mingw64/include/c++/11.2.0/pstl/glue_algorithm_defs.h \
+ C:/msys64/mingw64/include/c++/11.2.0/forward_list \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.tcc \
+ C:/msys64/mingw64/include/c++/11.2.0/map \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/stl_tree.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/stl_map.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/stl_multimap.h \
+ C:/msys64/mingw64/include/c++/11.2.0/valarray \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.tcc \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_before.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/slice_array.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_after.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/gslice.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/gslice_array.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/mask_array.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/indirect_array.h \
+ C:/msys64/mingw64/include/c++/11.2.0/version \
+ C:/msys64/mingw64/include/c++/11.2.0/cassert \
+ C:/msys64/mingw64/x86_64-w64-mingw32/include/assert.h \
+ C:/msys64/mingw64/include/c++/11.2.0/cstring \
+ C:/msys64/mingw64/x86_64-w64-mingw32/include/string.h \
+ C:/msys64/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h \
+ C:/msys64/mingw64/include/c++/11.2.0/filesystem \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/fs_fwd.h \
+ C:/msys64/mingw64/include/c++/11.2.0/chrono \
+ C:/msys64/mingw64/include/c++/11.2.0/ratio \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/parse_numbers.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/fs_path.h \
+ C:/msys64/mingw64/include/c++/11.2.0/locale \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.h \
+ C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/time_members.h \
+ C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h \
+ C:/msys64/mingw64/include/c++/11.2.0/iomanip \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/quoted_string.h \
+ C:/msys64/mingw64/include/c++/11.2.0/codecvt \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/fs_dir.h \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h \
+ C:/msys64/mingw64/include/c++/11.2.0/any \
+ D:/Projects/Project_Ambient/include/frame.h \
+ D:/Projects/Project_Ambient/include/Environment.h \
+ D:/Projects/Project_Ambient/include/cell.h \
+ D:/Projects/Project_Ambient/include/frame.h \
+ D:/Projects/Project_Ambient/include/configs/default.h \
+ D:/Projects/Project_Ambient/include/configs/ConfigurationHandler.h \
+ D:/Projects/Project_Ambient/include/GameController.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/QTimer \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qtimer.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qglobal.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qconfig.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qtcore-config.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qtcoreexports.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qsystemdetection.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qprocessordetection.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qcompilerdetection.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qtypeinfo.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qcontainerfwd.h \
+ C:/msys64/mingw64/include/c++/11.2.0/variant \
+ C:/msys64/mingw64/include/c++/11.2.0/bits/enable_special_members.h \
+ C:/msys64/mingw64/include/c++/11.2.0/optional \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qsysinfo.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qlogging.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qflags.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qcompare_impl.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qatomic.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qbasicatomic.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qatomic_cxx11.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qgenericatomic.h \
+ C:/msys64/mingw64/include/c++/11.2.0/atomic \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qglobalstatic.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qnumeric.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qversiontagging.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qbasictimer.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qnamespace.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qtmetamacros.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qobject.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qobjectdefs.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qstring.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qchar.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qstringview.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qbytearray.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qrefcount.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qarraydata.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qpair.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qarraydatapointer.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qarraydataops.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qcontainertools_impl.h \
  C:/Qt/6.3.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
  C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdarg.h \
  C:/msys64/mingw64/x86_64-w64-mingw32/include/stdarg.h \
@@ -310,8 +346,6 @@ CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj: \
  C:/msys64/mingw64/include/c++/11.2.0/bits/list.tcc \
  C:/Qt/6.3.2/mingw_64/include/QtCore/qobject_impl.h \
  C:/Qt/6.3.2/mingw_64/include/QtCore/qbindingstorage.h \
- C:/msys64/mingw64/include/c++/11.2.0/chrono \
- C:/msys64/mingw64/include/c++/11.2.0/ratio \
  C:/Qt/6.3.2/mingw_64/include/QtCore/QObject \
  C:/Qt/6.3.2/mingw_64/include/QtCore/qobject.h \
  C:/Qt/6.3.2/mingw_64/include/QtCore/QMutex \
@@ -333,39 +367,6 @@ CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj: \
  D:/Projects/Project_Ambient/include/CellInteractor.h \
  D:/Projects/Project_Ambient/include/cell.h \
  D:/Projects/Project_Ambient/include/GameInteractor.h \
- D:/Projects/Project_Ambient/include/configs/ConfigurationHandler.h \
- D:/Projects/Project_Ambient/include/configs/Configuration.h \
- D:/Projects/Project_Ambient/libs/json/json.hpp \
- C:/msys64/mingw64/include/c++/11.2.0/forward_list \
- C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/forward_list.tcc \
- C:/msys64/mingw64/include/c++/11.2.0/valarray \
- C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_array.tcc \
- C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_before.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/slice_array.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/valarray_after.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/gslice.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/gslice_array.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/mask_array.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/indirect_array.h \
- C:/msys64/mingw64/include/c++/11.2.0/version \
- C:/msys64/mingw64/include/c++/11.2.0/cassert \
- C:/msys64/mingw64/include/c++/11.2.0/filesystem \
- C:/msys64/mingw64/include/c++/11.2.0/bits/fs_fwd.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/fs_path.h \
- C:/msys64/mingw64/include/c++/11.2.0/locale \
- C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.h \
- C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/time_members.h \
- C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/messages_members.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/locale_facets_nonio.tcc \
- C:/msys64/mingw64/include/c++/11.2.0/bits/locale_conv.h \
- C:/msys64/mingw64/include/c++/11.2.0/iomanip \
- C:/msys64/mingw64/include/c++/11.2.0/bits/quoted_string.h \
- C:/msys64/mingw64/include/c++/11.2.0/codecvt \
- C:/msys64/mingw64/include/c++/11.2.0/bits/fs_dir.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h \
- C:/msys64/mingw64/include/c++/11.2.0/any \
  D:/Projects/Project_Ambient/include/EnvironmentScene.h \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsScene \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
@@ -446,4 +447,5 @@ CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj: \
  C:/msys64/mingw64/include/c++/11.2.0/bits/this_thread_sleep.h \
  D:/Projects/Project_Ambient/include/logger.h \
  D:/Projects/Project_Ambient/include/CellViewGarbageCollector.h \
- D:/Projects/Project_Ambient/include/genepool.h
+ D:/Projects/Project_Ambient/include/genepool.h \
+ D:/Projects/Project_Ambient/include/configs/default.h

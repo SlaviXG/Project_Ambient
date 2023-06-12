@@ -146,7 +146,7 @@ namespace controller
          * @brief Save configurationsto a Configuration object.
          * @param config The Configuration object.
          */
-        void saveConfiguration(Configuration &config) override;
+        void saveConfiguration(Configuration &config) const override;
 
     public slots:
         /**

@@ -19,7 +19,7 @@ public:
      * @brief Save configurations to a Configuration object.
      * @param config The Configuration object.
      */
-    virtual void saveConfiguration(Configuration& config) = 0;
+    virtual void saveConfiguration(Configuration& config) const = 0;
 };
 
 

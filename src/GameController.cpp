@@ -257,7 +257,7 @@ void controller::GameController::loadConfiguration(Configuration &config)
     startingCellCount = config.get<size_t>("startingCellCount", kStartingCellCount);
 }
 
-void controller::GameController::saveConfiguration(Configuration &config)
+void controller::GameController::saveConfiguration(Configuration &config) const
 {
     config.set<int>("cellSize", cellSize);
     config.set<int>("fps", fps);

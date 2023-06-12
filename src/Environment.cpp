@@ -4,6 +4,7 @@
 #include "../include/cell.h"
 #include "../include/GameController.h"
 #include "../include/genepool.h"
+#include "../include/configs/default.h"
 
 namespace environment
 {
@@ -332,5 +333,38 @@ namespace environment
         }
         cur_step_count++;
 
+    }
+
+    void Environment::loadConfiguration(Configuration &config)
+    {
+        maxEnergy = config.get<int>("maxEnergy", kMaxEnergy);
+        minEnergy = config.get<int>("minEnergy", kMinEnergy);
+
+        steps = config.get<int>("steps", kSteps);
+        moveCost = config.get<int>("moveCost", kMoveCost);
+        photosynthesisAdd = config.get<int>("photosynthesisAdd", kPhotosynthesisAdd);
+        attackCoefficient = config.get<float>("attackCoefficient", kAttackCoefficient);
+        attackCost = config.get<float>("attackCost", kAttackCost);
+        duplicationCost = config.get<int>("duplicationCost", kDuplicationCost);
+        prise = config.get<int>("prise", kPrise);
+        movesToDeath = config.get<int>("movesToDeath", kMovesToDeath);
+        minDamage = config.get<int>("minDamage", kMinDamage);
+        delay = config.get<int>("delay", kDelay);
+    }
+
+    void  Environment::saveConfiguration(Configuration &config) const {
+        config.set<int>("maxEnergy", maxEnergy);
+        config.set<int>("minEnergy", minEnergy);
+
+        config.set<int>("steps", steps);
+        config.set<int>("moveCost", moveCost);
+        config.set<int>("photosynthesisAdd", photosynthesisAdd);
+        config.set<float>("attackCoefficient", attackCoefficient);
+        config.set<float>("attackCost", attackCost);
+        config.set<int>("duplicationCost", duplicationCost);
+        config.set<int>("prise", prise);
+        config.set<int>("movesToDeath", movesToDeath);
+        config.set<int>("minDamage", minDamage);
+        config.set<int>("delay", delay);
     }
 }

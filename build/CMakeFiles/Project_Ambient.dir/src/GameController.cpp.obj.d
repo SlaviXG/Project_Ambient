@@ -328,8 +328,6 @@ CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj: \
  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/opt_random.h \
  C:/msys64/mingw64/include/c++/11.2.0/bits/random.tcc \
  D:/Projects/Project_Ambient/include/Point.h \
- D:/Projects/Project_Ambient/include/configs/default.h \
- D:/Projects/Project_Ambient/include/GameInteractor.h \
  D:/Projects/Project_Ambient/include/configs/ConfigurationHandler.h \
  D:/Projects/Project_Ambient/include/configs/Configuration.h \
  D:/Projects/Project_Ambient/libs/json/json.hpp \
@@ -363,6 +361,9 @@ CMakeFiles/Project_Ambient.dir/src/GameController.cpp.obj: \
  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_dir.h \
  C:/msys64/mingw64/include/c++/11.2.0/bits/fs_ops.h \
  C:/msys64/mingw64/include/c++/11.2.0/any \
+ D:/Projects/Project_Ambient/include/configs/default.h \
+ D:/Projects/Project_Ambient/include/configs/ConfigurationHandler.h \
+ D:/Projects/Project_Ambient/include/GameInteractor.h \
  D:/Projects/Project_Ambient/include/EnvironmentScene.h \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsScene \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
