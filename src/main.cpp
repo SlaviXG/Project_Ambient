@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 
     //environment::EnvironmentDecorator env(10000, 10000); env.setLogger(std::unique_ptr<Logger>(new ConsoleLogger()));
     genepool::GenePool pool(cell_num);
-    environment::Environment env(1000, 1000, nullptr, &pool);
+    environment::Environment env(0, 0, nullptr, &pool);
     EnvironmentScene scene;
     MainWindow win(&scene);
     controller::GameController cont(&win, &scene, &env);

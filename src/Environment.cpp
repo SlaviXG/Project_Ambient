@@ -9,7 +9,7 @@ namespace environment
 {
     // Constructors / Destructors
     Environment::Environment(int WIDTH, int HEIGHT, controller::CellInteractor *interactor, genepool::GenePool* pool)
-        : WIDTH(WIDTH), HEIGHT(HEIGHT), interactor(interactor)
+    : WIDTH(WIDTH), HEIGHT(HEIGHT), interactor(interactor)
     {
         frameMatrix.resize(HEIGHT);
 
@@ -336,6 +336,15 @@ namespace environment
 
     void Environment::loadConfiguration(Configuration &config)
     {
+        kEnvironmentWidth = config.get<int>("kEnvironmentWidth", kEnvironmentWidth); WIDTH = kEnvironmentWidth;
+        kEnvironmentHeight = config.get<int>("kEnvironmentHeight", kEnvironmentHeight); HEIGHT = kEnvironmentHeight;
+
+        frameMatrix.resize(HEIGHT);
+        for (auto &row : frameMatrix)
+        {
+            row.resize(WIDTH, nullptr);
+        }
+
         kMaxEnergy = config.get<int>("kMaxEnergy", kMaxEnergy);
         kMinEnergy = config.get<int>("kMinEnergy", kMinEnergy);
 
@@ -352,6 +361,9 @@ namespace environment
     }
 
     void  Environment::saveConfiguration(Configuration &config) const {
+        config.set<int>("kEnvironmentWidth", kEnvironmentWidth);
+        config.set<int>("kEnvironmentHeight", kEnvironmentHeight);
+
         config.set<int>("kMaxEnergy", kMaxEnergy);
         config.set<int>("kMinEnergy", kMinEnergy);
 

@@ -32,6 +32,9 @@ namespace genepool
 
 namespace environment
 {
+     static int kEnvironmentWidth = 1000;
+     static int kEnvironmentHeight = 1000;
+
      static int kMaxEnergy = 2000;
      static int kMinEnergy = 1600;
 
@@ -60,8 +63,8 @@ namespace environment
      class Environment : public ConfigurationHandler
      {
      private:
-          const int WIDTH;  ///< The width of the environment.
-          const int HEIGHT; ///< The height of the environment.
+          int WIDTH;  ///< The width of the environment.
+          int HEIGHT; ///< The height of the environment.
 
           // upper limit of population for environment validation ( 2 = 200% of original population)
           const int population_upper_limit = 15;
@@ -84,7 +87,7 @@ namespace environment
            * @param interactor The cell interactor for the environment (Controller interface).
            * @param pool The gene pool of the environment.
            */
-          explicit Environment(int WIDTH, int HEIGHT, controller::CellInteractor *interactor = nullptr, genepool::GenePool *pool = nullptr);
+         explicit Environment(int WIDTH, int HEIGHT, controller::CellInteractor *interactor = nullptr, genepool::GenePool *pool = nullptr);
 
           /**
            * @brief Destructs the Environment object.
