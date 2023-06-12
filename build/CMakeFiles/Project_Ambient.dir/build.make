@@ -259,6 +259,7 @@ qrc_resource.cpp: ../resources/cell_color_gradations/color_gradient_97.png
 qrc_resource.cpp: ../resources/cell_color_gradations/color_gradient_98.png
 qrc_resource.cpp: ../resources/cell_color_gradations/color_gradient_99.png
 qrc_resource.cpp: ../resources/icon.ico
+qrc_resource.cpp: ../resources/SyNet.qss
 qrc_resource.cpp: resource.qrc.depends
 qrc_resource.cpp: C:/Qt/6.3.2/mingw_64/./bin/rcc.exe
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\Project_Ambient\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating qrc_resource.cpp"

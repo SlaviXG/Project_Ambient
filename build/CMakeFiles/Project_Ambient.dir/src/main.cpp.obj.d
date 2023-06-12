@@ -397,6 +397,9 @@ CMakeFiles/Project_Ambient.dir/src/main.cpp.obj: \
  C:/Qt/6.3.2/mingw_64/include/QtGui/qinputmethod.h \
  C:/Qt/6.3.2/mingw_64/include/QtCore/qlocale.h \
  C:/Qt/6.3.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/QFile \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qfile.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qfiledevice.h \
  D:/Projects/Project_Ambient/include/GameController.h \
  D:/Projects/Project_Ambient/include/mainwindow.h \
  D:/Projects/Project_Ambient/include/logger.h \
