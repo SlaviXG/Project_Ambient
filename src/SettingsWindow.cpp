@@ -32,27 +32,27 @@ SettingsWindow::SettingsWindow(ConfigurationChain &configChain, Configuration *c
     gameSettingsLayout->addRow("FPS", kFpsBox_);
 
     kViewPaddingBox_ = new QSpinBox(this);
-    kViewPaddingBox_->setRange(1, 100);
+    kViewPaddingBox_->setRange(1, 1000);
     kViewPaddingBox_->setValue(2);
     gameSettingsLayout->addRow("View Padding", kViewPaddingBox_);
 
     kStartingCellCountBox_ = new QSpinBox(this);
-    kStartingCellCountBox_->setRange(1, 1000);
+    kStartingCellCountBox_->setRange(1, 1000000000);
     kStartingCellCountBox_->setValue(200);
     gameSettingsLayout->addRow("Starting Cell Count", kStartingCellCountBox_);
 
     kEnvironmentWidthBox_ = new QSpinBox(this);
-    kEnvironmentWidthBox_->setRange(1, 10000);
+    kEnvironmentWidthBox_->setRange(1, 100000000);
     kEnvironmentWidthBox_->setValue(1000);
     environmentSettingsLayout->addRow("Environment Width", kEnvironmentWidthBox_);
 
     kEnvironmentHeightBox_ = new QSpinBox(this);
-    kEnvironmentHeightBox_->setRange(1, 10000);
+    kEnvironmentHeightBox_->setRange(1, 100000000);
     kEnvironmentHeightBox_->setValue(1000);
     environmentSettingsLayout->addRow("Environment Height", kEnvironmentHeightBox_);
 
     kMaxEnergyBox_ = new QSpinBox(this);
-    kMaxEnergyBox_->setRange(1, 10000);
+    kMaxEnergyBox_->setRange(1, 1000000);
     kMaxEnergyBox_->setValue(2000);
     energySettingsLayout->addRow("Max Energy", kMaxEnergyBox_);
 
@@ -62,17 +62,17 @@ SettingsWindow::SettingsWindow(ConfigurationChain &configChain, Configuration *c
     energySettingsLayout->addRow("Min Energy", kMinEnergyBox_);
 
     kStepsBox_ = new QSpinBox(this);
-    kStepsBox_->setRange(1, 100);
+    kStepsBox_->setRange(1, 10000);
     kStepsBox_->setValue(5);
     actionSettingsLayout->addRow("Steps", kStepsBox_);
 
     kMoveCostBox_ = new QSpinBox(this);
-    kMoveCostBox_->setRange(1, 1000);
+    kMoveCostBox_->setRange(1, 100000);
     kMoveCostBox_->setValue(5);
     actionSettingsLayout->addRow("Move Cost", kMoveCostBox_);
 
     kPhotosynthesisAddBox_ = new QSpinBox(this);
-    kPhotosynthesisAddBox_->setRange(1, 1000);
+    kPhotosynthesisAddBox_->setRange(1, 1000000);
     kPhotosynthesisAddBox_->setValue(25);
     actionSettingsLayout->addRow("Photosynthesis Add", kPhotosynthesisAddBox_);
 
@@ -99,17 +99,17 @@ SettingsWindow::SettingsWindow(ConfigurationChain &configChain, Configuration *c
     actionSettingsLayout->addRow("Prise", kPriseBox_);
 
     kMovesToDeathBox_ = new QSpinBox(this);
-    kMovesToDeathBox_->setRange(1, 1000);
+    kMovesToDeathBox_->setRange(1, 100000);
     kMovesToDeathBox_->setValue(800);
     actionSettingsLayout->addRow("Moves To Death", kMovesToDeathBox_);
 
     kMinDamageBox_ = new QSpinBox(this);
-    kMinDamageBox_->setRange(1, 10000);
+    kMinDamageBox_->setRange(1, 1000000);
     kMinDamageBox_->setValue(1000);
     actionSettingsLayout->addRow("Min Damage", kMinDamageBox_);
 
     kDelayBox_ = new QSpinBox(this);
-    kDelayBox_->setRange(1, 100);
+    kDelayBox_->setRange(1, 10000);
     kDelayBox_->setValue(10);
     actionSettingsLayout->addRow("Delay", kDelayBox_);
 
@@ -135,9 +135,9 @@ SettingsWindow::SettingsWindow(ConfigurationChain &configChain, Configuration *c
 void SettingsWindow::showEvent(QShowEvent *event)
 {
     // Load settings when window is shown
-    configChain_.loadConfiguration(*config);
+    this->configChain_.saveConfiguration(*config);
 
-    kCellSizeBox_->setValue(config->get<int>("kCellSize", 4));
+    kCellSizeBox_->setValue(config->get<int>("kCellSize", 3));
     kFpsBox_->setValue(config->get<int>("kFps", 10));
     kViewPaddingBox_->setValue(config->get<int>("kViewPadding", 2));
     kStartingCellCountBox_->setValue(config->get<int>("kStartingCellCount", 200));
@@ -180,5 +180,5 @@ void SettingsWindow::saveSettings()
     config->set<int>("kMinDamage", kMinDamageBox_->value());
     config->set<int>("kDelay", kDelayBox_->value());
 
-    configChain_.saveConfiguration(*config);
+    configChain_.loadConfiguration(*config);
 }

@@ -337,7 +337,7 @@ void  controller::GameController::openSettingsWindow()
     Q_ASSERT(this->chain != nullptr);
     SettingsWindow win(*this->chain, this->configs, this->view);
     win.exec();
-    chain->loadConfiguration(*configs);
     configs->save();
+    scene->loadColorGradations();
     this->resume();
 }
