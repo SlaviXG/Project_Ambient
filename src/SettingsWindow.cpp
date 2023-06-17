@@ -5,6 +5,8 @@ SettingsWindow::SettingsWindow(ConfigurationChain &configChain, Configuration *c
 {
     setWindowTitle("Settings");
     setMinimumWidth(400); // Set minimum dialog width
+    setMinimumHeight(650);
+    setMaximumHeight(1000);
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
