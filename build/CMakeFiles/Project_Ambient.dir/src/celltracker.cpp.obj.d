@@ -407,4 +407,11 @@ CMakeFiles/Project_Ambient.dir/src/celltracker.cpp.obj: \
  D:/Projects/Project_Ambient/include/Debouncer.h \
  C:/msys64/mingw64/include/c++/11.2.0/thread \
  C:/msys64/mingw64/include/c++/11.2.0/bits/std_thread.h \
- C:/msys64/mingw64/include/c++/11.2.0/bits/this_thread_sleep.h
+ C:/msys64/mingw64/include/c++/11.2.0/bits/this_thread_sleep.h \
+ D:/Projects/Project_Ambient/include/EnvironmentScene.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/QSet \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qset.h \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/QList \
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qlist.h \
+ C:/Qt/6.3.2/mingw_64/include/QtGui/QImage \
+ C:/Qt/6.3.2/mingw_64/include/QtGui/qimage.h

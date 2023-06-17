@@ -2499,7 +2499,14 @@ CMakeFiles/Project_Ambient.dir/include/moc_celltracker.cpp.obj: include/moc_cell
   ../include/Debouncer.h \
   C:/msys64/mingw64/include/c++/11.2.0/thread \
   C:/msys64/mingw64/include/c++/11.2.0/bits/std_thread.h \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/this_thread_sleep.h
+  C:/msys64/mingw64/include/c++/11.2.0/bits/this_thread_sleep.h \
+  ../include/EnvironmentScene.h \
+  C:/Qt/6.3.2/mingw_64/include/QtCore/QSet \
+  C:/Qt/6.3.2/mingw_64/include/QtCore/qset.h \
+  C:/Qt/6.3.2/mingw_64/include/QtCore/QList \
+  C:/Qt/6.3.2/mingw_64/include/QtCore/qlist.h \
+  C:/Qt/6.3.2/mingw_64/include/QtGui/QImage \
+  C:/Qt/6.3.2/mingw_64/include/QtGui/qimage.h
 
 CMakeFiles/Project_Ambient.dir/include/moc_frame.cpp.obj: include/moc_frame.cpp
 
@@ -3249,7 +3256,10 @@ CMakeFiles/Project_Ambient.dir/src/CellView.cpp.obj: ../src/CellView.cpp \
   C:/Qt/6.3.2/mingw_64/include/QtCore/qobject.h \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent \
   C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicssceneevent.h \
-  C:/Qt/6.3.2/mingw_64/include/QtCore/qcoreevent.h
+  C:/Qt/6.3.2/mingw_64/include/QtCore/qcoreevent.h \
+  C:/Qt/6.3.2/mingw_64/include/QtGui/QPen \
+  C:/Qt/6.3.2/mingw_64/include/QtGui/qpen.h \
+  C:/Qt/6.3.2/mingw_64/include/QtGui/qbrush.h
 
 CMakeFiles/Project_Ambient.dir/src/Environment.cpp.obj: ../src/Environment.cpp \
   ../include/Environment.h \
@@ -5896,7 +5906,14 @@ CMakeFiles/Project_Ambient.dir/src/celltracker.cpp.obj: ../src/celltracker.cpp \
   ../include/Debouncer.h \
   C:/msys64/mingw64/include/c++/11.2.0/thread \
   C:/msys64/mingw64/include/c++/11.2.0/bits/std_thread.h \
-  C:/msys64/mingw64/include/c++/11.2.0/bits/this_thread_sleep.h
+  C:/msys64/mingw64/include/c++/11.2.0/bits/this_thread_sleep.h \
+  ../include/EnvironmentScene.h \
+  C:/Qt/6.3.2/mingw_64/include/QtCore/QSet \
+  C:/Qt/6.3.2/mingw_64/include/QtCore/qset.h \
+  C:/Qt/6.3.2/mingw_64/include/QtCore/QList \
+  C:/Qt/6.3.2/mingw_64/include/QtCore/qlist.h \
+  C:/Qt/6.3.2/mingw_64/include/QtGui/QImage \
+  C:/Qt/6.3.2/mingw_64/include/QtGui/qimage.h
 
 CMakeFiles/Project_Ambient.dir/src/frame.cpp.obj: ../src/frame.cpp \
   ../include/frame.h \
@@ -8311,9 +8328,9 @@ C:/Qt/6.3.2/mingw_64/include/QtGui/QImage:
 
 C:/msys64/mingw64/x86_64-w64-mingw32/include/ctype.h:
 
-C:/msys64/mingw64/include/c++/11.2.0/bits/ios_base.h:
-
 ../src/SettingsWindow.cpp:
+
+C:/msys64/mingw64/include/c++/11.2.0/bits/ios_base.h:
 
 C:/msys64/mingw64/include/c++/11.2.0/bits/locale_classes.h:
 
@@ -8770,6 +8787,8 @@ qrc_resource.cpp:
 C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent:
 
 C:/Qt/6.3.2/mingw_64/include/QtCore/qcoreevent.h:
+
+C:/Qt/6.3.2/mingw_64/include/QtGui/QPen:
 
 C:/msys64/mingw64/x86_64-w64-mingw32/include/apiset.h:
 

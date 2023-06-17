@@ -314,4 +314,7 @@ CMakeFiles/Project_Ambient.dir/src/CellView.cpp.obj: \
  C:/Qt/6.3.2/mingw_64/include/QtCore/qobject.h \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent \
  C:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicssceneevent.h \
- C:/Qt/6.3.2/mingw_64/include/QtCore/qcoreevent.h
+ C:/Qt/6.3.2/mingw_64/include/QtCore/qcoreevent.h \
+ C:/Qt/6.3.2/mingw_64/include/QtGui/QPen \
+ C:/Qt/6.3.2/mingw_64/include/QtGui/qpen.h \
+ C:/Qt/6.3.2/mingw_64/include/QtGui/qbrush.h
