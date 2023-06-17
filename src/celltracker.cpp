@@ -3,8 +3,8 @@
 static constexpr int kDebouncerDelay = 100;// ms
 
 
-CellTracker::CellTracker(QGraphicsScene* sceneCellDemo, QLabel* labelEnergy, QLabel* labelAggressiveness)
-    : debouncer(std::chrono::milliseconds(kDebouncerDelay))
+CellTracker::CellTracker(QGraphicsScene* sceneCellDemo, QLabel* labelEnergy, QLabel* labelAggressiveness, EnvironmentScene* scene)
+    : debouncer(std::chrono::milliseconds(kDebouncerDelay)), scene(scene)
 {
     this->sceneCellTracking = sceneCellDemo;
     this->labelCurrentEnergy = labelEnergy;
@@ -58,10 +58,7 @@ void CellTracker::displayInfo()
 void CellTracker::updateScene()
 {
     if(isBounded){
-        //this->curView->setPixmap(trackedCellView->getCurrentPixmap().scaledToHeight(this->sceneCellTracking->height()*0.8));
-        this->curView->setPixmap(trackedCellView->getCurrentPixmap());
+        QPixmap pixmap = scene->getOriginalGradation(trackedCell->getAggressiveness() * 100)->scaled(this->sceneCellTracking->width()*0.8, this->sceneCellTracking->width()*0.8, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        this->curView->setPixmap(pixmap);
     }
 }
-
-
-
