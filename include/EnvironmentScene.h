@@ -28,6 +28,7 @@ public:
     bool contains(CellView* cellptr) const;
 
     bool loadColorGradations();  
+    QPixmap* getGradation(int colorGrad);
 
 private:
     QList<CellView*> cells;
