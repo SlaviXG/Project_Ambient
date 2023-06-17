@@ -1,11 +1,16 @@
 #include "../include/CellView.h"
 
 #include <QGraphicsSceneMouseEvent>
+#include <QPen>
 
 
 CellView::CellView(qreal x, qreal y, qreal width, qreal height, QPixmap* colorGrad = nullptr, QGraphicsItem *parent)
 : QGraphicsPixmapItem(QPixmap(width, height), parent)
 {
+    highlightBox = new QGraphicsRectItem(0, 0, width, height, this);
+    highlightBox->setPen(QPen(Qt::red)); // Set the color of the bounding box to red
+    highlightBox->hide(); // Hide the bounding box initially
+
     this->updateCellView(x, y, colorGrad);
 }
 
@@ -20,6 +25,14 @@ void CellView::updateCellView(qreal x, qreal y, QPixmap *colorGrad)
     this->pos_y = y;
     this->setColorGrad(colorGrad);
     this->setPos(x, y);
+
+    this->updateHighlightBox();
+}
+
+void CellView::updateHighlightBox() {
+    if (highlightBox) {
+        highlightBox->setRect(this->boundingRect());
+    }
 }
 
 void CellView::setColorGrad(QPixmap *colorGrad)
@@ -47,3 +60,14 @@ void CellView::mousePressEvent(QGraphicsSceneMouseEvent *event)
         emit clicked(this);
     }
 }
+
+void CellView::highlight() 
+{
+    highlightBox->show();
+}
+
+void CellView::removeHighlight() 
+{
+    highlightBox->hide();
+}
+

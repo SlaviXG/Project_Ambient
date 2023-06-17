@@ -27,14 +27,26 @@ CellView* CellTracker::getTrackedCell() const {
 void CellTracker::boundCell(environment::Cell *cellPtr, CellView *cellViewPtr)
 {
     debouncer.debounce([this, cellPtr, cellViewPtr]() {
+        // If a cell is already being tracked, remove the highlight from it
+        if(this->isBounded)
+        {
+            this->trackedCellView->removeHighlight();
+        }
         this->trackedCell = cellPtr;
         this->trackedCellView = cellViewPtr;
+        this->trackedCellView->highlight(); // Highlight the new tracked cell
         this->isBounded = true;
     });
 }
 
+
 void CellTracker::unboundCell()
 {
+    // If a cell is being tracked, remove the highlight from it
+    if(this->isBounded)
+    {
+        this->trackedCellView->removeHighlight();
+    }
     this->trackedCell = nullptr;
     this->trackedCellView = nullptr;
     this->isBounded = false;
@@ -62,3 +74,4 @@ void CellTracker::updateScene()
         this->curView->setPixmap(pixmap);
     }
 }
+

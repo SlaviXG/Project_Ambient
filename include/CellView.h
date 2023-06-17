@@ -22,6 +22,10 @@ public:
     void setColorGrad(QPixmap* colorGrad);
     QPixmap getCurrentPixmap();
 
+    void updateHighlightBox();
+    void highlight();
+    void removeHighlight();
+
 signals:
     void clicked(CellView* cellView);
     void deleted(CellView* cellView);
@@ -32,6 +36,7 @@ private:
     qreal pos_x;
     qreal pos_y;
 
+    QGraphicsRectItem* highlightBox;
 
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
