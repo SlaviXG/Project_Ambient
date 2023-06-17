@@ -82,16 +82,30 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="curEnergyLabel">
+          <widget class="QLabel" name="curEnergyLabelText">
            <property name="text">
             <string>Current energy:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="aggressiveness">
+          <widget class="QLabel" name="curEnergyLabel">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="aggressivenessText">
            <property name="text">
             <string>Aggressiveness:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="aggressiveness">
+           <property name="text">
+            <string/>
            </property>
           </widget>
          </item>

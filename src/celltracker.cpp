@@ -58,7 +58,8 @@ void CellTracker::displayInfo()
 void CellTracker::updateScene()
 {
     if(isBounded){
-        this->curView->setPixmap(trackedCellView->getCurrentPixmap().scaledToHeight(this->sceneCellTracking->height()*0.8));
+        //this->curView->setPixmap(trackedCellView->getCurrentPixmap().scaledToHeight(this->sceneCellTracking->height()*0.8));
+        this->curView->setPixmap(trackedCellView->getCurrentPixmap());
     }
 }
 
