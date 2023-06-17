@@ -8,6 +8,14 @@
 #include "../include/GameLogicThread.h"
 #include "../include/configs/SettingsWindow.h"
 
+namespace controller
+{
+    int kCellSize = 4;               ///< Default size of a cell
+    int kFps = 10;                   ///< Frames per second of the game update
+    int kViewPadding = 2;            ///< Padding around the view
+    size_t kStartingCellCount = 200; ///< Initial cell count when the game starts
+}
+
 controller::GameController::GameController(MainWindow *view, EnvironmentScene *scene, environment::Environment *environment)
     : view(view), scene(scene), environment(environment), timer(this), loggers(), logicThread(new GameLogicThread(this)), collector(scene)
 {
@@ -325,13 +333,13 @@ void controller::GameController::GenerateRandomCells(size_t cell_count, const st
     }
 }
 
-void controller::GameController::setConfigs(ConfigurationChain *chain, Configuration* configs)
+void controller::GameController::setConfigs(ConfigurationChain *chain, Configuration *configs)
 {
     this->chain = chain;
     this->configs = configs;
 }
 
-void  controller::GameController::openSettingsWindow() 
+void controller::GameController::openSettingsWindow()
 {
     this->pause();
     Q_ASSERT(this->chain != nullptr);

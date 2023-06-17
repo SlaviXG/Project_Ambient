@@ -32,22 +32,22 @@ namespace genepool
 
 namespace environment
 {
-     static int kEnvironmentWidth = 1000;
-     static int kEnvironmentHeight = 1000;
+     extern int kEnvironmentWidth;
+     extern int kEnvironmentHeight;
 
-     static int kMaxEnergy = 2000;
-     static int kMinEnergy = 1600;
+     extern int kMaxEnergy;
+     extern int kMinEnergy;
 
-     static int kSteps = 5;                 //
-     static int kMoveCost = 5;              // count of energy, that cell will loose after move
-     static int kPhotosynthesisAdd = 25;    // count of energy, that cell will recieve after Photosynthes
-     static float kAttackCoefficient = 0.5; // opponent energy -= currentEnergy * kAC + minDamage
-     static float kAttackCost = 0.01;       // 1/10 * currentEnergy
-     static int kDuplicationCost = 1200;
-     static int kPrise = 500;        // + energy after killing
-     static int kMovesToDeath = 800; // every cell can make at max 250 actions
-     static int kMinDamage = 1000;
-     static int kDelay = 10;
+     extern int kSteps;               //
+     extern int kMoveCost;            // count of energy, that cell will loose after move
+     extern int kPhotosynthesisAdd;   // count of energy, that cell will recieve after Photosynthes
+     extern float kAttackCoefficient; // opponent energy -= currentEnergy * kAC + minDamage
+     extern float kAttackCost;        // 1/10 * currentEnergy
+     extern int kDuplicationCost;
+     extern int kPrise;        // + energy after killing
+     extern int kMovesToDeath; // every cell can make at max 250 actions
+     extern int kMinDamage;
+     extern int kDelay;
 
      class Frame;
      class Cell; // Cell inherits Frame
@@ -87,7 +87,7 @@ namespace environment
            * @param interactor The cell interactor for the environment (Controller interface).
            * @param pool The gene pool of the environment.
            */
-         explicit Environment(int WIDTH, int HEIGHT, controller::CellInteractor *interactor = nullptr, genepool::GenePool *pool = nullptr);
+          explicit Environment(int WIDTH, int HEIGHT, controller::CellInteractor *interactor = nullptr, genepool::GenePool *pool = nullptr);
 
           /**
            * @brief Destructs the Environment object.

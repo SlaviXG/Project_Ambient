@@ -37,10 +37,10 @@ class GameLogicThread;
 
 namespace controller
 {
-    static int kCellSize = 4;               ///< Default size of a cell
-    static int kFps = 10;                   ///< Frames per second of the game update
-    static int kViewPadding = 2;            ///< Padding around the view
-    static size_t kStartingCellCount = 200; ///< Initial cell count when the game starts
+    extern int kCellSize;             ///< Default size of a cell
+    extern int kFps;                  ///< Frames per second of the game update
+    extern int kViewPadding;          ///< Padding around the view
+    extern size_t kStartingCellCount; ///< Initial cell count when the game starts
 
     /**
      * @brief GameController class is responsible for managing the game logic and updating the graphical representation of the game.
@@ -144,7 +144,7 @@ namespace controller
          * @param configs: Application settings
          *
          */
-        void setConfigs(ConfigurationChain *chain, Configuration* configs);
+        void setConfigs(ConfigurationChain *chain, Configuration *configs);
 
         /**
          * @brief Load configurations from a Configuration object.
@@ -231,7 +231,7 @@ namespace controller
         QMutex mutex;                        ///< The mutex for thread safety.
         CellViewGarbageCollector collector;  ///< The garbage collector for unused CellView objects.
         ConfigurationChain *chain = nullptr; ///< The chain of all application parts with configs
-        Configuration* configs = nullptr;    ///< Application settings
+        Configuration *configs = nullptr;    ///< Application settings
     };
 };
 

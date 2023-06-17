@@ -55,6 +55,8 @@ void EnvironmentScene::updateCell(CellView *cell, qreal x, qreal y, int colorGra
 
 bool EnvironmentScene::loadColorGradations()
 {
+    this->cellColorGradations.clear();
+
     bool successfully = true;
 
     for(int i = 0; i < 100; i++)
