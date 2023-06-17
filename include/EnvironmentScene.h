@@ -27,12 +27,16 @@ public:
     const QList<CellView*>& getCells() const;
     bool contains(CellView* cellptr) const;
 
-    bool loadColorGradations();  
+    bool loadColorGradations();
+
+    QPixmap* getOriginalGradation(int colorGrad);
 
 private:
     QList<CellView*> cells;
     QSet<CellView*> cellSet; // used for fast O(1) checking for an element instead of O(n) when using qlist
     QVector <QPixmap> cellColorGradations;
+    QVector <QPixmap> originalCellColorGradations;
+
     bool colorGradationsLoaded;
 };
 #endif // ENVIRONMENT_SCENE_H
