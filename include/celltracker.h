@@ -9,14 +9,13 @@
 #include "cell.h"
 #include "CellView.h"
 #include "Debouncer.h"
-#include "EnvironmentScene.h"
 
 class CellTracker : public QObject
 {
     Q_OBJECT
 
 public:
-    CellTracker(QGraphicsScene* sceneCellDemo, QLabel* labelEnergy, QLabel* labelAggressiveness, EnvironmentScene* scene);
+    CellTracker(QGraphicsScene* sceneCellDemo, QLabel* labelEnergy, QLabel* labelAggressiveness);
     ~CellTracker();
 
     void displayInfo();
@@ -33,7 +32,6 @@ private:
 
     environment::Cell* trackedCell;
     CellView* trackedCellView;
-    EnvironmentScene* scene;
 
     bool isBounded;
     QGraphicsPixmapItem* curView;

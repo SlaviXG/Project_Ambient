@@ -49,7 +49,7 @@ void EnvironmentScene::updateCell(CellView *cell, qreal x, qreal y, int colorGra
 {
     cellSet.remove(cell);
     colorGrad = colorGrad % 100;
-    cell->updateCellView(x, y, controller::kCellSize, controller::kCellSize, &(this->cellColorGradations[colorGrad]));
+    cell->updateCellView(x, y, &(this->cellColorGradations[colorGrad]));
     cellSet.insert(cell);
 }
 
@@ -63,17 +63,11 @@ bool EnvironmentScene::loadColorGradations()
     {
         QImage currentGradation;
         successfully = successfully & currentGradation.load(":/resources/cell_color_gradations/resources/cell_color_gradations/color_gradient_" + QString::number(i) + ".png", "PNG");
-        //currentGradation = currentGradation.scaledToWidth(controller::kCellSize, Qt::SmoothTransformation);
+        currentGradation = currentGradation.scaledToWidth(controller::kCellSize, Qt::SmoothTransformation);
         QPixmap imagePixmap = QPixmap::fromImage(currentGradation);
         this->cellColorGradations.push_back(imagePixmap);
         std::cout << QString::number(i).toStdString() << std::endl;
     }
 
     return successfully;
-}
-
-QPixmap* EnvironmentScene::getGradation(int colorGrad)
-{
-    colorGrad = colorGrad % 100;
-    return &(this->cellColorGradations[colorGrad]);
 }
