@@ -6,7 +6,7 @@
 CellView::CellView(qreal x, qreal y, qreal width, qreal height, QPixmap* colorGrad = nullptr, QGraphicsItem *parent)
 : QGraphicsPixmapItem(QPixmap(width, height), parent)
 {
-    this->updateCellView(x, y, colorGrad);
+    this->updateCellView(x, y, width, height, colorGrad);
 }
 
 CellView::~CellView()
@@ -14,11 +14,15 @@ CellView::~CellView()
     emit deleted(this);
 }
 
-void CellView::updateCellView(qreal x, qreal y, QPixmap *colorGrad)
+void CellView::updateCellView(qreal x, qreal y, qreal width, qreal height, QPixmap *colorGrad)
 {
     this->pos_x = x;
     this->pos_y = y;
-    this->setColorGrad(colorGrad);
+
+    QPixmap pixmap = QPixmap(*colorGrad);
+    pixmap = pixmap.scaled(width, height, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+    this->setColorGrad(&pixmap);
     this->setPos(x, y);
 }
 
