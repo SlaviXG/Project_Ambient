@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['opensettingswindow_71',['openSettingsWindow',['../classcontroller_1_1GameController.html#a786d9a0e02b5c47cee205064771ba345',1,'controller::GameController::openSettingsWindow()'],['../classcontroller_1_1GameInteractor.html#a7726e5c95f9f2ed4118f02fa4a74822a',1,'controller::GameInteractor::openSettingsWindow()']]]
+  ['mainwindow_77',['MainWindow',['../classMainWindow.html',1,'MainWindow'],['../classMainWindow.html#a95eb376b182a19c656daea71b35dc163',1,'MainWindow::MainWindow()']]],
+  ['matrix_78',['Matrix',['../classMatrix.html',1,'']]]
 ];

@@ -73,7 +73,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCellView.html" title="CellView is responsible for Cell&#39;s graphic representation.">CellView</a> is responsible for Cell's graphic representation.  
+<p>Class representing a cell in the graphic view.  
  <a href="classCellView.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="CellView_8h_source.html">CellView.h</a>&gt;</code></p>
@@ -95,26 +95,33 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>deleted</b> (<a class
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a14421d0ffd70dc2b7c6bca3315a4afea"><td class="memItemLeft" align="right" valign="top"><a id="a14421d0ffd70dc2b7c6bca3315a4afea"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CellView</b> (qreal x, qreal y, qreal width, qreal heigh, QPixmap *colorGrad, QGraphicsItem *parent=nullptr)</td></tr>
-<tr class="separator:a14421d0ffd70dc2b7c6bca3315a4afea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7cc326007388f99e689e83af35cc1ce"><td class="memItemLeft" align="right" valign="top"><a id="ab7cc326007388f99e689e83af35cc1ce"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateCellView</b> (qreal x, qreal y, QPixmap *colorGrad)</td></tr>
+<tr class="memitem:a0f538452dc204b802ede7377a338a511"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCellView.html#a0f538452dc204b802ede7377a338a511">CellView</a> (qreal x, qreal y, qreal width, qreal height, QPixmap *colorGrad, QGraphicsItem *parent=nullptr)</td></tr>
+<tr class="memdesc:a0f538452dc204b802ede7377a338a511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classCellView.html" title="Class representing a cell in the graphic view.">CellView</a> class.  <a href="classCellView.html#a0f538452dc204b802ede7377a338a511">More...</a><br /></td></tr>
+<tr class="separator:a0f538452dc204b802ede7377a338a511"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b2e9ecb6c688e3dd484fc5361e34612"><td class="memItemLeft" align="right" valign="top"><a id="a8b2e9ecb6c688e3dd484fc5361e34612"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCellView.html#a8b2e9ecb6c688e3dd484fc5361e34612">~CellView</a> ()</td></tr>
+<tr class="memdesc:a8b2e9ecb6c688e3dd484fc5361e34612"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classCellView.html" title="Class representing a cell in the graphic view.">CellView</a> class. <br /></td></tr>
+<tr class="separator:a8b2e9ecb6c688e3dd484fc5361e34612"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7cc326007388f99e689e83af35cc1ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCellView.html#ab7cc326007388f99e689e83af35cc1ce">updateCellView</a> (qreal x, qreal y, QPixmap *colorGrad)</td></tr>
+<tr class="memdesc:ab7cc326007388f99e689e83af35cc1ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the position and color gradient of the cell.  <a href="classCellView.html#ab7cc326007388f99e689e83af35cc1ce">More...</a><br /></td></tr>
 <tr class="separator:ab7cc326007388f99e689e83af35cc1ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d580fec315ba2b2eacc7b80bb681e50"><td class="memItemLeft" align="right" valign="top"><a id="a6d580fec315ba2b2eacc7b80bb681e50"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setColorGrad</b> (QPixmap *colorGrad)</td></tr>
+<tr class="memitem:a6d580fec315ba2b2eacc7b80bb681e50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCellView.html#a6d580fec315ba2b2eacc7b80bb681e50">setColorGrad</a> (QPixmap *colorGrad)</td></tr>
+<tr class="memdesc:a6d580fec315ba2b2eacc7b80bb681e50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the color gradient of the cell.  <a href="classCellView.html#a6d580fec315ba2b2eacc7b80bb681e50">More...</a><br /></td></tr>
 <tr class="separator:a6d580fec315ba2b2eacc7b80bb681e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7191d43ea1507f8bf786e562c42f1f2"><td class="memItemLeft" align="right" valign="top"><a id="ab7191d43ea1507f8bf786e562c42f1f2"></a>
-QPixmap&#160;</td><td class="memItemRight" valign="bottom"><b>getCurrentPixmap</b> ()</td></tr>
+<tr class="memitem:ab7191d43ea1507f8bf786e562c42f1f2"><td class="memItemLeft" align="right" valign="top">QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCellView.html#ab7191d43ea1507f8bf786e562c42f1f2">getCurrentPixmap</a> ()</td></tr>
+<tr class="memdesc:ab7191d43ea1507f8bf786e562c42f1f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current pixmap of the cell.  <a href="classCellView.html#ab7191d43ea1507f8bf786e562c42f1f2">More...</a><br /></td></tr>
 <tr class="separator:ab7191d43ea1507f8bf786e562c42f1f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7eae30dfe61eda18d5e032fd495b01eb"><td class="memItemLeft" align="right" valign="top"><a id="a7eae30dfe61eda18d5e032fd495b01eb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateHighlightBox</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCellView.html#a7eae30dfe61eda18d5e032fd495b01eb">updateHighlightBox</a> ()</td></tr>
+<tr class="memdesc:a7eae30dfe61eda18d5e032fd495b01eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the highlight box around the cell. <br /></td></tr>
 <tr class="separator:a7eae30dfe61eda18d5e032fd495b01eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fd49657d7030c0357f5dbb4bf7ef3b9"><td class="memItemLeft" align="right" valign="top"><a id="a8fd49657d7030c0357f5dbb4bf7ef3b9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>highlight</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCellView.html#a8fd49657d7030c0357f5dbb4bf7ef3b9">highlight</a> ()</td></tr>
+<tr class="memdesc:a8fd49657d7030c0357f5dbb4bf7ef3b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Highlights the cell. <br /></td></tr>
 <tr class="separator:a8fd49657d7030c0357f5dbb4bf7ef3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57cc2e7242693bf2ab52bb822a54ddd9"><td class="memItemLeft" align="right" valign="top"><a id="a57cc2e7242693bf2ab52bb822a54ddd9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeHighlight</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCellView.html#a57cc2e7242693bf2ab52bb822a54ddd9">removeHighlight</a> ()</td></tr>
+<tr class="memdesc:a57cc2e7242693bf2ab52bb822a54ddd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the highlight from the cell. <br /></td></tr>
 <tr class="separator:a57cc2e7242693bf2ab52bb822a54ddd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -130,8 +137,166 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CellTracker</b></td>
 <tr class="separator:a2a0fb7588a2d7424f75ac950ad4247bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCellView.html" title="CellView is responsible for Cell&#39;s graphic representation.">CellView</a> is responsible for Cell's graphic representation. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<div class="textblock"><p>Class representing a cell in the graphic view. </p>
+<p>The <a class="el" href="classCellView.html" title="Class representing a cell in the graphic view.">CellView</a> class is responsible for the graphic representation of a cell. It inherits from QObject and QGraphicsPixmapItem. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0f538452dc204b802ede7377a338a511"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f538452dc204b802ede7377a338a511">&#9670;&nbsp;</a></span>CellView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CellView::CellView </td>
+          <td>(</td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QPixmap *&#160;</td>
+          <td class="paramname"><em>colorGrad</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QGraphicsItem *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for the <a class="el" href="classCellView.html" title="Class representing a cell in the graphic view.">CellView</a> class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The x-coordinate for the starting position. </td></tr>
+    <tr><td class="paramname">y</td><td>The y-coordinate for the starting position. </td></tr>
+    <tr><td class="paramname">width</td><td>The width of the cell. </td></tr>
+    <tr><td class="paramname">height</td><td>The height of the cell. </td></tr>
+    <tr><td class="paramname">colorGrad</td><td>The color gradient of the cell. </td></tr>
+    <tr><td class="paramname">parent</td><td>The parent QGraphicsItem. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab7191d43ea1507f8bf786e562c42f1f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7191d43ea1507f8bf786e562c42f1f2">&#9670;&nbsp;</a></span>getCurrentPixmap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPixmap CellView::getCurrentPixmap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the current pixmap of the cell. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current pixmap. </dd></dl>
+
+</div>
+</div>
+<a id="a6d580fec315ba2b2eacc7b80bb681e50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d580fec315ba2b2eacc7b80bb681e50">&#9670;&nbsp;</a></span>setColorGrad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CellView::setColorGrad </td>
+          <td>(</td>
+          <td class="paramtype">QPixmap *&#160;</td>
+          <td class="paramname"><em>colorGrad</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the color gradient of the cell. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">colorGrad</td><td>The new color gradient. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab7cc326007388f99e689e83af35cc1ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7cc326007388f99e689e83af35cc1ce">&#9670;&nbsp;</a></span>updateCellView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CellView::updateCellView </td>
+          <td>(</td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QPixmap *&#160;</td>
+          <td class="paramname"><em>colorGrad</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the position and color gradient of the cell. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The new x-coordinate. </td></tr>
+    <tr><td class="paramname">y</td><td>The new y-coordinate. </td></tr>
+    <tr><td class="paramname">colorGrad</td><td>The new color gradient. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="CellView_8h_source.html">CellView.h</a></li>
 <li>src/CellView.cpp</li>
 </ul>

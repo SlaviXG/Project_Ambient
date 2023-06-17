@@ -70,83 +70,85 @@ $(function() {
 <div class="title">mainwindow.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MAINWINDOW_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MAINWINDOW_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;EnvironmentScene.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;celltracker.h&quot;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef MAINWINDOW_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define MAINWINDOW_H</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>controller { <span class="keyword">class </span>GameInteractor; }</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;QT_BEGIN_NAMESPACE</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>Ui { <span class="keyword">class </span><a class="code" href="classMainWindow.html">MainWindow</a>; }</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;QT_END_NAMESPACE</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classMainWindow.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMainWindow.html">MainWindow</a> : <span class="keyword">public</span> QMainWindow</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classMainWindow.html">MainWindow</a>(<a class="code" href="classEnvironmentScene.html">EnvironmentScene</a>* scene, QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    ~<a class="code" href="classMainWindow.html">MainWindow</a>();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    qreal getEnvironmentWidth() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    qreal getEnvironmentHeight() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classCellTracker.html">CellTracker</a>* getCellTracker();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> setController(<a class="code" href="classcontroller_1_1GameInteractor.html">controller::GameInteractor</a>*  controller);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classMainWindow.html#ac0e6bebfdc991b219d6ccbf85a735be2">   33</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#ac0e6bebfdc991b219d6ccbf85a735be2">updateEnvironment</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::size_t <a class="code" href="classMainWindow.html#a2c9e8f3e860d53334e90904f0e29d016">getCellCountToAdd</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> setCurrentCellCountLabel(<span class="keywordtype">size_t</span> n);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;EnvironmentScene.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;celltracker.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>controller { <span class="keyword">class </span>GameInteractor; }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;QT_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>Ui { <span class="keyword">class </span><a class="code" href="classMainWindow.html">MainWindow</a>; }</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;QT_END_NAMESPACE</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classMainWindow.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMainWindow.html">MainWindow</a> : <span class="keyword">public</span> QMainWindow</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classMainWindow.html#a95eb376b182a19c656daea71b35dc163">MainWindow</a>(<a class="code" href="classEnvironmentScene.html">EnvironmentScene</a>* scene, QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a>();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#a14d847a9fc89ac499f492f9b84985557">initEnvironmentSize</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    qreal <a class="code" href="classMainWindow.html#a0ee62c98ca867c3ff0ee8e8c8e5bab43">getEnvironmentWidth</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;signals:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> on_add_cells_Button_clicked_signal();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> on_startButton_clicked();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    qreal <a class="code" href="classMainWindow.html#a3b323e1eeeeb26b869a35afd5b622e71">getEnvironmentHeight</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> on_stopButton_clicked();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> on_restartButton_clicked();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> on_pauseButton_clicked();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="classCellTracker.html">CellTracker</a>* <a class="code" href="classMainWindow.html#a7e24f265ba69a453241b8ccfff906d60">getCellTracker</a>();</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> on_resumeButton_clicked();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">// void on_pushButton_clicked() {};</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> on_add_cells_Button_clicked();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#a2604d4d18545a1cd0bd1a12b1e4b93b9">setController</a>(<a class="code" href="classcontroller_1_1GameInteractor.html">controller::GameInteractor</a>*  controller);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> on_cell_clicked();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> on_settingsButton_clicked();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    Ui::MainWindow *ui;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="classEnvironmentScene.html">EnvironmentScene</a>* scene;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classcontroller_1_1GameInteractor.html">controller::GameInteractor</a>* controller = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    QGraphicsScene cellDemoScene;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="classCellTracker.html">CellTracker</a>* cellTracker;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classMainWindow.html#ac0e6bebfdc991b219d6ccbf85a735be2">   71</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#ac0e6bebfdc991b219d6ccbf85a735be2">updateEnvironment</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    std::size_t <a class="code" href="classMainWindow.html#a2c9e8f3e860d53334e90904f0e29d016">getCellCountToAdd</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> resizeEvent(QResizeEvent* event) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MAINWINDOW_H</span></div>
-<div class="ttc" id="aclassCellTracker_html"><div class="ttname"><a href="classCellTracker.html">CellTracker</a></div><div class="ttdef"><b>Definition:</b> celltracker.h:15</div></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#aae0f89a78242357e4e386b8e445963c6">setCurrentCellCountLabel</a>(<span class="keywordtype">size_t</span> n);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#a14d847a9fc89ac499f492f9b84985557">initEnvironmentSize</a>();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;signals:</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classMainWindow.html#a30adeb01956c22fbad71fc8a241ca830">   95</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMainWindow.html#a30adeb01956c22fbad71fc8a241ca830">on_add_cells_Button_clicked_signal</a>();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">// Private slot functions for handling different button clicks.</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> on_startButton_clicked();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> on_stopButton_clicked();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> on_restartButton_clicked();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">void</span> on_pauseButton_clicked();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">void</span> on_resumeButton_clicked();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">void</span> on_add_cells_Button_clicked();</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">void</span> on_cell_clicked();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> on_settingsButton_clicked();</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    Ui::MainWindow *ui;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="classEnvironmentScene.html">EnvironmentScene</a>* scene;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="classcontroller_1_1GameInteractor.html">controller::GameInteractor</a>* controller = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    QGraphicsScene cellDemoScene;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="classCellTracker.html">CellTracker</a>* cellTracker;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> resizeEvent(QResizeEvent* event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;};</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MAINWINDOW_H</span></div>
+<div class="ttc" id="aclassCellTracker_html"><div class="ttname"><a href="classCellTracker.html">CellTracker</a></div><div class="ttdoc">Class tracking a cell and displaying its information.</div><div class="ttdef"><b>Definition:</b> celltracker.h:27</div></div>
 <div class="ttc" id="aclassEnvironmentScene_html"><div class="ttname"><a href="classEnvironmentScene.html">EnvironmentScene</a></div><div class="ttdef"><b>Definition:</b> EnvironmentScene.h:18</div></div>
-<div class="ttc" id="aclassMainWindow_html"><div class="ttname"><a href="classMainWindow.html">MainWindow</a></div><div class="ttdef"><b>Definition:</b> mainwindow.h:16</div></div>
-<div class="ttc" id="aclassMainWindow_html_a14d847a9fc89ac499f492f9b84985557"><div class="ttname"><a href="classMainWindow.html#a14d847a9fc89ac499f492f9b84985557">MainWindow::initEnvironmentSize</a></div><div class="ttdeci">void initEnvironmentSize()</div><div class="ttdoc">Scales up environment view size.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:55</div></div>
-<div class="ttc" id="aclassMainWindow_html_a2c9e8f3e860d53334e90904f0e29d016"><div class="ttname"><a href="classMainWindow.html#a2c9e8f3e860d53334e90904f0e29d016">MainWindow::getCellCountToAdd</a></div><div class="ttdeci">std::size_t getCellCountToAdd() const</div><div class="ttdoc">GetCellCountToAdd.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:113</div></div>
-<div class="ttc" id="aclassMainWindow_html_ac0e6bebfdc991b219d6ccbf85a735be2"><div class="ttname"><a href="classMainWindow.html#ac0e6bebfdc991b219d6ccbf85a735be2">MainWindow::updateEnvironment</a></div><div class="ttdeci">void updateEnvironment()</div><div class="ttdoc">Updates items' view location.</div></div>
+<div class="ttc" id="aclassMainWindow_html"><div class="ttname"><a href="classMainWindow.html">MainWindow</a></div><div class="ttdoc">Class for the main window of the application.</div><div class="ttdef"><b>Definition:</b> mainwindow.h:28</div></div>
+<div class="ttc" id="aclassMainWindow_html_a0ee62c98ca867c3ff0ee8e8c8e5bab43"><div class="ttname"><a href="classMainWindow.html#a0ee62c98ca867c3ff0ee8e8c8e5bab43">MainWindow::getEnvironmentWidth</a></div><div class="ttdeci">qreal getEnvironmentWidth() const</div><div class="ttdoc">Gets the width of the environment view.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:36</div></div>
+<div class="ttc" id="aclassMainWindow_html_a14d847a9fc89ac499f492f9b84985557"><div class="ttname"><a href="classMainWindow.html#a14d847a9fc89ac499f492f9b84985557">MainWindow::initEnvironmentSize</a></div><div class="ttdeci">void initEnvironmentSize()</div><div class="ttdoc">Initializes the size of the environment view.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:55</div></div>
+<div class="ttc" id="aclassMainWindow_html_a2604d4d18545a1cd0bd1a12b1e4b93b9"><div class="ttname"><a href="classMainWindow.html#a2604d4d18545a1cd0bd1a12b1e4b93b9">MainWindow::setController</a></div><div class="ttdeci">void setController(controller::GameInteractor *controller)</div><div class="ttdoc">Sets the controller for the main window.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:31</div></div>
+<div class="ttc" id="aclassMainWindow_html_a2c9e8f3e860d53334e90904f0e29d016"><div class="ttname"><a href="classMainWindow.html#a2c9e8f3e860d53334e90904f0e29d016">MainWindow::getCellCountToAdd</a></div><div class="ttdeci">std::size_t getCellCountToAdd() const</div><div class="ttdoc">Gets the number of cells to add.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:113</div></div>
+<div class="ttc" id="aclassMainWindow_html_a30adeb01956c22fbad71fc8a241ca830"><div class="ttname"><a href="classMainWindow.html#a30adeb01956c22fbad71fc8a241ca830">MainWindow::on_add_cells_Button_clicked_signal</a></div><div class="ttdeci">void on_add_cells_Button_clicked_signal()</div><div class="ttdoc">Signal that is emitted when the add cells button is clicked.</div></div>
+<div class="ttc" id="aclassMainWindow_html_a3b323e1eeeeb26b869a35afd5b622e71"><div class="ttname"><a href="classMainWindow.html#a3b323e1eeeeb26b869a35afd5b622e71">MainWindow::getEnvironmentHeight</a></div><div class="ttdeci">qreal getEnvironmentHeight() const</div><div class="ttdoc">Gets the height of the environment view.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:40</div></div>
+<div class="ttc" id="aclassMainWindow_html_a7e24f265ba69a453241b8ccfff906d60"><div class="ttname"><a href="classMainWindow.html#a7e24f265ba69a453241b8ccfff906d60">MainWindow::getCellTracker</a></div><div class="ttdeci">CellTracker * getCellTracker()</div><div class="ttdoc">Gets the cell tracker.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:44</div></div>
+<div class="ttc" id="aclassMainWindow_html_a95eb376b182a19c656daea71b35dc163"><div class="ttname"><a href="classMainWindow.html#a95eb376b182a19c656daea71b35dc163">MainWindow::MainWindow</a></div><div class="ttdeci">MainWindow(EnvironmentScene *scene, QWidget *parent=nullptr)</div><div class="ttdoc">Constructor for the MainWindow class.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:8</div></div>
+<div class="ttc" id="aclassMainWindow_html_aae0f89a78242357e4e386b8e445963c6"><div class="ttname"><a href="classMainWindow.html#aae0f89a78242357e4e386b8e445963c6">MainWindow::setCurrentCellCountLabel</a></div><div class="ttdeci">void setCurrentCellCountLabel(size_t n)</div><div class="ttdoc">Sets the current cell count label.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:118</div></div>
+<div class="ttc" id="aclassMainWindow_html_ac0e6bebfdc991b219d6ccbf85a735be2"><div class="ttname"><a href="classMainWindow.html#ac0e6bebfdc991b219d6ccbf85a735be2">MainWindow::updateEnvironment</a></div><div class="ttdeci">void updateEnvironment()</div><div class="ttdoc">Updates the environment view.</div></div>
+<div class="ttc" id="aclassMainWindow_html_ae98d00a93bc118200eeef9f9bba1dba7"><div class="ttname"><a href="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7">MainWindow::~MainWindow</a></div><div class="ttdeci">~MainWindow()</div><div class="ttdoc">Destructor for the MainWindow class.</div><div class="ttdef"><b>Definition:</b> mainwindow.cpp:49</div></div>
 <div class="ttc" id="aclasscontroller_1_1GameInteractor_html"><div class="ttname"><a href="classcontroller_1_1GameInteractor.html">controller::GameInteractor</a></div><div class="ttdoc">GameInteractor interface for interacting with the controller from the view layer.</div><div class="ttdef"><b>Definition:</b> GameInteractor.h:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

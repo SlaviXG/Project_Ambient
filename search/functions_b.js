@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['queuetask_190',['queueTask',['../classGameLogicThread.html#a56869cf913c3108ce5e1cc72ffed8b3f',1,'GameLogicThread']]]
+  ['notifyloggers_217',['NotifyLoggers',['../classcontroller_1_1GameController.html#a3bbaf66abf38e72f7393a0859a5186bf',1,'controller::GameController']]]
 ];
