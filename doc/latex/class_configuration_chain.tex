@@ -1,0 +1,76 @@
+\doxysection{Configuration\+Chain Class Reference}
+\hypertarget{class_configuration_chain}{}\label{class_configuration_chain}\index{ConfigurationChain@{ConfigurationChain}}
+
+
+Class for managing a chain of Configuration\+Handlers.  
+
+
+
+
+{\ttfamily \#include $<$Configuration\+Chain.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_configuration_chain_a5ee31236d8770e9bd54aa5e51dc9013f}{add\+Handler}} (\mbox{\hyperlink{class_configuration_handler}{Configuration\+Handler}} \texorpdfstring{$\ast$}{*}handler)
+\begin{DoxyCompactList}\small\item\em Add a \doxylink{class_configuration_handler}{Configuration\+Handler} to the chain. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_configuration_chain_aae5258b95fa84d59e1d3b27b68e1ab6c}{load\+Configuration}} (\mbox{\hyperlink{class_configuration}{Configuration}} \&config)
+\begin{DoxyCompactList}\small\item\em Load configurations for all handlers in the chain. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_configuration_chain_a2c3ce3c941ff2b3ea9fa4d059afd8e4f}{save\+Configuration}} (\mbox{\hyperlink{class_configuration}{Configuration}} \&config)
+\begin{DoxyCompactList}\small\item\em Save configurations for all handlers in the chain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for managing a chain of Configuration\+Handlers. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_configuration_chain_a5ee31236d8770e9bd54aa5e51dc9013f}\label{class_configuration_chain_a5ee31236d8770e9bd54aa5e51dc9013f} 
+\index{ConfigurationChain@{ConfigurationChain}!addHandler@{addHandler}}
+\index{addHandler@{addHandler}!ConfigurationChain@{ConfigurationChain}}
+\doxysubsubsection{\texorpdfstring{addHandler()}{addHandler()}}
+{\footnotesize\ttfamily void Configuration\+Chain\+::add\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_configuration_handler}{Configuration\+Handler}} \texorpdfstring{$\ast$}{*}}]{handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a \doxylink{class_configuration_handler}{Configuration\+Handler} to the chain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handler} & The \doxylink{class_configuration_handler}{Configuration\+Handler}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_configuration_chain_aae5258b95fa84d59e1d3b27b68e1ab6c}\label{class_configuration_chain_aae5258b95fa84d59e1d3b27b68e1ab6c} 
+\index{ConfigurationChain@{ConfigurationChain}!loadConfiguration@{loadConfiguration}}
+\index{loadConfiguration@{loadConfiguration}!ConfigurationChain@{ConfigurationChain}}
+\doxysubsubsection{\texorpdfstring{loadConfiguration()}{loadConfiguration()}}
+{\footnotesize\ttfamily void Configuration\+Chain\+::load\+Configuration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_configuration}{Configuration}} \&}]{config }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Load configurations for all handlers in the chain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & The \doxylink{class_configuration}{Configuration} object. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_configuration_chain_a2c3ce3c941ff2b3ea9fa4d059afd8e4f}\label{class_configuration_chain_a2c3ce3c941ff2b3ea9fa4d059afd8e4f} 
+\index{ConfigurationChain@{ConfigurationChain}!saveConfiguration@{saveConfiguration}}
+\index{saveConfiguration@{saveConfiguration}!ConfigurationChain@{ConfigurationChain}}
+\doxysubsubsection{\texorpdfstring{saveConfiguration()}{saveConfiguration()}}
+{\footnotesize\ttfamily void Configuration\+Chain\+::save\+Configuration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_configuration}{Configuration}} \&}]{config }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Save configurations for all handlers in the chain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & The \doxylink{class_configuration}{Configuration} object. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/configs/Configuration\+Chain.\+h\end{DoxyCompactItemize}

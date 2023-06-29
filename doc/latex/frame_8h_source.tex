@@ -1,0 +1,38 @@
+\doxysection{frame.\+h}
+\hypertarget{frame_8h_source}{}\label{frame_8h_source}\index{include/frame.h@{include/frame.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FRAME\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FRAME\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}point.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Environment.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}point.h"{}}}
+\DoxyCodeLine{00007\ \ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }environment\ }
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classenvironment_1_1_frame}{Frame}}\ }
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classenvironment_1_1_frame}{Frame}}()\ \{\}}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classenvironment_1_1_frame}{Frame}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classenvironment_1_1_frame}{Frame}}\&\ frame)\ \{\ this-\/>environment\ =\ frame.environment;\ this-\/>position\ =\ frame.position;\ \}}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classenvironment_1_1_frame}{Frame}}(\mbox{\hyperlink{struct_point}{Point}}\ position,\ \mbox{\hyperlink{classenvironment_1_1_environment}{Environment}}*\ environment\ =\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ :\ environment(environment),\ position(position)\ \{\};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classenvironment_1_1_frame}{\string~Frame}}()\ \{\}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_point}{Point}}\ getPosition()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ position;\ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setPosition(\mbox{\hyperlink{struct_point}{Point}}\ newPosition)\ \{\ position\ =\ newPosition;\ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classenvironment_1_1_environment}{Environment}}*\ getEnvironment()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ environment;\ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ setEnvironment(\mbox{\hyperlink{classenvironment_1_1_environment}{Environment}}*\ environment)\ \{\ this-\/>environment\ =\ environment;\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classenvironment_1_1_environment}{Environment}}*\ environment;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ position;}
+\DoxyCodeLine{00029\ \ \ \ \ \};}
+\DoxyCodeLine{00030\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FRAME\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,75 @@
+\doxysection{Settings\+Window Class Reference}
+\hypertarget{class_settings_window}{}\label{class_settings_window}\index{SettingsWindow@{SettingsWindow}}
+
+
+A window for viewing and changing application settings.  
+
+
+
+
+{\ttfamily \#include $<$Settings\+Window.\+h$>$}
+
+Inheritance diagram for Settings\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_settings_window}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_settings_window_a62ec41ae03f486dc9ef4236d6ada856e}{Settings\+Window}} (\mbox{\hyperlink{class_configuration_chain}{Configuration\+Chain}} \&config\+Chain, \mbox{\hyperlink{class_configuration}{Configuration}} \texorpdfstring{$\ast$}{*}config, QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_settings_window_aae964815bf3a53ea330ebbe363c901e3}{show\+Event}} (QShow\+Event \texorpdfstring{$\ast$}{*}event) override
+\begin{DoxyCompactList}\small\item\em Event handler for the show event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A window for viewing and changing application settings. 
+
+The window contains a form with spin boxes for each setting. The settings are grouped into categories, and each category has its own group box. The window also contains \"{}\+Save\"{} and \"{}\+Cancel\"{} buttons. The settings are loaded from a JSON file when the window is shown, and saved to the JSON file when the \"{}\+Save\"{} button is clicked. The \"{}\+Cancel\"{} button closes the window without saving the changes. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_settings_window_a62ec41ae03f486dc9ef4236d6ada856e}\label{class_settings_window_a62ec41ae03f486dc9ef4236d6ada856e} 
+\index{SettingsWindow@{SettingsWindow}!SettingsWindow@{SettingsWindow}}
+\index{SettingsWindow@{SettingsWindow}!SettingsWindow@{SettingsWindow}}
+\doxysubsubsection{\texorpdfstring{SettingsWindow()}{SettingsWindow()}}
+{\footnotesize\ttfamily Settings\+Window\+::\+Settings\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_configuration_chain}{Configuration\+Chain}} \&}]{config\+Chain,  }\item[{\mbox{\hyperlink{class_configuration}{Configuration}} \texorpdfstring{$\ast$}{*}}]{config,  }\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config\+Chain} & The \doxylink{class_configuration_chain}{Configuration\+Chain} object for loading and saving configurations. \\
+\hline
+{\em config} & The \doxylink{class_configuration}{Configuration} object for getting and setting configuration values. \\
+\hline
+{\em parent} & The parent widget. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_settings_window_aae964815bf3a53ea330ebbe363c901e3}\label{class_settings_window_aae964815bf3a53ea330ebbe363c901e3} 
+\index{SettingsWindow@{SettingsWindow}!showEvent@{showEvent}}
+\index{showEvent@{showEvent}!SettingsWindow@{SettingsWindow}}
+\doxysubsubsection{\texorpdfstring{showEvent()}{showEvent()}}
+{\footnotesize\ttfamily void Settings\+Window\+::show\+Event (\begin{DoxyParamCaption}\item[{QShow\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Event handler for the show event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The show event.\\
+\hline
+\end{DoxyParams}
+This function is called when the window is shown. It loads the settings from the JSON file and sets the values of the spin boxes. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/configs/Settings\+Window.\+h\item 
+src/Settings\+Window.\+cpp\end{DoxyCompactItemize}

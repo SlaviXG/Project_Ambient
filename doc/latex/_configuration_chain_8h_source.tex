@@ -1,0 +1,39 @@
+\doxysection{Configuration\+Chain.\+h}
+\hypertarget{_configuration_chain_8h_source}{}\label{_configuration_chain_8h_source}\index{include/configs/ConfigurationChain.h@{include/configs/ConfigurationChain.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CONFIGURATION\_CHAIN\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CONFIGURATION\_CHAIN\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Configuration.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}ConfigurationHandler.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_configuration_chain}{ConfigurationChain}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_configuration_chain_a5ee31236d8770e9bd54aa5e51dc9013f}{addHandler}}(\mbox{\hyperlink{class_configuration_handler}{ConfigurationHandler}}*\ handler)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ handlers\_.push\_back(handler);}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_configuration_chain_aae5258b95fa84d59e1d3b27b68e1ab6c}{loadConfiguration}}(\mbox{\hyperlink{class_configuration}{Configuration}}\&\ config)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ handler\ :\ handlers\_)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ handler-\/>loadConfiguration(config);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_configuration_chain_a2c3ce3c941ff2b3ea9fa4d059afd8e4f}{saveConfiguration}}(\mbox{\hyperlink{class_configuration}{Configuration}}\&\ config)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ handler\ :\ handlers\_)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ handler-\/>saveConfiguration(config);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ std::vector<ConfigurationHandler*>\ handlers\_;}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif\ \ }}
+
+\end{DoxyCode}

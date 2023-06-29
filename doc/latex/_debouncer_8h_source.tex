@@ -1,0 +1,27 @@
+\doxysection{Debouncer.\+h}
+\hypertarget{_debouncer_8h_source}{}\label{_debouncer_8h_source}\index{include/Debouncer.h@{include/Debouncer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_debouncer}{Debouncer}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_debouncer_a70ec7b77ccaa9dfbe6baba9ec2f82686}{Debouncer}}(std::chrono::milliseconds\ timeout)\ :\ timeout(timeout),\ last\_call(std::chrono::steady\_clock::now()\ -\/\ timeout)\ \{\}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callable,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_debouncer_a7d79afb7413b72fbb11362c1c8908e59}{debounce}}(Callable\&\&\ func,\ Args\&\&...\ args)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ now\ =\ std::chrono::steady\_clock::now();}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(now\ -\/\ last\_call\ >=\ timeout)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<Callable>(func)(std::forward<Args>(args)...);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ last\_call\ =\ now;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00046\ \ \ \ \ std::chrono::milliseconds\ timeout;\ \ }
+\DoxyCodeLine{00047\ \ \ \ \ std::chrono::steady\_clock::time\_point\ last\_call;\ \ }
+\DoxyCodeLine{00048\ \};}
+
+\end{DoxyCode}

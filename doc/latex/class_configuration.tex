@@ -1,0 +1,91 @@
+\doxysection{Configuration Class Reference}
+\hypertarget{class_configuration}{}\label{class_configuration}\index{Configuration@{Configuration}}
+
+
+Class for managing configurations stored in a JSON file.  
+
+
+
+
+{\ttfamily \#include $<$Configuration.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_configuration_a4c67a845d003740318106ca6c9e916f3}{Configuration}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Constructor that loads configurations from a JSON file. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{class_configuration_a2b26b2c32d1bc661e8986723d4ddcbf4}{get}} (const std\+::string \&key, const T \&default\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Get a configuration value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{class_configuration_a8102ac3e74fafe2a0864c25c6400d174}{set}} (const std\+::string \&key, const T \&value)
+\begin{DoxyCompactList}\small\item\em Set a configuration value. \end{DoxyCompactList}\item 
+\Hypertarget{class_configuration_ab49512163b55865a9afae2518e1ab218}\label{class_configuration_ab49512163b55865a9afae2518e1ab218} 
+void {\bfseries save} ()
+\begin{DoxyCompactList}\small\item\em Save the configurations to the JSON file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for managing configurations stored in a JSON file. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_configuration_a4c67a845d003740318106ca6c9e916f3}\label{class_configuration_a4c67a845d003740318106ca6c9e916f3} 
+\index{Configuration@{Configuration}!Configuration@{Configuration}}
+\index{Configuration@{Configuration}!Configuration@{Configuration}}
+\doxysubsubsection{\texorpdfstring{Configuration()}{Configuration()}}
+{\footnotesize\ttfamily Configuration\+::\+Configuration (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor that loads configurations from a JSON file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the JSON file. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_configuration_a2b26b2c32d1bc661e8986723d4ddcbf4}\label{class_configuration_a2b26b2c32d1bc661e8986723d4ddcbf4} 
+\index{Configuration@{Configuration}!get@{get}}
+\index{get@{get}!Configuration@{Configuration}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T Configuration\+::get (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key,  }\item[{const T \&}]{default\+\_\+value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a configuration value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The configuration key. \\
+\hline
+{\em default\+\_\+value} & The default value to return if the key is not found. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The configuration value. 
+\end{DoxyReturn}
+\Hypertarget{class_configuration_a8102ac3e74fafe2a0864c25c6400d174}\label{class_configuration_a8102ac3e74fafe2a0864c25c6400d174} 
+\index{Configuration@{Configuration}!set@{set}}
+\index{set@{set}!Configuration@{Configuration}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Configuration\+::set (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key,  }\item[{const T \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set a configuration value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The configuration key. \\
+\hline
+{\em value} & The configuration value. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/configs/Configuration.\+h\end{DoxyCompactItemize}

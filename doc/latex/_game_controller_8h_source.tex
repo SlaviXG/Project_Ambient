@@ -1,0 +1,121 @@
+\doxysection{Game\+Controller.\+h}
+\hypertarget{_game_controller_8h_source}{}\label{_game_controller_8h_source}\index{include/GameController.h@{include/GameController.h}}
+\mbox{\hyperlink{_game_controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ GAMECONTROLLER\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ GAMECONTROLLER\_H\_}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <QTimer>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <QMutex>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <QStack>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <QThread>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <QMutexLocker>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}CellInteractor.h"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}GameInteractor.h"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}configs/ConfigurationHandler.h"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}Environment.h"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}EnvironmentScene.h"{}}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}mainwindow.h"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}point.h"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}cell.h"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}CellView.h"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}logger.h"{}}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}CellViewGarbageCollector.h"{}}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}configs/ConfigurationChain.h"{}}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_logic_thread}{GameLogicThread}};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{namespace\ }controller}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ kCellSize\ =\ 4;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ kFps\ =\ 10;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ kViewPadding\ =\ 2;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{size\_t}\ kStartingCellCount\ =\ 200;\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcontroller_1_1_game_controller}{GameController}}\ :\ \textcolor{keyword}{public}\ QObject,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classcontroller_1_1_cell_interactor}{CellInteractor}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classcontroller_1_1_game_interactor}{GameInteractor}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_configuration_handler}{ConfigurationHandler}}}
+\DoxyCodeLine{00053\ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcontroller_1_1_game_controller}{GameController}}(\mbox{\hyperlink{class_main_window}{MainWindow}}\ *view,\ \mbox{\hyperlink{class_environment_scene}{EnvironmentScene}}\ *scene,\ \mbox{\hyperlink{classenvironment_1_1_environment}{environment::Environment}}\ *environment);}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcontroller_1_1_game_controller}{\string~GameController}}();}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_afe2cc2d05bfbdbf60b28098321ad5d0d}{setCellTracker}}(\mbox{\hyperlink{class_cell_tracker}{CellTracker}}\ *cellTracker);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a1b62e5fb2ef0c53f12f5f51066458fa3}{addCell}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&point)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a1b62e5fb2ef0c53f12f5f51066458fa3}{addCell}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&point,\ \textcolor{keyword}{const}\ std::vector<int>\ \&countOfWeights)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a952a114f28d463637d8b1fc3b7a3f7ea}{start}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a9d87933eb3075870da8f287116e8edc8}{stop}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a873ca64f1740175c34e33d7d2510b4a0}{pause}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_ad57aab9472b5ecc5757895668a428400}{resume}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a1b62e5fb2ef0c53f12f5f51066458fa3}{addCell}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&point,\ \mbox{\hyperlink{classgenotype_1_1_genotype}{genotype::Genotype}}\ *genotype);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a96ad4bee8525b19503d647467b06ce1b}{AddLogger}}(\mbox{\hyperlink{class_logger}{Logger}}\ *logger)\ \{\ loggers.push\_back(logger);\ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a0061fe314619c600141ecb2731b1324b}{RemoveLogger}}(\mbox{\hyperlink{class_logger}{Logger}}\ *logger);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a1b62e5fb2ef0c53f12f5f51066458fa3}{addCell}}(\mbox{\hyperlink{classenvironment_1_1_cell}{environment::Cell}}\ *cellptr)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_ab73fdec35c70ef372ac8c555ea02083e}{removeCell}}(\mbox{\hyperlink{classenvironment_1_1_cell}{environment::Cell}}\ *cell)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a5256815655828dc44e3215666344e306}{processAI}}();}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a453a73e213a5fcb42b41d10ecae7688c}{setConfigs}}(\mbox{\hyperlink{class_configuration_chain}{ConfigurationChain}}\ *chain,\ \mbox{\hyperlink{class_configuration}{Configuration}}*\ configs);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a2dc6caea9c6975cd87c672b7d8c5c27b}{loadConfiguration}}(\mbox{\hyperlink{class_configuration}{Configuration}}\ \&config)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_aac1a3fd0f19600d75f2f45c045257f81}{saveConfiguration}}(\mbox{\hyperlink{class_configuration}{Configuration}}\ \&config)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a786d9a0e02b5c47cee205064771ba345}{openSettingsWindow}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a9a0e1d03fa98e92d913548d062b1927f}{executeLogicThread}}();}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a2e2f6985f956caec6b5e64084f023718}{GenerateRandomCellsSlot}}();}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a41ebc949d79f45de98e7eaf46ee2a701}{render}}();}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a3bbaf66abf38e72f7393a0859a5186bf}{NotifyLoggers}}(\textcolor{keyword}{const}\ std::string\ message);}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a14d6e84b070225a13e28ccea5ef96134}{GenerateRandomCells}}(\textcolor{keywordtype}{size\_t}\ cell\_count);}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a14d6e84b070225a13e28ccea5ef96134}{GenerateRandomCells}}(\textcolor{keywordtype}{size\_t}\ cell\_count,\ \textcolor{keyword}{const}\ std::vector<int>\ \&countOfWeights);}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a14d6e84b070225a13e28ccea5ef96134}{GenerateRandomCells}}(\textcolor{keywordtype}{size\_t}\ cell\_count,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&top\_left,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&bottom\_right);}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a14d6e84b070225a13e28ccea5ef96134}{GenerateRandomCells}}(\textcolor{keywordtype}{size\_t}\ cell\_count,\ \textcolor{keyword}{const}\ std::vector<int>\ \&countOfWeights,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&top\_left,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&bottom\_right);}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ QTimer\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a6152d05871c5bd0de7d065cf70ef2913}{timer}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_game_logic_thread}{GameLogicThread}}\ *\mbox{\hyperlink{classcontroller_1_1_game_controller_ae070fb628541810ec61c107347eff7a8}{logicThread}};\ }
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window}{MainWindow}}\ *view;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_environment_scene}{EnvironmentScene}}\ *scene;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classenvironment_1_1_environment}{environment::Environment}}\ *environment;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ std::unordered\_map<environment::Cell\ *,\ CellView\ *>\ cellMap;\ }
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cell_tracker}{CellTracker}}\ *cellTracker;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ std::vector<Logger\ *>\ loggers;\ }
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ QMutex\ mutex;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontroller_1_1_cell_view_garbage_collector}{CellViewGarbageCollector}}\ collector;\ \ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_configuration_chain}{ConfigurationChain}}\ *chain\ =\ \textcolor{keyword}{nullptr};\ }
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_configuration}{Configuration}}*\ configs\ =\ \textcolor{keyword}{nullptr};\ \ \ \ }
+\DoxyCodeLine{00235\ \ \ \ \ \};}
+\DoxyCodeLine{00236\ \};}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,44 @@
+\doxysection{Cell\+View.\+h}
+\hypertarget{_cell_view_8h_source}{}\label{_cell_view_8h_source}\index{include/CellView.h@{include/CellView.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CELL\_GRAPHICS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CELL\_GRAPHICS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QGraphicsRectItem>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }Ui\ \{\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cell_view}{CellView}};\ \}}
+\DoxyCodeLine{00009\ QT\_END\_NAMESPACE}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cell_view}{CellView}}\ :\ \textcolor{keyword}{public}\ QObject,\ \textcolor{keyword}{public}\ QGraphicsPixmapItem}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ x,\ y\ -\/\ starting\ position}}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_cell_view}{CellView}}(qreal\ x,\ qreal\ y,\ qreal\ width,\ qreal\ heigh,\ QPixmap*\ colorGrad,\ QGraphicsItem\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{virtual}\mbox{\hyperlink{class_cell_view}{\string~CellView}}();}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ updateCellView(qreal\ x,\ qreal\ y,\ QPixmap*\ colorGrad);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ setColorGrad(QPixmap*\ colorGrad);}
+\DoxyCodeLine{00023\ \ \ \ \ QPixmap\ getCurrentPixmap();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ signals:}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ clicked(\mbox{\hyperlink{class_cell_view}{CellView}}*\ cellView);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ deleted(\mbox{\hyperlink{class_cell_view}{CellView}}*\ cellView);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//Position\ in\ the\ graphic\ field:}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ qreal\ pos\_x;}
+\DoxyCodeLine{00033\ \ \ \ \ qreal\ pos\_y;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ mousePressEvent(QGraphicsSceneMouseEvent*\ event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cell_tracker}{CellTracker}};}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CELL\_VIEW\_H}}
+
+\end{DoxyCode}
