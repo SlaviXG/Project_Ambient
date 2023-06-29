@@ -1,0 +1,106 @@
+\doxysection{cell.\+h}
+\hypertarget{cell_8h_source}{}\label{cell_8h_source}\index{include/cell.h@{include/cell.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CELL\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CELL\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Genotype.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}frame.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Environment.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}point.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cell_tracker}{CellTracker}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }environment}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum}\ actions}
+\DoxyCodeLine{00014\ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ kMoveUp,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ kMoveUpRight,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ kMoveRight,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ kMoveRightDown,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ kMoveDown,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ kMoveLeftDown,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ kMoveLeft,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ kMoveLeftUp,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ kPhotosynthesis,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ kAttackUp,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ kAttackUpRight,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ kAttackRight,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ kAttackRightDown,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ kAttackDown,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ kAttackLeftDown,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ kAttackLeft,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ kAttackLeftUp,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ kDuplication,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ kCellIsDead,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ kNegativeAction\ =\ -\/1}
+\DoxyCodeLine{00035\ \ \ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classenvironment_1_1_frame}{Frame}}}
+\DoxyCodeLine{00038\ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ class\ ::CellTracker;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ currentEnergy;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ maxEnergy;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ aggressiveness;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgenotype_1_1_genotype}{genotype::Genotype}}\ genotype;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ stepsCount\ =\ kSteps;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isAliveStatus\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ numberOfMovesToDeath\ =\ kMovesToDeath;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ totalScore\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ evaluation\ of\ cell's\ model}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ delayAfterDuplication\ =\ kDelay;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ evaluateAction(\textcolor{keywordtype}{int}\ action);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}()\ :\ \mbox{\hyperlink{classenvironment_1_1_frame}{Frame}}()\ \{\};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}\&\ cell)\ :\ \mbox{\hyperlink{classenvironment_1_1_frame}{Frame}}(cell)}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>genotype\ =\ cell.getGenotype();}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>maxEnergy\ =\ cell.getMaxEnergy();}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>currentEnergy\ =\ cell.getCurrentEnergy();}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>aggressiveness\ =\ cell.getAggressiveness();}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>isAliveStatus\ =\ cell.isAlive();}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>stepsCount\ =\ cell.getStepsCount();}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}(\mbox{\hyperlink{struct_point}{Point}}\ startingPosition,\ \mbox{\hyperlink{classenvironment_1_1_environment}{Environment}}*\ environment\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}(\mbox{\hyperlink{struct_point}{Point}}\ startingPosition,\ std::vector<int>\ countOfWeights,\ \mbox{\hyperlink{classenvironment_1_1_environment}{Environment}}*\ environment\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}(\mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}\ \&mother,\ \mbox{\hyperlink{struct_point}{Point}}\ freePosition);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}(\mbox{\hyperlink{struct_point}{Point}}\ startingPosition,\ \mbox{\hyperlink{classgenotype_1_1_genotype}{genotype::Genotype}}*\ genotype,\ \mbox{\hyperlink{classenvironment_1_1_environment}{Environment}}*\ environment\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ getCurrentEnergy()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ getMaxEnergy()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ getAggressiveness()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgenotype_1_1_genotype}{genotype::Genotype}}\ getGenotype()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isAlive()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getStepsCount()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getTotalScore()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setCurrentEnergy(\textcolor{keywordtype}{double}\ count)\ \{\ currentEnergy\ =\ count;\ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setIsAlive(\textcolor{keywordtype}{bool}\ status)\ \{\ isAliveStatus\ =\ status;\ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ cellCanMakeThisAction(\mbox{\hyperlink{class_matrix}{Matrix}}\&\ inputs,\mbox{\hyperlink{class_matrix}{Matrix}}\&\ outputs,\ \textcolor{keywordtype}{int}\&\ actionIndex);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ removeBadOutputs(\mbox{\hyperlink{class_matrix}{Matrix}}\&\ inputs,\ \mbox{\hyperlink{class_matrix}{Matrix}}\&\ outputs);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ move(\textcolor{keywordtype}{int}\ direction);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ photosynthesis();}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ attack(\textcolor{keywordtype}{int}\ action);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classenvironment_1_1_cell_ae8567d539da4c562e6ad54ebbdc62032}{die}}()\ \{\ environment-\/>\mbox{\hyperlink{classenvironment_1_1_environment_ab92a70d53baa4850ff284bed67b930d2}{InvalidateCell}}(\textcolor{keyword}{this});\ this-\/>isAliveStatus\ =\ \textcolor{keyword}{false};\};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{comment}{//actions\ act()\ \{/*\ TODO\ */\}}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ actions\ \mbox{\hyperlink{classenvironment_1_1_cell_afed54aff078370562343c0f612d9aec3}{act}}();\ \ \textcolor{comment}{//std::vector<double>\ inputs}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ duplicate();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ makeChoice(\mbox{\hyperlink{class_matrix}{Matrix}}\&\ inputs);}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ bestPossibleChoiceIndex(\mbox{\hyperlink{class_matrix}{Matrix}}\&\ outputs,\ \mbox{\hyperlink{class_matrix}{Matrix}}\&\ inputs);}
+\DoxyCodeLine{00105\ \ \ \ \ \};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CELL\_H}}
+
+\end{DoxyCode}

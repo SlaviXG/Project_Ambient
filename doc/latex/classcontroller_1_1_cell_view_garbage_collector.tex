@@ -1,0 +1,68 @@
+\doxysection{controller\+::Cell\+View\+Garbage\+Collector Class Reference}
+\hypertarget{classcontroller_1_1_cell_view_garbage_collector}{}\label{classcontroller_1_1_cell_view_garbage_collector}\index{controller::CellViewGarbageCollector@{controller::CellViewGarbageCollector}}
+
+
+A class responsible for collecting and removing unused \doxylink{class_cell_view}{Cell\+View} objects.  
+
+
+
+
+{\ttfamily \#include $<$Cell\+View\+Garbage\+Collector.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcontroller_1_1_cell_view_garbage_collector_aebf2352b551f11fb0d1c0451f2a592d0}{Cell\+View\+Garbage\+Collector}} (\mbox{\hyperlink{class_environment_scene}{Environment\+Scene}} \texorpdfstring{$\ast$}{*}scene)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classcontroller_1_1_cell_view_garbage_collector}{Cell\+View\+Garbage\+Collector} object with a given \doxylink{class_environment_scene}{Environment\+Scene} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcontroller_1_1_cell_view_garbage_collector_a55eab4a0bb76612678abff85bfeec439}{append}} (\mbox{\hyperlink{class_cell_view}{Cell\+View}} \texorpdfstring{$\ast$}{*}cell\+View)
+\begin{DoxyCompactList}\small\item\em Appends a \doxylink{class_cell_view}{Cell\+View} object to the garbage collector. \end{DoxyCompactList}\item 
+\Hypertarget{classcontroller_1_1_cell_view_garbage_collector_ae393cddaebde143a1c9d9f49bc7700af}\label{classcontroller_1_1_cell_view_garbage_collector_ae393cddaebde143a1c9d9f49bc7700af} 
+void {\bfseries clear} ()
+\begin{DoxyCompactList}\small\item\em Clears the garbage collector, removing all \doxylink{class_cell_view}{Cell\+View} objects from the scene. \end{DoxyCompactList}\item 
+\Hypertarget{classcontroller_1_1_cell_view_garbage_collector_a5bc4367697e77ab6180071dd6cfc8cf4}\label{classcontroller_1_1_cell_view_garbage_collector_a5bc4367697e77ab6180071dd6cfc8cf4} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Cell\+View\+Garbage\+Collector} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \doxylink{classcontroller_1_1_cell_view_garbage_collector}{Cell\+View\+Garbage\+Collector} object, clearing the garbage collector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class responsible for collecting and removing unused \doxylink{class_cell_view}{Cell\+View} objects. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcontroller_1_1_cell_view_garbage_collector_aebf2352b551f11fb0d1c0451f2a592d0}\label{classcontroller_1_1_cell_view_garbage_collector_aebf2352b551f11fb0d1c0451f2a592d0} 
+\index{controller::CellViewGarbageCollector@{controller::CellViewGarbageCollector}!CellViewGarbageCollector@{CellViewGarbageCollector}}
+\index{CellViewGarbageCollector@{CellViewGarbageCollector}!controller::CellViewGarbageCollector@{controller::CellViewGarbageCollector}}
+\doxysubsubsection{\texorpdfstring{CellViewGarbageCollector()}{CellViewGarbageCollector()}}
+{\footnotesize\ttfamily controller\+::\+Cell\+View\+Garbage\+Collector\+::\+Cell\+View\+Garbage\+Collector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_environment_scene}{Environment\+Scene}} \texorpdfstring{$\ast$}{*}}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructs a \doxylink{classcontroller_1_1_cell_view_garbage_collector}{Cell\+View\+Garbage\+Collector} object with a given \doxylink{class_environment_scene}{Environment\+Scene} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & The \doxylink{class_environment_scene}{Environment\+Scene} instance. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcontroller_1_1_cell_view_garbage_collector_a55eab4a0bb76612678abff85bfeec439}\label{classcontroller_1_1_cell_view_garbage_collector_a55eab4a0bb76612678abff85bfeec439} 
+\index{controller::CellViewGarbageCollector@{controller::CellViewGarbageCollector}!append@{append}}
+\index{append@{append}!controller::CellViewGarbageCollector@{controller::CellViewGarbageCollector}}
+\doxysubsubsection{\texorpdfstring{append()}{append()}}
+{\footnotesize\ttfamily void controller\+::\+Cell\+View\+Garbage\+Collector\+::append (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cell_view}{Cell\+View}} \texorpdfstring{$\ast$}{*}}]{cell\+View }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Appends a \doxylink{class_cell_view}{Cell\+View} object to the garbage collector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell\+View} & The \doxylink{class_cell_view}{Cell\+View} object to be appended. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Cell\+View\+Garbage\+Collector.\+h\end{DoxyCompactItemize}

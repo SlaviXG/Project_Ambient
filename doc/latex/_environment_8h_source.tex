@@ -1,0 +1,176 @@
+\doxysection{Environment.\+h}
+\hypertarget{_environment_8h_source}{}\label{_environment_8h_source}\index{include/Environment.h@{include/Environment.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ENVIRONMENT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ENVIRONMENT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Point.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Genotype.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}configs/ConfigurationHandler.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ Cell\ Vision:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ \ \ \ \ 00\ 01\ 02\ 03\ 04}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ \ \ \ \ 05\ 06\ 07\ 08\ 09}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ \ \ \ \ 10\ 11\ 😀\ 12\ 13}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ \ \ \ \ \ \ \ 14\ 15\ 16\ 17\ 18}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ \ \ \ \ 19\ 20\ 21\ 22\ 23}}
+\DoxyCodeLine{00018\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }controller}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \textcolor{keyword}{class\ }CellInteractor;}
+\DoxyCodeLine{00023\ \}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{namespace\ }controller}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \textcolor{keyword}{class\ }GameController;}
+\DoxyCodeLine{00027\ \}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{namespace\ }genepool}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \textcolor{keyword}{class\ }GenePool;}
+\DoxyCodeLine{00031\ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{namespace\ }environment}
+\DoxyCodeLine{00034\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ kEnvironmentWidth\ =\ 1000;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ kEnvironmentHeight\ =\ 1000;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ kMaxEnergy\ =\ 2000;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ kMinEnergy\ =\ 1600;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ kSteps\ =\ 5;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ kMoveCost\ =\ 5;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ count\ of\ energy,\ that\ cell\ will\ loose\ after\ move}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ kPhotosynthesisAdd\ =\ 25;\ \ \ \ \textcolor{comment}{//\ count\ of\ energy,\ that\ cell\ will\ recieve\ after\ Photosynthes}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ kAttackCoefficient\ =\ 0.5;\ \textcolor{comment}{//\ opponent\ energy\ -\/=\ currentEnergy\ *\ kAC\ +\ minDamage}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ kAttackCost\ =\ 0.01;\ \ \ \ \ \ \ \textcolor{comment}{//\ 1/10\ *\ currentEnergy}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ kDuplicationCost\ =\ 1200;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ kPrise\ =\ 500;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ +\ energy\ after\ killing}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ kMovesToDeath\ =\ 800;\ \textcolor{comment}{//\ every\ cell\ can\ make\ at\ max\ 250\ actions}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ kMinDamage\ =\ 1000;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ kDelay\ =\ 10;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \textcolor{keyword}{class\ }Frame;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \textcolor{keyword}{class\ }Cell;\ \textcolor{comment}{//\ Cell\ inherits\ Frame}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classenvironment_1_1_environment}{Environment}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_configuration_handler}{ConfigurationHandler}}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ WIDTH;\ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ HEIGHT;\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ upper\ limit\ of\ population\ for\ environment\ validation\ (\ 2\ =\ 200\%\ of\ original\ population)}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ population\_upper\_limit\ =\ 15;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TESTING\ ZONE}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ Added\ for\ step\ limitation\ in\ order\ to\ test\ out\ genepools}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ max\_step\_count\_before\_reset\ =\ 5000;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cur\_step\_count\ =\ 0;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<Frame\ *>>\ frameMatrix;\ \ \ \ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ time;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ std::vector<Cell\ *>\ cells;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgenepool_1_1_gene_pool}{genepool::GenePool}}\ *pool;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontroller_1_1_cell_interactor}{controller::CellInteractor}}\ *interactor\ =\ \textcolor{keyword}{nullptr};\ }
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classenvironment_1_1_environment}{Environment}}(\textcolor{keywordtype}{int}\ WIDTH,\ \textcolor{keywordtype}{int}\ HEIGHT,\ \mbox{\hyperlink{classcontroller_1_1_cell_interactor}{controller::CellInteractor}}\ *interactor\ =\ \textcolor{keyword}{nullptr},\ \mbox{\hyperlink{classgenepool_1_1_gene_pool}{genepool::GenePool}}\ *pool\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classenvironment_1_1_environment_a20639dc0f4dc0983984f5ad5ce69218a}{\string~Environment}}();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classenvironment_1_1_environment_ad3934ba1c7e615f586e016d4e79b9187}{tickTime}}();}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classenvironment_1_1_environment_abf5bdec08851536fcf350cf391887b1d}{isDay}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classenvironment_1_1_environment_abae5caf76d31f46447172b98d59f4afd}{isNight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classenvironment_1_1_environment_a47b63198b9d47bb3fcc844722e6e55a1}{getTime}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classenvironment_1_1_environment_a534f2cac9fe67574edcab320edd21ec4}{getWidth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classenvironment_1_1_environment_a263c4f8a82126a59532791f3c01716eb}{getHeight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classenvironment_1_1_frame}{Frame}}\ *\mbox{\hyperlink{classenvironment_1_1_environment_af9acbf4e34c5b51fda118eaa1c156681}{getFrame}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&point)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}\ *\mbox{\hyperlink{classenvironment_1_1_environment_ab64bd11e299adf5cf3911bd7cbd750bd}{getCell}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&point)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classenvironment_1_1_environment_ae38823639fdf0fcdbc3fcaea5e4ae18a}{getCellNumber}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ std::vector<Cell\ *>\ \&\mbox{\hyperlink{classenvironment_1_1_environment_ad7811624c2ed1db672a789a0a60fd405}{getCells}}();}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classenvironment_1_1_environment_a9239d1e63b0e65d2752576fbf155e303}{setCellInteractor}}(\mbox{\hyperlink{classcontroller_1_1_cell_interactor}{controller::CellInteractor}}\ *interactor);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classenvironment_1_1_environment_a574e469f0c5ec97013623fc27a0f08c7}{updateCellPosition}}(\mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}\ *cell,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&oldPos);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classenvironment_1_1_environment_a05da99756911645988040be7b37fcc53}{checkPositionCorrectness}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&point)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}\ *\mbox{\hyperlink{classenvironment_1_1_environment_a5f1ec92914956aab1edf51897b50ec71}{AddCell}}(\mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}\ *cell);}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}\ *\mbox{\hyperlink{classenvironment_1_1_environment_a5f1ec92914956aab1edf51897b50ec71}{AddCell}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&point);}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}\ *\mbox{\hyperlink{classenvironment_1_1_environment_a5f1ec92914956aab1edf51897b50ec71}{AddCell}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&point,\ std::vector<int>\ countOfWeights);}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}\ *\mbox{\hyperlink{classenvironment_1_1_environment_a5f1ec92914956aab1edf51897b50ec71}{AddCell}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&point,\ \mbox{\hyperlink{classgenotype_1_1_genotype}{genotype::Genotype}}\ *genotype);}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classenvironment_1_1_environment_ab92a70d53baa4850ff284bed67b930d2}{InvalidateCell}}(\mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}\ *cell);}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classenvironment_1_1_environment_a305e7edc0356f5a516c03202b6f54c03}{RemoveCell}}(\mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}\ *cell);}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classenvironment_1_1_environment_ac8437e23167b9713c82caeb0e6213a76}{RemoveAllCells}}();}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<bool>\ \mbox{\hyperlink{classenvironment_1_1_environment_ab65ee6b30c1e9c401ef4bbcfccfecdc6}{getVisionField}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&point)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{struct_point}{Point}}\ \mbox{\hyperlink{classenvironment_1_1_environment_a87760c221755f9215af5724829588830}{randomFreePosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&point)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{struct_point}{Point}}\ \mbox{\hyperlink{classenvironment_1_1_environment_a415223a990793853c63153ce41e56cdf}{getRandomFreePosOnMap}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ attemp\_count\ =\ 50)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classenvironment_1_1_environment_ad97855b4a0b5009586f0a9b4141b95f9}{generateCells}}(\textcolor{keywordtype}{int}\ N);}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classenvironment_1_1_environment_a9375e35c7a69c85296a3d9d06093930b}{ValidateEnvironment}}();}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgenepool_1_1_gene_pool}{genepool::GenePool}}\ *\mbox{\hyperlink{classenvironment_1_1_environment_aa1ed8aa56fc201bf3ae825c7b6887f36}{getGenePool}}();}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classenvironment_1_1_environment_a79dd61e896836f04972f24ae4a7b35c3}{getMaxCellCount}}();}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classenvironment_1_1_environment_aea5df7fe82e352953dce5f9a894e4a84}{loadConfiguration}}(\mbox{\hyperlink{class_configuration}{Configuration}}\ \&config)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classenvironment_1_1_environment_a806249eababd1fa588ed5b9938f460f8}{saveConfiguration}}(\mbox{\hyperlink{class_configuration}{Configuration}}\ \&config)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00280\ \ \ \ \ \ \};}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00286\ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classenvironment_1_1_random_generator}{RandomGenerator}}}
+\DoxyCodeLine{00287\ \ \ \ \ \ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ generateRandomIntNumber(\textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ max)}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::random\_device\ rd;}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::mt19937\ rng(rd());}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::uniform\_int\_distribution<int>\ idist(min,\ max);}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ idist(rng);}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ generateRandomDoubleNumber(\textcolor{keywordtype}{double}\ min,\ \textcolor{keywordtype}{double}\ max)}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::random\_device\ rd;}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::mt19937\ rng(rd());}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::uniform\_real\_distribution<double>\ ddist(min,\ max);}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ddist(rng);}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct_point}{Point}}\ \mbox{\hyperlink{classenvironment_1_1_random_generator_ac6569fbfd2bf165c65dc8dade225fe52}{generateRandomPoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&top\_left,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&bottom\_right)}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::random\_device\ rd;}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::mt19937\ rng(rd());}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::uniform\_int\_distribution<int>\ xdist(top\_left.j,\ bottom\_right.j);\ \textcolor{comment}{//\ x}}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::uniform\_int\_distribution<int>\ ydist(top\_left.i,\ bottom\_right.i);\ \textcolor{comment}{//\ y}}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{ydist(rng),\ xdist(rng)\};}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00321\ \ \ \ \ \ \};}
+\DoxyCodeLine{00322\ \}}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ENVIRONMENT\_H}}
+
+\end{DoxyCode}

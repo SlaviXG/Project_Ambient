@@ -1,0 +1,52 @@
+\doxysection{point.\+h}
+\hypertarget{point_8h_source}{}\label{point_8h_source}\index{include/point.h@{include/point.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MATRIX\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MATRIX\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_point}{Point}}}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0,\ j\ =\ 0;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{comment}{//\ Addition\ operator}}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_point}{Point}}\{i\ +\ other.i,\ j\ +\ other.j\};}
+\DoxyCodeLine{00012\ \ \ \ \ \}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{comment}{//\ Subtraction\ operator}}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_point}{Point}}\{i\ -\/\ other.i,\ j\ -\/\ other.j\};}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ Multiplication\ operator}}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ operator*(\textcolor{keywordtype}{int}\ scalar)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_point}{Point}}\{i\ *\ scalar,\ j\ *\ scalar\};}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ Division\ operator}}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ operator/(\textcolor{keywordtype}{int}\ scalar)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Q\_ASSERT(scalar\ !=\ 0);}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_point}{Point}}\{i\ /\ scalar,\ j\ /\ scalar\};}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ Equality\ operator}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (i\ ==\ other.i)\ \&\&\ (j\ ==\ other.j);}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ Inequality\ operator}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(*\textcolor{keyword}{this}\ ==\ other);}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

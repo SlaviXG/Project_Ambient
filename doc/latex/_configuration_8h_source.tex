@@ -1,0 +1,50 @@
+\doxysection{Configuration.\+h}
+\hypertarget{_configuration_8h_source}{}\label{_configuration_8h_source}\index{include/configs/Configuration.h@{include/configs/Configuration.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CONFIGURATION\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CONFIGURATION\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../../libs/json/json.hpp"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_configuration}{Configuration}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_configuration_a4c67a845d003740318106ca6c9e916f3}{Configuration}}(\textcolor{keyword}{const}\ std::string\&\ filename)\ :\ filename\_(filename)\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ std::ifstream\ file(filename);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (file.is\_open())\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ file\ >>\ config\_;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ file.close();}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00033\ \ \ \ \ T\ \mbox{\hyperlink{class_configuration_a2b26b2c32d1bc661e8986723d4ddcbf4}{get}}(\textcolor{keyword}{const}\ std::string\&\ key,\ \textcolor{keyword}{const}\ T\&\ default\_value)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (config\_.contains(key))\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ config\_[key].get<T>();}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ default\_value;}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_configuration_a8102ac3e74fafe2a0864c25c6400d174}{set}}(\textcolor{keyword}{const}\ std::string\&\ key,\ \textcolor{keyword}{const}\ T\&\ value)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ config\_[key]\ =\ value;}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_configuration_ab49512163b55865a9afae2518e1ab218}{save}}()\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ std::ofstream\ file(filename\_);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (file.is\_open())\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ file\ <<\ config\_;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ file.close();}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00062\ \ \ \ \ std::string\ filename\_;}
+\DoxyCodeLine{00063\ \ \ \ \ nlohmann::json\ config\_;}
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,52 @@
+\doxysection{celltracker.\+h}
+\hypertarget{celltracker_8h_source}{}\label{celltracker_8h_source}\index{include/celltracker.h@{include/celltracker.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CELLTRACKER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CELLTRACKER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QGraphicsScene>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}cell.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}CellView.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Debouncer.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cell_tracker}{CellTracker}}\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_cell_tracker}{CellTracker}}(QGraphicsScene*\ sceneCellDemo,\ QLabel*\ labelEnergy,\ QLabel*\ labelAggressiveness);}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_cell_tracker}{\string~CellTracker}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ displayInfo();}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_cell_view}{CellView}}*\ getTrackedCell()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ boundCell(\mbox{\hyperlink{classenvironment_1_1_cell}{environment::Cell}}*\ cellPtr,\ \mbox{\hyperlink{class_cell_view}{CellView}}*\ cellViewPtr);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ unboundCell();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ \ \ QGraphicsScene*\ sceneCellTracking\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00030\ \ \ \ \ QLabel*\ labelCurrentEnergy\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00031\ \ \ \ \ QLabel*\ labelAggressiveness\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classenvironment_1_1_cell}{environment::Cell}}*\ trackedCell;}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_cell_view}{CellView}}*\ trackedCellView;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ isBounded;}
+\DoxyCodeLine{00037\ \ \ \ \ QGraphicsPixmapItem*\ curView;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{double}\ curEnergy;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{double}\ curAggress;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_debouncer}{Debouncer}}\ debouncer;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ updateScene();}
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CELLTRACKER\_H}}
+
+\end{DoxyCode}

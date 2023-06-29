@@ -1,0 +1,56 @@
+\doxysection{logger.\+h}
+\hypertarget{logger_8h_source}{}\label{logger_8h_source}\index{include/logger.h@{include/logger.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LOGGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LOGGER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_logger}{Logger}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_logger_ad96ba5a85fbd7e13ef87b8c9caa24801}{log}}(\textcolor{keyword}{const}\ std::string\ \&message)\ =\ 0;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00029\ \ \ \ \ std::string\ \mbox{\hyperlink{class_logger_a8fe26a13346f80c03fff0667ad8692fc}{getCurrentTime}}()}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ now\ =\ std::chrono::system\_clock::now();}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ now\_c\ =\ std::chrono::system\_clock::to\_time\_t(now);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ ss\ <<\ std::put\_time(std::localtime(\&now\_c),\ \textcolor{stringliteral}{"{}\%Y-\/\%m-\/\%d\ \%H:\%M:\%S"{}});}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_file_logger}{FileLogger}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_logger}{Logger}}}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_file_logger_a9bbb2ab32c62d399224c5a8961cbaa75}{FileLogger}}(\textcolor{keyword}{const}\ std::string\ \&filename)\ :\ file(filename,\ std::ios::app)\ \{\}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_file_logger_af7693a2294bb726c836290f78b9099a7}{log}}(\textcolor{keyword}{const}\ std::string\ \&message)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00057\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ file\ <<\ \mbox{\hyperlink{class_logger_a8fe26a13346f80c03fff0667ad8692fc}{getCurrentTime}}()\ <<\ \textcolor{stringliteral}{"{}\ \ "{}}\ <<\ message\ <<\ std::endl;}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00062\ \ \ \ \ std::ofstream\ file;\ }
+\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_console_logger}{ConsoleLogger}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_logger}{Logger}}}
+\DoxyCodeLine{00070\ \{}
+\DoxyCodeLine{00071\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_console_logger_a18dfab8e262eff668a504c146bc333cf}{log}}(\textcolor{keyword}{const}\ std::string\ \&message)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00077\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ std::cout\ <<\ \mbox{\hyperlink{class_logger_a8fe26a13346f80c03fff0667ad8692fc}{getCurrentTime}}()\ <<\ \textcolor{stringliteral}{"{}\ \ "{}}\ <<\ message\ <<\ std::endl;}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LOGGER\_H}}
+
+\end{DoxyCode}

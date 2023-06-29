@@ -1,0 +1,103 @@
+\doxysection{Genotype.\+h}
+\hypertarget{_genotype_8h_source}{}\label{_genotype_8h_source}\index{include/Genotype.h@{include/Genotype.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GENOTYPE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GENOTYPE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Matrix.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}point.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ inputs\ 0\ -\/\ 23\ -\/\ vision,\ 24\ -\/\ current\ count\ of\ energy,\ 25\ -\/\ \ aggressiveness}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }genotype\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{bool}\ opponentIsNearby(\mbox{\hyperlink{class_matrix}{Matrix}}\ inputs);}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ countOfInputs\ =\ 26;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ countOfOutputs\ =\ 18;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{comment}{//constexpr\ Point}}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//kM1Size\ =\ \{16,\ 26\};\ //\ first\ layer,\ count\ of\ inputs}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//constexpr\ Point}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//kM2Size\ =\ \{16,\ 16\};\ //\ second\ layer,\ first\ layer}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//constexpr\ Point}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//kM3Size\ =\ \{16,\ 16\};\ //\ third\ layer,\ second\ layer}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//constexpr\ Point}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//kM4Size\ =\ \{18,\ 16\};\ //\ output\ count\ (count\ of\ actions),\ third\ layer}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//constexpr\ Point}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//kB1Size\ =\ \{16,\ 1\};\ //\ first\ baes}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//constexpr\ Point}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//kB2Size\ =\ \{16,\ 1\};\ //\ second\ baes}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//constexpr\ Point}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//kB3Size\ =\ \{16,\ 1\};\ //\ third\ baes}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//constexpr\ Point}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//kB4Size\ =\ \{18,\ 1\};\ //\ last\ baes}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ kChance\ =\ 30;\ \ \textcolor{comment}{//\ 1/30}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//constexpr\ int\ kMapSize\ =\ 100;}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_matrix}{Matrix}}\ ReLU(\mbox{\hyperlink{class_matrix}{Matrix}}\ m);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_matrix}{Matrix}}\ mutation(\mbox{\hyperlink{class_matrix}{Matrix}}\ m,\ \textcolor{keywordtype}{double}\ chance\ =\ (\textcolor{keywordtype}{double})kChance/100.0);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgenotype_1_1_genotype}{Genotype}}\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ std::vector<Matrix>\ weights;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ std::vector<Matrix>\ baeses;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ countOfLayers;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Matrix\ m1;}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Matrix\ m2;}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Matrix\ m3;}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Matrix\ m4;}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Matrix\ b1;}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Matrix\ b2;}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Matrix\ b3;}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Matrix\ b4;}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getCountOfLayers()}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>countOfLayers;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ operator\ =(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgenotype_1_1_genotype}{Genotype}}\ \&g)}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>weights\ =\ g.weights;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>baeses\ =\ g.baeses;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>countOfLayers\ =\ g.countOfLayers;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//m1\ =\ g.m1;}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ m2\ =\ g.m2;}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//m3\ =\ g.m3;}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//m4\ =\ g.m4;}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ b1\ =\ g.b1;}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ b2\ =\ g.b2;}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//b3\ =\ g.b3;}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//b4\ =\ g.b4;}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgenotype_1_1_genotype}{Genotype}}();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgenotype_1_1_genotype}{Genotype}}(std::vector<int>\ countOfWeights);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgenotype_1_1_genotype}{Genotype}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgenotype_1_1_genotype}{Genotype}}\ \&g);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Genotype(Genotype\ \&parent);}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_matrix}{Matrix}}\ getWeightsMatrixByIndex(\textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_matrix}{Matrix}}\ getBaesMatrixByIndex(\textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ mutate(\textcolor{keywordtype}{double}\ chance\ =\ (\textcolor{keywordtype}{double})kChance/100.0);}
+\DoxyCodeLine{00093\ \ \ \ \ \};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif\ \ GENOTYPE\_H}}
+
+\end{DoxyCode}

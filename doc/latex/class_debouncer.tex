@@ -1,0 +1,76 @@
+\doxysection{Debouncer Class Reference}
+\hypertarget{class_debouncer}{}\label{class_debouncer}\index{Debouncer@{Debouncer}}
+
+
+A class that provides a debounce functionality.  
+
+
+
+
+{\ttfamily \#include $<$Debouncer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_debouncer_a70ec7b77ccaa9dfbe6baba9ec2f82686}{Debouncer}} (std\+::chrono\+::milliseconds timeout)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_debouncer}{Debouncer} object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Callable , typename... Args$>$ }\\void \mbox{\hyperlink{class_debouncer_a7d79afb7413b72fbb11362c1c8908e59}{debounce}} (Callable \&\&func, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Call a function if enough time has passed since the last call. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that provides a debounce functionality. 
+
+This class provides a way to ensure that a function or method is not called more frequently than a specified timeout. This can be useful in scenarios where a function is triggered by an event that can occur rapidly (such as a button press), but the function itself should not be executed too frequently. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_debouncer_a70ec7b77ccaa9dfbe6baba9ec2f82686}\label{class_debouncer_a70ec7b77ccaa9dfbe6baba9ec2f82686} 
+\index{Debouncer@{Debouncer}!Debouncer@{Debouncer}}
+\index{Debouncer@{Debouncer}!Debouncer@{Debouncer}}
+\doxysubsubsection{\texorpdfstring{Debouncer()}{Debouncer()}}
+{\footnotesize\ttfamily Debouncer\+::\+Debouncer (\begin{DoxyParamCaption}\item[{std\+::chrono\+::milliseconds}]{timeout }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \doxylink{class_debouncer}{Debouncer} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timeout} & The minimum time interval between function calls. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_debouncer_a7d79afb7413b72fbb11362c1c8908e59}\label{class_debouncer_a7d79afb7413b72fbb11362c1c8908e59} 
+\index{Debouncer@{Debouncer}!debounce@{debounce}}
+\index{debounce@{debounce}!Debouncer@{Debouncer}}
+\doxysubsubsection{\texorpdfstring{debounce()}{debounce()}}
+{\footnotesize\ttfamily template$<$typename Callable , typename... Args$>$ \\
+void Debouncer\+::debounce (\begin{DoxyParamCaption}\item[{Callable \&\&}]{func,  }\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Call a function if enough time has passed since the last call. 
+
+This method will call the provided function with the provided arguments if enough time has passed since the last call to this method. The time interval is specified by the {\ttfamily timeout} parameter passed to the constructor.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Callable} & The type of the function to call. \\
+\hline
+{\em Args} & The types of the arguments to pass to the function. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em func} & The function to call. \\
+\hline
+{\em args} & The arguments to pass to the function. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Debouncer.\+h\end{DoxyCompactItemize}

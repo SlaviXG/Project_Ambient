@@ -1,0 +1,155 @@
+\doxysection{controller\+::Game\+Interactor Class Reference}
+\hypertarget{classcontroller_1_1_game_interactor}{}\label{classcontroller_1_1_game_interactor}\index{controller::GameInteractor@{controller::GameInteractor}}
+
+
+\doxylink{classcontroller_1_1_game_interactor}{Game\+Interactor} interface for interacting with the controller from the view layer.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Interactor.\+h$>$}
+
+Inheritance diagram for controller\+::Game\+Interactor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classcontroller_1_1_game_interactor}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classcontroller_1_1_game_interactor_ac724524c705f6e2d05ee3757e09e33a1}{add\+Cell}} (const \mbox{\hyperlink{struct_point}{Point}} \&point)=0
+\begin{DoxyCompactList}\small\item\em Add a cell to a specific point in the game. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classcontroller_1_1_game_interactor_a5552aebb22b66a7b423c3c3fcd814958}{add\+Cell}} (const \mbox{\hyperlink{struct_point}{Point}} \&point, const std\+::vector$<$ int $>$ \&count\+Of\+Weights)=0
+\begin{DoxyCompactList}\small\item\em Add a cell to a specific point in the game with specific count of weights. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classcontroller_1_1_game_interactor_a26130689c4ad5a22a6a98eae84d4f4a5}{start}} ()=0
+\begin{DoxyCompactList}\small\item\em Start the game. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classcontroller_1_1_game_interactor_a4f39219e12530061b4ec461863f0b2e4}{stop}} ()=0
+\begin{DoxyCompactList}\small\item\em Stop the game. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classcontroller_1_1_game_interactor_ac9f6cce32cbf46e379737f7936f164a9}{pause}} ()=0
+\begin{DoxyCompactList}\small\item\em Pause the game. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classcontroller_1_1_game_interactor_a42b44a7da1b31fdbfe59f9a5e7e313c2}{resume}} ()=0
+\begin{DoxyCompactList}\small\item\em Resume the game. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classcontroller_1_1_game_interactor_a7726e5c95f9f2ed4118f02fa4a74822a}{open\+Settings\+Window}} ()=0
+\begin{DoxyCompactList}\small\item\em Opens settings window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classcontroller_1_1_game_interactor}{Game\+Interactor} interface for interacting with the controller from the view layer. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcontroller_1_1_game_interactor_ac724524c705f6e2d05ee3757e09e33a1}\label{classcontroller_1_1_game_interactor_ac724524c705f6e2d05ee3757e09e33a1} 
+\index{controller::GameInteractor@{controller::GameInteractor}!addCell@{addCell}}
+\index{addCell@{addCell}!controller::GameInteractor@{controller::GameInteractor}}
+\doxysubsubsection{\texorpdfstring{addCell()}{addCell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void controller\+::\+Game\+Interactor\+::add\+Cell (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_point}{Point}} \&}]{point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Add a cell to a specific point in the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point to add the cell. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classcontroller_1_1_game_controller_a1b62e5fb2ef0c53f12f5f51066458fa3}{controller\+::\+Game\+Controller}}, and \mbox{\hyperlink{classcontroller_1_1_game_controller_decorator_a9273cd0d25752f0882f7b88627bd8d10}{controller\+::\+Game\+Controller\+Decorator}}.
+
+\Hypertarget{classcontroller_1_1_game_interactor_a5552aebb22b66a7b423c3c3fcd814958}\label{classcontroller_1_1_game_interactor_a5552aebb22b66a7b423c3c3fcd814958} 
+\index{controller::GameInteractor@{controller::GameInteractor}!addCell@{addCell}}
+\index{addCell@{addCell}!controller::GameInteractor@{controller::GameInteractor}}
+\doxysubsubsection{\texorpdfstring{addCell()}{addCell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void controller\+::\+Game\+Interactor\+::add\+Cell (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_point}{Point}} \&}]{point,  }\item[{const std\+::vector$<$ int $>$ \&}]{count\+Of\+Weights }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Add a cell to a specific point in the game with specific count of weights. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point to add the cell. \\
+\hline
+{\em count\+Of\+Weights} & The count of weights for the cell. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classcontroller_1_1_game_controller_a4e605d0ef1f1ea4174d0d121a697d63d}{controller\+::\+Game\+Controller}}, and \mbox{\hyperlink{classcontroller_1_1_game_controller_decorator_a8aeca93cd0a38fe70e623e5b31cc4383}{controller\+::\+Game\+Controller\+Decorator}}.
+
+\Hypertarget{classcontroller_1_1_game_interactor_a7726e5c95f9f2ed4118f02fa4a74822a}\label{classcontroller_1_1_game_interactor_a7726e5c95f9f2ed4118f02fa4a74822a} 
+\index{controller::GameInteractor@{controller::GameInteractor}!openSettingsWindow@{openSettingsWindow}}
+\index{openSettingsWindow@{openSettingsWindow}!controller::GameInteractor@{controller::GameInteractor}}
+\doxysubsubsection{\texorpdfstring{openSettingsWindow()}{openSettingsWindow()}}
+{\footnotesize\ttfamily virtual void controller\+::\+Game\+Interactor\+::open\+Settings\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Opens settings window. 
+
+
+
+Implemented in \mbox{\hyperlink{classcontroller_1_1_game_controller_a786d9a0e02b5c47cee205064771ba345}{controller\+::\+Game\+Controller}}.
+
+\Hypertarget{classcontroller_1_1_game_interactor_ac9f6cce32cbf46e379737f7936f164a9}\label{classcontroller_1_1_game_interactor_ac9f6cce32cbf46e379737f7936f164a9} 
+\index{controller::GameInteractor@{controller::GameInteractor}!pause@{pause}}
+\index{pause@{pause}!controller::GameInteractor@{controller::GameInteractor}}
+\doxysubsubsection{\texorpdfstring{pause()}{pause()}}
+{\footnotesize\ttfamily virtual void controller\+::\+Game\+Interactor\+::pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pause the game. 
+
+
+
+Implemented in \mbox{\hyperlink{classcontroller_1_1_game_controller_a873ca64f1740175c34e33d7d2510b4a0}{controller\+::\+Game\+Controller}}.
+
+\Hypertarget{classcontroller_1_1_game_interactor_a42b44a7da1b31fdbfe59f9a5e7e313c2}\label{classcontroller_1_1_game_interactor_a42b44a7da1b31fdbfe59f9a5e7e313c2} 
+\index{controller::GameInteractor@{controller::GameInteractor}!resume@{resume}}
+\index{resume@{resume}!controller::GameInteractor@{controller::GameInteractor}}
+\doxysubsubsection{\texorpdfstring{resume()}{resume()}}
+{\footnotesize\ttfamily virtual void controller\+::\+Game\+Interactor\+::resume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Resume the game. 
+
+
+
+Implemented in \mbox{\hyperlink{classcontroller_1_1_game_controller_ad57aab9472b5ecc5757895668a428400}{controller\+::\+Game\+Controller}}.
+
+\Hypertarget{classcontroller_1_1_game_interactor_a26130689c4ad5a22a6a98eae84d4f4a5}\label{classcontroller_1_1_game_interactor_a26130689c4ad5a22a6a98eae84d4f4a5} 
+\index{controller::GameInteractor@{controller::GameInteractor}!start@{start}}
+\index{start@{start}!controller::GameInteractor@{controller::GameInteractor}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily virtual void controller\+::\+Game\+Interactor\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Start the game. 
+
+
+
+Implemented in \mbox{\hyperlink{classcontroller_1_1_game_controller_a952a114f28d463637d8b1fc3b7a3f7ea}{controller\+::\+Game\+Controller}}, and \mbox{\hyperlink{classcontroller_1_1_game_controller_decorator_a893ae6d1ff79d9a7abb0cbfb3b10b0ff}{controller\+::\+Game\+Controller\+Decorator}}.
+
+\Hypertarget{classcontroller_1_1_game_interactor_a4f39219e12530061b4ec461863f0b2e4}\label{classcontroller_1_1_game_interactor_a4f39219e12530061b4ec461863f0b2e4} 
+\index{controller::GameInteractor@{controller::GameInteractor}!stop@{stop}}
+\index{stop@{stop}!controller::GameInteractor@{controller::GameInteractor}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily virtual void controller\+::\+Game\+Interactor\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Stop the game. 
+
+
+
+Implemented in \mbox{\hyperlink{classcontroller_1_1_game_controller_a9d87933eb3075870da8f287116e8edc8}{controller\+::\+Game\+Controller}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Game\+Interactor.\+h\end{DoxyCompactItemize}

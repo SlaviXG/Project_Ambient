@@ -1,0 +1,80 @@
+\doxysection{Game\+Logic\+Thread Class Reference}
+\hypertarget{class_game_logic_thread}{}\label{class_game_logic_thread}\index{GameLogicThread@{GameLogicThread}}
+
+
+A thread class responsible for executing game logic tasks.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Logic\+Thread.\+h$>$}
+
+Inheritance diagram for Game\+Logic\+Thread\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game_logic_thread}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_game_logic_thread_a3ad62c1079e0d8b10cbe0bc18c7d4f55}\label{class_game_logic_thread_a3ad62c1079e0d8b10cbe0bc18c7d4f55} 
+void {\bfseries logic\+Completed} ()
+\begin{DoxyCompactList}\small\item\em Signal emitted when a logic task is completed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_logic_thread_aff91add918296cb5fd8ccff314093c6c}{Game\+Logic\+Thread}} (\mbox{\hyperlink{classcontroller_1_1_game_controller}{controller\+::\+Game\+Controller}} \texorpdfstring{$\ast$}{*}controller)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_game_logic_thread}{Game\+Logic\+Thread} object with a given Game\+Controller instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_logic_thread_a56869cf913c3108ce5e1cc72ffed8b3f}{queue\+Task}} (std\+::function$<$ void()$>$ task)
+\begin{DoxyCompactList}\small\item\em Adds a task to the task queue. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_logic_thread_a99aaf67eae9270f4c079a51a0fa3f144}\label{class_game_logic_thread_a99aaf67eae9270f4c079a51a0fa3f144} 
+void {\bfseries clear\+Tasks} ()
+\begin{DoxyCompactList}\small\item\em Clears all the tasks from the task queue. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_logic_thread_ae03a9ae50676fe8c43f1dc60362b372a}\label{class_game_logic_thread_ae03a9ae50676fe8c43f1dc60362b372a} 
+void {\bfseries run} () override
+\begin{DoxyCompactList}\small\item\em Runs the game logic thread. The thread keeps executing tasks until interruption is requested. If there are no tasks, the thread sleeps for a short period. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A thread class responsible for executing game logic tasks. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_logic_thread_aff91add918296cb5fd8ccff314093c6c}\label{class_game_logic_thread_aff91add918296cb5fd8ccff314093c6c} 
+\index{GameLogicThread@{GameLogicThread}!GameLogicThread@{GameLogicThread}}
+\index{GameLogicThread@{GameLogicThread}!GameLogicThread@{GameLogicThread}}
+\doxysubsubsection{\texorpdfstring{GameLogicThread()}{GameLogicThread()}}
+{\footnotesize\ttfamily Game\+Logic\+Thread\+::\+Game\+Logic\+Thread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcontroller_1_1_game_controller}{controller\+::\+Game\+Controller}} \texorpdfstring{$\ast$}{*}}]{controller }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a \doxylink{class_game_logic_thread}{Game\+Logic\+Thread} object with a given Game\+Controller instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controller} & The Game\+Controller instance. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_logic_thread_a56869cf913c3108ce5e1cc72ffed8b3f}\label{class_game_logic_thread_a56869cf913c3108ce5e1cc72ffed8b3f} 
+\index{GameLogicThread@{GameLogicThread}!queueTask@{queueTask}}
+\index{queueTask@{queueTask}!GameLogicThread@{GameLogicThread}}
+\doxysubsubsection{\texorpdfstring{queueTask()}{queueTask()}}
+{\footnotesize\ttfamily void Game\+Logic\+Thread\+::queue\+Task (\begin{DoxyParamCaption}\item[{std\+::function$<$ void()$>$}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a task to the task queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & The task to be added. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Game\+Logic\+Thread.\+h\end{DoxyCompactItemize}

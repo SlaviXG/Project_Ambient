@@ -1,0 +1,68 @@
+\doxysection{Main\+Window Class Reference}
+\hypertarget{class_main_window}{}\label{class_main_window}\index{MainWindow@{MainWindow}}
+Inheritance diagram for Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_main_window}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_main_window_a14d847a9fc89ac499f492f9b84985557}\label{class_main_window_a14d847a9fc89ac499f492f9b84985557} 
+void {\bfseries init\+Environment\+Size} ()
+\begin{DoxyCompactList}\small\item\em Scales up environment view size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_main_window_a30adeb01956c22fbad71fc8a241ca830}\label{class_main_window_a30adeb01956c22fbad71fc8a241ca830} 
+void {\bfseries on\+\_\+add\+\_\+cells\+\_\+\+Button\+\_\+clicked\+\_\+signal} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_main_window_a95eb376b182a19c656daea71b35dc163}\label{class_main_window_a95eb376b182a19c656daea71b35dc163} 
+{\bfseries Main\+Window} (\mbox{\hyperlink{class_environment_scene}{Environment\+Scene}} \texorpdfstring{$\ast$}{*}scene, QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\item 
+\Hypertarget{class_main_window_a0ee62c98ca867c3ff0ee8e8c8e5bab43}\label{class_main_window_a0ee62c98ca867c3ff0ee8e8c8e5bab43} 
+qreal {\bfseries get\+Environment\+Width} () const
+\item 
+\Hypertarget{class_main_window_a3b323e1eeeeb26b869a35afd5b622e71}\label{class_main_window_a3b323e1eeeeb26b869a35afd5b622e71} 
+qreal {\bfseries get\+Environment\+Height} () const
+\item 
+\Hypertarget{class_main_window_a7e24f265ba69a453241b8ccfff906d60}\label{class_main_window_a7e24f265ba69a453241b8ccfff906d60} 
+\mbox{\hyperlink{class_cell_tracker}{Cell\+Tracker}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Cell\+Tracker} ()
+\item 
+\Hypertarget{class_main_window_a2604d4d18545a1cd0bd1a12b1e4b93b9}\label{class_main_window_a2604d4d18545a1cd0bd1a12b1e4b93b9} 
+void {\bfseries set\+Controller} (\mbox{\hyperlink{classcontroller_1_1_game_interactor}{controller\+::\+Game\+Interactor}} \texorpdfstring{$\ast$}{*}controller)
+\item 
+\Hypertarget{class_main_window_ac0e6bebfdc991b219d6ccbf85a735be2}\label{class_main_window_ac0e6bebfdc991b219d6ccbf85a735be2} 
+void {\bfseries update\+Environment} ()
+\begin{DoxyCompactList}\small\item\em Updates items\textquotesingle{} view location. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{class_main_window_a2c9e8f3e860d53334e90904f0e29d016}{get\+Cell\+Count\+To\+Add}} () const
+\begin{DoxyCompactList}\small\item\em Get\+Cell\+Count\+To\+Add. \end{DoxyCompactList}\item 
+\Hypertarget{class_main_window_aae0f89a78242357e4e386b8e445963c6}\label{class_main_window_aae0f89a78242357e4e386b8e445963c6} 
+void {\bfseries set\+Current\+Cell\+Count\+Label} (size\+\_\+t n)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_main_window_a2c9e8f3e860d53334e90904f0e29d016}\label{class_main_window_a2c9e8f3e860d53334e90904f0e29d016} 
+\index{MainWindow@{MainWindow}!getCellCountToAdd@{getCellCountToAdd}}
+\index{getCellCountToAdd@{getCellCountToAdd}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{getCellCountToAdd()}{getCellCountToAdd()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t Main\+Window\+::get\+Cell\+Count\+To\+Add (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get\+Cell\+Count\+To\+Add. 
+
+\begin{DoxyReturn}{Returns}
+Value of the Line\+Edit \"{}cell\+\_\+to\+\_\+add\+\_\+\+Line\+Edit\"{} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/mainwindow.\+h\item 
+src/mainwindow.\+cpp\end{DoxyCompactItemize}

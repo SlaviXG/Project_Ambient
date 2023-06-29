@@ -1,0 +1,87 @@
+\doxysection{Environment\+Decorator.\+h}
+\hypertarget{_environment_decorator_8h_source}{}\label{_environment_decorator_8h_source}\index{include/EnvironmentDecorator.h@{include/EnvironmentDecorator.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ENVIRONMENTDECORATOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ENVIRONMENTDECORATOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Environment.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Logger.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }environment\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classenvironment_1_1_environment_decorator}{EnvironmentDecorator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classenvironment_1_1_environment}{Environment}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{comment}{//\ Pass\ through\ constructors}}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classenvironment_1_1_environment_a068ae10cc70ddbc7011d59eb17662d82}{Environment::Environment}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ Inject\ logger}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ setLogger(std::unique\_ptr<Logger>\ logger)\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ this-\/>logger\ =\ std::move(logger);}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classenvironment_1_1_environment_decorator_a998eda115c184a8d738af79103137a09}{updateCellPosition}}(\mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}*\ cell,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\&\ oldPos)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ measureExecutionTime(\textcolor{stringliteral}{"{}updateCellPosition"{}},\ [\&]()\ \{\ \mbox{\hyperlink{classenvironment_1_1_environment_a574e469f0c5ec97013623fc27a0f08c7}{Environment::updateCellPosition}}(cell,\ oldPos);\ \});}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}*\ \mbox{\hyperlink{classenvironment_1_1_environment_decorator_a899fb8d99cd414469511540d49e034c8}{AddCell}}(\mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}*\ cell)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ measureExecutionTime(\textcolor{stringliteral}{"{}AddCell"{}},\ [\&]()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classenvironment_1_1_environment_a5f1ec92914956aab1edf51897b50ec71}{Environment::AddCell}}(cell);\ \});}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}*\ \mbox{\hyperlink{classenvironment_1_1_environment_decorator_a5e1119a3032d0f41cc85f5bea3b44f2c}{AddCell}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\&\ point)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ measureExecutionTime(\textcolor{stringliteral}{"{}AddCell"{}},\ [\&]()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classenvironment_1_1_environment_a5f1ec92914956aab1edf51897b50ec71}{Environment::AddCell}}(point);\ \});}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}*\ \mbox{\hyperlink{classenvironment_1_1_environment_decorator_a628d411ac5a0667683a2d05f061356ba}{AddCell}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\&\ point,\ std::vector<int>\ countOfWeights)\textcolor{keyword}{\ \ override\ }\{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ measureExecutionTime(\textcolor{stringliteral}{"{}AddCell"{}},\ [\&]()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classenvironment_1_1_environment_a5f1ec92914956aab1edf51897b50ec71}{Environment::AddCell}}(point,\ countOfWeights);\ \});}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classenvironment_1_1_environment_decorator_a997bb0027745edfb62015d60cb809e6a}{InvalidateCell}}(\mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}*\ cell)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ measureExecutionTime(\textcolor{stringliteral}{"{}InvalidateCell"{}},\ [\&]()\ \{\ \mbox{\hyperlink{classenvironment_1_1_environment_ab92a70d53baa4850ff284bed67b930d2}{Environment::InvalidateCell}}(cell);\ \});}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classenvironment_1_1_environment_decorator_a9818db9651b589679fa4ec367efd2bb8}{RemoveCell}}(\mbox{\hyperlink{classenvironment_1_1_cell}{Cell}}*\ cell)\textcolor{keyword}{\ \ override\ }\{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ measureExecutionTime(\textcolor{stringliteral}{"{}RemoveCell"{}},\ [\&]()\ \{\ \mbox{\hyperlink{classenvironment_1_1_environment_a305e7edc0356f5a516c03202b6f54c03}{Environment::RemoveCell}}(cell);\ \});}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \ \ std::vector<bool>\ \mbox{\hyperlink{classenvironment_1_1_environment_decorator_a55b5a9b255eb98b58743d9c50a07491e}{getVisionField}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&point)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ measureExecutionTime(\textcolor{stringliteral}{"{}getVisionField"{}},\ [\&]()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classenvironment_1_1_environment_ab65ee6b30c1e9c401ef4bbcfccfecdc6}{Environment::getVisionField}}(point);\ \});}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ \mbox{\hyperlink{classenvironment_1_1_environment_decorator_ae030c92126b95123c316b0a8557ae0fc}{randomFreePosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&point)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ measureExecutionTime(\textcolor{stringliteral}{"{}randomFreePosition"{}},\ [\&]()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classenvironment_1_1_environment_a87760c221755f9215af5724829588830}{Environment::randomFreePosition}}(point);\ \});}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Func>}
+\DoxyCodeLine{00051\ \ \ \ \ std::invoke\_result\_t<Func>\ measureExecutionTime(\textcolor{keyword}{const}\ std::string\&\ funcName,\ Func\ func)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ start\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_void\_v<std::invoke\_result\_t<Func>>)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ std::invoke(func);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ duration\ =\ std::chrono::duration\_cast<std::chrono::microseconds>(end\ -\/\ start);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (logger)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ logger-\/>log(\textcolor{stringliteral}{"{}Execution\ time\ for\ "{}}\ +\ funcName\ +\ \textcolor{stringliteral}{"{}:\ "{}}\ +\ std::to\_string(duration.count())\ +\ \textcolor{stringliteral}{"{}\ microseconds"{}});}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ explicitly\ return\ void}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ std::invoke(func);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ duration\ =\ std::chrono::duration\_cast<std::chrono::microseconds>(end\ -\/\ start);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (logger)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ logger-\/>log(\textcolor{stringliteral}{"{}Execution\ time\ for\ "{}}\ +\ funcName\ +\ \textcolor{stringliteral}{"{}:\ "{}}\ +\ std::to\_string(duration.count())\ +\ \textcolor{stringliteral}{"{}\ microseconds"{}});}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{mutable}\ std::unique\_ptr<Logger>\ logger\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00078\ \};}
+\DoxyCodeLine{00079\ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ENVIRONMENTDECORATOR\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,67 @@
+\doxysection{Game\+Controller\+Decorator.\+h}
+\hypertarget{_game_controller_decorator_8h_source}{}\label{_game_controller_decorator_8h_source}\index{include/GameControllerDecorator.h@{include/GameControllerDecorator.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GAMECONTROLLERDECORATOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GAMECONTROLLERDECORATOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_controller_8h}{GameController.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}GameLogicThread.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Logger.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }controller\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcontroller_1_1_game_controller_decorator}{GameControllerDecorator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classcontroller_1_1_game_controller}{GameController}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classcontroller_1_1_game_controller_a929e0ffb336434d45879ec3098adabe6}{GameController::GameController}};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_decorator_a9273cd0d25752f0882f7b88627bd8d10}{addCell}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&point)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ measureExecutionTime(\textcolor{stringliteral}{"{}addCell(const\ Point\ \&point)"{}},\ [\&]()\ \{\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a1b62e5fb2ef0c53f12f5f51066458fa3}{GameController::addCell}}(point);\ \});}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_decorator_a8aeca93cd0a38fe70e623e5b31cc4383}{addCell}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_point}{Point}}\ \&point,\ \textcolor{keyword}{const}\ std::vector<int>\&\ countOfWeights)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ measureExecutionTime(\textcolor{stringliteral}{"{}addCell(const\ Point\ \&point,\ const\ std::vector<int>\&\ countOfWeights)"{}},\ [\&]()\ \{\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a1b62e5fb2ef0c53f12f5f51066458fa3}{GameController::addCell}}(point,\ countOfWeights);\ \});}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_decorator_a03a653e60096c0f9d4b0f1e4f96b4e9b}{addCell}}(\mbox{\hyperlink{classenvironment_1_1_cell}{environment::Cell}}*\ cellptr)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ measureExecutionTime(\textcolor{stringliteral}{"{}addCell(environment::Cell*\ cellptr)"{}},\ [\&]()\ \{\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a1b62e5fb2ef0c53f12f5f51066458fa3}{GameController::addCell}}(cellptr);\ \});}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_decorator_a293386783e4482b92eb0774b2971115d}{removeCell}}(\mbox{\hyperlink{classenvironment_1_1_cell}{environment::Cell}}\ *cellptr)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ measureExecutionTime(\textcolor{stringliteral}{"{}removeCell(environment::Cell\ *cell"{}},\ [\&]()\ \{\ \mbox{\hyperlink{classcontroller_1_1_game_controller_ab73fdec35c70ef372ac8c555ea02083e}{GameController::removeCell}}(cellptr);\ \});}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_decorator_ac4ccf747c62b23e43a6cc68421ea77dc}{GenerateRandomCells}}(\textcolor{keywordtype}{size\_t}\ cell\_count)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ measureExecutionTime(\textcolor{stringliteral}{"{}GenerateRandomCells"{}},\ [\&]()\ \{\ \mbox{\hyperlink{classcontroller_1_1_game_controller_a14d6e84b070225a13e28ccea5ef96134}{GameController::GenerateRandomCells}}(cell\_count);\ \});}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_decorator_a893ae6d1ff79d9a7abb0cbfb3b10b0ff}{start}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00039\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontroller_1_1_game_controller_a6152d05871c5bd0de7d065cf70ef2913}{timer}}.disconnect();}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classcontroller_1_1_game_controller_ae070fb628541810ec61c107347eff7a8}{logicThread}}-\/>start();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontroller_1_1_game_controller_ae070fb628541810ec61c107347eff7a8}{logicThread}}-\/>\mbox{\hyperlink{class_game_logic_thread_a56869cf913c3108ce5e1cc72ffed8b3f}{queueTask}}([\textcolor{keyword}{this}]()\ \{\ this-\/>\mbox{\hyperlink{classcontroller_1_1_game_controller_decorator_ac4ccf747c62b23e43a6cc68421ea77dc}{GenerateRandomCells}}(kStartingCellCount);\ \});}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ connect(\&\mbox{\hyperlink{classcontroller_1_1_game_controller_a6152d05871c5bd0de7d065cf70ef2913}{timer}},\ \&QTimer::timeout,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classcontroller_1_1_game_controller_a9a0e1d03fa98e92d913548d062b1927f}{GameController::executeLogicThread}});}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontroller_1_1_game_controller_a6152d05871c5bd0de7d065cf70ef2913}{timer}}.start(1000\ /\ kFps);}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Func>}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ measureExecutionTime(\textcolor{keyword}{const}\ std::string\&\ funcName,\ Func\ func)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classcontroller_1_1_game_controller_decorator_a893ae6d1ff79d9a7abb0cbfb3b10b0ff}{start}}\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ func();}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ end\ =\ std::chrono::high\_resolution\_clock::now();}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ duration\ =\ std::chrono::duration\_cast<std::chrono::microseconds>(end\ -\/\ \mbox{\hyperlink{classcontroller_1_1_game_controller_decorator_a893ae6d1ff79d9a7abb0cbfb3b10b0ff}{start}});}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcontroller_1_1_game_controller_a3bbaf66abf38e72f7393a0859a5186bf}{NotifyLoggers}}(\textcolor{stringliteral}{"{}Execution\ time\ for\ "{}}\ +\ funcName\ +\ \textcolor{stringliteral}{"{}:\ "{}}\ +\ std::to\_string(duration.count())\ +\ \textcolor{stringliteral}{"{}\ microseconds"{}});}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00059\ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GAMECONTROLLERDECORATOR\_H}}
+
+\end{DoxyCode}

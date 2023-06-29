@@ -1,0 +1,73 @@
+\doxysection{Configuration\+Handler Class Reference}
+\hypertarget{class_configuration_handler}{}\label{class_configuration_handler}\index{ConfigurationHandler@{ConfigurationHandler}}
+
+
+Interface for classes that need to load and save configurations.  
+
+
+
+
+{\ttfamily \#include $<$Configuration\+Handler.\+h$>$}
+
+Inheritance diagram for Configuration\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_configuration_handler}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_configuration_handler_ac4faafcb155f81ca05f534855c52955d}{load\+Configuration}} (\mbox{\hyperlink{class_configuration}{Configuration}} \&config)=0
+\begin{DoxyCompactList}\small\item\em Load configurations from a \doxylink{class_configuration}{Configuration} object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_configuration_handler_a63112e05bb49ff797c71958ee8da8838}{save\+Configuration}} (\mbox{\hyperlink{class_configuration}{Configuration}} \&config) const =0
+\begin{DoxyCompactList}\small\item\em Save configurations to a \doxylink{class_configuration}{Configuration} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for classes that need to load and save configurations. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_configuration_handler_ac4faafcb155f81ca05f534855c52955d}\label{class_configuration_handler_ac4faafcb155f81ca05f534855c52955d} 
+\index{ConfigurationHandler@{ConfigurationHandler}!loadConfiguration@{loadConfiguration}}
+\index{loadConfiguration@{loadConfiguration}!ConfigurationHandler@{ConfigurationHandler}}
+\doxysubsubsection{\texorpdfstring{loadConfiguration()}{loadConfiguration()}}
+{\footnotesize\ttfamily virtual void Configuration\+Handler\+::load\+Configuration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_configuration}{Configuration}} \&}]{config }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Load configurations from a \doxylink{class_configuration}{Configuration} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & The \doxylink{class_configuration}{Configuration} object. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classenvironment_1_1_environment_aea5df7fe82e352953dce5f9a894e4a84}{environment\+::\+Environment}}, and \mbox{\hyperlink{classcontroller_1_1_game_controller_a2dc6caea9c6975cd87c672b7d8c5c27b}{controller\+::\+Game\+Controller}}.
+
+\Hypertarget{class_configuration_handler_a63112e05bb49ff797c71958ee8da8838}\label{class_configuration_handler_a63112e05bb49ff797c71958ee8da8838} 
+\index{ConfigurationHandler@{ConfigurationHandler}!saveConfiguration@{saveConfiguration}}
+\index{saveConfiguration@{saveConfiguration}!ConfigurationHandler@{ConfigurationHandler}}
+\doxysubsubsection{\texorpdfstring{saveConfiguration()}{saveConfiguration()}}
+{\footnotesize\ttfamily virtual void Configuration\+Handler\+::save\+Configuration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_configuration}{Configuration}} \&}]{config }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Save configurations to a \doxylink{class_configuration}{Configuration} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & The \doxylink{class_configuration}{Configuration} object. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classenvironment_1_1_environment_a806249eababd1fa588ed5b9938f460f8}{environment\+::\+Environment}}, and \mbox{\hyperlink{classcontroller_1_1_game_controller_aac1a3fd0f19600d75f2f45c045257f81}{controller\+::\+Game\+Controller}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/configs/Configuration\+Handler.\+h\end{DoxyCompactItemize}

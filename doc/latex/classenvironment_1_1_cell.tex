@@ -1,0 +1,145 @@
+\doxysection{environment\+::Cell Class Reference}
+\hypertarget{classenvironment_1_1_cell}{}\label{classenvironment_1_1_cell}\index{environment::Cell@{environment::Cell}}
+Inheritance diagram for environment\+::Cell\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classenvironment_1_1_cell}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classenvironment_1_1_cell_ae1e34cfe8dc1cb08f307316b0282a6ac}\label{classenvironment_1_1_cell_ae1e34cfe8dc1cb08f307316b0282a6ac} 
+void {\bfseries evaluate\+Action} (int action)
+\item 
+\Hypertarget{classenvironment_1_1_cell_a3b02cd8591f5d4f89a4306ca9eab5660}\label{classenvironment_1_1_cell_a3b02cd8591f5d4f89a4306ca9eab5660} 
+{\bfseries Cell} (const \mbox{\hyperlink{classenvironment_1_1_cell}{Cell}} \&cell)
+\item 
+\Hypertarget{classenvironment_1_1_cell_a99713c57c959fde11e3f2541451496f2}\label{classenvironment_1_1_cell_a99713c57c959fde11e3f2541451496f2} 
+{\bfseries Cell} (\mbox{\hyperlink{struct_point}{Point}} starting\+Position, \mbox{\hyperlink{classenvironment_1_1_environment}{Environment}} \texorpdfstring{$\ast$}{*}environment=nullptr)
+\item 
+\Hypertarget{classenvironment_1_1_cell_ac73076922939b7b5765e830f6e3cdf29}\label{classenvironment_1_1_cell_ac73076922939b7b5765e830f6e3cdf29} 
+{\bfseries Cell} (\mbox{\hyperlink{struct_point}{Point}} starting\+Position, std\+::vector$<$ int $>$ count\+Of\+Weights, \mbox{\hyperlink{classenvironment_1_1_environment}{Environment}} \texorpdfstring{$\ast$}{*}environment=nullptr)
+\item 
+\Hypertarget{classenvironment_1_1_cell_ad4c0590d3d78026321a72e37756a1cd7}\label{classenvironment_1_1_cell_ad4c0590d3d78026321a72e37756a1cd7} 
+{\bfseries Cell} (\mbox{\hyperlink{classenvironment_1_1_cell}{Cell}} \&mother, \mbox{\hyperlink{struct_point}{Point}} free\+Position)
+\item 
+\Hypertarget{classenvironment_1_1_cell_ae05ab954bd2ed4af10c2c8a1daa0f729}\label{classenvironment_1_1_cell_ae05ab954bd2ed4af10c2c8a1daa0f729} 
+{\bfseries Cell} (\mbox{\hyperlink{struct_point}{Point}} starting\+Position, \mbox{\hyperlink{classgenotype_1_1_genotype}{genotype\+::\+Genotype}} \texorpdfstring{$\ast$}{*}genotype, \mbox{\hyperlink{classenvironment_1_1_environment}{Environment}} \texorpdfstring{$\ast$}{*}environment=nullptr)
+\item 
+\Hypertarget{classenvironment_1_1_cell_a8cf669a58bcae5f442510239b4e94145}\label{classenvironment_1_1_cell_a8cf669a58bcae5f442510239b4e94145} 
+double {\bfseries get\+Current\+Energy} () const
+\item 
+\Hypertarget{classenvironment_1_1_cell_a641fcc081c1ef79e9dc9d43ac9d9e7a0}\label{classenvironment_1_1_cell_a641fcc081c1ef79e9dc9d43ac9d9e7a0} 
+double {\bfseries get\+Max\+Energy} () const
+\item 
+\Hypertarget{classenvironment_1_1_cell_ab7b52a57cc8cc4fb940f8403832d1084}\label{classenvironment_1_1_cell_ab7b52a57cc8cc4fb940f8403832d1084} 
+double {\bfseries get\+Aggressiveness} () const
+\item 
+\Hypertarget{classenvironment_1_1_cell_a8b6516d19c0fe5e3e1efa5c261fa10e8}\label{classenvironment_1_1_cell_a8b6516d19c0fe5e3e1efa5c261fa10e8} 
+\mbox{\hyperlink{classgenotype_1_1_genotype}{genotype\+::\+Genotype}} {\bfseries get\+Genotype} () const
+\item 
+\Hypertarget{classenvironment_1_1_cell_abe2af6e40377a3a895f128db3f524b4c}\label{classenvironment_1_1_cell_abe2af6e40377a3a895f128db3f524b4c} 
+bool {\bfseries is\+Alive} () const
+\item 
+\Hypertarget{classenvironment_1_1_cell_a3768ccf428b6a57670e0a335d2ea3c2e}\label{classenvironment_1_1_cell_a3768ccf428b6a57670e0a335d2ea3c2e} 
+int {\bfseries get\+Steps\+Count} () const
+\item 
+\Hypertarget{classenvironment_1_1_cell_a74aa7011d7e2a7f98adcb29a621b8804}\label{classenvironment_1_1_cell_a74aa7011d7e2a7f98adcb29a621b8804} 
+int {\bfseries get\+Total\+Score} () const
+\item 
+\Hypertarget{classenvironment_1_1_cell_ab53628015a2897291634e1fcb05ca3de}\label{classenvironment_1_1_cell_ab53628015a2897291634e1fcb05ca3de} 
+void {\bfseries set\+Current\+Energy} (double count)
+\item 
+\Hypertarget{classenvironment_1_1_cell_a631b70cf14ed5ae9ad4336fb7e10ad28}\label{classenvironment_1_1_cell_a631b70cf14ed5ae9ad4336fb7e10ad28} 
+void {\bfseries set\+Is\+Alive} (bool status)
+\item 
+\Hypertarget{classenvironment_1_1_cell_af1b978885efbac753b9225ae2232698d}\label{classenvironment_1_1_cell_af1b978885efbac753b9225ae2232698d} 
+bool {\bfseries cell\+Can\+Make\+This\+Action} (\mbox{\hyperlink{class_matrix}{Matrix}} \&inputs, \mbox{\hyperlink{class_matrix}{Matrix}} \&outputs, int \&action\+Index)
+\item 
+\Hypertarget{classenvironment_1_1_cell_a019c81c089ff28be71fd5d4a72439830}\label{classenvironment_1_1_cell_a019c81c089ff28be71fd5d4a72439830} 
+void {\bfseries remove\+Bad\+Outputs} (\mbox{\hyperlink{class_matrix}{Matrix}} \&inputs, \mbox{\hyperlink{class_matrix}{Matrix}} \&outputs)
+\item 
+\Hypertarget{classenvironment_1_1_cell_a5a5d76c0976b795352cd08741f166c78}\label{classenvironment_1_1_cell_a5a5d76c0976b795352cd08741f166c78} 
+void {\bfseries move} (int direction)
+\item 
+\Hypertarget{classenvironment_1_1_cell_add70c966c64f79de295fa8e7911717d1}\label{classenvironment_1_1_cell_add70c966c64f79de295fa8e7911717d1} 
+void {\bfseries photosynthesis} ()
+\item 
+\Hypertarget{classenvironment_1_1_cell_a352a5edda73093023350a6382b841bf7}\label{classenvironment_1_1_cell_a352a5edda73093023350a6382b841bf7} 
+void {\bfseries attack} (int action)
+\item 
+void \mbox{\hyperlink{classenvironment_1_1_cell_ae8567d539da4c562e6ad54ebbdc62032}{die}} ()
+\begin{DoxyCompactList}\small\item\em Invalidates itself. \end{DoxyCompactList}\item 
+actions \mbox{\hyperlink{classenvironment_1_1_cell_afed54aff078370562343c0f612d9aec3}{act}} ()
+\begin{DoxyCompactList}\small\item\em Make choice and perform action. \end{DoxyCompactList}\item 
+\Hypertarget{classenvironment_1_1_cell_a418d75ad4162b7a8de1e4e923bf9c563}\label{classenvironment_1_1_cell_a418d75ad4162b7a8de1e4e923bf9c563} 
+void {\bfseries duplicate} ()
+\item 
+\Hypertarget{classenvironment_1_1_cell_a362709e26bd87faefb27db3215adad20}\label{classenvironment_1_1_cell_a362709e26bd87faefb27db3215adad20} 
+int {\bfseries make\+Choice} (\mbox{\hyperlink{class_matrix}{Matrix}} \&inputs)
+\item 
+\Hypertarget{classenvironment_1_1_cell_a85567d602bcab7d0678711a8d680c9e1}\label{classenvironment_1_1_cell_a85567d602bcab7d0678711a8d680c9e1} 
+int {\bfseries best\+Possible\+Choice\+Index} (\mbox{\hyperlink{class_matrix}{Matrix}} \&outputs, \mbox{\hyperlink{class_matrix}{Matrix}} \&inputs)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classenvironment_1_1_frame}{environment\+::\+Frame}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Frame} (const \mbox{\hyperlink{classenvironment_1_1_frame}{Frame}} \&frame)
+\item 
+{\bfseries Frame} (\mbox{\hyperlink{struct_point}{Point}} position, \mbox{\hyperlink{classenvironment_1_1_environment}{Environment}} \texorpdfstring{$\ast$}{*}environment=nullptr)
+\item 
+\mbox{\hyperlink{struct_point}{Point}} {\bfseries get\+Position} () const
+\item 
+virtual void {\bfseries set\+Position} (\mbox{\hyperlink{struct_point}{Point}} new\+Position)
+\item 
+\mbox{\hyperlink{classenvironment_1_1_environment}{Environment}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Environment} () const
+\item 
+virtual void {\bfseries set\+Environment} (\mbox{\hyperlink{classenvironment_1_1_environment}{Environment}} \texorpdfstring{$\ast$}{*}environment)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classenvironment_1_1_cell_a0d20a08e57684560a676bd8be457cce4}\label{classenvironment_1_1_cell_a0d20a08e57684560a676bd8be457cce4} 
+class {\bfseries \+::\+Cell\+Tracker}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classenvironment_1_1_frame}{environment\+::\+Frame}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classenvironment_1_1_environment}{Environment}} \texorpdfstring{$\ast$}{*} {\bfseries environment}
+\item 
+\mbox{\hyperlink{struct_point}{Point}} {\bfseries position}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classenvironment_1_1_cell_afed54aff078370562343c0f612d9aec3}\label{classenvironment_1_1_cell_afed54aff078370562343c0f612d9aec3} 
+\index{environment::Cell@{environment::Cell}!act@{act}}
+\index{act@{act}!environment::Cell@{environment::Cell}}
+\doxysubsubsection{\texorpdfstring{act()}{act()}}
+{\footnotesize\ttfamily actions environment\+::\+Cell\+::act (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Make choice and perform action. 
+
+\begin{DoxyReturn}{Returns}
+Action performed 
+\end{DoxyReturn}
+\Hypertarget{classenvironment_1_1_cell_ae8567d539da4c562e6ad54ebbdc62032}\label{classenvironment_1_1_cell_ae8567d539da4c562e6ad54ebbdc62032} 
+\index{environment::Cell@{environment::Cell}!die@{die}}
+\index{die@{die}!environment::Cell@{environment::Cell}}
+\doxysubsubsection{\texorpdfstring{die()}{die()}}
+{\footnotesize\ttfamily void environment\+::\+Cell\+::die (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Invalidates itself. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/cell.\+h\item 
+src/cell.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,68 @@
+\doxysection{Game\+Logic\+Thread.\+h}
+\hypertarget{_game_logic_thread_8h_source}{}\label{_game_logic_thread_8h_source}\index{include/GameLogicThread.h@{include/GameLogicThread.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GAMELOGICTHREAD\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GAMELOGICTHREAD\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <deque>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QThread>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QMutex>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QMutexLocker>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_controller_8h}{GameController.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ kMaxTaskCount\ =\ 1000000;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_logic_thread}{GameLogicThread}}\ :\ \textcolor{keyword}{public}\ QThread\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classcontroller_1_1_game_controller}{controller::GameController}}*\ gameController;\ }
+\DoxyCodeLine{00022\ \ \ \ \ std::deque<std::function<void()>>\ tasks;\ }
+\DoxyCodeLine{00023\ \ \ \ \ QMutex\ mutex;\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_game_logic_thread_aff91add918296cb5fd8ccff314093c6c}{GameLogicThread}}(\mbox{\hyperlink{classcontroller_1_1_game_controller}{controller::GameController}}*\ controller)}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ :\ gameController(controller)\ \{\}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_logic_thread_a56869cf913c3108ce5e1cc72ffed8b3f}{queueTask}}(std::function<\textcolor{keywordtype}{void}()>\ task)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ QMutexLocker\ locker(\&mutex);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ tasks.push\_back(task);}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_logic_thread_a99aaf67eae9270f4c079a51a0fa3f144}{clearTasks}}()\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ QMutexLocker\ locker(\&mutex);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ tasks.clear();}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_logic_thread_ae03a9ae50676fe8c43f1dc60362b372a}{run}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!isInterruptionRequested())\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ std::function<void()>\ task\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QMutexLocker\ locker(\&mutex);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!tasks.empty())\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ task\ =\ tasks.front();}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tasks.pop\_front();}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (task\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ task();}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ emit\ \mbox{\hyperlink{class_game_logic_thread_a3ad62c1079e0d8b10cbe0bc18c7d4f55}{logicCompleted}}();}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QThread::msleep(10);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tasks.size()\ >\ kMaxTaskCount)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_game_logic_thread_a99aaf67eae9270f4c079a51a0fa3f144}{clearTasks}}();}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ signals:}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_logic_thread_a3ad62c1079e0d8b10cbe0bc18c7d4f55}{logicCompleted}}();}
+\DoxyCodeLine{00083\ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GAMELOGICTHREAD\_H}}
+
+\end{DoxyCode}

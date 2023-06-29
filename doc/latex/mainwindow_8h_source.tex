@@ -1,0 +1,77 @@
+\doxysection{mainwindow.\+h}
+\hypertarget{mainwindow_8h_source}{}\label{mainwindow_8h_source}\index{include/mainwindow.h@{include/mainwindow.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MAINWINDOW\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MAINWINDOW\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QMainWindow>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}EnvironmentScene.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}celltracker.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }controller\ \{\ \textcolor{keyword}{class\ }GameInteractor;\ \}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }Ui\ \{\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_main_window}{MainWindow}};\ \}}
+\DoxyCodeLine{00013\ QT\_END\_NAMESPACE}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_main_window}{MainWindow}}\ :\ \textcolor{keyword}{public}\ QMainWindow}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_main_window}{MainWindow}}(\mbox{\hyperlink{class_environment_scene}{EnvironmentScene}}*\ scene,\ QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_main_window}{\string~MainWindow}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ qreal\ getEnvironmentWidth()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ \ \ \ \ qreal\ getEnvironmentHeight()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_cell_tracker}{CellTracker}}*\ getCellTracker();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ setController(\mbox{\hyperlink{classcontroller_1_1_game_interactor}{controller::GameInteractor}}*\ \ controller);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_ac0e6bebfdc991b219d6ccbf85a735be2}{updateEnvironment}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{class_main_window_a2c9e8f3e860d53334e90904f0e29d016}{getCellCountToAdd}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ setCurrentCellCountLabel(\textcolor{keywordtype}{size\_t}\ n);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a14d847a9fc89ac499f492f9b84985557}{initEnvironmentSize}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ signals:}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_add\_cells\_Button\_clicked\_signal();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_startButton\_clicked();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_stopButton\_clicked();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_restartButton\_clicked();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_pauseButton\_clicked();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_resumeButton\_clicked();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ void\ on\_pushButton\_clicked()\ \{\};}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_add\_cells\_Button\_clicked();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_cell\_clicked();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_settingsButton\_clicked();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00073\ \ \ \ \ Ui::MainWindow\ *ui;}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{class_environment_scene}{EnvironmentScene}}*\ scene;}
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{classcontroller_1_1_game_interactor}{controller::GameInteractor}}*\ controller\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00076\ \ \ \ \ QGraphicsScene\ cellDemoScene;}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{class_cell_tracker}{CellTracker}}*\ cellTracker;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ resizeEvent(QResizeEvent*\ event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00080\ \};}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MAINWINDOW\_H}}
+
+\end{DoxyCode}
